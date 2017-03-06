@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Crosshair
+  - Projectile
+  - Explosion
+  - Box Collider
+  - State Keeper
+  - Jewel Collector
+  - Single Jewel Tag
+  - 5-Jewel Tag
+  - 7-Jewel Tag
+  - 10-Jewel Tag
+  - Checkpoint List
+  - Level Tile
+  - Steel Box
+  - Moving Platform
+  - Box
+  - K-Z-T Collector
+  - Level Manager
+  - Helper Hint
+  - GAMEOBJECTS
+  - KzzzZZZzzt!
+  - Bottomless Pit
+  - Squasher
+  - Player Head
+  - SkazZzow!
+  - 20-Jewel Tag
+  - Generic Obstacle
+  - Bloop bloop. . .
+  - Jewel Target
+  - Loading Screen Barrier
+  - Letter K
+  - Block
+  - Bouncing Steel Crate
+  - MovingPlatform
+  - Fwoosh!
+  - Small Explosion
+  - Piston
+  - Chaser
+  - Toxic Waste
+  - Bouncing Nitro Crate
+  - A Sharp Object
+  - A Hard Object
+  - Barrel Ramp
+  - Slippery Floor
+  - Golden Bubble
+  - Wind
+  - Slime Projectile
+  - SP3 Activator
+  - SP3 Deactivator
+  - Projectile Direction Shifter
+  - PlayerStartLocation
+  - DynamicObjects
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Platforms
+  - Player Death Animations
+  - Enemies
+  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Parallax Background
+    uniqueID: 2677903933
+    locked: 0
+  - name: Background
+    uniqueID: 964066889
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Collectible Items
+    uniqueID: 3084684175
+    locked: 0
+  - name: Obstacles
+    uniqueID: 2162274997
+    locked: 0
+  - name: Platforms
+    uniqueID: 2438995347
+    locked: 0
+  - name: Panel
+    uniqueID: 482202535
+    locked: 0
+  - name: Player
+    uniqueID: 1446457819
+    locked: 0
+  - name: Projectiles
+    uniqueID: 2434817259
+    locked: 0
+  - name: Platforms
+    uniqueID: 263889033
+    locked: 0
+  - name: Death Animation
+    uniqueID: 2327810207
+    locked: 0
+  - name: Foreground
+    uniqueID: 4068127549
+    locked: 0
+  - name: Collected Items
+    uniqueID: 2146808041
+    locked: 0
+  - name: Crosshair
+    uniqueID: 1456770745
+    locked: 0
+  - name: GUI
+    uniqueID: 239396027
+    locked: 0
+  - name: Loading Screen
+    uniqueID: 769855151
+    locked: 0

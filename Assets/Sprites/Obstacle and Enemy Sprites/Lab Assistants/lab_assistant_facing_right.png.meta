@@ -1,0 +1,159 @@
+fileFormatVersion: 2
+guid: 60005d05cfc6a5247ba8c6cf88ead9f6
+timeCreated: 1472122120
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: lab_assistant_facing_right_0
+    21300002: lab_assistant_facing_right_1
+    21300004: lab_assistant_facing_right_2
+    21300006: lab_assistant_facing_right_3
+    21300008: lab_assistant_facing_right_4
+    21300010: lab_assistant_facing_right_5
+    21300012: lab_assistant_facing_right_6
+    21300014: lab_assistant_facing_right_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 256
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 64
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: lab_assistant_facing_right_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 137
+        width: 39
+        height: 55
+      alignment: 9
+      pivot: {x: 0.29500902, y: 0.0348569}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.505352, y: 53.08287}
+        - {x: -11.505352, y: 23.08287}
+        - {x: -9.505352, y: -1.9171295}
+        - {x: 20.494648, y: -1.9171295}
+        - {x: 27.494648, y: 13.0828705}
+        - {x: 27.494648, y: 53.08287}
+    - name: lab_assistant_facing_right_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 169
+        width: 7
+        height: 21
+      alignment: 9
+      pivot: {x: 0.55076057, y: 0.88069737}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: lab_assistant_facing_right_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 143
+        width: 7
+        height: 24
+      alignment: 9
+      pivot: {x: 0.52538025, y: 0.8849271}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: lab_assistant_facing_right_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 55
+        width: 22
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: lab_assistant_facing_right_4
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 130
+        width: 12
+        height: 10
+      alignment: 9
+      pivot: {x: 0.41117033, y: 0.8197861}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: lab_assistant_facing_right_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 99
+        width: 10
+        height: 23
+      alignment: 9
+      pivot: {x: 0.4999996, y: 0.8630414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: lab_assistant_facing_right_6
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 57
+        width: 11
+        height: 38
+      alignment: 9
+      pivot: {x: 0.48384893, y: 0.925446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: lab_assistant_facing_right_7
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 20
+        width: 30
+        height: 8
+      alignment: 9
+      pivot: {x: 0.22166774, y: 0.6332443}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

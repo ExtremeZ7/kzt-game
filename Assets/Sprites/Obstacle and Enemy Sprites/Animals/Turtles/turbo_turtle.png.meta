@@ -1,0 +1,123 @@
+fileFormatVersion: 2
+guid: 3e3f5ea69f758014ab928e9c434f41ed
+timeCreated: 1472687139
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: speeding_turtle_0
+    21300002: speeding_turtle_1
+    21300004: speeding_turtle_2
+    21300006: turbo_turtle_0
+    21300008: turbo_turtle_1
+    21300010: turbo_turtle_2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 256
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 64
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: turbo_turtle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25, y: 17}
+        - {x: -28, y: 17}
+        - {x: -46, y: 10}
+        - {x: -48, y: 8}
+        - {x: -48, y: -19}
+        - {x: -34, y: -32}
+        - {x: 15, y: -32}
+        - {x: 38, y: -16}
+        - {x: 38, y: 8}
+    - name: turbo_turtle_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -48, y: 17}
+        - {x: -48, y: -12}
+        - {x: -36, y: -32}
+        - {x: 20, y: -32}
+        - {x: 27, y: -30}
+        - {x: 39, y: -14}
+        - {x: 39, y: 15}
+        - {x: 31, y: 17}
+    - name: turbo_turtle_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 18}
+        - {x: -4, y: 18}
+        - {x: -24, y: 15}
+        - {x: -48, y: 8}
+        - {x: -48, y: -24}
+        - {x: -32, y: -32}
+        - {x: 26, y: -32}
+        - {x: 40, y: -4}
+        - {x: 40, y: 5}
+        - {x: 28, y: 10}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

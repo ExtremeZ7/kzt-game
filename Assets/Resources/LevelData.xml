@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<levels>
+
+	<world id="world1" name="Mine Your Own Business" difficulty = "EASY">
+
+		<level id="normal1" name="Turtle Trouble">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="normal2" name="A Shocking Experience">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="normal3" name="Tunnel Vision">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="danger" name="What The Shock?!!">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="boss" name="Kranky"/>
+
+	</world>
+
+	<world id="world2" name="Sewer Are We Going?" difficulty="MEDIUM">
+
+		<level id="normal1" name="Go Fish!">
+			<jewelcount value="0"/>
+		</level>
+
+		<level id="normal2" name="Go With The Flow">
+			<jewelcount value="0"/>
+		</level>
+
+		<level id="normal3" name="Sewer Sprint">
+			<jewelcount value= "0"/>
+		</level>
+		<level id="danger" name="Pipe Dream">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="boss" name="Kommodore 64"/>
+
+	</world>
+
+	<world id="world3" name="Mechanical Madness" difficulty="HARD">
+
+		<level id="normal1" name="Piston Panic">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="normal2" name="Heavy Metal">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="normal3" name="Running Out Of Steam">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="danger" name="Out Of The Frying Pan">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="boss" name="Krush Bandicoot"/>
+
+	</world>
+
+	<world id="world4" name="Wacko Labs HQ" difficulty="VERY HARD">
+
+		<level id="normal1" name="Bubble Bath">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="normal2" name="Sticky Situation">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="normal3" name="Lighten Up">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="danger" name="No Brain, No Gain">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="boss" name="Dr. Wacko"/>
+
+	</world>
+
+	<world id="world5" name="Krazy Station" difficulty="KRAZY">
+
+		<level id="normal1" name="Zero Gravity Insanity">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="normal2" name="Unidentified Flying Robot">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="normal3" name="Space Against Time">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="danger" name="Phased Out">
+			<jewelcount value= "0"/>
+		</level>
+
+		<level id="boss" name="Dr. Krazy"/>
+
+	</world>
+
+</levels>

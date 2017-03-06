@@ -1,0 +1,337 @@
+fileFormatVersion: 2
+guid: 2ad9816d72d8f7041b5663af66c6bac1
+timeCreated: 1487943172
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: item_hider_left_door_1
+    21300002: item_hider_left_door_2
+    21300004: item_hider_left_door_3
+    21300006: item_hider_left_door_4
+    21300008: item_hider_left_door_0
+    21300010: item_hider_left_door_5
+    21300012: item_hider_left_door_6
+    21300014: item_hider_left_door_7
+    21300016: item_hider_left_door_8
+    21300018: item_hider_left_door_10
+    21300020: item_hider_left_door_11
+    21300022: item_hider_left_door_12
+    21300024: item_hider_left_door_13
+    21300026: item_hider_left_door_14
+    21300028: item_hider_left_door_15
+    21300030: item_hider_left_door_16
+    21300032: item_hider_left_door_17
+    21300034: item_hider_left_door_18
+    21300036: item_hider_left_door_9
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 64
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 128
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 128
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 128
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: item_hider_left_door_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 64
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 64
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_2
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 64
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_3
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 64
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_4
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 64
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_5
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 64
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_6
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 64
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_7
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 64
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_8
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 64
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_9
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_10
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 0
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_11
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 0
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_12
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_13
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 0
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_14
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 0
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_15
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 0
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_16
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 0
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: item_hider_left_door_17
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 4
+        height: 64
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

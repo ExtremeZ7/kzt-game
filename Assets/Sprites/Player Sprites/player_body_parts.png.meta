@@ -1,0 +1,182 @@
+fileFormatVersion: 2
+guid: d28aa5f6cff4f414597a2fd2607548d4
+timeCreated: 1441696541
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Head
+    21300002: Body
+    21300004: Left Upper Arm
+    21300006: Right Upper Arm
+    21300008: Left Arm
+    21300010: Right Arm
+    21300012: Left Lower Arm
+    21300014: Right Lower Arm
+    21300016: Left Foot
+    21300018: Right Foot
+    21300020: KZT
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 256
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 16
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 256
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    sprites:
+    - name: Head
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 211
+        width: 37
+        height: 42
+      alignment: 9
+      pivot: {x: .510864377, y: .459322602}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Body
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 196
+        width: 48
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Left Upper Arm
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 171
+        width: 6
+        height: 21
+      alignment: 9
+      pivot: {x: .483333588, y: .904762626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Right Upper Arm
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 171
+        width: 6
+        height: 21
+      alignment: 9
+      pivot: {x: .5, y: .914286315}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Left Arm
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 119
+        width: 12
+        height: 49
+      alignment: 9
+      pivot: {x: .508333385, y: .897959471}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Right Arm
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 119
+        width: 12
+        height: 49
+      alignment: 9
+      pivot: {x: .491666794, y: .902041078}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Left Lower Arm
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 141
+        width: 6
+        height: 22
+      alignment: 9
+      pivot: {x: .483333588, y: .913636625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Right Lower Arm
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 141
+        width: 6
+        height: 22
+      alignment: 9
+      pivot: {x: .5, y: .918182373}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Left Foot
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 118
+        width: 10
+        height: 7
+      alignment: 9
+      pivot: {x: .190000147, y: .74285996}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Right Foot
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 118
+        width: 10
+        height: 7
+      alignment: 9
+      pivot: {x: .200000003, y: .728572309}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: KZT
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 177
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

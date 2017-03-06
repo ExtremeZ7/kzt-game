@@ -1,0 +1,118 @@
+fileFormatVersion: 2
+guid: d41ae142e02203a439914f70b89286c5
+timeCreated: 1465792279
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Shark 1_0
+    21300002: Shark 1_1
+    21300004: Shark 1_2
+    21300006: kzt_krazy_gun_shark_0
+    21300008: kzt_krazy_gun_shark_1
+    21300010: kzt_krazy_gun_shark_2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 256
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 64
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: kzt_krazy_gun_shark_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 50
+        width: 178
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 33.5}
+        - {x: -8, y: 31.5}
+        - {x: -89, y: 21.5}
+        - {x: -89, y: -33.5}
+        - {x: 68, y: -33.5}
+        - {x: 89, y: -28.5}
+        - {x: 89, y: 2.5}
+        - {x: 29, y: 33.5}
+    - name: kzt_krazy_gun_shark_1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 3
+        width: 90
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 17.5}
+        - {x: -45, y: 6.5}
+        - {x: -42, y: -2.5}
+        - {x: -29, y: -17.5}
+        - {x: 45, y: -17.5}
+        - {x: 45, y: -1.5}
+        - {x: -15, y: 17.5}
+    - name: kzt_krazy_gun_shark_2
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 3
+        width: 90
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 17.5}
+        - {x: -45, y: 6.5}
+        - {x: -42, y: -2.5}
+        - {x: -29, y: -17.5}
+        - {x: 45, y: -17.5}
+        - {x: 45, y: -1.5}
+        - {x: -15, y: 17.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
