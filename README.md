@@ -1,2 +1,2 @@
-# kzt-game
-My beloved KzzzZZZzzT! project
+# KzzzZZZzzT!
+A game by Eezy
