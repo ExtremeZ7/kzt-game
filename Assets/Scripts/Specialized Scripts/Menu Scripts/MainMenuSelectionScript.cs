@@ -189,8 +189,8 @@ public class MainMenuSelectionScript : MonoBehaviour
 		switch (selectionState) {
 		case SelectionState.SelectingGameMode:
 
-			Rect newRect = new Rect (250, 350, 300, 100);
-			Rect loadRect = new Rect (250, 475, 300, 100);
+			var newRect = new Rect (250, 350, 300, 100);
+			var loadRect = new Rect (250, 475, 300, 100);
 
 			newTextStyle.normal.textColor = textStyle.normal.textColor;
 			loadTextStyle.normal.textColor = textStyle.normal.textColor;
@@ -221,10 +221,10 @@ public class MainMenuSelectionScript : MonoBehaviour
 		
 		case SelectionState.SelectingControls:
 
-			Rect menuTitleRect = new Rect (200, 50, 400, 200);
-			Rect kbRightRect = new Rect (20, 250, 300, 100);
-			Rect kbLeftRect = new Rect (20, 375, 300, 100);
-			Rect gamepadRect = new Rect (20, 500, 300, 100);
+			var menuTitleRect = new Rect (200, 50, 400, 200);
+			var kbRightRect = new Rect (20, 250, 300, 100);
+			var kbLeftRect = new Rect (20, 375, 300, 100);
+			var gamepadRect = new Rect (20, 500, 300, 100);
 
 			kbRightTextStyle.normal.textColor = textStyle.normal.textColor;
 			kbLeftTextStyle.normal.textColor = textStyle.normal.textColor;
@@ -296,13 +296,13 @@ public class MainMenuSelectionScript : MonoBehaviour
 				for (int j = 0; j < 5; j++) {
 					for (int k = 0; k < 3; k++) {
 						GUI.DrawTexture (new Rect (140 + (38 * j), 125 + (36 * k) + (130 * i), 18, 18), 
-							Res.RedGemIcon (saveFileExists && saveFiles [i].gemsCollected [j, k]) as Texture);
+							Res.GetRedGemSprite (saveFileExists && saveFiles [i].gemsCollected [j, k]) as Texture);
 						GUI.DrawTexture (new Rect (158 + (38 * j), 125 + (36 * k) + (130 * i), 18, 18), 
-							Res.KIcon (saveFileExists && saveFiles [i].lettersCollected [j, k, 0]) as Texture);
+							Res.GetLetterKSprite (saveFileExists && saveFiles [i].lettersCollected [j, k, 0]) as Texture);
 						GUI.DrawTexture (new Rect (140 + (38 * j), 143 + (36 * k) + (130 * i), 18, 18), 
-							Res.KIcon (saveFileExists && saveFiles [i].lettersCollected [j, k, 1]) as Texture);
+							Res.GetLetterKSprite (saveFileExists && saveFiles [i].lettersCollected [j, k, 1]) as Texture);
 						GUI.DrawTexture (new Rect (158 + (38 * j), 143 + (36 * k) + (130 * i), 18, 18), 
-							Res.KIcon (saveFileExists && saveFiles [i].lettersCollected [j, k, 2]) as Texture);
+							Res.GetLetterKSprite (saveFileExists && saveFiles [i].lettersCollected [j, k, 2]) as Texture);
 					}
 				}
 

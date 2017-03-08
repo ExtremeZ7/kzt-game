@@ -208,86 +208,135 @@ public static class Helper : System.Object
 public static class Res
 {
 	//fields
-	const string crystalIcons = "Crystal Icons/";
-	const string kztIcons = "K-Z-T Icons/";
-	const string otherTextures = "Other Textures/";
-	const string saveFileIcons = "Save File Icons/";
-	const string characterHeads = "CharacterHeads/";
+	const string texturesFolder = "Textures/";
+	const string collectibleItemSpritesFolder = texturesFolder + "CollectibleItemSprites/";
+	const string characterProfileFolder = texturesFolder + "CharacterProfiles/";
+	const string saveFileIcons = texturesFolder + "Save File Icons/";
+	const string otherTextures = texturesFolder + "Other Textures/";
 
-	static readonly UnityEngine.Object krazyKrystal;
+	static readonly UnityEngine.Object krazyKrystalSprite;
+	static readonly UnityEngine.Object redGemSprite;
+	static readonly UnityEngine.Object redGemSilohuette;
+	static readonly UnityEngine.Object greenGemSprite;
+	static readonly UnityEngine.Object greenGemSilohuette;
+	static readonly UnityEngine.Object letterKSprite;
+	static readonly UnityEngine.Object letterKSilohuette;
+	static readonly UnityEngine.Object letterZSprite;
+	static readonly UnityEngine.Object letterZSilohuette;
+	static readonly UnityEngine.Object letterTSprite;
+	static readonly UnityEngine.Object letterTSilohuette;
 
 	//constructor
 	static Res ()
 	{
-		krazyKrystal = Resources.Load (crystalIcons + "krazy_krystal");
+		// Initialize all the texture resources
+		//
+		krazyKrystalSprite = Resources.Load (collectibleItemSpritesFolder + "KrazyKrystal", (typeof(Sprite)));
+		redGemSprite = Resources.Load (collectibleItemSpritesFolder + "RedGem", (typeof(Sprite)));
+		redGemSilohuette = Resources.Load (collectibleItemSpritesFolder + "RedGemSilhuoette", (typeof(Sprite)));
+		greenGemSprite = Resources.Load (collectibleItemSpritesFolder + "GreenGem", (typeof(Sprite)));
+		greenGemSilohuette = Resources.Load (collectibleItemSpritesFolder + "GreenGemSilhuoette", (typeof(Sprite)));
+		letterKSprite = Resources.Load (collectibleItemSpritesFolder + "LetterK", (typeof(Sprite)));
+		letterKSilohuette = Resources.Load (collectibleItemSpritesFolder + "LetterKSilhuoette", (typeof(Sprite)));
+		letterZSprite = Resources.Load (collectibleItemSpritesFolder + "LetterZ", (typeof(Sprite)));
+		letterZSilohuette = Resources.Load (collectibleItemSpritesFolder + "LetterZSilhuoette", (typeof(Sprite)));
+		letterTSprite = Resources.Load (collectibleItemSpritesFolder + "LetterT", (typeof(Sprite)));
+		letterTSilohuette = Resources.Load (collectibleItemSpritesFolder + "LetterTSilhuoette", (typeof(Sprite)));
 	}
 
-	public static UnityEngine.Object KrazyKrystal {
-		get{ return krazyKrystal; }
+	public static UnityEngine.Object KrazyKrystalSprite {
+		get{ return krazyKrystalSprite; }
 	}
 
-	public static UnityEngine.Object ItemIcon (int itemIndex, int levelIndex, int worldIndex)
+	public static UnityEngine.Object RedGemSprite {
+		get{ return redGemSprite; }
+	}
+
+	public static UnityEngine.Object RedGemSilhuoette {
+		get{ return redGemSilohuette; }
+	}
+
+	public static UnityEngine.Object GreenGemSprite {
+		get{ return greenGemSprite; }
+	}
+
+	public static UnityEngine.Object GreenGemSilhuoette {
+		get{ return greenGemSilohuette; }
+	}
+
+	public static UnityEngine.Object LetterKSprite {
+		get{ return letterKSprite; }
+	}
+
+	public static UnityEngine.Object LetterKSilhuoette {
+		get{ return letterKSilohuette; }
+	}
+
+	public static UnityEngine.Object LetterZSprite {
+		get{ return letterZSprite; }
+	}
+
+	public static UnityEngine.Object LetterZSilhuoette {
+		get{ return letterZSilohuette; }
+	}
+
+	public static UnityEngine.Object LetterTSprite {
+		get{ return letterTSprite; }
+	}
+
+	public static UnityEngine.Object LetterTSilhuoette {
+		get{ return letterTSilohuette; }
+	}
+
+	/// <summary>
+	/// Either returns the red gem sprite image or its silhuoette
+	/// </summary>
+	/// <returns>The red gem texture.</returns>
+	/// <param name="notASilhuoette">If set to <c>true</c> then not a silhuoette.</param>
+	public static UnityEngine.Object GetRedGemSprite (bool notASilhuoette = true)
 	{
-		//Incomplete
-		switch (levelIndex) {
-		case 1:
-		case 2:
-		case 3:
-			switch (itemIndex) {
-			case 0:
-				return RedGemIcon ();
-			case 1:
-				return KIcon ();
-			case 2:
-				return ZIcon ();
-			case 3:
-				return TIcon ();
-			default:
-				return null;
-			}
-		case 4:
-			if (itemIndex == 0) {
-				switch (worldIndex) {
-				case 1:
-					return GreenGemIcon ();
-				case 2:
-				case 3:
-				case 4:
-				case 5:
-					return null;
-				default:
-					return null;
-				}
-			} else
-				return null;
-		default:
-			return null;
-		}
+		return notASilhuoette ? RedGemSprite : RedGemSilhuoette;
 	}
 
-	public static UnityEngine.Object RedGemIcon (bool notHidden = true)
+	/// <summary>
+	/// Either returns the green gem sprite image or its silhuoette
+	/// </summary>
+	/// <returns>The green gem sprite.</returns>
+	/// <param name="notASilohuette">If set to <c>true</c> then not a silohuette.</param>
+	public static UnityEngine.Object GetGreenGemSprite (bool notASilohuette = true)
 	{
-		return Resources.Load (crystalIcons + "red_gem" + (notHidden ? "" : "_silhuoette"), (typeof(Sprite)));
+		return notASilohuette ? GreenGemSprite : GreenGemSilhuoette;
 	}
 
-	public static UnityEngine.Object GreenGemIcon (bool notHidden = true)
+	/// <summary>
+	/// Either returns the letter K sprite image or its silhuoette
+	/// </summary>
+	/// <returns>The letter K sprite.</returns>
+	/// <param name="notASilohuette">If set to <c>true</c> then not a silohuette.</param>
+	public static UnityEngine.Object GetLetterKSprite (bool notASilohuette = true)
 	{
-		return Resources.Load (crystalIcons + "green_gem" + (notHidden ? "" : "_silhuoette"), (typeof(Sprite)));
+		return notASilohuette ? LetterKSprite : LetterKSilhuoette;
 	}
 
-	public static UnityEngine.Object KIcon (bool notHidden = true)
+
+	/// <summary>
+	/// Either returns the letter Z sprite image or its silhuoette
+	/// </summary>
+	/// <returns>The letter Z sprite.</returns>
+	/// <param name="notASilohuette">If set to <c>true</c> then not a silohuette.</param>
+	public static UnityEngine.Object GetLetterZSprite (bool notASilohuette = true)
 	{
-		return Resources.Load (kztIcons + "k" + (notHidden ? "" : "_silhuoette"), (typeof(Sprite)));
+		return notASilohuette ? LetterZSprite : LetterZSilhuoette;
 	}
 
-	public static UnityEngine.Object ZIcon (bool notHidden = true)
+	/// <summary>
+	/// Either returns the letter T sprite image or its silhuoette
+	/// </summary>
+	/// <returns>The letter T sprite.</returns>
+	/// <param name="notASilohuette">If set to <c>true</c> then not a silohuette.</param>
+	public static UnityEngine.Object GetLetterTSprite (bool notASilohuette = true)
 	{
-		return Resources.Load (kztIcons + "z" + (notHidden ? "" : "_silhuoette"), (typeof(Sprite)));
-	}
-
-	public static UnityEngine.Object TIcon (bool notHidden = true)
-	{
-		return Resources.Load (kztIcons + "t" + (notHidden ? "" : "_silhuoette"), (typeof(Sprite)));
+		return notASilohuette ? LetterTSprite : LetterTSilhuoette;
 	}
 
 	public static UnityEngine.Object SaveIcon (int worldIndex = 0, int levelIndex = 0)
@@ -305,15 +354,54 @@ public static class Res
 	{
 		switch (index) {
 		case 0:
-			return Resources.Load (characterHeads + "kzt_head", (typeof(Sprite)));
+			return Resources.Load (characterProfileFolder + "kzt_head", (typeof(Sprite)));
 		case 1:
-			return Resources.Load (characterHeads + "kranky_head", (typeof(Sprite)));
+			return Resources.Load (characterProfileFolder + "kranky_head", (typeof(Sprite)));
 		case 2:
-			return Resources.Load (characterHeads + "kommodore64_head", (typeof(Sprite)));
+			return Resources.Load (characterProfileFolder + "kommodore64_head", (typeof(Sprite)));
 		case 3:
-			return Resources.Load (characterHeads + "krush_bandicoot_head", (typeof(Sprite)));
+			return Resources.Load (characterProfileFolder + "krush_bandicoot_head", (typeof(Sprite)));
 		case 4:
-			return Resources.Load (characterHeads + "dr_wacko_head", (typeof(Sprite)));
+			return Resources.Load (characterProfileFolder + "dr_wacko_head", (typeof(Sprite)));
+		default:
+			return null;
+		}
+	}
+
+	public static UnityEngine.Object ItemIcon (int itemIndex, int levelIndex, int worldIndex)
+	{
+		//Incomplete
+		switch (levelIndex) {
+		case 1:
+		case 2:
+		case 3:
+			switch (itemIndex) {
+			case 0:
+				return GetRedGemSprite ();
+			case 1:
+				return GetLetterKSprite ();
+			case 2:
+				return GetLetterZSprite ();
+			case 3:
+				return GetLetterTSprite ();
+			default:
+				return null;
+			}
+		case 4:
+			if (itemIndex == 0) {
+				switch (worldIndex) {
+				case 1:
+					return GetGreenGemSprite ();
+				case 2:
+				case 3:
+				case 4:
+				case 5:
+					return null;
+				default:
+					return null;
+				}
+			} else
+				return null;
 		default:
 			return null;
 		}
