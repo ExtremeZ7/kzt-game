@@ -11,13 +11,19 @@ using AssemblyCSharp;
 //enums
 public enum Tags
 {
+    [Description("Player")]
+    Player = 0,
+
     [Description("Box Collider")]
-    PlayerJumpCollider,
+    PlayerJumpCollider = 1,
 
     [Description("Projectile")]
-    PlayerElectricBolt,
+    PlayerElectricBolt = 2,
 
-    DynamicObjects}
+    DynamicObjects = 3,
+
+    [Description("Explosion")]
+    BigExplosion = 4}
 ;
 
 public static class Help : System.Object

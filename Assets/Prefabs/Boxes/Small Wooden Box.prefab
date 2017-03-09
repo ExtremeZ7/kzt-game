@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6141796}
   - component: {fileID: 11473738}
   - component: {fileID: 114488696419173764}
+  - component: {fileID: 114209549923326880}
+  - component: {fileID: 114449848433117002}
   m_Layer: 8
   m_Name: Small Wooden Box
   m_TagString: Box
@@ -161,8 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchName: Player Jump Trigger Switch
+  tagFilter: 01000000
   activationMode: 0
-  tagFilter: 00000000
   deactivateAfterOneFrame: 1
   exclusiveActivation: 1
   activateOnStay: 0
@@ -213,6 +215,75 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163076}
   m_IsPrefabParent: 1
+--- !u!114 &114209549923326880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7268b9cde3958fe4280adeebd27773b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switches:
+  - {fileID: 114449848433117002}
+  names:
+  - Direct Destruction
+  listenToActivation: 1
+  listenToFirstFrameOnDeactivate: 0
+  flipActivation: 0
+  objectsToCreateOnTrigger:
+  - {fileID: 193438, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+  extraObjectsToCreateOnComplete:
+  - {fileID: 179066, guid: 051229403a0311e4e875e0b566dffafc, type: 2}
+  onlyCreateExtrasOnComplete: 0
+  objectConfigs:
+  - expectedObject: {fileID: 193438, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+    newName: 
+    newTransform: {fileID: 0}
+    newParent: {fileID: 0}
+    customScale:
+      scaleConfig: 0
+      custom: {x: 0, y: 0}
+    customRotation:
+      rotationConfig: 0
+      custom: 0
+    transformOnCreate: 0
+  - expectedObject: {fileID: 179066, guid: 051229403a0311e4e875e0b566dffafc, type: 2}
+    newName: 
+    newTransform: {fileID: 0}
+    newParent: {fileID: 0}
+    customScale:
+      scaleConfig: 0
+      custom: {x: 0, y: 0}
+    customRotation:
+      rotationConfig: 0
+      custom: 0
+    transformOnCreate: 0
+  createDelays:
+  - 0
+  - 0
+  countsBeforeCompletion: 1
+  selfActionOnComplete: 2
+--- !u!114 &114449848433117002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a6b69ce5123ce42a0fb1575f26a763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchName: Direct Destruction
+  tagFilter: 0200000004000000
+  activationMode: 0
+  deactivateAfterOneFrame: 0
+  exclusiveActivation: 0
+  activateOnStay: 0
+  deactivateOnExit: 0
 --- !u!114 &114488696419173764
 MonoBehaviour:
   m_ObjectHideFlags: 1
