@@ -14,7 +14,7 @@ namespace Helper
         const string texturesFolder = "Textures/";
         const string itemSpritesFolder = texturesFolder + "ItemSprites/";
         const string characterProfilesFolder = texturesFolder + "CharacterProfiles/";
-        const string saveThumbnailsFolder = texturesFolder + "SaveFileIcons/";
+        const string saveThumbnailsFolder = texturesFolder + "SaveFileThumbnails/";
         const string otherTexturesFolder = texturesFolder + "OtherTextures/";
 
         //properties
@@ -52,37 +52,38 @@ namespace Helper
             // Load all the texture resources
             //
             KrazyKrystalSprite = Resources.Load(itemSpritesFolder
-                + "KrazyKrystal", (typeof(Sprite)));
+                + "KrazyKrystal", typeof(Sprite));
             GemSilhouette = Resources.Load(itemSpritesFolder
-                + "GemSilhuoette", (typeof(Sprite)));
+                + "GemSilhuoette");
             RedGemSprite = Resources.Load(itemSpritesFolder
-                + "RedGem", (typeof(Sprite)));
+                + "RedGem", typeof(Sprite));
             GreenGemSprite = Resources.Load(itemSpritesFolder
-                + "GreenGem", (typeof(Sprite)));
+                + "GreenGem", typeof(Sprite));
             LetterKSprite = Resources.Load(itemSpritesFolder
-                + "LetterK", (typeof(Sprite)));
+                + "LetterK", typeof(Sprite));
             LetterKSilhouette = Resources.Load(itemSpritesFolder
-                + "LetterKSilhuoette", (typeof(Sprite)));
+                + "LetterKSilhuoette");
             LetterZSprite = Resources.Load(itemSpritesFolder
-                + "LetterZ", (typeof(Sprite)));
+                + "LetterZ", typeof(Sprite));
             LetterZSilhouette = Resources.Load(itemSpritesFolder
-                + "LetterZSilhuoette", (typeof(Sprite)));
+                + "LetterZSilhuoette");
             LetterTSprite = Resources.Load(itemSpritesFolder
-                + "LetterT", (typeof(Sprite)));
+                + "LetterT", typeof(Sprite));
             LetterTSilhouette = Resources.Load(itemSpritesFolder
-                + "LetterTSilhuoette", (typeof(Sprite)));
+                + "LetterTSilhuoette");
+
+            SaveThumbnails = new List<Object>();
 
             //Loads the first save file thumbnail
             SaveThumbnails.Add(Resources.Load(saveThumbnailsFolder
-                    + "NoSaveThumb", (typeof(Sprite))));
+                    + "NoSaveThumb"));
 
             //Loads every other save file thumbnail
             //
             for (int i = 0; i < 25; i++)
             {
                 Object saveThumb = Resources.Load(saveThumbnailsFolder
-                                       + "LevelThumb" + i.ToString("D3")
-                                       , (typeof(Sprite)));
+                                       + "LevelThumb" + i.ToString("D3"));
 
                 if (saveThumb != null)
                 {
@@ -95,9 +96,11 @@ namespace Helper
             }
 
             SaveFileSelected = Resources.Load(otherTexturesFolder
-                + "SaveFileSelected", typeof(Texture));
+                + "SaveFileSelected");
             SaveFileNotSelected = Resources.Load(otherTexturesFolder
-                + "SaveFileNotSelected", typeof(Texture));
+                + "SaveFileNotSelected");
+
+            CharacterProfiles = new List<Object>();
 
             CharacterProfiles.Add(Resources.Load(characterProfilesFolder
                     + "KZTHead", typeof(Sprite)));

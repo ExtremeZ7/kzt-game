@@ -405,3 +405,14 @@ public static class FloatExtensions
         return Math.Abs(data) < float.Epsilon;
     }
 }
+
+public static class RectExtensions
+{
+    public static Rect MoveDown(this Rect data, float distance, float newHeight)
+    {
+        return new Rect(data.x, 
+            data.y + distance, 
+            data.width, 
+            data.height + newHeight);
+    }
+}

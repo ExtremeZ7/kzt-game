@@ -175,11 +175,11 @@ public class LevelSelectWheelScript : MonoBehaviour
 		
         //Set Boss Head
         transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = 
-			(Res.GetCharacterProfile(worldIndex)) as Sprite;
+            (Sprite)Res.GetCharacterProfile(worldIndex);
 
         //Set Inventory Boss Head
         inventory.GetChild(1).GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = 
-			(Res.GetCharacterProfile(worldIndex)) as Sprite;
+            (Sprite)Res.GetCharacterProfile(worldIndex);
 
         //Set Gem Sprite
         items[0].GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = Res.GetInventoryItemSprite(0, levelIndex, worldIndex) as Sprite;
