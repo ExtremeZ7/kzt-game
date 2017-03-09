@@ -413,6 +413,22 @@ public static class RectExtensions
         return new Rect(data.x, 
             data.y + distance, 
             data.width, 
-            data.height + newHeight);
+            newHeight);
+    }
+
+    public static Rect SqueezeLeft(this Rect data, float squeezeSize)
+    {
+        return new Rect(data.x + squeezeSize,
+            data.y,
+            data.width - squeezeSize,
+            data.height);
+    }
+
+    public static Rect SqueezeRight(this Rect data, float squeezeSize)
+    {
+        return new Rect(data.x,
+            data.y,
+            data.width - squeezeSize,
+            data.height);
     }
 }

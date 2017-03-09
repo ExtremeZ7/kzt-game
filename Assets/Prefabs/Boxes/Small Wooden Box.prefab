@@ -262,5 +262,5 @@ MonoBehaviour:
   createDelays:
   - 0
   - 0
-  countsBeforeCompletion: Infinity
+  countsBeforeCompletion: 1
   selfActionOnComplete: 2

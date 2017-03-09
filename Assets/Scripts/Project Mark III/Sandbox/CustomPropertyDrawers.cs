@@ -9,23 +9,28 @@ namespace CustomPropertyDrawers
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-
+            //Get the class's serialized properties
             SerializedProperty scaleConfig = property.FindPropertyRelative("scaleConfig");
             SerializedProperty custom = property.FindPropertyRelative("custom");
 
             EditorGUI.BeginProperty(position, label, property);
 
+            //Set the rectangle of the scale config enum
             position = position.MoveDown(0, 
                 EditorGUI.GetPropertyHeight(scaleConfig));
 
+            //Display the scale config enum
             EditorGUI.PropertyField(position, scaleConfig);
 
+            //Set the rectangle of the custom scale
             position = position.MoveDown(EditorGUI.GetPropertyHeight(scaleConfig), 
                 EditorGUI.GetPropertyHeight(custom));
 
+            //Check to see if the scale config is not set to "None"
             if (scaleConfig.enumValueIndex != 0)
             {
-                EditorGUI.PropertyField(position, custom);
+                //Display the custom scale
+                EditorGUI.PropertyField(position.SqueezeLeft(16f), custom);
             }
 
             EditorGUI.EndProperty();
@@ -40,7 +45,50 @@ namespace CustomPropertyDrawers
             }
             return propertyHeight;
         }
+    }
 
+    [CustomPropertyDrawer(typeof(GameObjectConfig.CustomRotation))]
+    public class CustomRotation : PropertyDrawer
+    {
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
+            //Get the class's serialized properties
+            SerializedProperty rotationConfig = 
+                property.FindPropertyRelative("rotationConfig");
+            SerializedProperty custom = property.FindPropertyRelative("custom");
+
+            EditorGUI.BeginProperty(position, label, property);
+
+            //Set the rectangle of the scale rotation enum
+            position = position.MoveDown(0, 
+                EditorGUI.GetPropertyHeight(rotationConfig));
+
+            //Display the rotation config enum
+            EditorGUI.PropertyField(position, rotationConfig);
+
+            //Set the rectangle of the custom rotatiom
+            position = position.MoveDown(EditorGUI.GetPropertyHeight(rotationConfig), 
+                EditorGUI.GetPropertyHeight(custom));
+
+            //Check to see if the rotation config is not set to "None"
+            if (rotationConfig.enumValueIndex != 0)
+            {
+                //Display the custom rotation
+                EditorGUI.PropertyField(position.SqueezeLeft(16f), custom);
+            }
+
+            EditorGUI.EndProperty();
+        }
+
+        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+        {
+            float propertyHeight = 16.0f;
+            if (property.FindPropertyRelative("rotationConfig").enumValueIndex != 0)
+            {
+                propertyHeight += 16.0f;
+            }
+            return propertyHeight;
+        }
     }
 
     public class ToggleLeft : PropertyAttribute
