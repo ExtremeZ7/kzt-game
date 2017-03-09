@@ -12,7 +12,7 @@ namespace Helper
     {
         //fields
         const string texturesFolder = "Textures/";
-        const string itemSpritesFolder = texturesFolder + "CollectibleItemSprites/";
+        const string itemSpritesFolder = texturesFolder + "ItemSprites/";
         const string characterProfilesFolder = texturesFolder + "CharacterProfiles/";
         const string saveThumbnailsFolder = texturesFolder + "SaveFileIcons/";
         const string otherTexturesFolder = texturesFolder + "OtherTextures/";
@@ -20,13 +20,11 @@ namespace Helper
         //properties
         public static Object KrazyKrystalSprite{ get; private set; }
 
+        public static Object GemSilhouette{ get; private set; }
+
         public static Object RedGemSprite{ get; private set; }
 
-        public static Object RedGemSilhuoette{ get; private set; }
-
         public static Object GreenGemSprite{ get; private set; }
-
-        public static Object GreenGemSilhouette{ get; private set; }
 
         public static Object LetterKSprite{ get; private set; }
 
@@ -55,14 +53,12 @@ namespace Helper
             //
             KrazyKrystalSprite = Resources.Load(itemSpritesFolder
                 + "KrazyKrystal", (typeof(Sprite)));
+            GemSilhouette = Resources.Load(itemSpritesFolder
+                + "GemSilhuoette", (typeof(Sprite)));
             RedGemSprite = Resources.Load(itemSpritesFolder
                 + "RedGem", (typeof(Sprite)));
-            RedGemSilhuoette = Resources.Load(itemSpritesFolder
-                + "RedGemSilhuoette", (typeof(Sprite)));
             GreenGemSprite = Resources.Load(itemSpritesFolder
                 + "GreenGem", (typeof(Sprite)));
-            GreenGemSilhouette = Resources.Load(itemSpritesFolder
-                + "GreenGemSilhuoette", (typeof(Sprite)));
             LetterKSprite = Resources.Load(itemSpritesFolder
                 + "LetterK", (typeof(Sprite)));
             LetterKSilhouette = Resources.Load(itemSpritesFolder
@@ -124,7 +120,7 @@ namespace Helper
         /// <param name="notASilhuoette">If set to <c>true</c> then not a silhuoette.</param>
         public static Object GetRedGemSprite(bool notASilhuoette = true)
         {
-            return notASilhuoette ? RedGemSprite : RedGemSilhuoette;
+            return notASilhuoette ? RedGemSprite : GemSilhouette;
         }
 
         /// <summary>
@@ -134,7 +130,7 @@ namespace Helper
         /// <param name="notASilohuette">If set to <c>true</c> then not a silohuette.</param>
         public static Object GetGreenGemSprite(bool notASilohuette = true)
         {
-            return notASilohuette ? GreenGemSprite : GreenGemSilhouette;
+            return notASilohuette ? GreenGemSprite : GemSilhouette;
         }
 
         /// <summary>
@@ -220,9 +216,16 @@ namespace Helper
             return CharacterProfiles[index];
         }
 
+        /// <summary>
+        /// Gets the inventory item sprite.
+        /// </summary>
+        /// <returns>The inventory item sprite.</returns>
+        /// <param name="itemIndex">Item index.</param>
+        /// <param name="levelIndex">Level index.</param>
+        /// <param name="worldIndex">World index.</param>
         public static Object GetInventoryItemSprite(int itemIndex, int levelIndex, int worldIndex)
         {
-            //Incomplete
+            //This is a temporary function that will be removed in due time
             switch (levelIndex)
             {
                 case 1:
