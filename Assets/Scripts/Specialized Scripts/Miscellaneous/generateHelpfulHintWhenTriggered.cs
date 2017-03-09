@@ -26,7 +26,7 @@ namespace AssemblyCSharp
         {
             if (binarySwitch.ActivatedOnCurrentFrame && !hintString.Equals(""))
             {
-                Helper.GenerateHintBox(hintString);
+                Help.GenerateHintBox(hintString);
                 self.enabled = false;
             }
         }

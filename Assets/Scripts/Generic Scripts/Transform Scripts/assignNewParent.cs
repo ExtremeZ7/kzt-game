@@ -18,7 +18,7 @@ public class assignNewParent : MonoBehaviour
 
     void Update()
     {
-        if (Helper.UseAsTimer(ref delay))
+        if (Help.UseAsTimer(ref delay))
         {
             transform.parent = parent;
             enabled = false;

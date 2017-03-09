@@ -20,7 +20,7 @@ namespace AssemblyCSharp
 
         void Update()
         {
-            if (Helper.WaitForPlayer(ref playerControl))
+            if (Help.WaitForPlayer(ref playerControl))
             {
                 if (trigger.ActivatedOnCurrentFrame)
                 {

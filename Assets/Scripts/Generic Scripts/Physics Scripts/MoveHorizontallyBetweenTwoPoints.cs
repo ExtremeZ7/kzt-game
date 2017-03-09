@@ -39,10 +39,10 @@ public class MoveHorizontallyBetweenTwoPoints : MonoBehaviour
         else
             Gizmos.color = Color.green;
 
-        Gizmos.DrawLine(new Vector3(leftPoint.position.x, Helper.FindMiddleY(leftPoint, rightPoint)), new Vector3(rightPoint.position.x, Helper.FindMiddleY(leftPoint, rightPoint)));
+        Gizmos.DrawLine(new Vector3(leftPoint.position.x, Help.FindMiddleY(leftPoint, rightPoint)), new Vector3(rightPoint.position.x, Help.FindMiddleY(leftPoint, rightPoint)));
 
         Gizmos.color = Color.magenta;
-        Gizmos.DrawCube(new Vector3(leftPoint.position.x, Helper.FindMiddleY(leftPoint, rightPoint)), cubeDimension);
-        Gizmos.DrawCube(new Vector3(rightPoint.position.x, Helper.FindMiddleY(leftPoint, rightPoint)), cubeDimension);
+        Gizmos.DrawCube(new Vector3(leftPoint.position.x, Help.FindMiddleY(leftPoint, rightPoint)), cubeDimension);
+        Gizmos.DrawCube(new Vector3(rightPoint.position.x, Help.FindMiddleY(leftPoint, rightPoint)), cubeDimension);
     }
 }

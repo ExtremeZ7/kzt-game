@@ -48,7 +48,7 @@ public class drawHelpfulHint : MonoBehaviour
         {
             if (stringToDraw.Length > 0)
             {
-                if (Helper.UseAsTimer(ref textDelay))
+                if (Help.UseAsTimer(ref textDelay))
                 {
                     stringInGUI += stringToDraw.Substring(0, 1);
 
@@ -70,7 +70,7 @@ public class drawHelpfulHint : MonoBehaviour
             {
                 if (stringInGUI.Length > 0)
                 {
-                    if (Helper.UseAsTimer(ref destroyDelay))
+                    if (Help.UseAsTimer(ref destroyDelay))
                     {
                         stringInGUI = "";
                         closing = true;

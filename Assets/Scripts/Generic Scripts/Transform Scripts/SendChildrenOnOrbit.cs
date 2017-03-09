@@ -95,7 +95,7 @@ public class SendChildrenOnOrbit : MonoBehaviour
         if (sendAllChidrenOnOrbit)
             numberOfOrbitingChildren = transform.childCount;
         else
-            Helper.forceRange(ref numberOfOrbitingChildren, 1, transform.childCount);
+            Help.forceRange(ref numberOfOrbitingChildren, 1, transform.childCount);
 
         orbitingChildren = new Transform[numberOfOrbitingChildren];
 
@@ -123,7 +123,7 @@ public class SendChildrenOnOrbit : MonoBehaviour
         for (int i = 0; i < pauseDegrees.Length; i++)
             pauseDegrees[i] = pauseDegrees[i] % 360f;
 
-        Helper.forceRange(ref RPM, 0f, float.MaxValue);
+        Help.forceRange(ref RPM, 0f, float.MaxValue);
 
         System.Array.Resize(ref transformOffsets, numberOfOrbitingChildren);
 
@@ -343,7 +343,7 @@ public class SendChildrenOnOrbit : MonoBehaviour
 
     void Update()
     {
-        if (!(stopWhenNotVisible && !isVisible) && gameObject.activeInHierarchy && gameObject.activeSelf && Helper.UseAsTimer(ref startDelay))
+        if (!(stopWhenNotVisible && !isVisible) && gameObject.activeInHierarchy && gameObject.activeSelf && Help.UseAsTimer(ref startDelay))
         {
             for (int i = 0; i < numberOfOrbitingChildren; i++)
             {
@@ -377,7 +377,7 @@ public class SendChildrenOnOrbit : MonoBehaviour
                 orbitingChildren[i].transform.localPosition = new Vector3(xDistance + transformOffsets[i].x, yDistance + transformOffsets[i].y, transform.localPosition.z);
             }
 
-            if (Helper.UseAsTimer(ref pauseTimer))
+            if (Help.UseAsTimer(ref pauseTimer))
             {
                 float previousDegree = degreeValue;
 

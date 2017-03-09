@@ -43,8 +43,8 @@ public class shakeWildly : MonoBehaviour
                 direction[i] *= -1;
         }
 
-        transform.localPosition = new Vector3(Helper.forceRange(transform.localPosition.x, originalPosition.x - shakeSize.x, originalPosition.x + shakeSize.x),
-            Helper.forceRange(transform.localPosition.y, originalPosition.y - shakeSize.y, originalPosition.y + shakeSize.y),
+        transform.localPosition = new Vector3(Help.forceRange(transform.localPosition.x, originalPosition.x - shakeSize.x, originalPosition.x + shakeSize.x),
+            Help.forceRange(transform.localPosition.y, originalPosition.y - shakeSize.y, originalPosition.y + shakeSize.y),
             0f);
 
         Finish:

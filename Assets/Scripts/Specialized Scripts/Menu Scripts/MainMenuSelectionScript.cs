@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using AssemblyCSharp;
+using Helper;
 
 public class MainMenuSelectionScript : MonoBehaviour
 {
@@ -198,15 +198,15 @@ public class MainMenuSelectionScript : MonoBehaviour
 			switch (gameSelection) {
 
 			case GameSelection.NewGame:
-				newTextStyle.fontSize = Helper.IntMoveTowards (newTextStyle.fontSize, textStyle.fontSize + 20, scaleSpeed);
-				loadTextStyle.fontSize = Helper.IntMoveTowards (loadTextStyle.fontSize, textStyle.fontSize, scaleSpeed);
+				newTextStyle.fontSize = Help.IntMoveTowards (newTextStyle.fontSize, textStyle.fontSize + 20, scaleSpeed);
+				loadTextStyle.fontSize = Help.IntMoveTowards (loadTextStyle.fontSize, textStyle.fontSize, scaleSpeed);
 
 				newTextStyle.normal.textColor = new Color (Random.value, Random.value, Random.value);
 				break;
 
 			case GameSelection.LoadGame:
-				newTextStyle.fontSize = Helper.IntMoveTowards (newTextStyle.fontSize, textStyle.fontSize, scaleSpeed);
-				loadTextStyle.fontSize = Helper.IntMoveTowards (loadTextStyle.fontSize, textStyle.fontSize + 20, scaleSpeed);
+				newTextStyle.fontSize = Help.IntMoveTowards (newTextStyle.fontSize, textStyle.fontSize, scaleSpeed);
+				loadTextStyle.fontSize = Help.IntMoveTowards (loadTextStyle.fontSize, textStyle.fontSize + 20, scaleSpeed);
 
 				loadTextStyle.normal.textColor = new Color (Random.value, Random.value, Random.value);
 				break;
@@ -232,25 +232,25 @@ public class MainMenuSelectionScript : MonoBehaviour
 
 			switch (controlSelection) {
 			case ControlSelection.KBRight:
-				kbRightTextStyle.fontSize = Helper.IntMoveTowards (kbRightTextStyle.fontSize, textStyle.fontSize + 10, scaleSpeed);
-				kbLeftTextStyle.fontSize = Helper.IntMoveTowards (kbLeftTextStyle.fontSize, textStyle.fontSize, scaleSpeed);
-				gamepadTextStyle.fontSize = Helper.IntMoveTowards (gamepadTextStyle.fontSize, textStyle.fontSize, scaleSpeed);
+				kbRightTextStyle.fontSize = Help.IntMoveTowards (kbRightTextStyle.fontSize, textStyle.fontSize + 10, scaleSpeed);
+				kbLeftTextStyle.fontSize = Help.IntMoveTowards (kbLeftTextStyle.fontSize, textStyle.fontSize, scaleSpeed);
+				gamepadTextStyle.fontSize = Help.IntMoveTowards (gamepadTextStyle.fontSize, textStyle.fontSize, scaleSpeed);
 
 				kbRightTextStyle.normal.textColor = new Color (Random.value, Random.value, Random.value);
 
 				break;
 			case ControlSelection.KBLeft:
-				kbRightTextStyle.fontSize = Helper.IntMoveTowards (kbRightTextStyle.fontSize, textStyle.fontSize, scaleSpeed);
-				kbLeftTextStyle.fontSize = Helper.IntMoveTowards (kbLeftTextStyle.fontSize, textStyle.fontSize + 10, scaleSpeed);
-				gamepadTextStyle.fontSize = Helper.IntMoveTowards (gamepadTextStyle.fontSize, textStyle.fontSize, scaleSpeed);
+				kbRightTextStyle.fontSize = Help.IntMoveTowards (kbRightTextStyle.fontSize, textStyle.fontSize, scaleSpeed);
+				kbLeftTextStyle.fontSize = Help.IntMoveTowards (kbLeftTextStyle.fontSize, textStyle.fontSize + 10, scaleSpeed);
+				gamepadTextStyle.fontSize = Help.IntMoveTowards (gamepadTextStyle.fontSize, textStyle.fontSize, scaleSpeed);
 
 				kbLeftTextStyle.normal.textColor = new Color (Random.value, Random.value, Random.value);
 
 				break;
 			case ControlSelection.Gamepad:
-				kbRightTextStyle.fontSize = Helper.IntMoveTowards (kbRightTextStyle.fontSize, textStyle.fontSize, scaleSpeed);
-				kbLeftTextStyle.fontSize = Helper.IntMoveTowards (kbLeftTextStyle.fontSize, textStyle.fontSize, scaleSpeed);
-				gamepadTextStyle.fontSize = Helper.IntMoveTowards (gamepadTextStyle.fontSize, textStyle.fontSize + 10, scaleSpeed);
+				kbRightTextStyle.fontSize = Help.IntMoveTowards (kbRightTextStyle.fontSize, textStyle.fontSize, scaleSpeed);
+				kbLeftTextStyle.fontSize = Help.IntMoveTowards (kbLeftTextStyle.fontSize, textStyle.fontSize, scaleSpeed);
+				gamepadTextStyle.fontSize = Help.IntMoveTowards (gamepadTextStyle.fontSize, textStyle.fontSize + 10, scaleSpeed);
 
 				gamepadTextStyle.normal.textColor = new Color (Random.value, Random.value, Random.value);
 				break;
@@ -287,10 +287,10 @@ public class MainMenuSelectionScript : MonoBehaviour
 
 
 				//Draw Select Bar
-				GUI.DrawTexture (new Rect (20, 120 + (130 * i), 760, 120),	Res.LoadTexture (loadGameSelection == i) as Texture);
+				GUI.DrawTexture (new Rect (20, 120 + (130 * i), 760, 120),	Res.GetSaveFileTexture (loadGameSelection == i) as Texture);
 
 				//Draw Save Icon
-				GUI.DrawTexture (new Rect (30, 130 + (130 * i), 100, 100), Res.SaveIcon (currentWorld, currentLevel) as Texture);
+				GUI.DrawTexture (new Rect (30, 130 + (130 * i), 100, 100), Res.GetSaveThumbnail (currentWorld, currentLevel) as Texture);
 
 				//Draw Collectible Item Progress
 				for (int j = 0; j < 5; j++) {

@@ -42,8 +42,8 @@ public class WorldSelectorScript : MonoBehaviour
         {
             int worldSelectIndex = levelSelectionScript.getWorldSelectIndex();
 
-            worldName = Helper.GetWorldName(levelSelectionScript.getWorldSelectIndex());
-            worldDiff = Helper.GetWorldDifficulty(levelSelectionScript.getWorldSelectIndex());
+            worldName = Help.GetWorldName(levelSelectionScript.getWorldSelectIndex());
+            worldDiff = Help.GetWorldDifficulty(levelSelectionScript.getWorldSelectIndex());
 
             if (lastSelectedWorldIndex != worldSelectIndex)
             {

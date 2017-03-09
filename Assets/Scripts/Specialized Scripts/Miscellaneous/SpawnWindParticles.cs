@@ -30,7 +30,7 @@ public class SpawnWindParticles : MonoBehaviour
 
     void Update()
     {
-        if (Helper.UseAsTimer(ref timer))
+        if (Help.UseAsTimer(ref timer))
         {
             GameObject newParticle = Instantiate(windParticlePrefab, spawnPoint.position, Quaternion.identity) as GameObject;
             Rigidbody2D rb2d = newParticle.GetComponent<Rigidbody2D>();

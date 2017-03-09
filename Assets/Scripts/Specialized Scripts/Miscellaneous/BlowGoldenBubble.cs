@@ -13,7 +13,7 @@ public class BlowGoldenBubble : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D coll)
     {
-        if (bubbleTags.Contains(coll.gameObject.tag) && Helper.WaitForPlayer(ref playerControl))
+        if (bubbleTags.Contains(coll.gameObject.tag) && Help.WaitForPlayer(ref playerControl))
         {
             Vector2 pushVector = Trigo.GetRotatedVector(transform.rotation.eulerAngles.z + 90f, pushStrength * Time.fixedDeltaTime);
             pushVector = new Vector2(pushVector.x * 4f, pushVector.y);

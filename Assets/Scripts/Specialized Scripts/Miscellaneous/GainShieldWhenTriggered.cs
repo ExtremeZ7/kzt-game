@@ -29,7 +29,7 @@ OnRecentSwitch}
 
         void Update()
         {
-            if (Helper.WaitForPlayer(ref playerControl))
+            if (Help.WaitForPlayer(ref playerControl))
             {
                 switch (onTriggerMode)
                 {

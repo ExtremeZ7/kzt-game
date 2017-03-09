@@ -82,7 +82,7 @@ public class CameraControl : MonoBehaviour
 
     void Update()
     {
-        if (Helper.WaitForPlayer(ref playerControl))
+        if (Help.WaitForPlayer(ref playerControl))
         {
             playerTransform = playerControl.transform;
 

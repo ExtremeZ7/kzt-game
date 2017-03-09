@@ -43,7 +43,7 @@ public class clonePrefabAsChildAtStart : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = null;
         }
 
-        if (Helper.UseAsTimer(ref startDelay))
+        if (Help.UseAsTimer(ref startDelay))
         {
             string name = prefabToClone.name;
             GameObject newChild = Instantiate(prefabToClone, transform.position, Quaternion.identity) as GameObject;

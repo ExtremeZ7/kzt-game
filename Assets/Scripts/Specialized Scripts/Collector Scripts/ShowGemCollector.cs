@@ -38,7 +38,7 @@ public class ShowGemCollector : MonoBehaviour
 
         gemSprite.gameObject.GetComponent<Animator>().SetBool("Collected", GameControl.control.items.hasGem);
 
-        showingGem = !Helper.UseAsTimer(ref hideTimer);
+        showingGem = !Help.UseAsTimer(ref hideTimer);
 
         gemSprite.position = Vector3.MoveTowards(gemSprite.transform.position,
             (showingGem ? showPoint.position : hidePoint.position),

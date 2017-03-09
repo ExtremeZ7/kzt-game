@@ -35,7 +35,7 @@ namespace AssemblyCSharp
                 objectHit = true;
             }
 
-            if (objectHit && Helper.UseAsTimer(ref moveDelay))
+            if (objectHit && Help.UseAsTimer(ref moveDelay))
                 transform.position = new Vector3(transform.position.x + (xSpeed * Time.deltaTime), transform.position.y + (ySpeed * Time.deltaTime), 0.0f);
         }
     }

@@ -132,7 +132,7 @@ public class PlayerControl : MonoBehaviour
 
             //bool allowDelayedJump = !Helper.useAsTimer (ref fallJumpTimer);
 
-            if (Helper.UseAsTimer(ref groundIgnoreTimer) && movementState != MovementState.NoGravity)
+            if (Help.UseAsTimer(ref groundIgnoreTimer) && movementState != MovementState.NoGravity)
             {
                 animator.SetBool("On Ground", Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collideWithLayer));
                 if (!Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collideWithLayer) && !justFell)

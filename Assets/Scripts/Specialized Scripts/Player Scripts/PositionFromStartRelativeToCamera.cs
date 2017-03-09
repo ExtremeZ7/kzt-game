@@ -15,16 +15,16 @@ public class PositionFromStartRelativeToCamera : MonoBehaviour
         int sections = 5;
         for (int i = 0; i < sections; i++)
         {
-            Gizmos.DrawLine(Helper.GetDividingPoint(transform.position, startCheckpointPosition, sections * 2, i * 2 + 1)
-				, Helper.GetDividingPoint(transform.position, startCheckpointPosition, sections * 2, i * 2 + 2));
+            Gizmos.DrawLine(Help.GetDividingPoint(transform.position, startCheckpointPosition, sections * 2, i * 2 + 1)
+				, Help.GetDividingPoint(transform.position, startCheckpointPosition, sections * 2, i * 2 + 2));
         }
 
         Transform camera = Camera.main.transform;
         Gizmos.color = Color.red;
         for (int i = 0; i < sections; i++)
         {
-            Gizmos.DrawLine(Helper.GetDividingPoint(camera.position, startCheckpointPosition, sections * 2, i * 2 + 1)
-				, Helper.GetDividingPoint(camera.position, startCheckpointPosition, sections * 2, i * 2 + 2));
+            Gizmos.DrawLine(Help.GetDividingPoint(camera.position, startCheckpointPosition, sections * 2, i * 2 + 1)
+				, Help.GetDividingPoint(camera.position, startCheckpointPosition, sections * 2, i * 2 + 2));
         }
 
         Gizmos.color = Color.yellow;

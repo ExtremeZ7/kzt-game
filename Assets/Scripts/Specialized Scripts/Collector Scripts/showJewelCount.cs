@@ -65,7 +65,7 @@ public class showJewelCount : MonoBehaviour
         if (Input.GetKeyDown("space"))
             hideDelay = guiHideDelay;
 
-        Helper.UseAsTimer(ref hideDelay);
+        Help.UseAsTimer(ref hideDelay);
 
         guiYOffset = Mathf.MoveTowards(guiYOffset,
             (hideDelay > 0 ? 0 : hideYPos),
@@ -79,7 +79,7 @@ public class showJewelCount : MonoBehaviour
             new Vector3(1.0f, 1.0f, 1.0f),
             shrinkSpeed * Time.deltaTime);
 
-        if (Helper.UseAsTimer(ref delayTimer) && GameControl.control.items.crystalsShownInGUI < GameControl.control.items.crystalsInCollection)
+        if (Help.UseAsTimer(ref delayTimer) && GameControl.control.items.crystalsShownInGUI < GameControl.control.items.crystalsInCollection)
         {
             Instantiate(jewelBeatAudioSource, transform.position, Quaternion.identity);
             jewelCollectorSprite.transform.localScale = new Vector3(

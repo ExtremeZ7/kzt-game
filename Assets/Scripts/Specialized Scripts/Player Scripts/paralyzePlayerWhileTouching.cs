@@ -8,7 +8,7 @@ public class paralyzePlayerWhileTouching : MonoBehaviour
 
     void Update()
     {
-        Helper.WaitForPlayer(ref playerControl);
+        Help.WaitForPlayer(ref playerControl);
     }
 
     void OnTriggerStay2D(Collider2D coll)

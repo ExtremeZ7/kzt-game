@@ -34,7 +34,7 @@ Floating}
 
         void Update()
         {
-            if (player == null && Helper.WaitForPlayer(ref playerControl))
+            if (player == null && Help.WaitForPlayer(ref playerControl))
             {
                 player = playerControl.gameObject;
             }

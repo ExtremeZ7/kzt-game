@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using AssemblyCSharp;
+using Helper;
 
 public class LevelSelectWheelScript : MonoBehaviour
 {
@@ -148,7 +148,7 @@ public class LevelSelectWheelScript : MonoBehaviour
 			textStyle.fontSize = (int)Mathf.Ceil (((float)actualFontSize) * transform.localScale.x);
 			strokeStyle.fontSize = (int)Mathf.Ceil (((float)actualFontSize) * transform.localScale.x);
 
-			actualFontSize = Helper.IntMoveTowards (actualFontSize, origFontSize, 2);
+			actualFontSize = Help.IntMoveTowards (actualFontSize, origFontSize, 2);
 		}
 	}
 
@@ -216,8 +216,8 @@ public class LevelSelectWheelScript : MonoBehaviour
 
 	void UpdateLevelName ()
 	{
-		levelName = Helper.GetLevelTag (levelSelectionScript.getWorldSelectIndex (), levelSelectionScript.getLevelSelectIndex ());
-		levelName = levelName + "\n" + Helper.GetLevelName (levelSelectionScript.getWorldSelectIndex (), levelSelectionScript.getLevelSelectIndex ());
+		levelName = Help.GetLevelTag (levelSelectionScript.getWorldSelectIndex (), levelSelectionScript.getLevelSelectIndex ());
+		levelName = levelName + "\n" + Help.GetLevelName (levelSelectionScript.getWorldSelectIndex (), levelSelectionScript.getLevelSelectIndex ());
 	}
 
 	public bool AttemptLevelEntry (int worldSelectIndex, int levelSelectIndex)

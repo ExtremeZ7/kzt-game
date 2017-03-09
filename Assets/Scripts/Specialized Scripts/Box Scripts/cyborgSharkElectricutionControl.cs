@@ -59,7 +59,7 @@ namespace AssemblyCSharp
             }
             else
             {
-                if (Helper.UseAsTimer(ref electricutionTimer))
+                if (Help.UseAsTimer(ref electricutionTimer))
                 {
                     regularShark.enabled = true;
                     electricutedShark.SetActive(false);

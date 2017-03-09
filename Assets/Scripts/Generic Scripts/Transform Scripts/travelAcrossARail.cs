@@ -201,9 +201,9 @@ TimedSpeed}
 
     void Update()
     {
-        if (transformOfTraveler != null && Helper.UseAsTimer(ref startDelay))
+        if (transformOfTraveler != null && Help.UseAsTimer(ref startDelay))
         {
-            if (Helper.UseAsTimer(ref timer))
+            if (Help.UseAsTimer(ref timer))
             {
                 switch (movementStyle)
                 {

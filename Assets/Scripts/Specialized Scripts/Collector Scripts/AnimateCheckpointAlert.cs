@@ -48,7 +48,7 @@ public class AnimateCheckpointAlert : MonoBehaviour
 
     void Update()
     {
-        if (Helper.UseAsTimer(ref timer) && lettersSummoned < 10)
+        if (Help.UseAsTimer(ref timer) && lettersSummoned < 10)
         {
             lettersSummoned++;
             timer = delayBetweenLetters;
@@ -56,7 +56,7 @@ public class AnimateCheckpointAlert : MonoBehaviour
 
         orbitDegree += RPM * 0.1f * Time.deltaTime * 60f * (lettersSummoned + 1);
 
-        if (lettersSummoned >= 10 && Helper.UseAsTimer(ref delayBeforeLeave))
+        if (lettersSummoned >= 10 && Help.UseAsTimer(ref delayBeforeLeave))
         {
             heightOffset = Mathf.MoveTowards(heightOffset, -400f, speedTowardsPositions * Time.deltaTime * 10f);
 

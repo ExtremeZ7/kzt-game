@@ -16,7 +16,7 @@ public class DeactivateRailWhenPlayerDies : MonoBehaviour
 
     void Update()
     {
-        if (Helper.WaitForPlayer(ref playerControl))
+        if (Help.WaitForPlayer(ref playerControl))
         {
             if (!playerControl.gameObject.activeSelf)
                 rail.enabled = false;

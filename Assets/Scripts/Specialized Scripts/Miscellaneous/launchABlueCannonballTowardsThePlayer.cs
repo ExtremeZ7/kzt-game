@@ -36,7 +36,7 @@ public class launchABlueCannonballTowardsThePlayer : MonoBehaviour
 
     void Update()
     {
-        if (playerTransform != null || Helper.WaitForPlayer(ref playerControl))
+        if (playerTransform != null || Help.WaitForPlayer(ref playerControl))
         {
             playerTransform = playerControl.gameObject.transform;
 

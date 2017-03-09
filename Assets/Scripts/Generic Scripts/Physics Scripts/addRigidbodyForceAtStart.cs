@@ -31,7 +31,7 @@ public class addRigidbodyForceAtStart : MonoBehaviour
 
     void Update()
     {
-        if (Helper.UseAsTimer(ref delay))
+        if (Help.UseAsTimer(ref delay))
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(baseForce.x + Random.Range(-forceVariation.x, forceVariation.x), baseForce.y + Random.Range(-forceVariation.y, forceVariation.y));
             this.enabled = false;

@@ -77,14 +77,14 @@ LevelComplete}
 
     void Update()
     {
-        if (Helper.WaitForPlayer(ref playerControl))
+        if (Help.WaitForPlayer(ref playerControl))
         {
             switch (levelState)
             {
                 case LevelState.PlayingLevel:
                     break;
                 case LevelState.RespawningPlayer:
-                    if (Helper.UseAsTimer(ref timer))
+                    if (Help.UseAsTimer(ref timer))
                     {
                         if (!levelReset)
                         {
@@ -111,7 +111,7 @@ LevelComplete}
                     break;
                 case LevelState.LevelComplete:
                     GameControl.control.barrierIsOpen = false;
-                    if (Helper.UseAsTimer(ref timer))
+                    if (Help.UseAsTimer(ref timer))
                     {
                         SceneManager.LoadScene("World Map");
                     }

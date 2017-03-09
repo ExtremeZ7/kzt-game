@@ -51,7 +51,7 @@ OnRecentSwitch}
 
         void Update()
         {
-            if (charging && Helper.UseAsTimer(ref initialChargeTimer))
+            if (charging && Help.UseAsTimer(ref initialChargeTimer))
             {
                 if (justEntered)
                 {
@@ -59,7 +59,7 @@ OnRecentSwitch}
                     justEntered = false;
                 }
                 rb2d.velocity = Vector2.MoveTowards(rb2d.velocity, Vector2.zero, decelerationSpeed * Time.deltaTime);
-                if (rb2d.velocity.x == 0f && Helper.UseAsTimer(ref postChargeTimer))
+                if (rb2d.velocity.x == 0f && Help.UseAsTimer(ref postChargeTimer))
                 {
                     moveHorizontallyBetweenTwoPoints.enabled = true;
                     charging = false;

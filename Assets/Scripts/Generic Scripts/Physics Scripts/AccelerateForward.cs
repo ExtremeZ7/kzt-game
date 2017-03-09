@@ -17,7 +17,7 @@ public class AccelerateForward : MonoBehaviour
 
     void Update()
     {
-        if (Helper.UseAsTimer(ref delay))
+        if (Help.UseAsTimer(ref delay))
         {
             rb2d.velocity = new Vector2(Mathf.MoveTowards(rb2d.velocity.x, maxVelocity * Mathf.Sign(transform.localScale.x), accelerationSpeed),
                 rb2d.velocity.y);

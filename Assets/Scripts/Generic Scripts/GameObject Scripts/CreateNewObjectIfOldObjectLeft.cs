@@ -35,7 +35,7 @@ public class CreateNewObjectIfOldObjectLeft : MonoBehaviour
             if (timer == 0f)
                 timer = delay;
 
-            if (Helper.UseAsTimer(ref timer))
+            if (Help.UseAsTimer(ref timer))
                 currentObject = Instantiate(objectToCreate, transform.position, Quaternion.identity) as GameObject;
         }
 

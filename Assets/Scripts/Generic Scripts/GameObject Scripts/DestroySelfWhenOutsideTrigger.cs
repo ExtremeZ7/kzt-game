@@ -15,7 +15,7 @@ public class DestroySelfWhenOutsideTrigger : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Helper.UseAsTimer(ref timer))
+        if (Help.UseAsTimer(ref timer))
         {
             Object.Destroy(gameObject);
         }

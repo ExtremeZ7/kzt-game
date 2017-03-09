@@ -155,9 +155,9 @@ ApplyChanges
                     {
                         case VolumeSelection.MusicVolume:
                             if (Input.GetKey(leftKey))
-                                GameControl.control.settings.musicVolume = Helper.IntMoveTowards(GameControl.control.settings.musicVolume, 0, 1);
+                                GameControl.control.settings.musicVolume = Help.IntMoveTowards(GameControl.control.settings.musicVolume, 0, 1);
                             if (Input.GetKey(rightKey))
-                                GameControl.control.settings.musicVolume = Helper.IntMoveTowards(GameControl.control.settings.musicVolume, 100, 1);
+                                GameControl.control.settings.musicVolume = Help.IntMoveTowards(GameControl.control.settings.musicVolume, 100, 1);
 
                             GameControl.control.UpdateMusicVolume();
 
@@ -165,9 +165,9 @@ ApplyChanges
 
                         case VolumeSelection.EffectsVolume:
                             if (Input.GetKey(leftKey))
-                                GameControl.control.settings.effectsVolume = Helper.IntMoveTowards(GameControl.control.settings.effectsVolume, 0, 1);
+                                GameControl.control.settings.effectsVolume = Help.IntMoveTowards(GameControl.control.settings.effectsVolume, 0, 1);
                             if (Input.GetKey(rightKey))
-                                GameControl.control.settings.effectsVolume = Helper.IntMoveTowards(GameControl.control.settings.effectsVolume, 100, 1);
+                                GameControl.control.settings.effectsVolume = Help.IntMoveTowards(GameControl.control.settings.effectsVolume, 100, 1);
 
                             GameControl.control.UpdateEffectsVolume();
                             break;
@@ -217,7 +217,7 @@ ApplyChanges
                     {
                         GameControl.control.SaveProgress(saveFileSelection);
                         TogglePause();
-                        Helper.GenerateHintBox("Game Saved");
+                        Help.GenerateHintBox("Game Saved");
                     }
                     if (Input.GetKeyDown(cancelKey))
                     {
@@ -274,12 +274,12 @@ ApplyChanges
 
                         if (i == (int)mainSelection)
                         {
-                            selectionStyles[i].fontSize = Helper.IntMoveTowards(selectionStyles[i].fontSize, textStyle.fontSize + 10, scaleSpeed);
+                            selectionStyles[i].fontSize = Help.IntMoveTowards(selectionStyles[i].fontSize, textStyle.fontSize + 10, scaleSpeed);
                             selectionStyles[i].normal.textColor = new Color(Random.value, Random.value, Random.value);
                         }
                         else
                         {
-                            selectionStyles[i].fontSize = Helper.IntMoveTowards(selectionStyles[i].fontSize, textStyle.fontSize, scaleSpeed);
+                            selectionStyles[i].fontSize = Help.IntMoveTowards(selectionStyles[i].fontSize, textStyle.fontSize, scaleSpeed);
                             selectionStyles[i].normal.textColor = textStyle.normal.textColor;
                         }
 						
@@ -307,12 +307,12 @@ ApplyChanges
 
                         if (i == (int)volumeSelection)
                         {
-                            selectionStyles[i].fontSize = Helper.IntMoveTowards(selectionStyles[i].fontSize, textStyle.fontSize + 10, scaleSpeed);
+                            selectionStyles[i].fontSize = Help.IntMoveTowards(selectionStyles[i].fontSize, textStyle.fontSize + 10, scaleSpeed);
                             selectionStyles[i].normal.textColor = new Color(Random.value, Random.value, Random.value);
                         }
                         else
                         {
-                            selectionStyles[i].fontSize = Helper.IntMoveTowards(selectionStyles[i].fontSize, textStyle.fontSize, scaleSpeed);
+                            selectionStyles[i].fontSize = Help.IntMoveTowards(selectionStyles[i].fontSize, textStyle.fontSize, scaleSpeed);
                             selectionStyles[i].normal.textColor = textStyle.normal.textColor;
                         }
 
@@ -370,7 +370,7 @@ ApplyChanges
         {
             GameControl.control.masterMixer.SetFloat("Background Music Lowpass Cut", 22000f / 8f);
 
-            Helper.RemoveAnnoyingMessageBox();
+            Help.RemoveAnnoyingMessageBox();
 
             currentMenu = CurrentMenu.MainPauseMenu;
             mainSelection = MainSelection.ChangeVolume;
