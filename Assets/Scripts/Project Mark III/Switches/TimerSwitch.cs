@@ -3,6 +3,8 @@ using System.Collections;
 
 public class TimerSwitch : MonoBehaviour
 {
+    public string scriptName;
+
     public float delay;
 
     [Space(10)]

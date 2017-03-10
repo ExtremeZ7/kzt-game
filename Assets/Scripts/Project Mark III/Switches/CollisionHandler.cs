@@ -6,6 +6,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CollisionHandler : MonoBehaviour
 {
@@ -19,7 +20,8 @@ public class CollisionHandler : MonoBehaviour
 
     //fields
     [Tooltip("This is an optional attribute used for easier seeking from Listeners")]
-    public string switchName;
+    [FormerlySerializedAs("switchName")]
+    public string scriptName;
 
     [Space(10)]
     public List<Tags> tagFilter;
@@ -220,9 +222,9 @@ public class CollisionHandler : MonoBehaviour
 
     void OnValidate()
     {
-        if (switchName == "")
+        if (scriptName == "")
         {
-            switchName = gameObject.name + GetHashCode();
+            scriptName = name + GetHashCode();
         }
     }
 }
