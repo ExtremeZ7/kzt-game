@@ -96,7 +96,6 @@ public class TriggerListener : MonoBehaviour
             switches = switches.Resize(1);
         }
 
-        switches.Sort();
     }
 
     //nested types

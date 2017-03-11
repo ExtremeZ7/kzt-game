@@ -55,6 +55,7 @@ TagManager:
   - Projectile Direction Shifter
   - PlayerStartLocation
   - DynamicObjects
+  - IgnoreTrigger
   layers:
   - Default
   - TransparentFX

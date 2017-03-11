@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using CustomPropertyDrawers;
 
 public class CollisionHandler : MonoBehaviour
 {
@@ -24,7 +25,8 @@ public class CollisionHandler : MonoBehaviour
     public string scriptName;
 
     [Space(10)]
-    public List<Tags> tagFilter;
+    [TagField]
+    public List<string> tagFilter;
 
     [Space(10)]
     [Tooltip("Defualt: Normal activation on trigger\n"
@@ -34,16 +36,20 @@ public class CollisionHandler : MonoBehaviour
 
     [Space(10)]
     [Tooltip("When enabled, activation will last only for one frame!")]
+    [ToggleLeft]
     public bool deactivateAfterOneFrame;
     [Tooltip("If set, the trigger will only activate if and only if other "
         + "triggers in the scene that also have exclusive activation have not "
         + "been activated on the same frame. Triggers with this bit not set "
         + "will not be affected. (This is mainly used in the crate triggers so "
         + "that only one crate is destroyed per frame)")]
+    [ToggleLeft]
     public bool exclusiveActivation;
     [Tooltip("This enables the 'OnStay2D' trigger. Disabled by default.")]
+    [ToggleLeft]
     public bool activateOnStay;
     [Tooltip("This enables the 'OnExit2D' trigger. Enabled by default.")]
+    [ToggleLeft]
     public bool deactivateOnExit = true;
 
     bool triggeredOnce;
@@ -63,7 +69,7 @@ public class CollisionHandler : MonoBehaviour
 
     protected List<string> TagFilter
     {
-        get{ return tagFilter.ToStringList(); }
+        get{ return tagFilter; }
     }
 
     public bool ActivatedOnCurrentFrame
@@ -222,7 +228,9 @@ public class CollisionHandler : MonoBehaviour
 
     void OnValidate()
     {
-        if (scriptName == "")
+        scriptName = scriptName.Trim();
+
+        if (scriptName.Length == 0)
         {
             scriptName = name + GetHashCode();
         }

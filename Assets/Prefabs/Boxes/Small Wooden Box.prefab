@@ -162,8 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a6b69ce5123ce42a0fb1575f26a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchName: Player Jump Trigger Switch
-  tagFilter: 01000000
+  scriptName: Player Jump Trigger Switch
+  tagFilter:
+  - Player
   activationMode: 0
   deactivateAfterOneFrame: 1
   exclusiveActivation: 1
@@ -228,8 +229,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 114449848433117002}
-  names:
-  - Direct Destruction
   listenToActivation: 1
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
@@ -243,6 +242,7 @@ MonoBehaviour:
     newName: 
     newTransform: {fileID: 0}
     newParent: {fileID: 0}
+    newTag: 
     customScale:
       scaleConfig: 0
       custom: {x: 0, y: 0}
@@ -254,6 +254,7 @@ MonoBehaviour:
     newName: 
     newTransform: {fileID: 0}
     newParent: {fileID: 0}
+    newTag: 
     customScale:
       scaleConfig: 0
       custom: {x: 0, y: 0}
@@ -277,9 +278,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a6b69ce5123ce42a0fb1575f26a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchName: Direct Destruction
-  tagFilter: 0200000004000000
-  activationMode: 0
+  scriptName: Direct Destruction
+  tagFilter:
+  - Projectile
+  - Explosion
+  activationMode: 1
   deactivateAfterOneFrame: 0
   exclusiveActivation: 0
   activateOnStay: 0
@@ -297,8 +300,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 11490102}
-  names:
-  - Player Jump Trigger Switch
   listenToActivation: 1
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
@@ -312,6 +313,7 @@ MonoBehaviour:
     newName: 
     newTransform: {fileID: 0}
     newParent: {fileID: 0}
+    newTag: 
     customScale:
       scaleConfig: 0
       custom: {x: 0, y: 0}
@@ -323,6 +325,7 @@ MonoBehaviour:
     newName: 
     newTransform: {fileID: 0}
     newParent: {fileID: 0}
+    newTag: 
     customScale:
       scaleConfig: 0
       custom: {x: 0, y: 0}

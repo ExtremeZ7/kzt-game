@@ -6,25 +6,11 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.ComponentModel;
 using System.Reflection;
-using AssemblyCSharp;
 
-//enums
-public enum Tags
+public static class Tags
 {
-    [Description("Player")]
-    Player = 0,
-
-    [Description("Box Collider")]
-    PlayerJumpCollider = 1,
-
-    [Description("Projectile")]
-    PlayerElectricBolt = 2,
-
-    DynamicObjects = 3,
-
-    [Description("Explosion")]
-    BigExplosion = 4}
-;
+    public static string dynamicObjects = "DynamicObjects";
+}
 
 public static class Help : System.Object
 {

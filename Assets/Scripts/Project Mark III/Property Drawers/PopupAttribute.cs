@@ -19,7 +19,8 @@ namespace CustomPropertyDrawers
     {
         const int textHeight = 16;
 
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        public override void OnGUI(Rect position, SerializedProperty property,
+                                   GUIContent label)
         {
             EditorGUI.BeginProperty(position, label, property);
 
@@ -32,7 +33,8 @@ namespace CustomPropertyDrawers
                     break;
             }
 
-            EditorGUI.LabelField(new Rect(position.xMin, position.yMin, position.width / 3f, textHeight),
+            EditorGUI.LabelField(new Rect(position.xMin, position.yMin,
+                    position.width / 3f, textHeight),
                 GUIUtils.PrettyPrintVariableName(property.name));
 
             index = EditorGUI.Popup(
