@@ -43,9 +43,10 @@ GameObject:
   m_Component:
   - component: {fileID: 433024}
   - component: {fileID: 5864478}
-  - component: {fileID: 11416264}
   - component: {fileID: 11422716}
   - component: {fileID: 114596052469161058}
+  - component: {fileID: 11416264}
+  - component: {fileID: 114329385098684736}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -106,7 +107,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.052991927, z: 0}
+  m_LocalPosition: {x: 0, y: -0.0069756405, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 485314}
@@ -184,15 +185,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switches:
-  - {fileID: 0}
+  - {fileID: 114329385098684736}
   listenToActivation: 1
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger: []
-  extraObjectsToCreateOnComplete: []
-  onlyCreateExtrasOnComplete: 0
-  objectConfigs: []
-  createDelays: []
+  extraObjectsToCreateOnComplete:
+  - {fileID: 160842, guid: 9004ed62c3d1d944eb1f2f6b7b87b4c6, type: 2}
+  onlyCreateExtrasOnComplete: 1
+  objectConfigs:
+  - expectedObject: {fileID: 160842, guid: 9004ed62c3d1d944eb1f2f6b7b87b4c6, type: 2}
+    newName: 
+    newTransform: {fileID: 0}
+    newParent: {fileID: 0}
+    newTag:
+      enabled: 0
+      name: 
+    customScale:
+      scaleConfig: 0
+      custom: {x: 0, y: 0}
+    customRotation:
+      rotationConfig: 0
+      custom: 0
+    transformOnCreate: 0
+  createDelays:
+  - 0
   countsBeforeCompletion: Infinity
   selfActionOnComplete: 0
 --- !u!114 &11422716
@@ -214,13 +231,15 @@ MonoBehaviour:
   objectsToCreateOnTrigger: []
   extraObjectsToCreateOnComplete:
   - {fileID: 129004, guid: 0dde1fa050a3ad44884edb5092af6cfd, type: 2}
-  onlyCreateExtrasOnComplete: 0
+  onlyCreateExtrasOnComplete: 1
   objectConfigs:
   - expectedObject: {fileID: 129004, guid: 0dde1fa050a3ad44884edb5092af6cfd, type: 2}
     newName: 
     newTransform: {fileID: 0}
     newParent: {fileID: 0}
-    newTag: 
+    newTag:
+      enabled: 0
+      name: 
     customScale:
       scaleConfig: 0
       custom: {x: 0, y: 0}
@@ -360,6 +379,26 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 193438}
   m_IsPrefabParent: 1
+--- !u!114 &114329385098684736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a6b69ce5123ce42a0fb1575f26a763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptName: Lost In Explosion
+  tagFilter:
+  - enabled: 1
+    name: Explosion
+  activationMode: 0
+  deactivateAfterOneFrame: 0
+  exclusiveActivation: 0
+  activateOnStay: 0
+  deactivateOnExit: 1
 --- !u!114 &114596052469161058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -371,11 +410,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a6b69ce5123ce42a0fb1575f26a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptName: Player Trigger
+  scriptName: Player Collected It
   tagFilter:
-  - Player
-  activationMode: 0
-  deactivateAfterOneFrame: 0
+  - enabled: 1
+    name: Player
+  activationMode: 1
+  deactivateAfterOneFrame: 1
   exclusiveActivation: 0
   activateOnStay: 0
   deactivateOnExit: 1

@@ -25,8 +25,7 @@ public class CollisionHandler : MonoBehaviour
     public string scriptName;
 
     [Space(10)]
-    [TagField]
-    public List<string> tagFilter;
+    public List<Tag> tagFilter;
 
     [Space(10)]
     [Tooltip("Defualt: Normal activation on trigger\n"
@@ -67,7 +66,7 @@ public class CollisionHandler : MonoBehaviour
         get{ return triggerObj; }
     }
 
-    protected List<string> TagFilter
+    protected List<Tag> TagFilter
     {
         get{ return tagFilter; }
     }

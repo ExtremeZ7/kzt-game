@@ -6,6 +6,7 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.ComponentModel;
 using System.Reflection;
+using CustomPropertyDrawers;
 
 public static class Tags
 {
@@ -422,5 +423,20 @@ public static class RectExtensions
             data.y,
             data.width - squeezeSize,
             data.height);
+    }
+}
+
+public static class OtherExtensions
+{
+    public static bool Contains(this List<Tag> data, string target)
+    {
+        foreach (Tag tag in data)
+        {
+            if (tag.Name == target)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

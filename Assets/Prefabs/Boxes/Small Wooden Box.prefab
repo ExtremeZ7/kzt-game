@@ -164,7 +164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptName: Player Jump Trigger Switch
   tagFilter:
-  - Player
+  - enabled: 1
+    name: Box Collider
   activationMode: 0
   deactivateAfterOneFrame: 1
   exclusiveActivation: 1
@@ -242,7 +243,9 @@ MonoBehaviour:
     newName: 
     newTransform: {fileID: 0}
     newParent: {fileID: 0}
-    newTag: 
+    newTag:
+      enabled: 0
+      name: 
     customScale:
       scaleConfig: 0
       custom: {x: 0, y: 0}
@@ -254,7 +257,9 @@ MonoBehaviour:
     newName: 
     newTransform: {fileID: 0}
     newParent: {fileID: 0}
-    newTag: 
+    newTag:
+      enabled: 0
+      name: 
     customScale:
       scaleConfig: 0
       custom: {x: 0, y: 0}
@@ -280,8 +285,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptName: Direct Destruction
   tagFilter:
-  - Projectile
-  - Explosion
+  - enabled: 1
+    name: Explosion
+  - enabled: 1
+    name: Projectile
   activationMode: 1
   deactivateAfterOneFrame: 0
   exclusiveActivation: 0
@@ -313,7 +320,9 @@ MonoBehaviour:
     newName: 
     newTransform: {fileID: 0}
     newParent: {fileID: 0}
-    newTag: 
+    newTag:
+      enabled: 0
+      name: 
     customScale:
       scaleConfig: 0
       custom: {x: 0, y: 0}
@@ -325,7 +334,9 @@ MonoBehaviour:
     newName: 
     newTransform: {fileID: 0}
     newParent: {fileID: 0}
-    newTag: 
+    newTag:
+      enabled: 0
+      name: 
     customScale:
       scaleConfig: 0
       custom: {x: 0, y: 0}
