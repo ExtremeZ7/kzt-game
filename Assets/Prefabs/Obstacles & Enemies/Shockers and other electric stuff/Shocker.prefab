@@ -303,6 +303,6 @@ MonoBehaviour:
   - {fileID: 11435110}
   listenToActivation: 0
   listenToFirstFrameOnDeactivate: 0
-  flipActivation: 0
+  flipActivation: 1
   audioSources:
   - {fileID: 8261064}

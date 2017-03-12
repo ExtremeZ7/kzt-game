@@ -88,11 +88,6 @@ public class TimerListener : MonoBehaviour
         listener = null;
     }
 
-    void OnValidate()
-    {
-        ValidateListener();
-    }
-
     public virtual void ManagedUpdate()
     {
     }

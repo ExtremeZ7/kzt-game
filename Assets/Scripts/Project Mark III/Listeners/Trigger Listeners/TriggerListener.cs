@@ -88,11 +88,6 @@ public class TriggerListener : MonoBehaviour
         listener = null;
     }
 
-    void OnValidate()
-    {
-        ValidateListener();
-    }
-
     public virtual void ManagedUpdate()
     {
         if (Listening)
