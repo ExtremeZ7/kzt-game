@@ -36,7 +36,7 @@ namespace CustomPropertyDrawers
             // Draw the fields
             EditorGUI.PropertyField(propertyRect, property, GUIContent.none);
 
-            string name = "";
+            string name;
 
             if (property.objectReferenceValue != null)
             {
@@ -64,6 +64,11 @@ namespace CustomPropertyDrawers
                 name = ((DisplayScriptNameAttribute)attribute).customName;
             }
                 
+            if (name == "")
+            {
+                name = "<No Script!>";
+            }
+
             EditorGUI.LabelField(nameRect, name);
 
             EditorGUI.indentLevel = indent;

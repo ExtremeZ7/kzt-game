@@ -88,6 +88,11 @@ public class TriggerListener : MonoBehaviour
         listener = null;
     }
 
+    void OnValidate()
+    {
+        ValidateListener();
+    }
+
     public virtual void ManagedUpdate()
     {
         if (Listening)
@@ -100,7 +105,7 @@ public class TriggerListener : MonoBehaviour
 
     /// <summary>This is normally called by the derived class on its OnValidate() MonoBehavior method</summary>
     ///
-    protected void ValidateTriggerListener()
+    protected void ValidateListener()
     {
         if (switches.Count <= 0)
         {

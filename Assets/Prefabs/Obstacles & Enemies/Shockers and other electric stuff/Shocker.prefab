@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 9564418}
   - component: {fileID: 21230304}
   - component: {fileID: 6168130}
+  - component: {fileID: 11435110}
   - component: {fileID: 11429372}
   - component: {fileID: 11493920}
-  - component: {fileID: 11435110}
-  - component: {fileID: 11450496}
+  - component: {fileID: 114884449712082954}
   - component: {fileID: 114000012508603368}
   m_Layer: 0
   m_Name: Shocker
@@ -189,11 +189,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b32b5b5552f44a04d9242a3b6d772927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider2d: {fileID: 0}
-  binarySwitch: {fileID: 0}
-  reverse: 0
-  enableWhenSwitchedOn: 1
-  disableWhenSwitchedOff: 1
+  switches:
+  - {fileID: 11435110}
+  listenToActivation: 0
+  listenToFirstFrameOnDeactivate: 0
+  flipActivation: 0
+  colliderComponents: []
 --- !u!114 &11435110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -205,25 +206,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f6891c5061b5fd4da2cb40eb1e3f515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptName: Shock Timer
   delay: 0
   timerPattern:
   - Infinity
---- !u!114 &11450496
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 119070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: addf177f81fcf914f9637d8e0ee41ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 8261064}
-  binarySwitch: {fileID: 0}
-  reverse: 1
-  onTriggerMode: 1
-  offTriggerMode: 1
 --- !u!114 &11493920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,12 +221,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be86dffdd7d4ea64ea8486aff9f49d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameterString: Active
-  animator: {fileID: 0}
-  binarySwitch: {fileID: 0}
-  reverse: 0
-  enableWhenSwitchedOn: 1
-  disableWhenSwitchedOff: 1
+  switches:
+  - {fileID: 11435110}
+  listenToActivation: 0
+  listenToFirstFrameOnDeactivate: 0
+  flipActivation: 0
+  animator: {fileID: 9564418}
+  parameters:
+  - Active
 --- !u!212 &21230304
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -270,8 +258,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2132692299
-  m_SortingOrder: 0
+  m_SortingLayerID: 1473080777
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: a6557447d17881447af5ea717fe2f461, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -300,3 +288,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSpeed: 0.75
   randomIncrease: 0.5
+--- !u!114 &114884449712082954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: addf177f81fcf914f9637d8e0ee41ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switches:
+  - {fileID: 11435110}
+  listenToActivation: 0
+  listenToFirstFrameOnDeactivate: 0
+  flipActivation: 0
+  audioSources:
+  - {fileID: 8261064}

@@ -22,12 +22,12 @@ public class TimerListener : MonoBehaviour
     ;
 
     //fields
-    [Header("Trigger Listener")]
+    [Header("Timer Listener")]
 	#if UNITY_EDITOR
     [DisplayScriptName]
     #endif
     [Tooltip("The Timer Switches to listen to")]
-    public List<TriggerSwitch> switches = new List<TriggerSwitch>();
+    public List<TimerSwitch> switches = new List<TimerSwitch>();
 
     [Space(10)]
     [Tooltip("Default: Listen to any activation\n First Frame Only: Listen "
@@ -81,32 +81,32 @@ public class TimerListener : MonoBehaviour
     {
         TimerListenerManager.Instance.Unregister(this);
 
-        //I have to remove the instance of the listener here because disabling
-        //the gameobject normally stops all coroutines. Because the listener starts
-        // a coroutine in its constructor, a new instance needs to be created
-        // when the Listener property is called again.
+        // I have to remove the instance of the listener here because disabling
+        // the gameobject normally stops all coroutines. Because the listener
+        // starts a coroutine in its constructor, a new instance needs to be 
+        // created when the Listener property is called again.
         listener = null;
+    }
+
+    void OnValidate()
+    {
+        ValidateListener();
     }
 
     public virtual void ManagedUpdate()
     {
-        if (Listening)
-        {
-            //For performance reasons, the listener is stopped
-            //if this function is not overriden
-            Listener.Stop();
-        }
     }
 
-    /// <summary>This is normally called by the derived class on its OnValidate() MonoBehavior method</summary>
+    /// <summary>
+    /// This is normally called by the derived class on its OnValidate() MonoBehavior method
+    /// </summary>
     ///
-    protected void ValidateTimerListener()
+    protected void ValidateListener()
     {
         if (switches.Count <= 0)
         {
             switches = switches.Resize(1);
         }
-
     }
 
     //nested types
@@ -184,10 +184,10 @@ public class TimerListener : MonoBehaviour
         {
             for (;;)
             {
-                foreach (TriggerSwitch triggerSwitch in listener.switches)
+                foreach (TimerSwitch TimerSwitch in listener.switches)
                 {
                     //Skip the elements that have not been set
-                    if (triggerSwitch == null)
+                    if (TimerSwitch == null)
                     {
                         continue;
                     }
@@ -195,13 +195,13 @@ public class TimerListener : MonoBehaviour
                     //Ask if the listener has been asked to listen any activation
                     if (listener.listenToActivation == ListenToActivation.Default)
                     {
-                        active |= triggerSwitch.IsActivated;
+                        active |= TimerSwitch.IsActivated;
                     }
 
                     //Ask if the listener has been asked to the first frame of activation
                     if (listener.listenToActivation == ListenToActivation.FirstFrameOnly)
                     {
-                        if (triggerSwitch.ActivatedOnCurrentFrame)
+                        if (TimerSwitch.ActivatedOnCurrentFrame)
                         {
                             SetSingleFrameBits(!listener.flipActivation);
                         }
@@ -210,7 +210,7 @@ public class TimerListener : MonoBehaviour
                     //Ask if the listener has been asked to the first frame of deactivation
                     if (listener.listenToFirstFrameOnDeactivate)
                     {
-                        if (triggerSwitch.DeactivatedOnCurrentFrame)
+                        if (TimerSwitch.DeactivatedOnCurrentFrame)
                         {
                             SetSingleFrameBits(listener.flipActivation);
                         }

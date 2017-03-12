@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TimerSwitch : MonoBehaviour
+public sealed class TimerSwitch : MonoBehaviour
 {
     // The name to displayed from 'DisplayScriptName' custom attribute
     public string scriptName;
 
+    [Space(10)]
     // How long (sec) will the switch stay off before the timer begins
     public float delay;
 
-    [Space(10)]
     // This will determine the On/Off pattern
     public float[] timerPattern;
 

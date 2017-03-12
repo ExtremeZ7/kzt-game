@@ -15,7 +15,7 @@ using CustomPropertyDrawers;
 public class CreateObjectsOnTrigger : TriggerListener
 {
     //fields
-    [Header("Main Parameters")]
+    [Header("Main Fields")]
     [ContextMenuItem("Copy To OnComplete List", "CopyTriggerToComplete")]
     public List<GameObject> objectsToCreateOnTrigger;
     public List<GameObject> extraObjectsToCreateOnComplete;
@@ -194,7 +194,7 @@ public class CreateObjectsOnTrigger : TriggerListener
 
     void OnValidate()
     {
-        ValidateTriggerListener();
+        ValidateListener();
 
         objectConfigs = objectConfigs.Resize(
             ObjectsOnTrigger.Count + ObjectsOnComplete.Count);
