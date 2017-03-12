@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+using UnityEngine;
 using UnityEditor;
 
 namespace CustomPropertyDrawers
@@ -21,3 +22,4 @@ namespace CustomPropertyDrawers
         }
     }
 }
+#endif

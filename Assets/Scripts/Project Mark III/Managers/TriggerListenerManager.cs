@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class TriggerListenerManager : MonoBehaviour, IScriptManager<TriggerListener>
+public class TriggerListenerManager : MonoBehaviour, IUpdateManager<TriggerListener>
 {
     public static TriggerListenerManager Instance { get; private set; }
 

@@ -3,22 +3,25 @@ using System.Collections;
 
 public class TimerSwitch : MonoBehaviour
 {
+    // The name to displayed from 'DisplayScriptName' custom attribute
     public string scriptName;
 
+    // How long (sec) will the switch stay off before the timer begins
     public float delay;
 
     [Space(10)]
+    // This will determine the On/Off pattern
     public float[] timerPattern;
 
-    private float totalTime;
-    private float timer;
-    private float searchDistance;
+    float totalTime;
+    float timer;
+    float searchDistance;
 
-    private int currentIndex = -1;
+    int currentIndex = -1;
 
-    private bool active;
-    private bool activatedOnCurrentFrame;
-    private bool deactivatedOnCurrentFrame;
+    bool active;
+    bool activatedOnCurrentFrame;
+    bool deactivatedOnCurrentFrame;
 
     public bool IsActivated
     {
@@ -35,7 +38,7 @@ public class TimerSwitch : MonoBehaviour
         get { return deactivatedOnCurrentFrame; }
     }
 
-    void Validate()
+    void OnValidate()
     {
         if (timerPattern.Length <= 0)
         {
@@ -56,7 +59,7 @@ public class TimerSwitch : MonoBehaviour
 
     void Start()
     {
-        Validate();
+        OnValidate();
         totalTime = delay + timerPattern.SumTotal() * 2;
     }
 
@@ -82,8 +85,24 @@ public class TimerSwitch : MonoBehaviour
         }
     }
 
-    //Use This Instead of Changing 'active' directly
-    private void SetActiveState(bool active = true)
+    /// <summary>
+    /// Resets the timer.
+    /// </summary>
+    public void ResetTimer()
+    {
+        timer = 0f;
+        searchDistance = 0f;
+        currentIndex = -1;
+        active = false;
+        activatedOnCurrentFrame = false;
+        deactivatedOnCurrentFrame = false;
+    }
+
+    /// <summary>
+    /// Sets the active state bit
+    /// </summary>
+    /// <param name="active">If set to <c>true</c> active.</param>
+    void SetActiveState(bool active = true)
     {
         if (this.active != active)
         {
@@ -92,7 +111,11 @@ public class TimerSwitch : MonoBehaviour
         this.active = active;
     }
 
-    //Sets The Current Frame Variables To True Until The End Of Frame
+    /// <summary>
+    /// Sets some variables to true that turn off when the frame ends
+    /// </summary>
+    /// <returns>The single frame switches.</returns>
+    /// <param name="triggerOn">If set to <c>true</c> trigger on.</param>
     IEnumerator SetSingleFrameSwitches(bool triggerOn = true)
     {
         if (triggerOn)
@@ -114,15 +137,5 @@ public class TimerSwitch : MonoBehaviour
         {
             deactivatedOnCurrentFrame = false;
         }
-    }
-
-    public void ResetTimer()
-    {
-        timer = 0f;
-        searchDistance = 0f;
-        currentIndex = -1;
-        active = false;
-        activatedOnCurrentFrame = false;
-        deactivatedOnCurrentFrame = false;
     }
 }

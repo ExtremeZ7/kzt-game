@@ -7,7 +7,10 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+
+#if UNITY_EDITOR
 using CustomPropertyDrawers;
+#endif
 
 public class CreateObjectsOnTrigger : TriggerListener
 {
@@ -19,7 +22,9 @@ public class CreateObjectsOnTrigger : TriggerListener
 
     [Tooltip("If this is enabled, the gameobjects on the main (OnTrigger)"
         + "GameObject list will not spawn on completion")]
+    #if UNITY_EDITOR
     [ToggleLeft]
+    #endif
     public bool onlyCreateExtrasOnComplete;
 
     [Space(10)]

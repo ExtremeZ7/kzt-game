@@ -7,7 +7,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+
+#if UNITY_EDITOR
 using CustomPropertyDrawers;
+#endif
 
 public class CollisionHandler : MonoBehaviour
 {
@@ -35,20 +38,28 @@ public class CollisionHandler : MonoBehaviour
 
     [Space(10)]
     [Tooltip("When enabled, activation will last only for one frame!")]
+    #if UNITY_EDITOR
     [ToggleLeft]
+    #endif
     public bool deactivateAfterOneFrame;
     [Tooltip("If set, the trigger will only activate if and only if other "
         + "triggers in the scene that also have exclusive activation have not "
         + "been activated on the same frame. Triggers with this bit not set "
         + "will not be affected. (This is mainly used in the crate triggers so "
         + "that only one crate is destroyed per frame)")]
+    #if UNITY_EDITOR
     [ToggleLeft]
+    #endif
     public bool exclusiveActivation;
     [Tooltip("This enables the 'OnStay2D' trigger. Disabled by default.")]
+    #if UNITY_EDITOR
     [ToggleLeft]
+    #endif
     public bool activateOnStay;
     [Tooltip("This enables the 'OnExit2D' trigger. Enabled by default.")]
+    #if UNITY_EDITOR
     [ToggleLeft]
+    #endif
     public bool deactivateOnExit = true;
 
     bool triggeredOnce;

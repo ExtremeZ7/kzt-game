@@ -6,7 +6,6 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.ComponentModel;
 using System.Reflection;
-using CustomPropertyDrawers;
 
 public static class Tags
 {

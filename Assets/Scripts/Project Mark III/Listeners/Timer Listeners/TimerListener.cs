@@ -1,5 +1,5 @@
 ﻿//———————————————————————–
-// <copyright file=”TriggerListener.cs” game="KzzzZZZzzT!">
+// <copyright file=”TimerListener.cs” game="KzzzZZZzzT!">
 //     Copyright (c) Extreme Z7.  All rights reserved.
 // </copyright>
 //———————————————————————–
@@ -12,7 +12,7 @@ using System;
 using CustomPropertyDrawers;
 #endif
 
-public class TriggerListener : MonoBehaviour
+public class TimerListener : MonoBehaviour
 {
     //enums
     public enum ListenToActivation
@@ -23,10 +23,10 @@ public class TriggerListener : MonoBehaviour
 
     //fields
     [Header("Trigger Listener")]
-    #if UNITY_EDITOR
+	#if UNITY_EDITOR
     [DisplayScriptName]
     #endif
-    [Tooltip("The Trigger Switches to listen to")]
+    [Tooltip("The Timer Switches to listen to")]
     public List<TriggerSwitch> switches = new List<TriggerSwitch>();
 
     [Space(10)]
@@ -42,12 +42,12 @@ public class TriggerListener : MonoBehaviour
 
     [Tooltip("This will reverse what the listener will tell the derived class"
         + " about the switch (i.e. On becomes Off, Off becomes On)")]
-    #if UNITY_EDITOR
+	#if UNITY_EDITOR
     [ToggleLeft]
     #endif
-    public bool flipActivation;
-
+	public bool flipActivation;
     ListenerRunner listener;
+
     //properties
     protected bool TriggerIsPaused { get; set; }
 
@@ -74,12 +74,12 @@ public class TriggerListener : MonoBehaviour
     //methods
     void OnEnable()
     {
-        TriggerListenerManager.Instance.Register(this);
+        TimerListenerManager.Instance.Register(this);
     }
 
     void OnDisable()
     {
-        TriggerListenerManager.Instance.Unregister(this);
+        TimerListenerManager.Instance.Unregister(this);
 
         //I have to remove the instance of the listener here because disabling
         //the gameobject normally stops all coroutines. Because the listener starts
@@ -100,7 +100,7 @@ public class TriggerListener : MonoBehaviour
 
     /// <summary>This is normally called by the derived class on its OnValidate() MonoBehavior method</summary>
     ///
-    protected void ValidateTriggerListener()
+    protected void ValidateTimerListener()
     {
         if (switches.Count <= 0)
         {
@@ -116,11 +116,11 @@ public class TriggerListener : MonoBehaviour
         bool active;
         bool activatedOnCurrentFrame;
         bool deactivatedOnCurrentFrame;
-        readonly TriggerListener listener;
+        readonly TimerListener listener;
         float pauseTime;
 
         //constructor
-        public ListenerRunner(TriggerListener listener)
+        public ListenerRunner(TimerListener listener)
         {
             this.listener = listener;
 

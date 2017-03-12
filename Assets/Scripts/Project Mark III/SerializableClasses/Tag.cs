@@ -1,23 +1,26 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using System;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+[Serializable]
+public class Tag : System.Object
+{
+    public bool enabled;
+    public string name;
+
+    public string Name
+    { 
+        get{ return enabled ? name : ""; } 
+        set { name = value; } 
+    }
+}
+
+#if UNITY_EDITOR
 namespace CustomPropertyDrawers
 {
-
-    [Serializable]
-    public class Tag : System.Object
-    {
-        public bool enabled;
-        public string name;
-
-        public string Name
-        { 
-            get{ return enabled ? name : ""; } 
-            set { name = value; } 
-        }
-    }
-
     [CustomPropertyDrawer(typeof(Tag))]
     public class TagDrawer : PropertyDrawer
     {
@@ -71,3 +74,4 @@ namespace CustomPropertyDrawers
         }
     }
 }
+#endif
