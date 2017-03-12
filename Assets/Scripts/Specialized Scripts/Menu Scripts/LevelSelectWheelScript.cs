@@ -21,15 +21,22 @@ public class LevelSelectWheelScript : MonoBehaviour
     public GUIStyle textStyle;
     public GUIStyle strokeStyle;
 
-    private int lastSelectedLevelIndex = 1;
-    private int lastSelectionState;
-    private LevelSelectionScript levelSelectionScript;
-    private string levelName;
+    [Space(10)]
+    public GameObject enabledAudioSource;
+    public GameObject snapAudioSource;
+    public float snapDelay;
+    public GameObject changeAudioSource;
+    public GameObject disabledAudioSource;
 
-    private int origFontSize = 40;
-    private int actualFontSize = 40;
+    int lastSelectedLevelIndex = 1;
+    int lastSelectionState;
+    LevelSelectionScript levelSelectionScript;
+    string levelName;
 
-    private bool rotated;
+    int origFontSize = 40;
+    int actualFontSize = 40;
+
+    bool rotated;
 
     void Awake()
     {
@@ -57,6 +64,8 @@ public class LevelSelectWheelScript : MonoBehaviour
                     UpdateLevelName();
                     UpdateInventory();
                     StartCoroutine(OpenDoors(true, 0.75f));
+                    StartCoroutine(CreateObjectAfterDelay(enabledAudioSource));
+                    StartCoroutine(CreateObjectAfterDelay(snapAudioSource, snapDelay));
 
                     if (rotated)
                     {
@@ -88,6 +97,7 @@ public class LevelSelectWheelScript : MonoBehaviour
                 if (lastSelectedLevelIndex != levelSelectIndex)
                 {
                     UpdateLevelName();
+                    StartCoroutine(CreateObjectAfterDelay(changeAudioSource));
                     StartCoroutine(OpenDoors(false));
                     StopAllCoroutines();
                     StartCoroutine(OpenDoors(true, 0.5f));
@@ -117,6 +127,7 @@ public class LevelSelectWheelScript : MonoBehaviour
                 if (lastSelectionState != levelSelectionScript.getSelectionState())
                 {
                     StopAllCoroutines();
+                    StartCoroutine(CreateObjectAfterDelay(disabledAudioSource));
                     StartCoroutine(OpenDoors(false));
 
                     iTween.ScaleTo(gameObject, iTween.Hash(
@@ -310,5 +321,15 @@ public class LevelSelectWheelScript : MonoBehaviour
             }
         }
         yield return null;
+    }
+
+    IEnumerator CreateObjectAfterDelay(GameObject prefab, float delay = 0f)
+    {
+        if (delay > 0f)
+        {
+            yield return new WaitForSeconds(delay);
+        }
+
+        Instantiate(prefab, transform.position, Quaternion.identity);
     }
 }

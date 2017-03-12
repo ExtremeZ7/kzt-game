@@ -26,6 +26,14 @@ namespace Helper
 
         public static Object GreenGemSprite{ get; private set; }
 
+        public static Object OrangeGemSprite{ get; private set; }
+
+        public static Object BlueGemSprite{ get; private set; }
+
+        public static Object PurpleGemSprite{ get; private set; }
+
+        public static Object DiamondGemSprite{ get; private set; }
+
         public static Object LetterKSprite{ get; private set; }
 
         public static Object LetterKSilhouette{ get; private set; }
@@ -56,9 +64,17 @@ namespace Helper
             GemSilhouette = Resources.Load(itemSpritesFolder
                 + "GemSilhuoette");
             RedGemSprite = Resources.Load(itemSpritesFolder
-                + "RedGem", typeof(Sprite));
+                + "RidiculousRuby", typeof(Sprite));
             GreenGemSprite = Resources.Load(itemSpritesFolder
-                + "GreenGem", typeof(Sprite));
+                + "IffyEmerald", typeof(Sprite));
+            OrangeGemSprite = Resources.Load(itemSpritesFolder
+                + "TrickyTopaz", typeof(Sprite));
+            BlueGemSprite = Resources.Load(itemSpritesFolder
+                + "SillySapphire", typeof(Sprite));
+            PurpleGemSprite = Resources.Load(itemSpritesFolder
+                + "AbsurdAmethyst", typeof(Sprite));
+            DiamondGemSprite = Resources.Load(itemSpritesFolder
+                + "DiamondBolt", typeof(Sprite));
             LetterKSprite = Resources.Load(itemSpritesFolder
                 + "LetterK", typeof(Sprite));
             LetterKSilhouette = Resources.Load(itemSpritesFolder
@@ -112,6 +128,8 @@ namespace Helper
                     + "KrushBandicootHead", typeof(Sprite)));
             CharacterProfiles.Add(Resources.Load(characterProfilesFolder
                     + "DrWackoHead", typeof(Sprite)));
+            CharacterProfiles.Add(Resources.Load(characterProfilesFolder
+                    + "DrKrazyHead", typeof(Sprite)));
             CharacterProfiles.Add(null);
         }
 
@@ -134,6 +152,26 @@ namespace Helper
         public static Object GetGreenGemSprite(bool notASilohuette = true)
         {
             return notASilohuette ? GreenGemSprite : GemSilhouette;
+        }
+
+        public static Object GetOrangeGemSprite()
+        {
+            return OrangeGemSprite;
+        }
+
+        public static Object GetBlueGemSprite()
+        {
+            return BlueGemSprite;
+        }
+
+        public static Object GetPurpleGemSprite()
+        {
+            return PurpleGemSprite;
+        }
+
+        public static Object GetDiamondGemSprite()
+        {
+            return DiamondGemSprite;
         }
 
         /// <summary>
@@ -255,10 +293,13 @@ namespace Helper
                             case 1:
                                 return GetGreenGemSprite();
                             case 2:
+                                return GetOrangeGemSprite();
                             case 3:
+                                return GetBlueGemSprite();
                             case 4:
+                                return GetPurpleGemSprite();
                             case 5:
-                                return null;
+                                return GetDiamondGemSprite();
                             default:
                                 return null;
                         }

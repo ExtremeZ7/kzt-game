@@ -99,38 +99,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Collectible Items
-    uniqueID: 3084684175
-    locked: 0
-  - name: Obstacles
-    uniqueID: 2162274997
-    locked: 0
-  - name: Platforms
-    uniqueID: 2438995347
-    locked: 0
-  - name: Panel
-    uniqueID: 482202535
+  - name: Props
+    uniqueID: 1473080777
     locked: 0
   - name: Player
     uniqueID: 1446457819
     locked: 0
-  - name: Projectiles
-    uniqueID: 2434817259
-    locked: 0
-  - name: Platforms
-    uniqueID: 263889033
-    locked: 0
-  - name: Death Animation
-    uniqueID: 2327810207
-    locked: 0
   - name: Foreground
     uniqueID: 4068127549
-    locked: 0
-  - name: Collected Items
-    uniqueID: 2146808041
-    locked: 0
-  - name: Crosshair
-    uniqueID: 1456770745
     locked: 0
   - name: GUI
     uniqueID: 239396027
