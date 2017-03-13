@@ -1,16 +1,9 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 
-public class TimerListenerManager : MonoBehaviour, IUpdateManager<TimerListener>
+public class TimerListenerManager : Singleton<TimerListenerManager>,
+    IUpdateManager<TimerListener>
 {
-    public static TimerListenerManager Instance { get; private set; }
-
     readonly List<TimerListener> managedScripts = new List<TimerListener>();
-
-    void Awake()
-    {
-        Instance = this;
-    }
 
     void Update()
     {

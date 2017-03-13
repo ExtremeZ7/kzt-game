@@ -16,9 +16,8 @@ public class CreateObjectsOnTrigger : TriggerListener
 {
     //fields
     [Header("Main Fields")]
-    [ContextMenuItem("Copy To OnComplete List", "CopyTriggerToComplete")]
-    public List<GameObject> objectsToCreateOnTrigger;
-    public List<GameObject> extraObjectsToCreateOnComplete;
+    public ObjectToCreate[] objectsToCreateOnTrigger;
+    public ObjectToCreate[] extraObjectsToCreateOnComplete;
 
     [Tooltip("If this is enabled, the gameobjects on the main (OnTrigger)"
         + "GameObject list will not spawn on completion")]
@@ -26,15 +25,6 @@ public class CreateObjectsOnTrigger : TriggerListener
     [ToggleLeft]
     #endif
     public bool onlyCreateExtrasOnComplete;
-
-    [Space(10)]
-    [Tooltip("This will manipulate the GameObjects after creation.\n"
-        + "(Most of the fields are optional)")]
-    public List<GameObjectConfig> objectConfigs;
-
-    [Tooltip("These will create delays from the time the trigger was heard"
-        + " to the time the GameObject will be initialized")]
-    public List<float> createDelays;
 
     [Header("Main Behavior")]
     [Tooltip("This is the amount of times a trigger will be heard before"
@@ -50,12 +40,12 @@ public class CreateObjectsOnTrigger : TriggerListener
     Stack<Coroutine> coroutines = new Stack<Coroutine>();
 
     //properties
-    List<GameObject> ObjectsOnTrigger
+    ObjectToCreate[] ObjectsOnTrigger
     {
         get { return objectsToCreateOnTrigger; }
     }
 
-    List<GameObject> ObjectsOnComplete
+    ObjectToCreate[] ObjectsOnComplete
     {
         get { return extraObjectsToCreateOnComplete; }
     }
@@ -92,11 +82,11 @@ public class CreateObjectsOnTrigger : TriggerListener
 
         //Note that it loops through both the trigger objects and completion event
         //objects in one control statement. Efficiency!
-        var i = 0;
-        while (i < ObjectsOnTrigger.Count + ObjectsOnComplete.Count)
+        for (int i = 0; i < ObjectsOnTrigger.Length + ObjectsOnComplete.Length
+            ; i++)
         {
-            GameObject nextObject;
-            if (i < ObjectsOnTrigger.Count)
+            ObjectToCreate nextObject;
+            if (i < ObjectsOnTrigger.Length)
             {
                 //Prevents objects on the Trigger list from being created on
                 //the completion event if asked not to
@@ -117,7 +107,7 @@ public class CreateObjectsOnTrigger : TriggerListener
                 {
                     break;
                 }
-                nextObject = ObjectsOnComplete[i - ObjectsOnTrigger.Count];
+                nextObject = ObjectsOnComplete[i - ObjectsOnTrigger.Length];
             }
             //Next Object doesn't exist? Next!
             if (nextObject == null)
@@ -128,8 +118,7 @@ public class CreateObjectsOnTrigger : TriggerListener
             //Starts the coroutine that will create the object
             //Also pushes the coroutine unto a stack for reasons explained below
             coroutines.Push(StartCoroutine(
-                    CreateObjectAfterDelay(createDelays[i], nextObject, i)));
-            i++;
+                    CreateObjectAfterDelay(nextObject)));
         }
     }
 
@@ -138,18 +127,28 @@ public class CreateObjectsOnTrigger : TriggerListener
     /// <param name="obj">The object to create</param>
     /// <param name="i">The index of the object configuration</param>
     ///
-    IEnumerator CreateObjectAfterDelay(float delay, GameObject obj, int i)
-    {
-        if (delay > 0f)
+    IEnumerator CreateObjectAfterDelay(ObjectToCreate objectToCreate)
+    {  
+        GameObject gameObject = objectToCreate.gameObject;
+        GameObjectConfig customConfig = objectToCreate.customConfig;
+        float delay = objectToCreate.createDelay;
+
+        if (objectToCreate.createDelay > 0f)
         {
             //Waiting happens here
             yield return new WaitForSeconds(delay);
         }
+        else if (objectToCreate.createDelay < 0f)
+        {
+            throw new ArgumentException("Create delay should be larger than "
+                + "zero!");
+        }
 
         //Instantiate creates the object with default parameters then 
         //Configure() changes the appropriate attributes
-        objectConfigs[i].Configure(Instantiate<GameObject>(
-                obj, transform.position, Quaternion.Euler(obj.transform.localEulerAngles)));
+        customConfig.Configure(Instantiate<GameObject>(
+                gameObject, transform.position,
+                Quaternion.Euler(gameObject.transform.localEulerAngles)));
 
         //If the stack is empty, wait until there something in the stack to 
         //pop before continuing
@@ -196,52 +195,29 @@ public class CreateObjectsOnTrigger : TriggerListener
     {
         ValidateListener();
 
-        objectConfigs = objectConfigs.Resize(
-            ObjectsOnTrigger.Count + ObjectsOnComplete.Count);
-
-        for (int i = 0; i < ObjectsOnTrigger.Count + ObjectsOnComplete.Count; i++)
-        {
-            GameObject nextObject;
-
-            nextObject = i < ObjectsOnTrigger.Count ? ObjectsOnTrigger[i]
-                               : ObjectsOnComplete[i - ObjectsOnTrigger.Count];
-
-            if (nextObject != null)
-            {
-                objectConfigs[i].expectedObject = nextObject;
-            }
-        }
-
-        createDelays = createDelays.Resize(
-            ObjectsOnTrigger.Count + ObjectsOnComplete.Count);
-
-        for (int i = 0; i < createDelays.Count; i++)
-        {
-            if (createDelays[i] < 0f)
-            {
-                createDelays[i] = 0f;
-            }
-        }
-
         if (countsBeforeCompletion <= 0f)
         {
             countsBeforeCompletion = 1f;
         }
         countsBeforeCompletion = Mathf.Ceil(countsBeforeCompletion);
 
-        foreach (GameObjectConfig config in objectConfigs)
+        foreach (ObjectToCreate objectToCreate in ObjectsOnTrigger)
         {
-            if (config != null)
-            {
-                config.Validate();
-            }
+            objectToCreate.customConfig.Validate();
+        }
+
+        foreach (ObjectToCreate objectToCreate in ObjectsOnComplete)
+        {
+            objectToCreate.customConfig.Validate();
         }
     }
 
-    void CopyTriggerToComplete()
+    //nested classes
+    [Serializable]
+    public class ObjectToCreate : System.Object
     {
-        var gameObjectsToCopy = new GameObject[ObjectsOnTrigger.Count];
-        ObjectsOnTrigger.CopyTo(gameObjectsToCopy);
-        extraObjectsToCreateOnComplete = gameObjectsToCopy.ToList();
+        public GameObject gameObject;
+        public float createDelay;
+        public GameObjectConfig customConfig;
     }
 }

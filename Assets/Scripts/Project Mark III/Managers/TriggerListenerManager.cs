@@ -1,16 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class TriggerListenerManager : MonoBehaviour, IUpdateManager<TriggerListener>
+public class TriggerListenerManager : Singleton<TriggerListenerManager>,
+    IUpdateManager<TriggerListener>
 {
-    public static TriggerListenerManager Instance { get; private set; }
-
     readonly List<TriggerListener> managedScripts = new List<TriggerListener>();
-
-    void Awake()
-    {
-        Instance = this;
-    }
 
     void Update()
     {

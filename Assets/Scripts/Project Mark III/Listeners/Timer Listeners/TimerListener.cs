@@ -27,7 +27,7 @@ public class TimerListener : MonoBehaviour
     [DisplayScriptName]
     #endif
     [Tooltip("The Timer Switches to listen to")]
-    public List<TimerSwitch> switches = new List<TimerSwitch>();
+    public TimerSwitch[] switches;
 
     [Space(10)]
     [Tooltip("Default: Listen to any activation\n First Frame Only: Listen "
@@ -49,13 +49,13 @@ public class TimerListener : MonoBehaviour
     ListenerRunner listener;
 
     //properties
-    protected bool TriggerIsPaused { get; set; }
+    protected bool IsPaused { get; set; }
 
     protected Coroutine ListenerCoroutine { get; set; }
 
     protected bool Listening
     {
-        get{ return listener != null && !TriggerIsPaused; }
+        get{ return listener != null && !IsPaused; }
     }
 
     protected ListenerRunner Listener
@@ -98,9 +98,9 @@ public class TimerListener : MonoBehaviour
     ///
     protected void ValidateListener()
     {
-        if (switches.Count <= 0)
+        if (switches.Length <= 0)
         {
-            switches = switches.Resize(1);
+            switches = new TimerSwitch[1];
         }
     }
 
@@ -179,10 +179,12 @@ public class TimerListener : MonoBehaviour
         {
             for (;;)
             {
-                foreach (TimerSwitch TimerSwitch in listener.switches)
+                for (int i = 0; i < listener.switches.Length; i++)
                 {
+                    TimerSwitch timerSwitch = listener.switches[i];
+
                     //Skip the elements that have not been set
-                    if (TimerSwitch == null)
+                    if (timerSwitch == null)
                     {
                         continue;
                     }
@@ -190,13 +192,13 @@ public class TimerListener : MonoBehaviour
                     //Ask if the listener has been asked to listen any activation
                     if (listener.listenToActivation == ListenToActivation.Default)
                     {
-                        active |= TimerSwitch.IsActivated;
+                        active |= timerSwitch.IsActivated;
                     }
 
                     //Ask if the listener has been asked to the first frame of activation
                     if (listener.listenToActivation == ListenToActivation.FirstFrameOnly)
                     {
-                        if (TimerSwitch.ActivatedOnCurrentFrame)
+                        if (timerSwitch.ActivatedOnCurrentFrame)
                         {
                             SetSingleFrameBits(!listener.flipActivation);
                         }
@@ -205,7 +207,7 @@ public class TimerListener : MonoBehaviour
                     //Ask if the listener has been asked to the first frame of deactivation
                     if (listener.listenToFirstFrameOnDeactivate)
                     {
-                        if (TimerSwitch.DeactivatedOnCurrentFrame)
+                        if (timerSwitch.DeactivatedOnCurrentFrame)
                         {
                             SetSingleFrameBits(listener.flipActivation);
                         }
@@ -215,9 +217,9 @@ public class TimerListener : MonoBehaviour
                 //Pause time happens here
                 if (pauseTime > 0f)
                 {
-                    listener.TriggerIsPaused = true;
+                    listener.IsPaused = true;
                     yield return new WaitForSeconds(pauseTime);
-                    listener.TriggerIsPaused = false;
+                    listener.IsPaused = false;
                     pauseTime = 0f;
                 }
                 else

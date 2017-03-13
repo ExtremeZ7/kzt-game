@@ -440,4 +440,9 @@ public static class OtherExtensions
         }
         return false;
     }
+
+    public static X GetPropertyValue<T,X>(this T data, string propertyName)
+    {              
+        return (X)data.GetType().GetProperty(propertyName).GetValue(data, null);
+    }
 }

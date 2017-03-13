@@ -27,7 +27,7 @@ public class TriggerListener : MonoBehaviour
     [DisplayScriptName]
     #endif
     [Tooltip("The Trigger Switches to listen to")]
-    public List<TriggerSwitch> switches = new List<TriggerSwitch>();
+    public TriggerSwitch[] switches;
 
     [Space(10)]
     [Tooltip("Default: Listen to any activation\n First Frame Only: Listen "
@@ -49,13 +49,13 @@ public class TriggerListener : MonoBehaviour
 
     ListenerRunner listener;
     //properties
-    protected bool TriggerIsPaused { get; set; }
+    protected bool IsPaused { get; set; }
 
     protected Coroutine ListenerCoroutine { get; set; }
 
     protected bool Listening
     {
-        get{ return listener != null && !TriggerIsPaused; }
+        get{ return listener != null && !IsPaused; }
     }
 
     protected ListenerRunner Listener
@@ -102,9 +102,9 @@ public class TriggerListener : MonoBehaviour
     ///
     protected void ValidateListener()
     {
-        if (switches.Count <= 0)
+        if (switches.Length <= 0)
         {
-            switches = switches.Resize(1);
+            switches = new TriggerSwitch[1];
         }
 
     }
@@ -184,8 +184,10 @@ public class TriggerListener : MonoBehaviour
         {
             for (;;)
             {
-                foreach (TriggerSwitch triggerSwitch in listener.switches)
+                for (int i = 0; i < listener.switches.Length; i++)
                 {
+                    TriggerSwitch triggerSwitch = listener.switches[i];
+
                     //Skip the elements that have not been set
                     if (triggerSwitch == null)
                     {
@@ -220,9 +222,9 @@ public class TriggerListener : MonoBehaviour
                 //Pause time happens here
                 if (pauseTime > 0f)
                 {
-                    listener.TriggerIsPaused = true;
+                    listener.IsPaused = true;
                     yield return new WaitForSeconds(pauseTime);
-                    listener.TriggerIsPaused = false;
+                    listener.IsPaused = false;
                     pauseTime = 0f;
                 }
                 else
