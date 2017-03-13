@@ -14,6 +14,14 @@ using CustomPropertyDrawers;
 
 public class CreateObjectsOnTrigger : TriggerListener
 {
+    //enums
+    public enum ActionOnComplete
+    {
+        Nothing,
+        SetSelfOrParentToInactive,
+        DestroySelfOrParent}
+    ;
+
     //fields
     [Header("Main Fields")]
     public ObjectToCreate[] objectsToCreateOnTrigger;
@@ -35,8 +43,9 @@ public class CreateObjectsOnTrigger : TriggerListener
     [Tooltip("On a completion event, the behavior will wait for all"
         + " gameobjects to be created first before running the action on "
         + "self")]
-    public ActionOnComplete selfActionOnComplete;
+    public SelfOnComplete selfActionOnComplete;
 
+    GameObject objectToDestroy;
     Stack<Coroutine> coroutines = new Stack<Coroutine>();
 
     //properties
@@ -51,6 +60,24 @@ public class CreateObjectsOnTrigger : TriggerListener
     }
 
     //methods
+    void OnStart()
+    {
+        //Check if the self action is not "Nothing"
+        if (selfActionOnComplete.actionOnComplete != ActionOnComplete.Nothing)
+        {
+            Transform transformToDestroy = gameObject.transform;
+
+            int i = selfActionOnComplete.parentDepth;
+            while (i > 0)
+            {
+                transformToDestroy = transformToDestroy.parent;
+                i--;
+            }
+
+            objectToDestroy = transformToDestroy.gameObject;
+        }
+    }
+
     public override void ManagedUpdate()
     {
         //Checks if the completion event is ready
@@ -63,8 +90,10 @@ public class CreateObjectsOnTrigger : TriggerListener
                 Listener.Stop();
             }
 
-            //If the Self Action is set to None, don't bother even starting the coroutine
-            if (selfActionOnComplete != ActionOnComplete.Nothing)
+            // If the Self Action is set to None, don't bother even starting the
+            // coroutine
+            if (selfActionOnComplete.actionOnComplete
+                != ActionOnComplete.Nothing)
             {
                 StartCoroutine(DoSelfActionAfterAllObjectsCreated());
             }
@@ -171,16 +200,17 @@ public class CreateObjectsOnTrigger : TriggerListener
             //creation coroutines
             if (coroutines.Count == 0)
             {
+
                 waiting = false;
-                switch (selfActionOnComplete)
+                switch (selfActionOnComplete.actionOnComplete)
                 {
-                    case ActionOnComplete.SetToInactive:
-                        gameObject.SetActive(false);
+                    case ActionOnComplete.SetSelfOrParentToInactive:
+                        objectToDestroy.SetActive(false);
                         break;
 
-                    case ActionOnComplete.Destroy:
-                        Debug.Log("Sup");
-                        UnityEngine.Object.Destroy(gameObject);
+                    case ActionOnComplete.DestroySelfOrParent:
+                        Debug.Log("What Bollocks!");
+                        UnityEngine.Object.Destroy(objectToDestroy);
                         break;
                 }
             }
@@ -219,5 +249,13 @@ public class CreateObjectsOnTrigger : TriggerListener
         public GameObject gameObject;
         public float createDelay;
         public GameObjectConfig customConfig;
+    }
+
+    //nested classes
+    [Serializable]
+    public class SelfOnComplete : System.Object
+    {
+        public ActionOnComplete actionOnComplete;
+        public int parentDepth;
     }
 }
