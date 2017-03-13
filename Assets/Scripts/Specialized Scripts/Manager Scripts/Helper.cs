@@ -369,7 +369,9 @@ public static class FloatExtensions
     {
         float rand = UnityEngine.Random.Range(-range, range);
         if (absolute)
+        {
             rand = Math.Abs(rand);
+        }
         return data + rand;
     }
 
