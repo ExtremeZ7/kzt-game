@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 114209549923326880}
   - component: {fileID: 114449848433117002}
   m_Layer: 8
-  m_Name: Small Wooden Box
+  m_Name: Small Wooden Box__Backup
   m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 488130}
@@ -107,7 +107,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.42}
+  m_Offset: {x: 0, y: 0.44995624}
   serializedVersion: 2
   m_Size: {x: 0.95, y: 0.1000877}
 --- !u!61 &6114858
@@ -121,7 +121,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.42}
+  m_Offset: {x: 0, y: -0.44999975}
   serializedVersion: 2
   m_Size: {x: 0.95, y: 0.099999905}
 --- !u!61 &6141796
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: ccf9cef747ef16b448b87a07ce9514b3, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1}
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
 --- !u!114 &11473738
@@ -241,7 +241,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1747353079449908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 488130}
@@ -305,9 +305,7 @@ MonoBehaviour:
       transformOnCreate: 0
   onlyCreateExtrasOnComplete: 0
   countsBeforeCompletion: 1
-  selfActionOnComplete:
-    actionOnComplete: 2
-    parentDepth: 0
+  selfActionOnComplete: 2
 --- !u!114 &114449848433117002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -388,9 +386,7 @@ MonoBehaviour:
       transformOnCreate: 0
   onlyCreateExtrasOnComplete: 0
   countsBeforeCompletion: 1
-  selfActionOnComplete:
-    actionOnComplete: 2
-    parentDepth: 0
+  selfActionOnComplete: 2
 --- !u!212 &212118909674374412
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -88,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1137404545831886}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.12855755, z: 0}
+  m_LocalPosition: {x: 0, y: 0.17975882, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4032872614768714}
@@ -145,9 +145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a6b69ce5123ce42a0fb1575f26a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchName: Trigger28484
+  scriptName: Trigger28484
+  tagFilter: []
   activationMode: 0
-  tagFilter: 
   deactivateAfterOneFrame: 0
   exclusiveActivation: 0
   activateOnStay: 0
@@ -196,18 +196,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 0}
-  names:
-  - 
   listenToActivation: 0
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger: []
   extraObjectsToCreateOnComplete: []
   onlyCreateExtrasOnComplete: 0
-  objectConfigs: []
-  createDelays: []
   countsBeforeCompletion: Infinity
-  selfActionOnComplete: 0
+  selfActionOnComplete:
+    actionOnComplete: 0
+    parentDepth: 0
 --- !u!114 &114785396190200378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,18 +249,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 0}
-  names:
-  - 
   listenToActivation: 0
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger: []
   extraObjectsToCreateOnComplete: []
   onlyCreateExtrasOnComplete: 0
-  objectConfigs: []
-  createDelays: []
   countsBeforeCompletion: Infinity
-  selfActionOnComplete: 0
+  selfActionOnComplete:
+    actionOnComplete: 0
+    parentDepth: 0
 --- !u!212 &212412258409105300
 SpriteRenderer:
   m_ObjectHideFlags: 1

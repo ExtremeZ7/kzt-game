@@ -60,7 +60,7 @@ public class CreateObjectsOnTrigger : TriggerListener
     }
 
     //methods
-    void OnStart()
+    void Start()
     {
         //Check if the self action is not "Nothing"
         if (selfActionOnComplete.actionOnComplete != ActionOnComplete.Nothing)
@@ -209,8 +209,7 @@ public class CreateObjectsOnTrigger : TriggerListener
                         break;
 
                     case ActionOnComplete.DestroySelfOrParent:
-                        Debug.Log("What Bollocks!");
-                        UnityEngine.Object.Destroy(objectToDestroy);
+                        Destroy(objectToDestroy);
                         break;
                 }
             }
