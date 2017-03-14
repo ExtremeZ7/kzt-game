@@ -62,7 +62,8 @@ public class CreateObjectsOnTrigger : TriggerListener
     //methods
     void Start()
     {
-        //Check if the self action is not "Nothing"
+        // Check if the self action is not "Nothing" then get the proper parent
+        //
         if (selfActionOnComplete.actionOnComplete != ActionOnComplete.Nothing)
         {
             Transform transformToDestroy = gameObject.transform;
