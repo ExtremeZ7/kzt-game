@@ -242,7 +242,7 @@ public class CollisionHandler : MonoBehaviour
 
         if (scriptName.Length == 0)
         {
-            scriptName = name + GetHashCode();
+            scriptName = name + " [" + GetHashCode() + "]";
         }
     }
 }

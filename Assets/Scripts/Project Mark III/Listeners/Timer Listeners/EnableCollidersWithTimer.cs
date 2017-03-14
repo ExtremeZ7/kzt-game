@@ -1,31 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.Serialization;
 
 public class EnableCollidersWithTimer : TimerListener
 {
     [Header("Main Fields")]
-    public List<Collider2D> colliderComponents;
+    [FormerlySerializedAs("colliderComponents")]
+    public List<Collider2D> colliders;
 
     void Start()
     {
-        colliderComponents.Where(i => i != null).ToList();
+        colliders = colliders.Where(i => i != null).ToList();
 
         // If the list is empty, try to populate it with
         // all the colliders in the current gameobject
         //
-        if (colliderComponents.Count == 0)
+        if (colliders.Count == 0)
         {
             foreach (Collider2D colliderComp in GetComponents<Collider2D>())
             {
-                colliderComponents.Add(colliderComp);
+                colliders.Add(colliderComp);
             }
         }
     }
 
     public override void ManagedUpdate()
     {
-        foreach (Collider2D colliderComp in colliderComponents)
+        foreach (Collider2D colliderComp in colliders)
         {
             colliderComp.enabled = Listener.IsActivated;  
         }

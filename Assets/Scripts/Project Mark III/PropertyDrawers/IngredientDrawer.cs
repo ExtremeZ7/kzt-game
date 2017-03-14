@@ -7,7 +7,6 @@ namespace CustomPropertyDrawers
     [CustomPropertyDrawer(typeof(Ingredient))]
     public class IngredientDrawer : PropertyDrawer
     {
-
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             // Using BeginProperty / EndProperty on the parent property menas that

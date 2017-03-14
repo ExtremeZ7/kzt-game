@@ -152,23 +152,23 @@ public class CreateObjectsOnTrigger : TriggerListener
         }
     }
 
-    /// <summary>A coroutine that creates an object after a delay time</summary>
-    /// <param name="delay">The delay time (in seconds)</param>
-    /// <param name="obj">The object to create</param>
-    /// <param name="i">The index of the object configuration</param>
-    ///
+    /// <summary>
+    /// Creates the object after a delay.
+    /// </summary>
+    /// <returns>The object after delay.</returns>
+    /// <param name="objectToCreate">Object to create.</param>
     IEnumerator CreateObjectAfterDelay(ObjectToCreate objectToCreate)
     {  
-        GameObject gameObject = objectToCreate.gameObject;
+        GameObject gameObject = objectToCreate.Object;
         GameObjectConfig customConfig = objectToCreate.customConfig;
-        float delay = objectToCreate.createDelay;
+        float delay = objectToCreate.Delay;
 
-        if (objectToCreate.createDelay > 0f)
+        if (objectToCreate.Delay > 0f)
         {
             //Waiting happens here
             yield return new WaitForSeconds(delay);
         }
-        else if (objectToCreate.createDelay < 0f)
+        else if (objectToCreate.Delay < 0f)
         {
             throw new ArgumentException("Create delay should be larger than "
                 + "zero!");
@@ -246,12 +246,27 @@ public class CreateObjectsOnTrigger : TriggerListener
     [Serializable]
     public class ObjectToCreate : System.Object
     {
-        public GameObject gameObject;
-        public float createDelay;
+        public DelayedObject delayedObject;
         public GameObjectConfig customConfig;
+
+        public GameObject Object
+        {
+            get{ return delayedObject.gameObject; }
+        }
+
+        public float Delay
+        {
+            get{ return delayedObject.delay; }
+        }
     }
 
-    //nested classes
+    [Serializable]
+    public class DelayedObject : System.Object
+    {
+        public GameObject gameObject;
+        public float delay;
+    }
+
     [Serializable]
     public class SelfOnComplete : System.Object
     {

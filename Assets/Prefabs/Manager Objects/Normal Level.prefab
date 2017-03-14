@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 440408}
   m_Layer: 0
   m_Name: Non-Static Level Objects
-  m_TagString: State Keeper
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 11462604}
   m_Layer: 0
   m_Name: Jewel Collector
-  m_TagString: Jewel Collector
+  m_TagString: JewelCollector
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 463510}
   m_Layer: 0
   m_Name: Checkpoints
-  m_TagString: Checkpoint List
+  m_TagString: Checkpoints
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 11481580}
   m_Layer: 0
   m_Name: K-Z-T Collector
-  m_TagString: K-Z-T Collector
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 417894}
   m_Layer: 0
   m_Name: Show Point
-  m_TagString: Jewel Target
+  m_TagString: JewelTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 11458564}
   m_Layer: 0
   m_Name: Loading Screen Barrier
-  m_TagString: Loading Screen Barrier
+  m_TagString: LoadingScreenBarrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 11477018}
   m_Layer: 0
   m_Name: Player Start Location
-  m_TagString: PlayerStartLocation
+  m_TagString: PlayerStartPosition
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

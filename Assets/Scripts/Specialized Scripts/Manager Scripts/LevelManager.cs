@@ -7,33 +7,33 @@ public class LevelManager : MonoBehaviour
 
     public enum Key
     {
-C,
-CSharp,
-D,
-DSharp,
-E,
-F,
-FSharp,
-G,
-GSharp,
-A,
-ASharp,
-B}
+        C,
+        CSharp,
+        D,
+        DSharp,
+        E,
+        F,
+        FSharp,
+        G,
+        GSharp,
+        A,
+        ASharp,
+        B}
 
     ;
 
     public enum Scale
     {
-Major,
-Minor}
+        Major,
+        Minor}
 
     ;
 
     public enum LevelState
     {
-PlayingLevel,
-RespawningPlayer,
-LevelComplete}
+        PlayingLevel,
+        RespawningPlayer,
+        LevelComplete}
 
     ;
 
@@ -62,7 +62,7 @@ LevelComplete}
 
     void Start()
     {
-        lastCheckpoint = GameObject.FindGameObjectWithTag("Checkpoint List").transform.GetChild(0);
+        lastCheckpoint = GameObject.FindGameObjectWithTag("Checkpoints").transform.GetChild(0);
         respawnStateKeeper = gameObject.GetComponent<keepRespawnState>();
         timer = loadingCloseDelay;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;

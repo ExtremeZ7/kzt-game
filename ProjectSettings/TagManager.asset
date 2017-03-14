@@ -4,58 +4,30 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Crosshair
-  - Projectile
-  - Explosion
   - Box Collider
-  - State Keeper
-  - Jewel Collector
+  - Projectile
+  - Player Head
+  - Crosshair
+  - PlayerStartPosition
+  - Checkpoints
+  - Box
+  - Level Tile
+  - Slippery Floor
+  - Bottomless Pit
+  - DynamicObjects
+  - KzzzZZZzzt!
   - Single Jewel Tag
+  - 10-Jewel Tag
+  - Steel Box
   - 5-Jewel Tag
   - 7-Jewel Tag
-  - 10-Jewel Tag
-  - Checkpoint List
-  - Level Tile
-  - Steel Box
-  - Moving Platform
-  - Box
-  - K-Z-T Collector
-  - Level Manager
-  - Helper Hint
-  - GAMEOBJECTS
-  - KzzzZZZzzt!
-  - Bottomless Pit
-  - Squasher
-  - Player Head
-  - SkazZzow!
   - 20-Jewel Tag
-  - Generic Obstacle
-  - Bloop bloop. . .
-  - Jewel Target
-  - Loading Screen Barrier
-  - Letter K
-  - Block
-  - Bouncing Steel Crate
-  - MovingPlatform
-  - Fwoosh!
-  - Small Explosion
-  - Piston
-  - Chaser
-  - Toxic Waste
-  - Bouncing Nitro Crate
-  - A Sharp Object
-  - A Hard Object
-  - Barrel Ramp
-  - Slippery Floor
-  - Golden Bubble
-  - Wind
+  - LoadingScreenBarrier
+  - JewelTarget
+  - Obstacle:Fire
   - Slime Projectile
-  - SP3 Activator
-  - SP3 Deactivator
-  - Projectile Direction Shifter
-  - PlayerStartLocation
-  - DynamicObjects
-  - IgnoreTrigger
+  - JewelCollector
+  - GAMEOBJECTS
   layers:
   - Default
   - TransparentFX

@@ -111,7 +111,7 @@ public class CameraControl : MonoBehaviour
 
     void FollowPlayerStartLocation()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("PlayerStartLocation").transform;
+        playerTransform = GameObject.FindGameObjectWithTag("PlayerStartPosition").transform;
 
         Vector3 targetPosition = playerTransform.position;
 

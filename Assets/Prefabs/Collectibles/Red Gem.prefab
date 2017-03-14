@@ -33,7 +33,7 @@ GameObject:
   - component: {fileID: 11475346}
   - component: {fileID: 11406116}
   m_Layer: 0
-  m_Name: Red Gem [ORBITER]
+  m_Name: Red Gem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

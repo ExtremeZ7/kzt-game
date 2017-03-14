@@ -16,7 +16,7 @@ public class SetAnimatorBoolParamsWithTimer : TimerListener
             animator = GetComponent<Animator>();
         }
 
-        parameters.Where(i => i != "").ToList();
+        parameters = parameters.Where(i => i != "").ToList();
     }
 
     public override void ManagedUpdate()

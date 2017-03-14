@@ -10,7 +10,7 @@ public class MuteAudioSourcesWithTimer : TimerListener
 
     void Start()
     {
-        audioSources.Where(i => i != null).ToList();
+        audioSources = audioSources.Where(i => i != null).ToList();
 
         // If the list is empty, try to populate it with
         // all the audio sources in the current gameobject

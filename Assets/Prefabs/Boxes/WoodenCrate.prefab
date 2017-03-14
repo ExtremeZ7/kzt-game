@@ -39,21 +39,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &199826
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 434692}
-  m_Layer: 8
-  m_Name: Single Jewel Tag
-  m_TagString: Single Jewel Tag
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &408234
 Transform:
   m_ObjectHideFlags: 1
@@ -67,19 +52,6 @@ Transform:
   m_Father: {fileID: 488130}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &434692
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199826}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 488130}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &488130
 Transform:
   m_ObjectHideFlags: 1
@@ -91,7 +63,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 408234}
-  - {fileID: 434692}
   - {fileID: 4071650475839748}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -245,7 +216,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 488130}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114209549923326880
 MonoBehaviour:
@@ -264,8 +235,9 @@ MonoBehaviour:
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger:
-  - gameObject: {fileID: 193438, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
-    createDelay: 0
+  - delayedObject:
+      gameObject: {fileID: 193438, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      delay: 0
     customConfig:
       newName: 
       newTransform: {fileID: 0}
@@ -284,8 +256,9 @@ MonoBehaviour:
         custom: 0
       transformOnCreate: 0
   extraObjectsToCreateOnComplete:
-  - gameObject: {fileID: 179066, guid: 051229403a0311e4e875e0b566dffafc, type: 2}
-    createDelay: 0
+  - delayedObject:
+      gameObject: {fileID: 179066, guid: 051229403a0311e4e875e0b566dffafc, type: 2}
+      delay: 0
     customConfig:
       newName: 
       newTransform: {fileID: 0}
@@ -347,8 +320,9 @@ MonoBehaviour:
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger:
-  - gameObject: {fileID: 129004, guid: 0dde1fa050a3ad44884edb5092af6cfd, type: 2}
-    createDelay: 0
+  - delayedObject:
+      gameObject: {fileID: 129004, guid: 0dde1fa050a3ad44884edb5092af6cfd, type: 2}
+      delay: 0
     customConfig:
       newName: 
       newTransform: {fileID: 0}
@@ -367,8 +341,9 @@ MonoBehaviour:
         custom: 0
       transformOnCreate: 0
   extraObjectsToCreateOnComplete:
-  - gameObject: {fileID: 179066, guid: 051229403a0311e4e875e0b566dffafc, type: 2}
-    createDelay: 0
+  - delayedObject:
+      gameObject: {fileID: 179066, guid: 051229403a0311e4e875e0b566dffafc, type: 2}
+      delay: 0
     customConfig:
       newName: 
       newTransform: {fileID: 0}

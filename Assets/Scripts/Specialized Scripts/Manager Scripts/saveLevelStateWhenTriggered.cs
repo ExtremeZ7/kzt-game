@@ -20,13 +20,13 @@ namespace AssemblyCSharp
 
             checkpointIndex = transform.GetSiblingIndex() + 1;
 
-            if (checkpointIndex < GameObject.FindGameObjectWithTag("Checkpoint List").transform.childCount)
+            if (checkpointIndex < GameObject.FindGameObjectWithTag("Checkpoints").transform.childCount)
             {
                 Gizmos.color = Color.gray;
-                Gizmos.DrawLine(transform.position, GameObject.FindGameObjectWithTag("Checkpoint List").transform.GetChild(checkpointIndex).position);
+                Gizmos.DrawLine(transform.position, GameObject.FindGameObjectWithTag("Checkpoints").transform.GetChild(checkpointIndex).position);
 
                 Gizmos.color = Color.yellow;
-                Gizmos.DrawSphere(GameObject.FindGameObjectWithTag("Checkpoint List").transform.GetChild(checkpointIndex).position, 0.25f);
+                Gizmos.DrawSphere(GameObject.FindGameObjectWithTag("Checkpoints").transform.GetChild(checkpointIndex).position, 0.25f);
             }
             else
             {
@@ -42,7 +42,7 @@ namespace AssemblyCSharp
 
             checkpointIndex = transform.GetSiblingIndex() + 1;
 
-            playerCheckpoint = GameObject.FindGameObjectWithTag("Checkpoint List").transform.GetChild(checkpointIndex);
+            playerCheckpoint = GameObject.FindGameObjectWithTag("Checkpoints").transform.GetChild(checkpointIndex);
 
             levelManager = FindObjectOfType<LevelManager>();
         }
