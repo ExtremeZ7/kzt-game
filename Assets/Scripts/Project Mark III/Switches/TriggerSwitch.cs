@@ -4,24 +4,27 @@
 // </copyright>
 //———————————————————————-
 using UnityEngine;
+using System.Linq;
 
 public class TriggerSwitch : CollisionHandler
 {
-    void OnTriggerEnter2D(Collider2D coll)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Trigger(coll.gameObject);
+        Trigger(other.gameObject);
     }
 
-    void OnTriggerStay2D(Collider2D coll)
+    void OnCollisionStay2D(Collision2D other)
     {
-        if (activateOnStay)
+        if (!activateOnStay)
         {
-            Trigger(coll.gameObject);
+            return;
         }
+
+        Trigger(other.gameObject);
     }
 
-    void OnTriggerExit2D(Collider2D coll)
+    void OnCollisionExit2D(Collision2D other)
     {
-        ExitTrigger(coll.gameObject);
+        ExitTrigger(other.gameObject);
     }
 }

@@ -429,11 +429,11 @@ public static class RectExtensions
 
 public static class OtherExtensions
 {
-    public static bool Contains(this List<Tag> data, string target)
+    public static bool Contains(this Tag[] data, string target)
     {
-        foreach (Tag tag in data)
+        for (int i = 0; i < data.Length; i++)
         {
-            if (tag.Name == target)
+            if (data[i].Name == target)
             {
                 return true;
             }

@@ -22,17 +22,17 @@ public class SetAnimatorIntsOnTrigger : TriggerListener
 
             switch (parameterOperations[i].operation)
             {
-                case AnimatorIntOperation.Operation.Addition:
+                case AnimatorIntOperation.Operation.AddBy:
                     GetComponent<Animator>().SetInteger(parameter,
                         origValue + parameterOperations[i].operand);
                     break;
 
-                case AnimatorIntOperation.Operation.Multiplication:
+                case AnimatorIntOperation.Operation.MultiplyBy:
                     GetComponent<Animator>().SetInteger(parameter,
                         origValue * parameterOperations[i].operand);
                     break;
 
-                case AnimatorIntOperation.Operation.Division:
+                case AnimatorIntOperation.Operation.DivideBy:
                     GetComponent<Animator>().SetInteger(parameter,
                         origValue / parameterOperations[i].operand);
                     break;
@@ -50,9 +50,9 @@ public class SetAnimatorIntsOnTrigger : TriggerListener
     {
         public enum Operation
         {
-            Addition,
-            Multiplication,
-            Division,
+            AddBy,
+            MultiplyBy,
+            DivideBy,
             Modulo
         }
 

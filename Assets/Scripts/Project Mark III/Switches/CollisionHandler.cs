@@ -28,7 +28,8 @@ public class CollisionHandler : MonoBehaviour
     public string scriptName;
 
     [Space(10)]
-    public List<Tag> tagFilter;
+    public Tag[] tagFilter;
+    //public Collider2D[] triggerFilter = new Collider2D[0];
 
     [Space(10)]
     [Tooltip("Defualt: Normal activation on trigger\n"
@@ -77,7 +78,7 @@ public class CollisionHandler : MonoBehaviour
         get{ return triggerObj; }
     }
 
-    protected List<Tag> TagFilter
+    protected Tag[] TagFilter
     {
         get{ return tagFilter; }
     }
@@ -101,12 +102,17 @@ public class CollisionHandler : MonoBehaviour
     /// <summary>
     /// Called by a derived class whenever its trigger is called
     /// </summary>
-    /// <param name="Obj">The object that caused the trigger</param>
+    /// <param name="obj">The object that caused the trigger</param>
     ///
-    protected void Trigger(GameObject Obj)
+    protected void Trigger(GameObject obj)
     {
+        /*if (!CollisionIsValid(other))
+        {
+            return;
+        }*/
+
         //Return if the object tag is not in the filter
-        if (!TagFilter.Contains(Obj.tag))
+        if (!TagFilter.Contains(obj.tag))
         {
             return;
         }
@@ -117,7 +123,7 @@ public class CollisionHandler : MonoBehaviour
             return;
         }
 
-        triggerObj = Obj;
+        triggerObj = obj;
         switch (activationMode)
         {
             case ActivationMode.Default:
@@ -146,12 +152,17 @@ public class CollisionHandler : MonoBehaviour
     /// <summary>
     /// Usually called by a derived class whenever its trigger is exited
     /// </summary>
-    /// <param name="Obj">The object that caused the trigger</param>
+    /// <param name="other">The object that caused the trigger</param>
     ///
-    protected void ExitTrigger(GameObject Obj)
+    protected void ExitTrigger(GameObject obj)
     {
+        /*if (!CollisionIsValid(other))
+        {
+            return;
+        }*/
+
         //Return if this is not the same object that caused the latest trigger
-        if (Obj != triggerObj)
+        if (obj != triggerObj)
         {
             return;
         }
@@ -199,6 +210,22 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
+    /*bool CollisionIsValid(Collision2D other)
+    {
+        Collider2D thisColl = other.contacts[0].collider;
+
+        for (int i = 0; i < triggerFilter.Length; i++)
+        {
+            if (triggerFilter[i].Equals(thisColl))
+            {
+                Debug.Log(true);
+                return true;
+            }
+        }
+        Debug.Log(false);
+        return false;
+    }*/
+
     /// <summary>A coroutine that sets some bits to true then waits for the end of the frame before resetting them</summary>
     /// <param name="active">Tells which bit to set</param>
     ///
@@ -244,5 +271,11 @@ public class CollisionHandler : MonoBehaviour
         {
             scriptName = name + " [" + GetHashCode() + "]";
         }
+
+        /*if (triggerFilter.Length == 0)
+        {
+            triggerFilter = GetComponents<Collider2D>();
+        }
+        */
     }
 }

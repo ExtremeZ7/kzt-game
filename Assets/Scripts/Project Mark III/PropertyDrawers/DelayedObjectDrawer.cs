@@ -10,6 +10,9 @@ namespace CustomPropertyDrawers
         public override void OnGUI(Rect position, SerializedProperty property,
                                    GUIContent label)
         {
+            SerializedProperty obj = property.FindPropertyRelative("gameObject");
+            SerializedProperty delay = property.FindPropertyRelative("delay");
+
             // Using BeginProperty / EndProperty on the parent property means
             // that prefab override logic works on the entire property.
             EditorGUI.BeginProperty(position, label, property);
@@ -28,16 +31,19 @@ namespace CustomPropertyDrawers
             // Calculate rects
             //
             var objRect = new Rect(position.x, position.y,
-                              150, position.height);
-            var delayRect = new Rect(position.x + 155, position.y,
-                                30, position.height);
+                              position.width - 30, position.height);
+            var delayRect = new Rect(position.x + position.width - 25, position.y,
+                                25, position.height);
+
+            if (delay.floatValue < 0f)
+            {
+                delay.floatValue = 0f;
+            }
 
             // Draw fields - pass GUIContent.none to each so they are drawn
             // without labels
-            EditorGUI.PropertyField(objRect,
-                property.FindPropertyRelative("gameObject"), GUIContent.none);
-            EditorGUI.PropertyField(delayRect,
-                property.FindPropertyRelative("delay"), GUIContent.none);
+            EditorGUI.PropertyField(objRect, obj, GUIContent.none);
+            EditorGUI.PropertyField(delayRect, delay, GUIContent.none);
 
             // Set indent back to what it was
             //

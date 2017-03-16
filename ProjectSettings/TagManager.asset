@@ -28,6 +28,7 @@ TagManager:
   - Slime Projectile
   - JewelCollector
   - GAMEOBJECTS
+  - Explosion
   layers:
   - Default
   - TransparentFX

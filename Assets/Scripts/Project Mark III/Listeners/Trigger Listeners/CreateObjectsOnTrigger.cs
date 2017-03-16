@@ -25,20 +25,21 @@ public class CreateObjectsOnTrigger : TriggerListener
     //fields
     [Header("Main Fields")]
     public ObjectToCreate[] objectsToCreateOnTrigger;
+    [Space(10)]
     public ObjectToCreate[] extraObjectsToCreateOnComplete;
 
-    [Tooltip("If this is enabled, the gameobjects on the main (OnTrigger)"
-        + "GameObject list will not spawn on completion")]
-    #if UNITY_EDITOR
-    [ToggleLeft]
-    #endif
-    public bool onlyCreateExtrasOnComplete;
 
     [Header("Main Behavior")]
     [Tooltip("This is the amount of times a trigger will be heard before"
         + " the completion event is triggered")]
-    
     public float countsBeforeCompletion = Mathf.Infinity;
+
+    #if UNITY_EDITOR
+    [ToggleLeft]
+    #endif
+    [Tooltip("If this is enabled, the gameobjects on the main (OnTrigger)"
+        + "GameObject list will not spawn on completion")]
+    public bool onlyCreateExtrasOnComplete;
 
     [Tooltip("On a completion event, the behavior will wait for all"
         + " gameobjects to be created first before running the action on "
