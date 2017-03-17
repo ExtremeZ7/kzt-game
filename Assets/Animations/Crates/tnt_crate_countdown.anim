@@ -200,6 +200,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.5
+    functionName: DestroySelfOrParent
+    data: 
+    objectReferenceParameter: {fileID: 102900000, guid: 613d59a0dea4e854588821c503f248e4,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1
     functionName: spawnPrefab
     data: 

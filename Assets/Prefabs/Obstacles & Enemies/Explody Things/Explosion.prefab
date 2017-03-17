@@ -29,7 +29,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186648}
-  m_LocalRotation: {x: 0, y: 0, z: 0.6946584, w: 0.7193398}
+  m_LocalRotation: {x: 0, y: 0, z: 0.9848078, w: 0.17364824}
   m_LocalPosition: {x: 67.76158, y: 2.3590393, z: 0}
   m_LocalScale: {x: 0.75000036, y: 0.75000036, z: 1}
   m_Children: []
@@ -117,7 +117,7 @@ MonoBehaviour:
   maxRPM: 0
   rotation: 0
   randomizeAngle: 1
-  startAngle: 88
+  startAngle: 160
   stopWhenNotVisible: 0
 --- !u!114 &114000014153702908
 MonoBehaviour:
@@ -141,11 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c0361bbe7864f49a62ff025d04d2ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   executeWhileInTransition: 1
-  spawner: {fileID: 0}
-  rotationOffset: 0
-  forceMagnitude: 0
 --- !u!114 &114000014185098672
 MonoBehaviour:
   m_ObjectHideFlags: 1

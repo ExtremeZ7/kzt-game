@@ -860,10 +860,10 @@ GameObject:
   - component: {fileID: 206547828}
   - component: {fileID: 206547827}
   - component: {fileID: 206547826}
-  - component: {fileID: 206547825}
   - component: {fileID: 206547824}
   - component: {fileID: 206547823}
   - component: {fileID: 206547822}
+  - component: {fileID: 206547825}
   m_Layer: 8
   m_Name: TNTCrate
   m_TagString: Box
@@ -937,20 +937,18 @@ MonoBehaviour:
 --- !u!114 &206547825
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11427506, guid: 03076693232e0ad4783f9c7c4dbd8c80,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 206547821}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56c0361bbe7864f49a62ff025d04d2ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ca2ef4c733c5c347a1e11f1167706db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   executeWhileInTransition: 1
   spawner: {fileID: 0}
   rotationOffset: 0
-  forceMagnitude: 0
+  strength: 0
 --- !u!114 &206547826
 MonoBehaviour:
   m_ObjectHideFlags: 0
