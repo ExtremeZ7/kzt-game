@@ -231,7 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 114449848433117002}
-  listenToActivation: 1
+  listeningMode: 1
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger:
@@ -276,8 +276,8 @@ MonoBehaviour:
         rotationConfig: 0
         custom: 0
       transformOnCreate: 0
-  onlyCreateExtrasOnComplete: 0
   countsBeforeCompletion: 1
+  onlyCreateExtrasOnComplete: 0
   selfActionOnComplete:
     actionOnComplete: 2
     parentDepth: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 11490102}
-  listenToActivation: 1
+  listeningMode: 1
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger:
@@ -361,8 +361,8 @@ MonoBehaviour:
         rotationConfig: 0
         custom: 0
       transformOnCreate: 0
-  onlyCreateExtrasOnComplete: 0
   countsBeforeCompletion: 1
+  onlyCreateExtrasOnComplete: 0
   selfActionOnComplete:
     actionOnComplete: 2
     parentDepth: 0

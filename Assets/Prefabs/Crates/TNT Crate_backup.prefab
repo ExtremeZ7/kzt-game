@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 11476048}
   - component: {fileID: 11404676}
   m_Layer: 8
-  m_Name: TNT Crate
+  m_Name: TNT Crate_backup
   m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,10 +214,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ccd5ea0220b9f4c92b1cf6ac15ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerName: Start Countdown
-  animator: {fileID: 0}
-  binarySwitch: {fileID: 11462850}
-  onTriggerMode: 2
+  switches: []
+  listeningMode: 0
+  listenToFirstFrameOnDeactivate: 0
+  flipActivation: 0
+  parameters: []
 --- !u!114 &11404676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -231,18 +232,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 0}
-  names:
-  - 
-  listenToActivation: 0
+  listeningMode: 0
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger: []
   extraObjectsToCreateOnComplete: []
-  onlyCreateExtrasOnComplete: 0
-  objectConfigs: []
-  createDelays: []
   countsBeforeCompletion: Infinity
-  selfActionOnComplete: 0
+  onlyCreateExtrasOnComplete: 0
+  selfActionOnComplete:
+    actionOnComplete: 0
+    parentDepth: 0
 --- !u!114 &11413414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,8 +253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c0c83ab6fc82724abe8129abdcf74ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSpeed: 0.5
-  randomIncrease: 1
+  baseSpeed: 1
+  variation: 0
 --- !u!114 &11424632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c0361bbe7864f49a62ff025d04d2ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   executeWhileInTransition: 1
   spawner: {fileID: 0}
   rotationOffset: 0
@@ -312,9 +312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a6b69ce5123ce42a0fb1575f26a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchName: 
+  scriptName: Collider [19696]
+  tagFilter: []
   activationMode: 0
-  tagFilter: 
   deactivateAfterOneFrame: 0
   exclusiveActivation: 0
   activateOnStay: 0
@@ -332,18 +332,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 0}
-  names:
-  - 
-  listenToActivation: 0
+  listeningMode: 0
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger: []
   extraObjectsToCreateOnComplete: []
-  onlyCreateExtrasOnComplete: 0
-  objectConfigs: []
-  createDelays: []
   countsBeforeCompletion: Infinity
-  selfActionOnComplete: 0
+  onlyCreateExtrasOnComplete: 0
+  selfActionOnComplete:
+    actionOnComplete: 0
+    parentDepth: 0
 --- !u!212 &21219088
 SpriteRenderer:
   m_ObjectHideFlags: 1

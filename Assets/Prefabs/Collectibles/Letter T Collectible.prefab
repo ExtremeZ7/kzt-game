@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 11426446}
   - component: {fileID: 11498872}
   m_Layer: 0
-  m_Name: Letter T Collectible [ORBITER]
+  m_Name: Letter T Collectible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,10 +281,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ccd5ea0220b9f4c92b1cf6ac15ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerName: 436f6c6c6563746564
-  animator: {fileID: 0}
-  binarySwitch: {fileID: 11476496}
-  onTriggerMode: 2
+  switches: []
+  listeningMode: 0
+  listenToFirstFrameOnDeactivate: 0
+  flipActivation: 0
+  parameters: []
 --- !u!114 &11498872
 MonoBehaviour:
   m_ObjectHideFlags: 1

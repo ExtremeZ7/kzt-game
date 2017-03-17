@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 114417272781269660}
   - component: {fileID: 114351312007974138}
   - component: {fileID: 114542135702298066}
+  - component: {fileID: 114152662838996496}
   m_Layer: 8
   m_Name: WoodenCrate_HighBounce
   m_TagString: Box
@@ -92,6 +93,7 @@ GameObject:
   - component: {fileID: 4358816321893914}
   - component: {fileID: 61648066763482436}
   - component: {fileID: 114786094004173386}
+  - component: {fileID: 114203509686345074}
   m_Layer: 8
   m_Name: BottomHitTrigger
   m_TagString: Untagged
@@ -272,6 +274,83 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114152662838996496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc626fbb1b8d9414f95d7c5bd2360e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  binarySwitch: {fileID: 114786094004173386}
+  bounceType: 0
+  audioToPlay: {fileID: 0}
+--- !u!114 &114203509686345074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1552904319525524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7268b9cde3958fe4280adeebd27773b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switches:
+  - {fileID: 114786094004173386}
+  listeningMode: 1
+  listenToFirstFrameOnDeactivate: 0
+  flipActivation: 0
+  objectsToCreateOnTrigger:
+  - delayedObject:
+      gameObject: {fileID: 129004, guid: 0dde1fa050a3ad44884edb5092af6cfd, type: 2}
+      delay: 0
+    customConfig:
+      newName: 
+      newTransform: {fileID: 0}
+      newParent: {fileID: 0}
+      newTag:
+        enabled: 0
+        name: 
+      customPosition:
+        positionConfig: 0
+        custom: {x: 0, y: 0, z: 0}
+      customScale:
+        scaleConfig: 0
+        custom: {x: 0, y: 0}
+      customRotation:
+        rotationConfig: 0
+        custom: 0
+      transformOnCreate: 0
+  extraObjectsToCreateOnComplete:
+  - delayedObject:
+      gameObject: {fileID: 179066, guid: 051229403a0311e4e875e0b566dffafc, type: 2}
+      delay: 0
+    customConfig:
+      newName: 
+      newTransform: {fileID: 0}
+      newParent: {fileID: 0}
+      newTag:
+        enabled: 0
+        name: 
+      customPosition:
+        positionConfig: 0
+        custom: {x: 0, y: 0, z: 0}
+      customScale:
+        scaleConfig: 0
+        custom: {x: 0, y: 0}
+      customRotation:
+        rotationConfig: 0
+        custom: 0
+      transformOnCreate: 0
+  countsBeforeCompletion: 1
+  onlyCreateExtrasOnComplete: 0
+  selfActionOnComplete:
+    actionOnComplete: 2
+    parentDepth: 1
 --- !u!114 &114258142248852636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -300,8 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 114542135702298066}
-  - {fileID: 114786094004173386}
-  listenToActivation: 1
+  listeningMode: 1
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger:
@@ -364,7 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 114836596354830620}
-  listenToActivation: 1
+  listeningMode: 0
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   parameters:
@@ -440,7 +518,7 @@ MonoBehaviour:
   tagFilter:
   - enabled: 1
     name: Player
-  activationMode: 0
+  activationMode: 2
   deactivateAfterOneFrame: 1
   exclusiveActivation: 1
   activateOnStay: 0

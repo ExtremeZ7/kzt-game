@@ -207,7 +207,7 @@ MonoBehaviour:
   switches:
   - {fileID: 11432800}
   - {fileID: 11409302}
-  listenToActivation: 1
+  listeningMode: 1
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger:
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 114714861758822708}
-  listenToActivation: 1
+  listeningMode: 1
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger:
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 11432800}
-  listenToActivation: 1
+  listeningMode: 0
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   parameters:
@@ -492,7 +492,7 @@ MonoBehaviour:
   switches:
   - {fileID: 11432800}
   - {fileID: 11409302}
-  listenToActivation: 1
+  listeningMode: 0
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   parameterOperations:
@@ -534,7 +534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 11409302}
-  listenToActivation: 1
+  listeningMode: 0
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   parameters:

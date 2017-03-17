@@ -10,7 +10,7 @@ GameObject:
   - component: {fileID: 418544}
   - component: {fileID: 11433864}
   m_Layer: 9
-  m_Name: Floating Crate [ORBITER]
+  m_Name: Floating Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,8 +54,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175744}
-  m_LocalRotation: {x: -0, y: -0, z: -0.010242101, w: 0.99994755}
-  m_LocalPosition: {x: 0.09902681, y: 0.013917311, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.0216954, w: 0.9997646}
+  m_LocalPosition: {x: -0.080901705, y: 0.05877852, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 418544}

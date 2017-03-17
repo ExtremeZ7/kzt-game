@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Serialization;
 
 #if UNITY_EDITOR
 using CustomPropertyDrawers;
@@ -15,7 +16,7 @@ using CustomPropertyDrawers;
 public class TriggerListener : MonoBehaviour
 {
     //enums
-    public enum ListenToActivation
+    public enum ListeningMode
     {
         Default,
         FirstFrameOnly}
@@ -32,7 +33,8 @@ public class TriggerListener : MonoBehaviour
     [Space(10)]
     [Tooltip("Default: Listen to any activation\n First Frame Only: Listen "
         + "only to the first frame of activation")]
-    public ListenToActivation listenToActivation;
+    [FormerlySerializedAs("listeningMode")]
+    public ListeningMode listeningMode;
 
     #if UNITY_EDITOR
     [ToggleLeft]
@@ -195,13 +197,13 @@ public class TriggerListener : MonoBehaviour
                     }
 
                     //Ask if the listener has been asked to listen any activation
-                    if (listener.listenToActivation == ListenToActivation.Default)
+                    if (listener.listeningMode == ListeningMode.Default)
                     {
                         active |= triggerSwitch.IsActivated;
                     }
 
                     //Ask if the listener has been asked to the first frame of activation
-                    if (listener.listenToActivation == ListenToActivation.FirstFrameOnly)
+                    if (listener.listeningMode == ListeningMode.FirstFrameOnly)
                     {
                         if (triggerSwitch.ActivatedOnCurrentFrame)
                         {
