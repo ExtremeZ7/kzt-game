@@ -220,9 +220,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   executeWhileInTransition: 1
-  spawner: {fileID: 0}
-  rotationOffset: 0
-  forceMagnitude: 0
 --- !u!114 &11471456
 MonoBehaviour:
   m_ObjectHideFlags: 1

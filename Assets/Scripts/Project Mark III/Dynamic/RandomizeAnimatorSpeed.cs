@@ -7,7 +7,7 @@ public class RandomizeAnimatorSpeed : MonoBehaviour
     public float baseSpeed = 1f;
     public float variation;
 
-    void Start()
+    void Awake()
     {
         GetComponent<Animator>().speed = baseSpeed.Variation(variation);
         Destroy(this);

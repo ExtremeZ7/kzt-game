@@ -78,16 +78,8 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_IsEmpty: 0
   m_Events:
-  - time: 0
-    functionName: spawnPrefab
-    data: 
-    objectReferenceParameter: {fileID: 176958, guid: 6c7149ad6689fe2468a75d116722d6dc,
-      type: 2}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 0.41666666
-    functionName: destroySelf
+    functionName: DestroySelfOrParent
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

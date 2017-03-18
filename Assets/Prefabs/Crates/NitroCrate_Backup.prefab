@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 11422444}
   - component: {fileID: 11479262}
   m_Layer: 8
-  m_Name: Nitro Crate
+  m_Name: NitroCrate_Backup
   m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,9 +200,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   executeWhileInTransition: 1
-  spawner: {fileID: 0}
-  rotationOffset: 0
-  forceMagnitude: 0
 --- !u!114 &11422444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,18 +213,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 0}
-  names:
-  - 
-  listenToActivation: 0
+  listeningMode: 0
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger: []
   extraObjectsToCreateOnComplete: []
-  onlyCreateExtrasOnComplete: 0
-  objectConfigs: []
-  createDelays: []
   countsBeforeCompletion: Infinity
-  selfActionOnComplete: 0
+  onlyCreateExtrasOnComplete: 0
+  selfActionOnComplete:
+    actionOnComplete: 0
+    parentDepth: 0
 --- !u!114 &11453928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -239,8 +234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c0c83ab6fc82724abe8129abdcf74ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSpeed: 0.5
-  randomIncrease: 0.5
+  baseSpeed: 1
+  variation: 0
 --- !u!114 &11467502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,8 +247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c0c83ab6fc82724abe8129abdcf74ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSpeed: 0.5
-  randomIncrease: 1
+  baseSpeed: 1
+  variation: 0
 --- !u!114 &11479262
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -267,18 +262,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 0}
-  names:
-  - 
-  listenToActivation: 0
+  listeningMode: 0
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger: []
   extraObjectsToCreateOnComplete: []
-  onlyCreateExtrasOnComplete: 0
-  objectConfigs: []
-  createDelays: []
   countsBeforeCompletion: Infinity
-  selfActionOnComplete: 0
+  onlyCreateExtrasOnComplete: 0
+  selfActionOnComplete:
+    actionOnComplete: 0
+    parentDepth: 0
 --- !u!212 &21215896
 SpriteRenderer:
   m_ObjectHideFlags: 1

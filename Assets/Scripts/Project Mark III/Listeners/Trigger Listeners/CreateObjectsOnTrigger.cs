@@ -179,7 +179,7 @@ public class CreateObjectsOnTrigger : TriggerListener
         //Configure() changes the appropriate attributes
         customConfig.Configure(Instantiate<GameObject>(
                 gameObject, transform.position,
-                Quaternion.Euler(gameObject.transform.localEulerAngles)));
+                Quaternion.Euler(transform.localEulerAngles)));
 
         //If the stack is empty, wait until there something in the stack to 
         //pop before continuing

@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 440408}
   m_Layer: 0
   m_Name: Non-Static Level Objects
-  m_TagString: Untagged
+  m_TagString: State Keeper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

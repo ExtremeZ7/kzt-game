@@ -324,6 +324,10 @@ MonoBehaviour:
       customRotation:
         rotationConfig: 0
         custom: 0
+      customVelocity:
+        velocityConfig: 0
+        custom: {x: 0, y: 0}
+        rotateFromRotation: 1
       transformOnCreate: 0
   extraObjectsToCreateOnComplete:
   - delayedObject:
@@ -345,6 +349,10 @@ MonoBehaviour:
       customRotation:
         rotationConfig: 0
         custom: 0
+      customVelocity:
+        velocityConfig: 0
+        custom: {x: 0, y: 0}
+        rotateFromRotation: 1
       transformOnCreate: 0
   countsBeforeCompletion: 1
   onlyCreateExtrasOnComplete: 0
@@ -402,6 +410,10 @@ MonoBehaviour:
       customRotation:
         rotationConfig: 0
         custom: 0
+      customVelocity:
+        velocityConfig: 0
+        custom: {x: 0, y: 0}
+        rotateFromRotation: 1
       transformOnCreate: 0
   extraObjectsToCreateOnComplete:
   - delayedObject:
@@ -423,6 +435,10 @@ MonoBehaviour:
       customRotation:
         rotationConfig: 0
         custom: 0
+      customVelocity:
+        velocityConfig: 0
+        custom: {x: 0, y: 0}
+        rotateFromRotation: 1
       transformOnCreate: 0
   countsBeforeCompletion: 1
   onlyCreateExtrasOnComplete: 0
@@ -477,7 +493,7 @@ MonoBehaviour:
   - enabled: 1
     name: Projectile
   - enabled: 1
-    name: Explosion
+    name: Obstacle:Fire
   activationMode: 1
   deactivateAfterOneFrame: 0
   exclusiveActivation: 0

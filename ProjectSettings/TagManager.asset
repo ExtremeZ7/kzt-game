@@ -28,7 +28,10 @@ TagManager:
   - Slime Projectile
   - JewelCollector
   - GAMEOBJECTS
+  - SkazZzow!
+  - Squasher
   - Explosion
+  - State Keeper
   layers:
   - Default
   - TransparentFX
