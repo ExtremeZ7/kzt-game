@@ -49,6 +49,10 @@ GameObject:
   - component: {fileID: 114529954034337824}
   - component: {fileID: 114705159456670924}
   - component: {fileID: 114983803065740646}
+  - component: {fileID: 114752469289919554}
+  - component: {fileID: 114877972372812322}
+  - component: {fileID: 114360822217897080}
+  - component: {fileID: 114902619530959004}
   m_Layer: 8
   m_Name: TNTCrate
   m_TagString: Box
@@ -388,6 +392,53 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114360822217897080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7268b9cde3958fe4280adeebd27773b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switches:
+  - {fileID: 114902619530959004}
+  listeningMode: 1
+  listenToFirstFrameOnDeactivate: 0
+  flipActivation: 0
+  objectsToCreateOnTrigger: []
+  extraObjectsToCreateOnComplete:
+  - delayedObject:
+      gameObject: {fileID: 186648, guid: d583ed7ff429003488297b5de0e40ef4, type: 2}
+      delay: 0
+    customConfig:
+      newName: 
+      newTransform: {fileID: 0}
+      newParent: {fileID: 0}
+      newTag:
+        enabled: 0
+        name: 
+      customPosition:
+        positionConfig: 0
+        custom: {x: 0, y: 0, z: 0}
+      customScale:
+        scaleConfig: 0
+        custom: {x: 0, y: 0}
+      customRotation:
+        rotationConfig: 0
+        custom: 0
+      customVelocity:
+        velocityConfig: 0
+        custom: {x: 0, y: 0}
+        rotateFromRotation: 0
+      transformOnCreate: 0
+  countsBeforeCompletion: 1
+  onlyCreateExtrasOnComplete: 1
+  selfActionOnComplete:
+    actionOnComplete: 2
+    parentDepth: 0
 --- !u!114 &114529954034337824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -433,6 +484,93 @@ MonoBehaviour:
   flipActivation: 0
   parameters:
   - BeginCountdown
+--- !u!114 &114752469289919554
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7268b9cde3958fe4280adeebd27773b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switches:
+  - {fileID: 114877972372812322}
+  listeningMode: 1
+  listenToFirstFrameOnDeactivate: 0
+  flipActivation: 0
+  objectsToCreateOnTrigger: []
+  extraObjectsToCreateOnComplete:
+  - delayedObject:
+      gameObject: {fileID: 186648, guid: d583ed7ff429003488297b5de0e40ef4, type: 2}
+      delay: 0.5
+    customConfig:
+      newName: 
+      newTransform: {fileID: 0}
+      newParent: {fileID: 0}
+      newTag:
+        enabled: 0
+        name: 
+      customPosition:
+        positionConfig: 0
+        custom: {x: 0, y: 0, z: 0}
+      customScale:
+        scaleConfig: 0
+        custom: {x: 0, y: 0}
+      customRotation:
+        rotationConfig: 0
+        custom: 0
+      customVelocity:
+        velocityConfig: 0
+        custom: {x: 0, y: 0}
+        rotateFromRotation: 0
+      transformOnCreate: 0
+  countsBeforeCompletion: 1
+  onlyCreateExtrasOnComplete: 1
+  selfActionOnComplete:
+    actionOnComplete: 2
+    parentDepth: 0
+--- !u!114 &114877972372812322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a6b69ce5123ce42a0fb1575f26a763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptName: Other Explosion Trigger
+  tagFilter:
+  - enabled: 1
+    name: Obstacle:Fire
+  activationMode: 1
+  deactivateAfterOneFrame: 1
+  exclusiveActivation: 0
+  activateOnStay: 0
+  deactivateOnExit: 1
+--- !u!114 &114902619530959004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a6b69ce5123ce42a0fb1575f26a763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptName: Instant Explosion Trigger
+  tagFilter:
+  - enabled: 1
+    name: Projectile
+  activationMode: 1
+  deactivateAfterOneFrame: 1
+  exclusiveActivation: 0
+  activateOnStay: 0
+  deactivateOnExit: 1
 --- !u!114 &114958384296155958
 MonoBehaviour:
   m_ObjectHideFlags: 1

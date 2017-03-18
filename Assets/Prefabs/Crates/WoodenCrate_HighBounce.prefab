@@ -372,8 +372,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - IdleHit
-  waitTime: 4
-  randomVariation: 10
+  baseDuration: 4
+  variation: 10
 --- !u!114 &114351312007974138
 MonoBehaviour:
   m_ObjectHideFlags: 1

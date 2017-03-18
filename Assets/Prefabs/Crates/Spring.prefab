@@ -223,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 114814521059485256}
-  listenToActivation: 1
+  listeningMode: 0
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   parameters:
@@ -241,8 +241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - IdleHit
-  waitTime: 4
-  randomVariation: 10
+  baseDuration: 4
+  variation: 10
 --- !u!114 &114814521059485256
 MonoBehaviour:
   m_ObjectHideFlags: 1

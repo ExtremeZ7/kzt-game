@@ -4,9 +4,8 @@ using UnityEngine;
 public class SetAnimatorTriggersOnRandomIntervals : SetAnimatorTriggers
 {
     [Space(10)]
-    public float waitTime;
-    [Range(0f, 5000f)]
-    public float randomVariation = 1f;
+    public float baseDuration;
+    public float variation = 1f;
 
     void Start()
     {
@@ -18,7 +17,7 @@ public class SetAnimatorTriggersOnRandomIntervals : SetAnimatorTriggers
         for (;;)
         {
             yield return new WaitForSeconds(
-                waitTime.Variation(randomVariation, true));
+                baseDuration.Variation(variation, true));
             SetTriggers();
         }
     }
