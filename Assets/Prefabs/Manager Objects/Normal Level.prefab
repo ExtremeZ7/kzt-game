@@ -954,7 +954,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196960}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.28676468, g: 0.2846561, b: 0.2846561, a: 0.019607844}
@@ -988,7 +988,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196960}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!92 &9228906
 Behaviour:
   m_ObjectHideFlags: 1

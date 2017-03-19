@@ -9,7 +9,7 @@ public class PositionFromStartRelativeToCamera : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Vector3 startCheckpointPosition = GameObject.FindGameObjectWithTag("Checkpoint List").transform.GetChild(0).position;
+        Vector3 startCheckpointPosition = GameObject.FindGameObjectWithTag("Checkpoints").transform.GetChild(0).position;
 
         Gizmos.color = Color.cyan;
         int sections = 5;

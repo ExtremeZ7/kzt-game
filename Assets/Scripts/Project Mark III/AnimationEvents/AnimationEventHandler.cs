@@ -14,4 +14,22 @@ public class AnimationEventHandler : MonoBehaviour
     {
         GetComponent<Animator>().speed = speed;
     }
+
+    public void EnableAlliTweenBehaviours()
+    {
+        iTween[] behaviours = GetComponents<iTween>();
+        for (int i = 0; i < behaviours.Length; i++)
+        {
+            behaviours[i].enabled = true;
+        }
+    }
+
+    public void DisableAlliTweenBehaviours()
+    {
+        iTween[] behaviours = GetComponents<iTween>();
+        for (int i = 0; i < behaviours.Length; i++)
+        {
+            behaviours[i].enabled = false;
+        }
+    }
 }

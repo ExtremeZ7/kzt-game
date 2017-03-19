@@ -31,7 +31,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: -3.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4403111095202952}
@@ -490,15 +490,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptName: Instant Destroy
   tagFilter:
-  - enabled: 1
+  - enabled: 0
     name: Projectile
-  - enabled: 1
+  - enabled: 0
     name: Obstacle:Fire
   activationMode: 1
   deactivateAfterOneFrame: 0
   exclusiveActivation: 0
   activateOnStay: 0
-  deactivateOnExit: 1
+  deactivateOnExit: 0
 --- !u!114 &114786094004173386
 MonoBehaviour:
   m_ObjectHideFlags: 1

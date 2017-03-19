@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 482998}
@@ -527,7 +527,7 @@ MonoBehaviour:
         rotateFromRotation: 0
       transformOnCreate: 0
   countsBeforeCompletion: 1
-  onlyCreateExtrasOnComplete: 1
+  onlyCreateExtrasOnComplete: 0
   selfActionOnComplete:
     actionOnComplete: 2
     parentDepth: 0
@@ -544,13 +544,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptName: Other Explosion Trigger
   tagFilter:
-  - enabled: 1
+  - enabled: 0
     name: Obstacle:Fire
   activationMode: 1
-  deactivateAfterOneFrame: 1
+  deactivateAfterOneFrame: 0
   exclusiveActivation: 0
   activateOnStay: 0
-  deactivateOnExit: 1
+  deactivateOnExit: 0
 --- !u!114 &114902619530959004
 MonoBehaviour:
   m_ObjectHideFlags: 1

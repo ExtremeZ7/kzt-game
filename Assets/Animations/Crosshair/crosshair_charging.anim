@@ -77,28 +77,4 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_IsEmpty: 0
-  m_Events:
-  - time: 0.5
-    functionName: spawnPrefab
-    data: 
-    objectReferenceParameter: {fileID: 176958, guid: db0a82f7fec223c4db5cdf12a5e61c32,
-      type: 2}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1
-    functionName: spawnPrefab
-    data: 
-    objectReferenceParameter: {fileID: 176958, guid: db0a82f7fec223c4db5cdf12a5e61c32,
-      type: 2}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.6666666
-    functionName: spawnPrefab
-    data: 
-    objectReferenceParameter: {fileID: 176958, guid: db0a82f7fec223c4db5cdf12a5e61c32,
-      type: 2}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []
