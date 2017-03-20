@@ -34,7 +34,7 @@ GameObject:
   - component: {fileID: 11489986}
   - component: {fileID: 11444298}
   m_Layer: 0
-  m_Name: Letter K Collectible
+  m_Name: Letter K Collectible [ORBITER]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

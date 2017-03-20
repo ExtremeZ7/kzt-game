@@ -166,7 +166,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179066}
-  m_LocalRotation: {x: 0, y: 0, z: 0.4694716, w: 0.8829476}
+  m_LocalRotation: {x: 0, y: 0, z: 0.8290376, w: 0.55919296}
   m_LocalPosition: {x: -13.766813, y: 0.8853655, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -308,7 +308,7 @@ MonoBehaviour:
   maxRPM: 0
   rotation: 0
   randomizeAngle: 1
-  startAngle: 56
+  startAngle: 112
   stopWhenNotVisible: 0
 --- !u!212 &21231672
 SpriteRenderer:
