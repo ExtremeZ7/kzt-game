@@ -4,8 +4,16 @@ using System.Collections.Generic;
 [System.Serializable]
 public class ColorToPrefab
 {
+    public enum TileClass
+    {
+        Terrain,
+        Prop
+    }
+
     public Color32 color;
     public GameObject prefab;
+    public bool[] pixelMatrix = new bool[4];
+    public TileClass tileClass;
 }
 
 public class d_LevelLoader : MonoBehaviour
