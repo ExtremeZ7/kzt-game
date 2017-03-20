@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 11482440}
   - component: {fileID: 11445456}
   - component: {fileID: 114901268782821656}
+  - component: {fileID: 114904879099485196}
   m_Layer: 8
   m_Name: GoldenCrate
   m_TagString: Box
@@ -189,6 +190,7 @@ GameObject:
   - component: {fileID: 4352304239716934}
   - component: {fileID: 212362657362152278}
   - component: {fileID: 114655350324062636}
+  - component: {fileID: 114743490763490080}
   m_Layer: 8
   m_Name: Logo
   m_TagString: Untagged
@@ -299,15 +301,26 @@ MonoBehaviour:
   listeningMode: 1
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
-  amount: {x: 0, y: 0, z: 1}
+  amount: {x: 0, y: 0, z: 3}
   delay: 0
-  value: 0.5
+  value: 2
   useValueAs: 0
   space: 1
   ignoreTimeScale: 0
-  resetOnStart: 0
+  resetOnStart: 1
   loopType: 0
-  easeType: 30
+  easeType: 19
+--- !u!114 &114743490763490080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1714075986979374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151f8689f16a9ed4f8d746a3637fe2af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114901268782821656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -330,9 +343,20 @@ MonoBehaviour:
   isLocal: 0
   orientToPath: 0
   ignoreTimeScale: 0
-  resetOnStart: 0
+  resetOnStart: 1
   loopType: 0
   easeType: 0
+--- !u!114 &114904879099485196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151f8689f16a9ed4f8d746a3637fe2af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212362657362152278
 SpriteRenderer:
   m_ObjectHideFlags: 1

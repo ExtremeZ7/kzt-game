@@ -1,5 +1,12 @@
-﻿using UnityEngine;
+﻿//———————————————————————–
+// <copyright file=”iTweenRotateByOnTrigger.cs” game="KzzzZZZzzT!">
+//     Copyright (c) Extreme Z7.  All rights reserved.
+// </copyright>
+//———————————————————————–
+
+using UnityEngine;
 using System.ComponentModel;
+using System.Collections;
 
 public class iTweenRotateByOnTrigger : TriggerListener
 {
@@ -23,15 +30,21 @@ public class iTweenRotateByOnTrigger : TriggerListener
     [Space(10)]
     public Space space;
     public bool ignoreTimeScale;
-    public bool resetOnStart;
+    public bool resetOnStart = true;
 
     [Space(10)]
     public iTween.LoopType loopType;
     public iTween.EaseType easeType;
 
-    void Awake()
+    float originalZ;
+    bool runningAnimation;
+
+    void Start()
     {
-        iTween.Init(gameObject);
+        if (resetOnStart)
+        {
+            originalZ = transform.localEulerAngles.z;
+        }
     }
 
     public override void ManagedUpdate()
@@ -41,20 +54,37 @@ public class iTweenRotateByOnTrigger : TriggerListener
             return;
         }
 
-        if (resetOnStart)
+        StartCoroutine(StartAnimation());
+    }
+
+    IEnumerator StartAnimation()
+    {
+        if (resetOnStart && runningAnimation)
         {
-            iTween.Stop(gameObject);
+            iTween.StopByName(gameObject, GetInstanceID().ToString());
+            transform.localEulerAngles = new Vector3(0f, 0f, originalZ);
+            yield return null;
         }
+
+        runningAnimation = true;
 
         iTween.RotateBy(gameObject,
             iTween.Hash(
+                "name", GetInstanceID().ToString(),
                 "amount", amount,
                 "space", space,
                 useValueAs.GetDescription(), value,
                 "delay", delay,
                 "looptype", loopType,
                 "easetype", easeType,
-                "ignoretimescale", ignoreTimeScale
+                "ignoretimescale", ignoreTimeScale,
+                "oncomplete", "AlertStopped",
+                "oncompletetarget", gameObject
             ));
+    }
+
+    void AlertStopped()
+    {
+        runningAnimation = false;
     }
 }

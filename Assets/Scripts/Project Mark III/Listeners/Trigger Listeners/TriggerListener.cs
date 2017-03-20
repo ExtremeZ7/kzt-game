@@ -4,10 +4,8 @@
 // </copyright>
 //———————————————————————–
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.Serialization;
 
 #if UNITY_EDITOR
 using CustomPropertyDrawers;
@@ -33,7 +31,6 @@ public class TriggerListener : MonoBehaviour
     [Space(10)]
     [Tooltip("Default: Listen to any activation\n First Frame Only: Listen "
         + "only to the first frame of activation")]
-    [FormerlySerializedAs("listeningMode")]
     public ListeningMode listeningMode;
 
     #if UNITY_EDITOR

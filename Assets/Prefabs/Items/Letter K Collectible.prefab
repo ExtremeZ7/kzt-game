@@ -141,9 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a6b69ce5123ce42a0fb1575f26a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchName: Collider20474
+  scriptName: Collider20474
+  tagFilter: []
   activationMode: 0
-  tagFilter: 
   deactivateAfterOneFrame: 0
   exclusiveActivation: 0
   activateOnStay: 0
@@ -239,10 +239,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ccd5ea0220b9f4c92b1cf6ac15ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerName: Collected
-  animator: {fileID: 0}
-  binarySwitch: {fileID: 11430872}
-  onTriggerMode: 2
+  switches: []
+  listeningMode: 0
+  listenToFirstFrameOnDeactivate: 0
+  flipActivation: 0
+  parameters: []
 --- !u!114 &11472858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -255,9 +256,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   executeWhileInTransition: 1
-  spawner: {fileID: 0}
-  rotationOffset: 0
-  forceMagnitude: 0
 --- !u!114 &11489986
 MonoBehaviour:
   m_ObjectHideFlags: 1

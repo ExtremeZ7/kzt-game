@@ -5,6 +5,7 @@
 //———————————————————————–
 
 using UnityEngine;
+using System.Collections;
 
 public class iTweenShakePositionOnTrigger : TriggerListener
 {
@@ -19,15 +20,18 @@ public class iTweenShakePositionOnTrigger : TriggerListener
     public bool isLocal;
     public bool orientToPath;
     public bool ignoreTimeScale;
-    public bool resetOnStart;
+    public bool resetOnStart = true;
 
     [Space(10)]
     public iTween.LoopType loopType;
     public iTween.EaseType easeType;
 
-    void Awake()
+    Vector3 originalPos;
+    bool runningAnimation;
+
+    void Start()
     {
-        iTween.Init(gameObject);
+        originalPos = transform.localPosition;
     }
 
     public override void ManagedUpdate()
@@ -37,13 +41,23 @@ public class iTweenShakePositionOnTrigger : TriggerListener
             return;
         }
 
-        if (resetOnStart)
+        StartCoroutine(StartAnimation());
+    }
+
+    IEnumerator StartAnimation()
+    {
+        if (resetOnStart && runningAnimation)
         {
-            iTween.Stop(gameObject);
+            iTween.StopByName(gameObject, GetInstanceID().ToString());
+            transform.localPosition = originalPos;
+            yield return null;
         }
+
+        runningAnimation = true;
 
         iTween.ShakePosition(gameObject,
             iTween.Hash(
+                "name", GetInstanceID().ToString(),
                 "amount", amount,
                 "islocal", isLocal,
                 "orienttopath", orientToPath,
@@ -51,7 +65,14 @@ public class iTweenShakePositionOnTrigger : TriggerListener
                 "delay", delay,
                 "looptype", loopType,
                 "easetype", easeType,
-                "ignoretimescale", ignoreTimeScale
+                "ignoretimescale", ignoreTimeScale,
+                "oncomplete", "AlertStopped",
+                "oncompletetarget", gameObject
             ));
+    }
+
+    void AlertStopped()
+    {
+        runningAnimation = false;
     }
 }

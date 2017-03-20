@@ -281,9 +281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   executeWhileInTransition: 1
-  spawner: {fileID: 0}
-  rotationOffset: 0
-  forceMagnitude: 0
 --- !u!114 &11415040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -427,9 +424,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   executeWhileInTransition: 1
-  spawner: {fileID: 0}
-  rotationOffset: 0
-  forceMagnitude: 0
 --- !u!114 &11495048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -442,9 +436,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   executeWhileInTransition: 1
-  spawner: {fileID: 0}
-  rotationOffset: 0
-  forceMagnitude: 0
 --- !u!212 &21227938
 SpriteRenderer:
   m_ObjectHideFlags: 1
