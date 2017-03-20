@@ -31,16 +31,12 @@ namespace CustomPropertyDrawers
             // Calculate rects
             //
             var objRect = new Rect(position.x, position.y,
-                              position.width - 65, 16f);
-            var colorRect = new Rect(position.x + position.width - 60,
-                                position.y, 60, 16f);
+                              position.width, 16f);
 
             // Draw fields - pas GUIContent.none to each so they are drawn without labels
             //
             EditorGUI.PropertyField(objRect,
                 property.FindPropertyRelative("prefab"), GUIContent.none);
-            EditorGUI.PropertyField(colorRect,
-                property.FindPropertyRelative("color"), GUIContent.none);
 
             EditorGUI.LabelField(new Rect(position.x, position.y + 24f,
                     48f, 16f), "Matrix");
@@ -60,8 +56,22 @@ namespace CustomPropertyDrawers
 
             for (int i = 0; i < 4; i++)
             {
-                EditorGUI.PropertyField(matrixRect[i],
-                    matrixProp.GetArrayElementAtIndex(i), GUIContent.none);
+                SerializedProperty matrixCelProp =
+                    matrixProp.GetArrayElementAtIndex(i);
+
+                matrixCelProp.colorValue = 
+                    EditorGUI.ColorField(matrixRect[i],
+                    GUIContent.none,
+                    matrixCelProp.colorValue,
+                    false, true, false, null);
+
+                /*matrixCelProp.colorValue = 
+                    new Color32(
+                    matrixCelProp.colorValue.r.ToColorByte(),
+                    matrixCelProp.colorValue.g.ToColorByte(),
+                    matrixCelProp.colorValue.b.ToColorByte(),
+                    255
+                );*/
             }
 
             EditorGUI.LabelField(new Rect(position.x + 84f, position.y + 24f,
@@ -78,7 +88,8 @@ namespace CustomPropertyDrawers
             EditorGUI.EndProperty();
         }
 
-        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+        public override float GetPropertyHeight(SerializedProperty property,
+                                                GUIContent label)
         {
             return 48.0f;
         }

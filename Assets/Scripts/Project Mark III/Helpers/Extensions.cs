@@ -157,13 +157,23 @@ public static class FloatExtensions
         }
         else
         {
-            return data == start;
+            return data.IsNear(start);
         }
     }
 
     public static bool IsNearZero(this float data)
     {
         return Math.Abs(data) < float.Epsilon;
+    }
+
+    public static bool IsNear(this float data, float other)
+    {
+        return Math.Abs(data - other) < float.Epsilon;
+    }
+
+    public static byte ToColorByte(this float data)
+    {
+        return (byte)((int)data * 255f);
     }
 }
 

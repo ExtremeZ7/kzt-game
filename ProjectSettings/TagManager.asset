@@ -30,8 +30,8 @@ TagManager:
   - GAMEOBJECTS
   - SkazZzow!
   - Squasher
-  - Explosion
   - State Keeper
+  - GameplayProps
   layers:
   - Default
   - TransparentFX

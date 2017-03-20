@@ -10,28 +10,27 @@ public class ColorToPrefab
         Prop
     }
 
-    public Color32 color;
     public GameObject prefab;
-    public bool[] pixelMatrix = new bool[4];
+    public Color32[] pixelMatrix;
     public TileClass tileClass;
 }
 
 public class d_LevelLoader : MonoBehaviour
 {
     public string levelFileName;
+    public Transform terrainFolder;
+    public Transform propsFolder;
 
-    //public Texture2D levelMap;
-
+    [Space(10)]
     public ColorToPrefab[] colorToPrefab;
-    Dictionary<Color32, GameObject> loadDict;
 
+    Dictionary<Color32[], GameObject> loadDict;
 
-    // Use this for initialization
     void Start()
     {
         for (int i = 0; i < colorToPrefab.Length; i++)
         {
-            loadDict.Add(colorToPrefab[i].color, colorToPrefab[i].prefab);
+            loadDict.Add(colorToPrefab[i].pixelMatrix, colorToPrefab[i].prefab);
         }
 
         LoadMap();
@@ -111,5 +110,22 @@ public class d_LevelLoader : MonoBehaviour
 
         Debug.LogError("No color to prefab found for: " + c.ToString());
 
+    }
+
+
+    void OnValidate()
+    {
+        for (int i = 0; i < colorToPrefab.Length; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                colorToPrefab[i].pixelMatrix[j] = new Color32(
+                    colorToPrefab[i].pixelMatrix[j].r,
+                    colorToPrefab[i].pixelMatrix[j].g,
+                    colorToPrefab[i].pixelMatrix[j].b,
+                    255
+                );
+            }
+        }
     }
 }
