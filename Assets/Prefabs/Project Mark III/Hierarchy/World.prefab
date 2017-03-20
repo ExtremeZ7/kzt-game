@@ -113,10 +113,7 @@ MonoBehaviour:
   terrainFolder: {fileID: 4604925733447384}
   propsFolder: {fileID: 4276110180147664}
   colorToPrefab:
-  - color:
-      serializedVersion: 2
-      rgba: 0
-    prefab: {fileID: 0}
+  - prefab: {fileID: 0}
     pixelMatrix:
     - serializedVersion: 2
       rgba: 4294951680
@@ -127,3 +124,15 @@ MonoBehaviour:
     - serializedVersion: 2
       rgba: 4278228992
     tileClass: 0
+  - prefab: {fileID: 0}
+    pixelMatrix:
+    - serializedVersion: 2
+      rgba: 4288398080
+    - serializedVersion: 2
+      rgba: 4294827741
+    - serializedVersion: 2
+      rgba: 4294913024
+    - serializedVersion: 2
+      rgba: 4278212608
+    tileClass: 0
+  mapLoaded: 0

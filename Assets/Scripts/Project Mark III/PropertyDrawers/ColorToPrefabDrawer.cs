@@ -43,13 +43,13 @@ namespace CustomPropertyDrawers
 
             Rect[] matrixRect = new Rect[4];
 
-            matrixRect[0] = new Rect(position.x + 48f, position.y + 16f,
+            matrixRect[0] = new Rect(position.x + 48f, position.y + 32f,
                 16f, 16f);
-            matrixRect[1] = new Rect(position.x + 64f, position.y + 16f,
+            matrixRect[1] = new Rect(position.x + 64f, position.y + 32f,
                 16f, 16f);
-            matrixRect[2] = new Rect(position.x + 48f, position.y + 32f,
+            matrixRect[2] = new Rect(position.x + 48f, position.y + 16f,
                 16f, 16f);
-            matrixRect[3] = new Rect(position.x + 64f, position.y + 32f,
+            matrixRect[3] = new Rect(position.x + 64f, position.y + 16f,
                 16f, 16f);
 
             matrixProp.arraySize = 4;
