@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 9228906}
   - component: {fileID: 12433178}
   - component: {fileID: 8103220}
-  - component: {fileID: 11457630}
+  - component: {fileID: 114776502082017390}
   - component: {fileID: 11456506}
   m_Layer: 0
   m_Name: Main Camera
@@ -682,7 +682,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191802}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.13, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 486926}
@@ -954,7 +954,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196960}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.28676468, g: 0.2846561, b: 0.2846561, a: 0.019607844}
@@ -988,7 +988,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196960}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!92 &9228906
 Behaviour:
   m_ObjectHideFlags: 1
@@ -1279,21 +1279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d0c6f927997104096dd2b17fab88e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11457630
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad4a148861ebaba40a4429700d5ca09b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transformOffset: {x: 0, y: 0}
-  topLeftBound: {fileID: 467520}
-  bottomRightBound: {fileID: 433008}
-  speedScale: 3
 --- !u!114 &11458564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2012,6 +1997,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114776502082017390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad4a148861ebaba40a4429700d5ca09b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformOffset: {x: 0, y: 0}
+  topLeftBound: {fileID: 467520}
+  bottomRightBound: {fileID: 433008}
+  speedScale: 3
 --- !u!114 &114926542102120930
 MonoBehaviour:
   m_ObjectHideFlags: 1

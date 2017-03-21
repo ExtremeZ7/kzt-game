@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 11426446}
   - component: {fileID: 11498872}
   m_Layer: 0
-  m_Name: Letter T Collectible [ORBITER]
+  m_Name: Letter T Collectible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

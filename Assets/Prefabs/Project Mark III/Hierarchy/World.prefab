@@ -109,30 +109,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b82d68269ef549a469567a9c5cb9ce1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelFileName: 
+  levelFileName: TEST-LEVEL.png
   terrainFolder: {fileID: 4604925733447384}
   propsFolder: {fileID: 4276110180147664}
   colorToPrefab:
-  - prefab: {fileID: 0}
+  - prefab: {fileID: 115620, guid: d0e35621deacd57418f39d54cae766a2, type: 2}
     pixelMatrix:
     - serializedVersion: 2
-      rgba: 4294951680
+      rgba: 4278190080
     - serializedVersion: 2
-      rgba: 4294791424
+      rgba: 4278190080
     - serializedVersion: 2
-      rgba: 4278190302
+      rgba: 4294967295
     - serializedVersion: 2
-      rgba: 4278228992
-    tileClass: 0
-  - prefab: {fileID: 0}
-    pixelMatrix:
-    - serializedVersion: 2
-      rgba: 4288398080
-    - serializedVersion: 2
-      rgba: 4294827741
-    - serializedVersion: 2
-      rgba: 4294913024
-    - serializedVersion: 2
-      rgba: 4278212608
+      rgba: 4294967295
     tileClass: 0
   mapLoaded: 0

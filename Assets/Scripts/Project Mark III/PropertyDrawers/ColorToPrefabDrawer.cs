@@ -63,7 +63,7 @@ namespace CustomPropertyDrawers
                     EditorGUI.ColorField(matrixRect[i],
                     GUIContent.none,
                     matrixCelProp.colorValue,
-                    false, true, false, null);
+                    false, false, false, null);
 
                 /*matrixCelProp.colorValue = 
                     new Color32(

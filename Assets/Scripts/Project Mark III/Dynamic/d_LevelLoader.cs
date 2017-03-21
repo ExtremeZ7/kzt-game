@@ -36,7 +36,7 @@ public class d_LevelLoader : MonoBehaviour
     public ColorToPrefab[] colorToPrefab;
 
     Dictionary<Color32[], ColorToPrefab> loadDict =
-        new Dictionary<Color32[],ColorToPrefab>();
+        new Dictionary<Color32[],ColorToPrefab>(new Color32EqualityComparer());
     
     [SerializeField]
     [Space(10)]
@@ -50,27 +50,6 @@ public class d_LevelLoader : MonoBehaviour
         }
 
         LoadMap();
-    }
-
-    [ContextMenu("Empty Map")]
-    void EmptyMap()
-    {
-        // Find all of our children and...eliminate them.
-        mapLoaded = false;
-
-        while (terrainFolder.childCount > 0)
-        {
-            Transform c = transform.GetChild(0);
-            c.SetParent(null); // become Batman
-            Destroy(c.gameObject); // become The Joker
-        }
-
-        while (propsFolder.childCount > 0)
-        {
-            Transform c = transform.GetChild(0);
-            c.SetParent(null); // become Batman
-            Destroy(c.gameObject); // become The Joker
-        }
     }
 
     void LoadAllLevelNames()
@@ -88,6 +67,7 @@ public class d_LevelLoader : MonoBehaviour
         {
             loadDict.Add(colorToPrefab[i].pixelMatrix, colorToPrefab[i]);
         }
+        Debug.Log(loadDict.ContainsKey(colorToPrefab[0].pixelMatrix));
 
         // Read the image data from the file in StreamingAssets
         string filePath = Application.dataPath + "/StreamingAssets/" +
@@ -124,7 +104,11 @@ public class d_LevelLoader : MonoBehaviour
                         allPixels2D[x + 1, y + 1]
                     };
 
-                SpawnTileAt(nextSquare, x / 2, y / 2);
+                if (!SpawnTileAt(nextSquare, x / 2, y / 2))
+                {
+                    EmptyMap();
+                    return;
+                }
                 //SpawnTileAt(allPixels[(y * width) + x], x, y);
             }
         }
@@ -132,17 +116,16 @@ public class d_LevelLoader : MonoBehaviour
         mapLoaded = true;
     }
 
-    void SpawnTileAt(Color32[] square, int x, int y)
+    bool SpawnTileAt(Color32[] square, int x, int y)
     {
-
-        // If this is a transparent pixel, then it's meant to just be empty.
+        // If this pixel is does not have full alphas then it's meant to just be
+        // empty. Ignore it
         if (!IsFullAlpha(square))
         {
-            return;
+            return true;
         }
 
         // Find the right color in our map
-
         ColorToPrefab ctp;
         if (loadDict.TryGetValue(square, out ctp))
         {
@@ -168,8 +151,44 @@ public class d_LevelLoader : MonoBehaviour
             // If we got to this point, it means we did not find a matching
             // color in our array.
 
-            Debug.LogError("No color to prefab found for combination: "
-                + square);   
+            if (Debug.isDebugBuild)
+            {
+                Debug.LogError("No color to prefab found for combination at "
+                    + x + " : " + y
+                    + "{\n[0], " + square[0]
+                    + "\n[1], " + square[1]
+                    + "\n[2], " + square[2]
+                    + "\n[3], " + square[3]
+                    + "\n}");   
+            }
+
+            return false;
+        }
+
+        return true;
+    }
+
+    [ContextMenu("Empty Map")]
+    void EmptyMap()
+    {
+        // Find all of our children and...eliminate them.
+        mapLoaded = false;
+
+        //Empty the dictionary as well
+        loadDict = new Dictionary<Color32[], ColorToPrefab>();
+
+        while (terrainFolder.childCount > 0)
+        {
+            Transform c = transform.GetChild(0);
+            c.SetParent(null); // become Batman
+            Destroy(c.gameObject); // become The Joker
+        }
+
+        while (propsFolder.childCount > 0)
+        {
+            Transform c = transform.GetChild(0);
+            c.SetParent(null); // become Batman
+            Destroy(c.gameObject); // become The Joker
         }
     }
 
@@ -179,10 +198,10 @@ public class d_LevelLoader : MonoBehaviour
         {
             if (square[i].a < 255)
             {
-                if (Debug.isDebugBuild)
+                /*if (Debug.isDebugBuild)
                 {
                     Debug.Log("Color Square Ignored: " + square);
-                }
+                }*/
                 return false;
             }
         }
@@ -204,5 +223,30 @@ public class d_LevelLoader : MonoBehaviour
                 );
             }
         }
+    }
+}
+
+public class Color32EqualityComparer : IEqualityComparer<Color32[]>
+{
+    public bool Equals(Color32[] x, Color32[] y)
+    {
+        if (x.Length != y.Length)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < x.Length; i++)
+        {
+            if (!x[i].Equals(y[i]))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public int GetHashCode(Color32[] obj)
+    {
+        return (int)Random.Range(0f, 10000f) + obj.Length;
     }
 }
