@@ -6,7 +6,7 @@ using UnityEditor;
 #endif
 
 [Serializable]
-public class Tag : System.Object
+public class Tag
 {
     public bool enabled;
     public string name;

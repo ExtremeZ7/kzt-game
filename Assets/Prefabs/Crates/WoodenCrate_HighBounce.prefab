@@ -534,7 +534,7 @@ MonoBehaviour:
   tagFilter:
   - enabled: 1
     name: Player
-  activationMode: 2
+  activationMode: 0
   deactivateAfterOneFrame: 1
   exclusiveActivation: 1
   activateOnStay: 0

@@ -349,7 +349,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.09781476, y: -0.020791179, z: 0}
+  m_LocalPosition: {x: -0.05000001, y: 0.08660254, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000011113654172}
@@ -390,7 +390,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127102}
-  m_LocalRotation: {x: -0, y: -0, z: 0.0218016, w: 0.99976236}
+  m_LocalRotation: {x: -0, y: -0, z: 0.01808581, w: 0.99983644}
   m_LocalPosition: {x: 0.5, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -687,9 +687,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a6b69ce5123ce42a0fb1575f26a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchName: Rail Activator20950
+  scriptName: Rail Activator20950
+  tagFilter: []
   activationMode: 0
-  tagFilter: 
   deactivateAfterOneFrame: 0
   exclusiveActivation: 0
   activateOnStay: 0
@@ -707,18 +707,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 0}
-  names:
-  - 
-  listenToActivation: 0
+  listeningMode: 0
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger: []
   extraObjectsToCreateOnComplete: []
-  onlyCreateExtrasOnComplete: 0
-  objectConfigs: []
-  createDelays: []
   countsBeforeCompletion: Infinity
-  selfActionOnComplete: 0
+  onlyCreateExtrasOnComplete: 0
+  selfActionOnComplete:
+    actionOnComplete: 0
+    parentDepth: 0
 --- !u!114 &11414868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -730,9 +728,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a6b69ce5123ce42a0fb1575f26a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchName: Electricity Weakness21010
+  scriptName: Electricity Weakness21010
+  tagFilter: []
   activationMode: 0
-  tagFilter: 
   deactivateAfterOneFrame: 0
   exclusiveActivation: 0
   activateOnStay: 0
@@ -880,18 +878,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 0}
-  names:
-  - 
-  listenToActivation: 0
+  listeningMode: 0
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger: []
   extraObjectsToCreateOnComplete: []
-  onlyCreateExtrasOnComplete: 0
-  objectConfigs: []
-  createDelays: []
   countsBeforeCompletion: Infinity
-  selfActionOnComplete: 0
+  onlyCreateExtrasOnComplete: 0
+  selfActionOnComplete:
+    actionOnComplete: 0
+    parentDepth: 0
 --- !u!114 &11461894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -920,9 +916,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a6b69ce5123ce42a0fb1575f26a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchName: Shark Body21020
+  scriptName: Shark Body21020
+  tagFilter: []
   activationMode: 0
-  tagFilter: 
   deactivateAfterOneFrame: 0
   exclusiveActivation: 0
   activateOnStay: 0
@@ -1095,13 +1091,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f6891c5061b5fd4da2cb40eb1e3f515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptName: 
   delay: 1
   timerPattern:
-  - 0
+  - Infinity
   - 0.2
-  - 0
+  - Infinity
   - 0.2
-  - 0
+  - Infinity
   - 2
 --- !u!114 &11486620
 MonoBehaviour:

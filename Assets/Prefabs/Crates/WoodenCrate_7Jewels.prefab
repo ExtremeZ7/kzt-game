@@ -68,7 +68,7 @@ MonoBehaviour:
   flipActivation: 0
   objectsToCreateOnTrigger:
   - delayedObject:
-      gameObject: {fileID: 129004, guid: 0dde1fa050a3ad44884edb5092af6cfd, type: 2}
+      gameObject: {fileID: 158914, guid: 37102db3af231084eb95d93611a1f791, type: 2}
       delay: 0
     customConfig:
       newName: 
@@ -373,9 +373,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptName: Instant Destroy
   tagFilter:
-  - enabled: 0
+  - enabled: 1
     name: Obstacle:Fire
-  - enabled: 0
+  - enabled: 1
     name: Projectile
   activationMode: 1
   deactivateAfterOneFrame: 0

@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 11449904}
   - component: {fileID: 11492794}
   m_Layer: 0
-  m_Name: Spiked Cyborg Shark with Jump Control
+  m_Name: Spiked Cyborg Shark with Jump Control [ORBITER]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,7 +299,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06156615, y: -0.07880107, z: 0}
+  m_LocalPosition: {x: 0.09902681, y: -0.013917309, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children:
   - {fileID: 401868}
@@ -691,9 +691,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a6b69ce5123ce42a0fb1575f26a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchName: Activator17400
+  scriptName: Activator17400
+  tagFilter: []
   activationMode: 0
-  tagFilter: 
   deactivateAfterOneFrame: 0
   exclusiveActivation: 0
   activateOnStay: 0
@@ -854,6 +854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f6891c5061b5fd4da2cb40eb1e3f515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptName: 
   delay: 2.5
   timerPattern:
   - 1
@@ -885,9 +886,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a6b69ce5123ce42a0fb1575f26a763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchName: Electricution Weakspot17450
+  scriptName: Electricution Weakspot17450
+  tagFilter: []
   activationMode: 0
-  tagFilter: 
   deactivateAfterOneFrame: 0
   exclusiveActivation: 0
   activateOnStay: 0

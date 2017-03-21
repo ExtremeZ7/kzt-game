@@ -196,18 +196,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 0}
-  names:
-  - 
-  listenToActivation: 0
+  listeningMode: 0
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger: []
   extraObjectsToCreateOnComplete: []
-  onlyCreateExtrasOnComplete: 0
-  objectConfigs: []
-  createDelays: []
   countsBeforeCompletion: Infinity
-  selfActionOnComplete: 0
+  onlyCreateExtrasOnComplete: 0
+  selfActionOnComplete:
+    actionOnComplete: 0
+    parentDepth: 0
 --- !u!114 &11406846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,18 +219,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 0}
-  names:
-  - 
-  listenToActivation: 0
+  listeningMode: 0
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger: []
   extraObjectsToCreateOnComplete: []
-  onlyCreateExtrasOnComplete: 0
-  objectConfigs: []
-  createDelays: []
   countsBeforeCompletion: Infinity
-  selfActionOnComplete: 0
+  onlyCreateExtrasOnComplete: 0
+  selfActionOnComplete:
+    actionOnComplete: 0
+    parentDepth: 0
 --- !u!114 &11423192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -263,18 +259,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 0}
-  names:
-  - 
-  listenToActivation: 0
+  listeningMode: 0
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger: []
   extraObjectsToCreateOnComplete: []
-  onlyCreateExtrasOnComplete: 0
-  objectConfigs: []
-  createDelays: []
   countsBeforeCompletion: Infinity
-  selfActionOnComplete: 0
+  onlyCreateExtrasOnComplete: 0
+  selfActionOnComplete:
+    actionOnComplete: 0
+    parentDepth: 0
 --- !u!114 &11450718
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -107,7 +107,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.069465846, z: 0}
+  m_LocalPosition: {x: 0, y: 0.052991927, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 485314}
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switches:
   - {fileID: 114596052469161058}
-  listeningMode: 0
+  listeningMode: 1
   listenToFirstFrameOnDeactivate: 0
   flipActivation: 0
   objectsToCreateOnTrigger: []
@@ -428,10 +428,10 @@ MonoBehaviour:
   - enabled: 1
     name: Player
   activationMode: 1
-  deactivateAfterOneFrame: 1
+  deactivateAfterOneFrame: 0
   exclusiveActivation: 0
   activateOnStay: 0
-  deactivateOnExit: 1
+  deactivateOnExit: 0
 --- !u!212 &212000012804830398
 SpriteRenderer:
   m_ObjectHideFlags: 1

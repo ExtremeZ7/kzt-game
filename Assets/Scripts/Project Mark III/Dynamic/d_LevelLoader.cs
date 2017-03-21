@@ -35,20 +35,12 @@ public class d_LevelLoader : MonoBehaviour
     [Space(10)]
     public ColorToPrefab[] colorToPrefab;
 
-    Dictionary<Color32[], ColorToPrefab> loadDict =
-        new Dictionary<Color32[],ColorToPrefab>(new Color32EqualityComparer());
-    
-    [SerializeField]
-    [Space(10)]
-    bool mapLoaded;
+    Dictionary<string, ColorToPrefab> loadDict =
+        new Dictionary<string,ColorToPrefab>();
 
-    void Start()
+    void Awake()
     {
-        if (mapLoaded)
-        {
-            return;
-        }
-
+        EmptyMap();
         LoadMap();
     }
 
@@ -65,9 +57,9 @@ public class d_LevelLoader : MonoBehaviour
 
         for (int i = 0; i < colorToPrefab.Length; i++)
         {
-            loadDict.Add(colorToPrefab[i].pixelMatrix, colorToPrefab[i]);
+            loadDict.Add(colorToPrefab[i].pixelMatrix.ArrayToRGBAString(),
+                colorToPrefab[i]);
         }
-        Debug.Log(loadDict.ContainsKey(colorToPrefab[0].pixelMatrix));
 
         // Read the image data from the file in StreamingAssets
         string filePath = Application.dataPath + "/StreamingAssets/" +
@@ -106,14 +98,11 @@ public class d_LevelLoader : MonoBehaviour
 
                 if (!SpawnTileAt(nextSquare, x / 2, y / 2))
                 {
-                    EmptyMap();
                     return;
                 }
                 //SpawnTileAt(allPixels[(y * width) + x], x, y);
             }
         }
-
-        mapLoaded = true;
     }
 
     bool SpawnTileAt(Color32[] square, int x, int y)
@@ -127,7 +116,7 @@ public class d_LevelLoader : MonoBehaviour
 
         // Find the right color in our map
         ColorToPrefab ctp;
-        if (loadDict.TryGetValue(square, out ctp))
+        if (loadDict.TryGetValue(square.ArrayToRGBAString(), out ctp))
         {
             Transform newParent = null;
             switch (ctp.tileClass)
@@ -142,9 +131,11 @@ public class d_LevelLoader : MonoBehaviour
             }
 
             // Spawn the prefab at the right location
-            GameObject go = Instantiate(ctp.prefab, new Vector3(x, y, 0),
-                                Quaternion.identity, newParent);
-            PrefabUtility.ConnectGameObjectToPrefab(go, ctp.prefab);
+            GameObject go = Instantiate(ctp.prefab);
+            go.transform.SetParent(newParent);
+            GameObject prefabGo =
+                PrefabUtility.ConnectGameObjectToPrefab(go, ctp.prefab);
+            prefabGo.transform.position = new Vector3(x, y);
         }
         else
         {
@@ -172,23 +163,32 @@ public class d_LevelLoader : MonoBehaviour
     void EmptyMap()
     {
         // Find all of our children and...eliminate them.
-        mapLoaded = false;
 
         //Empty the dictionary as well
-        loadDict = new Dictionary<Color32[], ColorToPrefab>();
+        loadDict = new Dictionary<string, ColorToPrefab>();
 
         while (terrainFolder.childCount > 0)
         {
-            Transform c = transform.GetChild(0);
-            c.SetParent(null); // become Batman
-            Destroy(c.gameObject); // become The Joker
+            Transform child = terrainFolder.GetChild(0);
+            PrefabUtility.DisconnectPrefabInstance(child);
+            //child.SetParent(null); // become Batman
+            #if UNITY_EDITOR
+            DestroyImmediate(child.gameObject); // become The Joker
+            #else
+            Destroy(child.gameObject);
+            #endif
         }
 
         while (propsFolder.childCount > 0)
         {
-            Transform c = transform.GetChild(0);
-            c.SetParent(null); // become Batman
-            Destroy(c.gameObject); // become The Joker
+            Transform child = propsFolder.GetChild(0);
+            PrefabUtility.DisconnectPrefabInstance(child);
+            //child.SetParent(null); // become Batman
+            #if UNITY_EDITOR
+            DestroyImmediate(child.gameObject); // become The Joker
+            #else
+            Destroy(child.gameObject);
+            #endif
         }
     }
 
@@ -208,10 +208,26 @@ public class d_LevelLoader : MonoBehaviour
         return true;
     }
 
+    bool MapIsEmpty()
+    {
+        if (terrainFolder == null || propsFolder == null)
+        {
+            throw new UnityException("Some World Folders May Be Missing");
+        }
+
+        if (terrainFolder.childCount > 0 || propsFolder.childCount > 0)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
 
     void OnValidate()
     {
-        for (int i = 0; i < colorToPrefab.Length; i++)
+
+        /*for (int i = 0; i < colorToPrefab.Length; i++)
         {
             for (int j = 0; j < 4; j++)
             {
@@ -222,31 +238,6 @@ public class d_LevelLoader : MonoBehaviour
                     255
                 );
             }
-        }
-    }
-}
-
-public class Color32EqualityComparer : IEqualityComparer<Color32[]>
-{
-    public bool Equals(Color32[] x, Color32[] y)
-    {
-        if (x.Length != y.Length)
-        {
-            return false;
-        }
-
-        for (int i = 0; i < x.Length; i++)
-        {
-            if (!x[i].Equals(y[i]))
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public int GetHashCode(Color32[] obj)
-    {
-        return (int)Random.Range(0f, 10000f) + obj.Length;
+        }*/
     }
 }
