@@ -528,9 +528,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptName: Instant Destroy
   tagFilter:
-  - enabled: 0
+  - enabled: 1
     name: Projectile
-  - enabled: 0
+  - enabled: 1
     name: Obstacle:Fire
   activationMode: 1
   deactivateAfterOneFrame: 0

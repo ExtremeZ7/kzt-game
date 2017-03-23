@@ -17,6 +17,8 @@ namespace CustomPropertyDrawers
                 property.FindPropertyRelative("pixelMatrix");
             SerializedProperty classProp =
                 property.FindPropertyRelative("tileClass");
+            SerializedProperty offsetProp =
+                property.FindPropertyRelative("offset");
 
             // Draw label
             //
@@ -74,12 +76,19 @@ namespace CustomPropertyDrawers
                 );*/
             }
 
-            EditorGUI.LabelField(new Rect(position.x + 84f, position.y + 24f,
+            EditorGUI.LabelField(new Rect(position.x + 84f, position.y + 16f,
                     48f, 16f), "Class");
 
             EditorGUI.PropertyField(new Rect(position.x + 128f,
-                    position.y + 24, position.width - 128f, 16f),
+                    position.y + 16f, position.width - 128f, 16f),
                 classProp, GUIContent.none);
+
+            EditorGUI.LabelField(new Rect(position.x + 84f, position.y + 32f,
+                    48f, 16f), "Offset");
+
+            EditorGUI.PropertyField(new Rect(position.x + 128f,
+                    position.y + 32f, position.width - 128f, 16f),
+                offsetProp, GUIContent.none);
 
             // Set indent back to what it was
             //

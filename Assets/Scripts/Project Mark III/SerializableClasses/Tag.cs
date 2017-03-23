@@ -27,8 +27,9 @@ namespace CustomPropertyDrawers
         public override void OnGUI(Rect position, SerializedProperty property,
                                    GUIContent label)
         {
-            SerializedProperty enabled = property.FindPropertyRelative("enabled");
-            SerializedProperty name = property.FindPropertyRelative("name");
+            SerializedProperty enabledProp =
+                property.FindPropertyRelative("enabled");
+            SerializedProperty nameProp = property.FindPropertyRelative("name");
 
             EditorGUI.BeginProperty(position, label, property);
 
@@ -44,22 +45,22 @@ namespace CustomPropertyDrawers
 
             //Draw the toggle field
             //
-            enabled.boolValue = EditorGUI.Toggle(
-                position.SqueezeRight(position.width - 20), enabled.boolValue);
+            enabledProp.boolValue = EditorGUI.Toggle(
+                position.SqueezeRight(position.width - 20), enabledProp.boolValue);
 
-            if (enabled.boolValue)
+            if (enabledProp.boolValue)
             {
                 //Make sure name is not empty and is 'Untagged' by default
                 //
-                if (name.stringValue == "")
+                if (nameProp.stringValue == "")
                 {
-                    name.stringValue = "Untagged";
+                    nameProp.stringValue = "Untagged";
                 }
 
                 // Replace the string field with a tag field 
                 //
-                name.stringValue = EditorGUI.TagField(position.SqueezeLeft(20),
-                    name.stringValue);
+                nameProp.stringValue = EditorGUI.TagField(position.SqueezeLeft(20),
+                    nameProp.stringValue);
             }
             else
             {

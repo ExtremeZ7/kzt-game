@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 481366}
   - component: {fileID: 11462118}
   m_Layer: 0
-  m_Name: Railed Platform
+  m_Name: Railed Platform [RAIL]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

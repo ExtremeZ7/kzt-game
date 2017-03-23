@@ -22,6 +22,7 @@ public class ColorToPrefab
     public GameObject prefab;
     public Color32[] pixelMatrix;
     public TileClass tileClass;
+    public Vector2 offset;
 }
 
 // 'd' prefix means 'dynamic' which means it only runs once then usually
@@ -133,9 +134,12 @@ public class d_LevelLoader : MonoBehaviour
             // Spawn the prefab at the right location
             GameObject go = Instantiate(ctp.prefab);
             go.transform.SetParent(newParent);
+
             GameObject prefabGo =
                 PrefabUtility.ConnectGameObjectToPrefab(go, ctp.prefab);
-            prefabGo.transform.position = new Vector3(x, y);
+
+            prefabGo.transform.position = new Vector3(x + ctp.offset.x, 
+                y + ctp.offset.y);
         }
         else
         {
@@ -223,11 +227,11 @@ public class d_LevelLoader : MonoBehaviour
         return true;
     }
 
-
+    /*
     void OnValidate()
     {
 
-        /*for (int i = 0; i < colorToPrefab.Length; i++)
+        for (int i = 0; i < colorToPrefab.Length; i++)
         {
             for (int j = 0; j < 4; j++)
             {
@@ -238,6 +242,7 @@ public class d_LevelLoader : MonoBehaviour
                     255
                 );
             }
-        }*/
+        }
     }
+    */
 }
