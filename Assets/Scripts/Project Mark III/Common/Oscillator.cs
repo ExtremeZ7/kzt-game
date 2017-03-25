@@ -6,13 +6,11 @@ public class Oscillator
 {
     public AnimationCurve curve;
 
-    [Tooltip("How much time (in seconds) does it take to complete one"
-        + "oscillation")]
     public FloatWithVariation cycleTime = new FloatWithVariation(1f);
     public FloatWithVariation delay;
     public FloatWithVariation phase;
-    public FloatWithVariation magnitude;
-    public FloatWithVariation valueOffset = new FloatWithVariation(0f, true);
+    public FloatWithVariation magnitude = new FloatWithVariation(1f);
+    public FloatWithVariation valueOffset = new FloatWithVariation(0f);
 
     float time;
     float delayTimer;
@@ -27,9 +25,18 @@ public class Oscillator
         }
     }
 
+    public float TimeZeroValue
+    {
+        get
+        { 
+            return (curve.Evaluate(phase.Value) * magnitude.Value)
+            + valueOffset.Value;
+        }
+    }
+
     public bool isRunning
     {
-        get{ return registered && delayTimer.IsNearZero(); }
+        get{ return registered; }
     }
 
     public bool isValid
@@ -37,21 +44,28 @@ public class Oscillator
         get{ return curve.keys.Length > 1; }
     }
 
-    public float ValueWithPhaseOffset(float phase, float variation = 0f)
+    public float ValueWithExtraPhase(float phase)
     {
         return (curve.Evaluate(time
-            + this.phase
-            + phase.Variation(variation))
+            + this.phase.Value +
+            phase)
         * magnitude.Value) +
         valueOffset.Value;
     }
 
+    public float TimeZeroValueWithExtraPhase(float phase)
+    {
+        return (curve.Evaluate(this.phase.VariedValue + phase) * magnitude.VariedValue)
+        + valueOffset.VariedValue;
+    }
+
     public void Start()
     {
-        if (!isValid)
-        {
-            return;
-        }
+        cycleTime.VaryValue();
+        delay.VaryValue();
+        phase.VaryValue();
+        magnitude.VaryValue();
+        valueOffset.VaryValue();
 
         registered = true;
         delayTimer = delay.Value;
@@ -60,11 +74,6 @@ public class Oscillator
 
     public void Stop()
     {
-        if (!isValid)
-        {
-            return;
-        }
-
         registered = false;
         OscillatorManager.Instance.Unregister(this);
     }

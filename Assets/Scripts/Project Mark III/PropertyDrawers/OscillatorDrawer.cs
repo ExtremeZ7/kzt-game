@@ -7,36 +7,60 @@ namespace CustomPropertyDrawers
     [CustomPropertyDrawer(typeof(Oscillator))]
     public class OscillatorDrawer : PropertyDrawer
     {
+        public override float GetPropertyHeight(SerializedProperty property,
+                                                GUIContent label)
+        {
+            return 48f;
+        }
+
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             SerializedProperty curveProp =
                 property.FindPropertyRelative("curve");
-            SerializedProperty cycleProp =
-                property.FindPropertyRelative("cycleTime");
-            SerializedProperty tVarProp =
-                property.FindPropertyRelative("timeVariation");
-            SerializedProperty delayProp =
-                property.FindPropertyRelative("delay");
-            SerializedProperty phaseProp =
-                property.FindPropertyRelative("phase");
-            SerializedProperty pVarProp =
-                property.FindPropertyRelative("phaseVariation");
-            SerializedProperty dVarProp =
-                property.FindPropertyRelative("delayVariation");
-            SerializedProperty magnProp =
-                property.FindPropertyRelative("magnitude");
-            SerializedProperty mVarProp =
-                property.FindPropertyRelative("magnitudeVariation");
             
-            SerializedProperty vOffsetProp =
-                property.FindPropertyRelative("valueOffset");
-            SerializedProperty vVariationProp =
-                property.FindPropertyRelative("valueVariation");
+            SerializedProperty timeProp =
+                property.FindPropertyRelative("cycleTime")
+                    .FindPropertyRelative("value");
+            SerializedProperty tVarProp =
+                property.FindPropertyRelative("cycleTime")
+                .FindPropertyRelative("variation");
 
-            cycleProp.floatValue = cycleProp.floatValue.RestrictPositive();
+            SerializedProperty delayProp =
+                property.FindPropertyRelative("delay")
+                .FindPropertyRelative("value");
+            SerializedProperty dVarProp =
+                property.FindPropertyRelative("delay")
+                    .FindPropertyRelative("variation");
+
+            SerializedProperty phaseProp =
+                property.FindPropertyRelative("phase")
+                    .FindPropertyRelative("value");
+            SerializedProperty pVarProp =
+                property.FindPropertyRelative("phase")
+                    .FindPropertyRelative("variation");
+            
+            SerializedProperty magnProp =
+                property.FindPropertyRelative("magnitude")
+                    .FindPropertyRelative("value");
+            SerializedProperty mVarProp =
+                property.FindPropertyRelative("magnitude")
+                    .FindPropertyRelative("variation");
+            
+            SerializedProperty offsetProp =
+                property.FindPropertyRelative("valueOffset")
+                    .FindPropertyRelative("value");
+            SerializedProperty oVarProp =
+                property.FindPropertyRelative("valueOffset")
+                    .FindPropertyRelative("variation");
+
+            //phaseProp.floatValue = phaseProp.floatValue.RestrictRange(0f, 1f);
+            pVarProp.floatValue = pVarProp.floatValue.RestrictPositive();
+            timeProp.floatValue = timeProp.floatValue.RestrictPositive();
+            tVarProp.floatValue = tVarProp.floatValue.RestrictPositive();
             delayProp.floatValue = delayProp.floatValue.RestrictPositive();
-            phaseProp.floatValue = phaseProp.floatValue.RestrictRange(0f, 1f);
-            vVariationProp.floatValue = vVariationProp.floatValue.RestrictPositive();
+            dVarProp.floatValue = dVarProp.floatValue.RestrictPositive();           
+            mVarProp.floatValue = mVarProp.floatValue.RestrictPositive();
+            oVarProp.floatValue = oVarProp.floatValue.RestrictPositive();
 
             // Using BeginProperty / EndProperty on the parent property menas that
             // prefab override logic works on the entire property.
@@ -49,75 +73,132 @@ namespace CustomPropertyDrawers
             int indent = EditorGUI.indentLevel;
             EditorGUI.indentLevel = 0;
 
-            Rect curveRect = position.SetHeight(16f);
+            float squeezeWidth;
+            const float labelWidth = 32f;
 
-            Rect cycleLabel = position
-                .PushDown(16f).SetHeight(16f).SetWidth(32f);
+            position = position.SetHeight(16f);
 
-            Rect cycleRect = position.SqueezeLeft(cycleLabel.width)
-                .PushDown(16f).SetHeight(16f).SetWidth(32f);
+            Rect curveRect = position
+                .SetWidth(position.width / 2);
+            squeezeWidth = curveRect.width;
 
-            Rect delayLabel = position.SqueezeLeft(cycleLabel.width + cycleRect.width)
-                .PushDown(16f).SetHeight(16f).SetWidth(40f);
-            
-            Rect delayRect = position.SqueezeLeft(
-                                 cycleLabel.width + cycleRect.width + delayLabel.width)
-                .PushDown(16f).SetHeight(16f).SetWidth(32f);
+            Rect phaseLabel = position.SqueezeLeft(squeezeWidth)
+                .SetWidth(labelWidth);
+            squeezeWidth += phaseLabel.width;
 
-            Rect magnLabel = position.SqueezeLeft(
-                                 cycleLabel.width + cycleRect.width + delayLabel.width + delayRect.width)
-                .PushDown(16f).SetHeight(16f).SetWidth(40f);
+            Rect phaseRect = position.SqueezeLeft(squeezeWidth)
+                .SetWidth(position.width * 3 / 4 - squeezeWidth);
+            squeezeWidth += phaseRect.width;
 
-            Rect magnRect = position.SqueezeLeft(
-                                cycleLabel.width + cycleRect.width + delayLabel.width + delayRect.width + magnLabel.width)
-                .PushDown(16f).SetHeight(16f);
+            Rect pVarLabel = position.SqueezeLeft(squeezeWidth)
+                .SetWidth(labelWidth);
+            squeezeWidth += pVarLabel.width;
 
-            Rect phaseLabel = position
-                .PushDown(32f).SetHeight(16f).SetWidth(40f);
+            Rect pVarRect = position.SqueezeLeft(squeezeWidth)
+                .SetWidth(position.width - squeezeWidth);
 
-            Rect phaseRect = position.SqueezeLeft(phaseLabel.width)
-                .PushDown(32f).SetWidth(32).SetHeight(16f);
+            // Line Break
 
-            Rect vOffsetLabel = position.SqueezeLeft(
-                                    phaseLabel.width + phaseRect.width)
-                .PushDown(32f).SetWidth(40f).SetHeight(16f);
+            Rect timeLabel = position
+                .PushDown(16f).SetWidth(labelWidth);
+            squeezeWidth = timeLabel.width;
 
-            Rect vOffsetRect = position.SqueezeLeft(
-                                   phaseLabel.width + phaseRect.width + vOffsetLabel.width)
-                .PushDown(32f).SetWidth(32f).SetHeight(16f);
+            Rect timeRect = position.SqueezeLeft(squeezeWidth)
+                .PushDown(16f).SetWidth(position.width / 4 - squeezeWidth);
+            squeezeWidth += timeRect.width;
 
-            Rect vVariationLabel = position.SqueezeLeft(
-                                       phaseLabel.width + phaseRect.width + vOffsetLabel.width + vOffsetRect.width)
-                .PushDown(32f).SetWidth(24f).SetHeight(16f);
-            
-            Rect vVariationRect = position.SqueezeLeft(
-                                      phaseLabel.width + phaseRect.width + vOffsetLabel.width + vOffsetRect.width + vVariationLabel.width)
-                .PushDown(32f).SetHeight(16f);
+            Rect tVarLabel = position.SqueezeLeft(squeezeWidth)
+                .PushDown(16f).SetWidth(labelWidth);
+            squeezeWidth += tVarLabel.width;
+
+            Rect tVarRect = position.SqueezeLeft(squeezeWidth)
+                .PushDown(16f).SetWidth(position.width / 2 - squeezeWidth);
+            squeezeWidth += tVarRect.width;
+
+            Rect delayLabel = position.SqueezeLeft(squeezeWidth)
+                .PushDown(16f).SetWidth(labelWidth);
+            squeezeWidth += delayLabel.width;
+
+            Rect delayRect = position.SqueezeLeft(squeezeWidth)
+                .PushDown(16f).SetWidth(position.width * 3 / 4 - squeezeWidth);
+            squeezeWidth += delayRect.width;
+
+            Rect dVarLabel = position.SqueezeLeft(squeezeWidth)
+                .PushDown(16f).SetWidth(labelWidth);
+            squeezeWidth += dVarLabel.width;
+
+            Rect dVarRect = position.SqueezeLeft(squeezeWidth)
+                .PushDown(16f).SetWidth(position.width - squeezeWidth);
+
+            // Line Break
+
+            Rect magnLabel = position
+                .PushDown(32f).SetWidth(labelWidth);
+            squeezeWidth = magnLabel.width;
+
+            Rect magnRect = position.SqueezeLeft(squeezeWidth)
+                .PushDown(32f).SetWidth(position.width / 4 - squeezeWidth);
+            squeezeWidth += magnRect.width;
+
+            Rect mVarLabel = position.SqueezeLeft(squeezeWidth)
+                .PushDown(32f).SetWidth(labelWidth);
+            squeezeWidth += mVarLabel.width;
+
+            Rect mVarRect = position.SqueezeLeft(squeezeWidth)
+                .PushDown(32f).SetWidth(position.width / 2 - squeezeWidth);
+            squeezeWidth += mVarRect.width;
+
+            Rect offsetLabel = position.SqueezeLeft(squeezeWidth)
+                .PushDown(32f).SetWidth(labelWidth);
+            squeezeWidth += offsetLabel.width;
+
+            Rect offsetRect = position.SqueezeLeft(squeezeWidth)
+                .PushDown(32f).SetWidth(position.width * 3 / 4 - squeezeWidth);
+            squeezeWidth += offsetRect.width;
+
+            Rect oVarLabel = position.SqueezeLeft(squeezeWidth)
+                .PushDown(32f).SetWidth(labelWidth);
+            squeezeWidth += oVarLabel.width;
+
+            Rect oVarRect = position.SqueezeLeft(squeezeWidth)
+                .PushDown(32f).SetWidth(position.width - squeezeWidth);
 
             EditorGUI.PropertyField(curveRect, curveProp, GUIContent.none);
-            EditorGUI.LabelField(cycleLabel, "Time");
-            EditorGUI.PropertyField(cycleRect, cycleProp, GUIContent.none);
-            EditorGUI.LabelField(delayLabel, "Delay");
+            EditorGUI.LabelField(phaseLabel, "Phs.");
+            EditorGUI.Slider(phaseRect, phaseProp, 0f, 1f, GUIContent.none);
+            EditorGUI.LabelField(pVarLabel, "Var.");
+            EditorGUI.PropertyField(pVarRect, pVarProp, GUIContent.none);
+
+            // Line Break
+
+            EditorGUI.BeginDisabledGroup(
+                curveProp.animationCurveValue.keys.Length < 2);
+
+            EditorGUI.LabelField(timeLabel, "Time");
+            EditorGUI.PropertyField(timeRect, timeProp, GUIContent.none);
+            EditorGUI.LabelField(tVarLabel, "Var.");
+            EditorGUI.PropertyField(tVarRect, tVarProp, GUIContent.none);
+            EditorGUI.LabelField(delayLabel, "Del.");
             EditorGUI.PropertyField(delayRect, delayProp, GUIContent.none);
-            EditorGUI.LabelField(magnLabel, "Magn");
+            EditorGUI.LabelField(dVarLabel, "Var.");
+            EditorGUI.PropertyField(dVarRect, dVarProp, GUIContent.none);
+
+            // Line Break
+
+            EditorGUI.LabelField(magnLabel, "Mag.");
             EditorGUI.PropertyField(magnRect, magnProp, GUIContent.none);
-            EditorGUI.LabelField(phaseLabel, "Phase");
-            EditorGUI.PropertyField(phaseRect, phaseProp, GUIContent.none);
-            EditorGUI.LabelField(vOffsetLabel, "Offset");
-            EditorGUI.PropertyField(vOffsetRect, vOffsetProp, GUIContent.none);
-            EditorGUI.LabelField(vVariationLabel, "Var");
-            EditorGUI.PropertyField(vVariationRect, vVariationProp,
-                GUIContent.none);
+            EditorGUI.LabelField(mVarLabel, "Var.");
+            EditorGUI.PropertyField(mVarRect, mVarProp, GUIContent.none);
+            EditorGUI.LabelField(offsetLabel, "Off.");
+            EditorGUI.PropertyField(offsetRect, offsetProp, GUIContent.none);
+            EditorGUI.LabelField(oVarLabel, "Var.");
+            EditorGUI.PropertyField(oVarRect, oVarProp, GUIContent.none);
+
+            EditorGUI.EndDisabledGroup();
 
             EditorGUI.indentLevel = indent;
 
             EditorGUI.EndProperty();
-        }
-
-        public override float GetPropertyHeight(SerializedProperty property,
-                                                GUIContent label)
-        {
-            return 48f;
         }
     }
 }

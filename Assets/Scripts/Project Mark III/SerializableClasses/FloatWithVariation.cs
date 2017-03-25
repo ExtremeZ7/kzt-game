@@ -1,29 +1,31 @@
-﻿using UnityEngine;
+﻿using System;
 
-public class FloatWithVariation : MonoBehaviour
+[Serializable]
+public class FloatWithVariation
 {
     public float value;
     public float variation;
 
     const bool absolute = false;
-    readonly bool varyOnGet;
 
-    public float Value
+    // Analysis disable once ConvertToAutoProperty
+    public float Value { get { return value; } set { this.value = value; } }
+
+    public float VariedValue
     {
         get
         {
-            return varyOnGet ? value.Variation(variation, absolute) : value;
+            return Value.Variation(variation, absolute);
         }
     }
 
-    public FloatWithVariation(float value, bool varyOnGet = false)
+    public FloatWithVariation(float value = 0f)
     {
-        this.value = value;
-        this.varyOnGet = varyOnGet;
+        Value = value;
     }
 
-    void OnStart()
+    public void VaryValue()
     {
-        value = value.Variation(variation);
+        Value = Value.Variation(variation);
     }
 }

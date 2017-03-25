@@ -196,6 +196,64 @@ Transform:
   m_Father: {fileID: 679507459}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &90876015
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1700321287}
+    m_Modifications:
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.29599994
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.944
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 478848, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.1928826
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193438, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_Name
+      value: Jewel [ORBITER] (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &90876016 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+  m_PrefabInternal: {fileID: 90876015}
 --- !u!1 &98929134
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,60 +434,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: adef81400611be148a2feb21e7d91c6d, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &241470007
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1700321287}
-    m_Modifications:
-    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 193438, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
-      propertyPath: m_Name
-      value: Jewel [ORBITER]
-      objectReference: {fileID: 0}
-    - target: {fileID: 478848, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.05877852
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &241470008 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
-  m_PrefabInternal: {fileID: 241470007}
 --- !u!1001 &265799710
 Prefab:
   m_ObjectHideFlags: 0
@@ -541,6 +545,118 @@ Transform:
   m_PrefabParentObject: {fileID: 4989256207295100, guid: 421d30278e65e9e44bef93fbb2b69e39,
     type: 2}
   m_PrefabInternal: {fileID: 364103659}
+--- !u!1001 &432092421
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1700321287}
+    m_Modifications:
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478848, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.10027531
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193438, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_Name
+      value: Jewel [ORBITER] (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &432092422 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+  m_PrefabInternal: {fileID: 432092421}
+--- !u!1001 &534880419
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 364103660}
+    m_Modifications:
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 478848, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.02414842
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193438, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_Name
+      value: Jewel [ORBITER] (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &535667323
 Prefab:
   m_ObjectHideFlags: 0
@@ -963,6 +1079,64 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 857d583b11b503e439b3b3fdc3e1047d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &975487597
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1700321287}
+    m_Modifications:
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.29600012
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.94400024
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 478848, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.15779635
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193438, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_Name
+      value: Jewel [ORBITER] (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &975487598 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+  m_PrefabInternal: {fileID: 975487597}
 --- !u!1 &995640188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,6 +1346,64 @@ Transform:
   m_Father: {fileID: 1144948553}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1277612065
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1700321287}
+    m_Modifications:
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.79200006
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.56800014
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 478848, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.18901816
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193438, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_Name
+      value: Jewel [ORBITER] (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1277612066 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+  m_PrefabInternal: {fileID: 1277612065}
 --- !u!1 &1323503889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,6 +1484,118 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3ccddc976b960342ae61ec3b1cd0a05, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1410509334
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1700321287}
+    m_Modifications:
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.79199994
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.5680001
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 478848, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.16798142
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193438, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_Name
+      value: Jewel [ORBITER] (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1410509335 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+  m_PrefabInternal: {fileID: 1410509334}
+--- !u!1001 &1437075945
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 364103660}
+    m_Modifications:
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 478848, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.24398854
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193438, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_Name
+      value: Jewel [ORBITER] (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1458768763
 Prefab:
   m_ObjectHideFlags: 0
@@ -1273,6 +1617,60 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bbe123dcb57013a4a92e9e9135dde5f5, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1489141297
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 364103660}
+    m_Modifications:
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485314, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478848, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.00014093518
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193438, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
+      propertyPath: m_Name
+      value: Jewel [ORBITER] (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 05a0675e0e450ff4ca00bca72f201705, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1490611634
 Prefab:
@@ -1420,9 +1818,13 @@ Transform:
   m_LocalPosition: {x: 10, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 241470008}
+  - {fileID: 432092422}
+  - {fileID: 90876016}
+  - {fileID: 1277612066}
+  - {fileID: 1410509335}
+  - {fileID: 975487598}
   m_Father: {fileID: 364103660}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1700321288
 MonoBehaviour:
@@ -1435,71 +1837,337 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa9f97912e70ef41882cb603700c113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oscillators:
-  - name: Jewel [ORBITER]
+  mainOscillators:
+    name: 
+    skipX: 0
     xOsc:
       curve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 0.5
           value: -1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         - serializedVersion: 2
-          time: 1
+          time: 0.5
           value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: -1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 1
         m_PostInfinity: 0
         m_RotationOrder: 0
-      cycleTime: 1
-      delay: 0
-      phase: 0
-      magnitude: 2
-      valueOffset: 0
-      valueVariation: 0
+      cycleTime:
+        value: 1
+        variation: 0
+      delay:
+        value: 0
+        variation: 0
+      phase:
+        value: 0
+        variation: 0
+      magnitude:
+        value: 1
+        variation: 0
+      valueOffset:
+        value: 0
+        variation: 0
       registered: 0
+    skipY: 0
     yOsc:
       curve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: -1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 0.5
           value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         - serializedVersion: 2
-          time: 1
+          time: 0.5
           value: -1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 1
         m_PostInfinity: 0
         m_RotationOrder: 0
-      cycleTime: 1
-      delay: 0
-      phase: 0.25
-      magnitude: 2
-      valueOffset: 0
-      valueVariation: 0
+      cycleTime:
+        value: 1
+        variation: 0
+      delay:
+        value: 0
+        variation: 0
+      phase:
+        value: 0.25
+        variation: 0
+      magnitude:
+        value: 1
+        variation: 0
+      valueOffset:
+        value: 0
+        variation: 0
+      registered: 0
+  childOffsets:
+  - name: Jewel [ORBITER] (2)
+    skipX: 0
+    xOsc:
+      curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 1
+        m_PostInfinity: 1
+        m_RotationOrder: 0
+      cycleTime:
+        value: 1
+        variation: 0
+      delay:
+        value: 0
+        variation: 0
+      phase:
+        value: 0
+        variation: 0
+      magnitude:
+        value: 1
+        variation: 0
+      valueOffset:
+        value: 0
+        variation: 0
+      registered: 0
+    skipY: 0
+    yOsc:
+      curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      cycleTime:
+        value: 1
+        variation: 0
+      delay:
+        value: 0
+        variation: 0
+      phase:
+        value: 0
+        variation: 0
+      magnitude:
+        value: 1
+        variation: 0
+      valueOffset:
+        value: 0
+        variation: 0
+      registered: 0
+  - name: Jewel [ORBITER] (3)
+    skipX: 0
+    xOsc:
+      curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      cycleTime:
+        value: 1
+        variation: 0
+      delay:
+        value: 0
+        variation: 0
+      phase:
+        value: 0.2
+        variation: 0
+      magnitude:
+        value: 1
+        variation: 0
+      valueOffset:
+        value: 0
+        variation: 0
+      registered: 0
+    skipY: 0
+    yOsc:
+      curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      cycleTime:
+        value: 1
+        variation: 0
+      delay:
+        value: 0
+        variation: 0
+      phase:
+        value: 0.2
+        variation: 0
+      magnitude:
+        value: 1
+        variation: 0
+      valueOffset:
+        value: 0
+        variation: 0
+      registered: 0
+  - name: Jewel [ORBITER] (4)
+    skipX: 0
+    xOsc:
+      curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      cycleTime:
+        value: 1
+        variation: 0
+      delay:
+        value: 0
+        variation: 0
+      phase:
+        value: 0.4
+        variation: 0
+      magnitude:
+        value: 1
+        variation: 0
+      valueOffset:
+        value: 0
+        variation: 0
+      registered: 0
+    skipY: 0
+    yOsc:
+      curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      cycleTime:
+        value: 1
+        variation: 0
+      delay:
+        value: 0
+        variation: 0
+      phase:
+        value: 0.4
+        variation: 0
+      magnitude:
+        value: 1
+        variation: 0
+      valueOffset:
+        value: 0
+        variation: 0
+      registered: 0
+  - name: Jewel [ORBITER] (5)
+    skipX: 0
+    xOsc:
+      curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      cycleTime:
+        value: 1
+        variation: 0
+      delay:
+        value: 0
+        variation: 0
+      phase:
+        value: 0.6
+        variation: 0
+      magnitude:
+        value: 1
+        variation: 0
+      valueOffset:
+        value: 0
+        variation: 0
+      registered: 0
+    skipY: 0
+    yOsc:
+      curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      cycleTime:
+        value: 1
+        variation: 0
+      delay:
+        value: 0
+        variation: 0
+      phase:
+        value: 0.6
+        variation: 0
+      magnitude:
+        value: 1
+        variation: 0
+      valueOffset:
+        value: 0
+        variation: 0
+      registered: 0
+  - name: Jewel [ORBITER] (6)
+    skipX: 0
+    xOsc:
+      curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      cycleTime:
+        value: 1
+        variation: 0
+      delay:
+        value: 0
+        variation: 0
+      phase:
+        value: 0.8
+        variation: 0
+      magnitude:
+        value: 1
+        variation: 0
+      valueOffset:
+        value: 0
+        variation: 0
+      registered: 0
+    skipY: 0
+    yOsc:
+      curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      cycleTime:
+        value: 1
+        variation: 0
+      delay:
+        value: 0
+        variation: 0
+      phase:
+        value: 0.8
+        variation: 0
+      magnitude:
+        value: 1
+        variation: 0
+      valueOffset:
+        value: 0
+        variation: 0
       registered: 0
 --- !u!1 &1742609628
 GameObject:

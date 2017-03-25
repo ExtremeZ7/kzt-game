@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System;
-using CustomPropertyDrawers;
 
 [Serializable]
 public class Vector2Oscillator

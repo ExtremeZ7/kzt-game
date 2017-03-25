@@ -64,10 +64,11 @@ GameObject:
   - component: {fileID: 485314}
   - component: {fileID: 11410950}
   - component: {fileID: 11476968}
+  - component: {fileID: 11438042}
+  - component: {fileID: 11499034}
   - component: {fileID: 212000012804830398}
-  - component: {fileID: 114358703226423910}
   m_Layer: 0
-  m_Name: Jewel
+  m_Name: Jewel_backup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +107,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.06715359, z: 0}
+  m_LocalPosition: {x: 0, y: -0.082903765, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 485314}
@@ -266,6 +267,36 @@ MonoBehaviour:
   selfActionOnComplete:
     actionOnComplete: 2
     parentDepth: 1
+--- !u!114 &11438042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be0a7f5861ea74499bd67a7636ad11a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sendAllChidrenOnOrbit: 0
+  numberOfOrbitingChildren: 1
+  RPM: 10
+  timePerRotation: 6
+  rotation: 0
+  startDelay: 0
+  pauseStyle: 0
+  pauseDegrees: []
+  pauseTimes: []
+  orbitArrangement: 1
+  globalOffset: 0
+  degreeOffsets: []
+  orbitSize: {x: 0, y: 0.1}
+  loopTypeX: 0
+  loopTypeY: 0
+  transformOffsets:
+  - {x: 0, y: 0}
+  rotationSpeedRandomizer: 0
+  stopWhenNotVisible: 1
 --- !u!114 &11462342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -304,6 +335,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 1
   variation: 0
+--- !u!114 &11499034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a52b22522847a4dbcbfdd7edbbc164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21202610
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -370,233 +412,6 @@ MonoBehaviour:
   exclusiveActivation: 0
   activateOnStay: 0
   deactivateOnExit: 0
---- !u!114 &114358703226423910
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aa9f97912e70ef41882cb603700c113, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainOscillators:
-    name: 
-    skipX: 1
-    xOsc:
-      curve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      cycleTime:
-        value: 1
-        variation: 0
-      delay:
-        value: 0
-        variation: 0
-      phase:
-        value: 0
-        variation: 0
-      magnitude:
-        value: 1
-        variation: 0
-      valueOffset:
-        value: 0
-        variation: 0
-      registered: 0
-    skipY: 0
-    yOsc:
-      curve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 2
-          time: 0
-          value: -1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 0.5
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: -1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 1
-        m_PostInfinity: 0
-        m_RotationOrder: 0
-      cycleTime:
-        value: 10
-        variation: 0
-      delay:
-        value: 0
-        variation: 0
-      phase:
-        value: 0
-        variation: 0.5
-      magnitude:
-        value: 0.25
-        variation: 0
-      valueOffset:
-        value: 0
-        variation: 0
-      registered: 0
-  childOffsets:
-  - name: Animator
-    skipX: 1
-    xOsc:
-      curve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      cycleTime:
-        value: 1
-        variation: 0
-      delay:
-        value: 0
-        variation: 0
-      phase:
-        value: 0
-        variation: 0
-      magnitude:
-        value: 1
-        variation: 0
-      valueOffset:
-        value: 0
-        variation: 0
-      registered: 0
-    skipY: 0
-    yOsc:
-      curve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      cycleTime:
-        value: 1
-        variation: 0
-      delay:
-        value: 0
-        variation: 0
-      phase:
-        value: 0
-        variation: 0
-      magnitude:
-        value: 1
-        variation: 0
-      valueOffset:
-        value: 0
-        variation: 0
-      registered: 0
-  - name: Single Jewel Tag
-    skipX: 1
-    xOsc:
-      curve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      cycleTime:
-        value: 1
-        variation: 0
-      delay:
-        value: 0
-        variation: 0
-      phase:
-        value: 0
-        variation: 0
-      magnitude:
-        value: 1
-        variation: 0
-      valueOffset:
-        value: 0
-        variation: 0
-      registered: 0
-    skipY: 1
-    yOsc:
-      curve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      cycleTime:
-        value: 1
-        variation: 0
-      delay:
-        value: 0
-        variation: 0
-      phase:
-        value: 0
-        variation: 0
-      magnitude:
-        value: 1
-        variation: 0
-      valueOffset:
-        value: 0
-        variation: 0
-      registered: 0
-  - name: Collider
-    skipX: 1
-    xOsc:
-      curve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      cycleTime:
-        value: 1
-        variation: 0
-      delay:
-        value: 0
-        variation: 0
-      phase:
-        value: 0
-        variation: 0
-      magnitude:
-        value: 1
-        variation: 0
-      valueOffset:
-        value: 0
-        variation: 0
-      registered: 0
-    skipY: 1
-    yOsc:
-      curve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      cycleTime:
-        value: 1
-        variation: 0
-      delay:
-        value: 0
-        variation: 0
-      phase:
-        value: 0
-        variation: 0
-      magnitude:
-        value: 1
-        variation: 0
-      valueOffset:
-        value: 0
-        variation: 0
-      registered: 0
 --- !u!114 &114596052469161058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -630,7 +445,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: a31684f6d3c558f478b666234a3ab0ac, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -646,7 +461,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1473080777
+  m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
