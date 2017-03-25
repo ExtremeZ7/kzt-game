@@ -10,7 +10,7 @@ public class Oscillator
     public FloatWithVariation delay;
     public FloatWithVariation phase;
     public FloatWithVariation magnitude = new FloatWithVariation(1f);
-    public FloatWithVariation valueOffset = new FloatWithVariation(0f);
+    public FloatWithVariation valueOffset;
 
     float time;
     float delayTimer;
@@ -29,8 +29,8 @@ public class Oscillator
     {
         get
         { 
-            return (curve.Evaluate(phase.Value) * magnitude.Value)
-            + valueOffset.Value;
+            return (curve.Evaluate(phase.VariedValue) * magnitude.VariedValue)
+            + valueOffset.VariedValue;
         }
     }
 

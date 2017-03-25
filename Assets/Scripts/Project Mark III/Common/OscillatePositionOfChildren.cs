@@ -29,24 +29,24 @@ public class OscillatePositionOfChildren : OscillatorCalculator
     {
         base.OnEnable();
 
-        if (!mainOscillators.skipX)
+        if (mainOscillators.xEnabled)
         {
             mainOscillators.xOsc.Start();
         }
 
-        if (!mainOscillators.skipY)
+        if (mainOscillators.yEnabled)
         {
             mainOscillators.yOsc.Start();
         }
 
         for (int i = 0; i < childOffsets.Count; i++)
         {
-            if (!childOffsets[i].skipX)
+            if (childOffsets[i].xEnabled)
             {
                 childOffsets[i].xOsc.Start();
             }
 
-            if (!childOffsets[i].skipY)
+            if (childOffsets[i].yEnabled)
             {
                 childOffsets[i].yOsc.Start();
             }
@@ -97,35 +97,35 @@ public class OscillatePositionOfChildren : OscillatorCalculator
             //Stop and Run The Oscillators Depending On Their Active State
             if (!children[i].gameObject.activeSelf)
             {
-                if (!childOffsets[i].skipX && childOffsets[i].xOsc.isRunning)
+                if (childOffsets[i].xEnabled && childOffsets[i].xOsc.isRunning)
                 {
                     childOffsets[i].xOsc.Stop();
                 }
 
-                if (!childOffsets[i].skipY && childOffsets[i].yOsc.isRunning)
+                if (childOffsets[i].yEnabled && childOffsets[i].yOsc.isRunning)
                 {
                     childOffsets[i].yOsc.Stop();
                 }
             }
             else
             {
-                if (!childOffsets[i].skipX && !childOffsets[i].xOsc.isRunning)
+                if (childOffsets[i].xEnabled && !childOffsets[i].xOsc.isRunning)
                 {
                     childOffsets[i].xOsc.Start();
                 }
 
-                if (!childOffsets[i].skipY && !childOffsets[i].yOsc.isRunning)
+                if (childOffsets[i].yEnabled && !childOffsets[i].yOsc.isRunning)
                 {
                     childOffsets[i].yOsc.Start();
                 }
             }
 
-            if (!mainOscillators.skipX && !childOffsets[i].skipX)
+            if (mainOscillators.xEnabled && childOffsets[i].xEnabled)
             {
                 CalculateX(children[i], childOffsets[i], mainXValue);
             }
 
-            if (!mainOscillators.skipY && !childOffsets[i].skipY)
+            if (mainOscillators.yEnabled && childOffsets[i].yEnabled)
             {
                 CalculateY(children[i], childOffsets[i], mainYValue);
             }
@@ -147,7 +147,7 @@ public class OscillatePositionOfChildren : OscillatorCalculator
         {
             tf.localPosition = new Vector3(
                 mainOscillators.xOsc.ValueWithExtraPhase(
-                    osc.xOsc.phase.Value),
+                    osc.xOsc.phase.Value) + osc.xOsc.valueOffset.Value,
                 tf.localPosition.y
             );
         }
@@ -169,7 +169,7 @@ public class OscillatePositionOfChildren : OscillatorCalculator
             tf.localPosition = new Vector3(
                 tf.localPosition.x,
                 mainOscillators.yOsc.ValueWithExtraPhase(
-                    osc.yOsc.phase.Value)
+                    osc.yOsc.phase.Value) + +osc.yOsc.valueOffset.Value
             );
         }
     }
@@ -186,13 +186,42 @@ public class OscillatePositionOfChildren : OscillatorCalculator
         OnValidate();
     }
 
-    [ContextMenu("Activate All Child Oscillators")]
-    void ActivateAllChildOsc()
+    [ContextMenu("Enable All X Oscillators")]
+    void EnableAllXOsc()
     {
+        mainOscillators.xEnabled = true;
+
         for (int i = 0; i < childOffsets.Count; i++)
         {
-            childOffsets[i].skipX = false;
-            childOffsets[i].skipY = false;
+            childOffsets[i].xEnabled = true;
+        }
+
+        OnValidate();
+    }
+
+    [ContextMenu("Enable All Y Oscillators")]
+    void EnableAllYOsc()
+    {
+        mainOscillators.yEnabled = true;
+
+        for (int i = 0; i < childOffsets.Count; i++)
+        {
+            childOffsets[i].yEnabled = true;
+        }
+
+        OnValidate();
+    }
+
+    [ContextMenu("Enable All Oscillators")]
+    void EnableAllOsc()
+    {
+        mainOscillators.xEnabled = true;
+        mainOscillators.yEnabled = true;
+
+        for (int i = 0; i < childOffsets.Count; i++)
+        {
+            childOffsets[i].xEnabled = true;
+            childOffsets[i].yEnabled = true;
         }
 
         OnValidate();
@@ -213,29 +242,49 @@ public class OscillatePositionOfChildren : OscillatorCalculator
                 Transform child = transform.GetChild(i);
 
                 childOffsets[i].name = child.name;
-                childOffsets[i].skipX |= mainOscillators.skipX;
-                childOffsets[i].skipY |= mainOscillators.skipY;
+                childOffsets[i].xEnabled &= mainOscillators.xEnabled;
+                childOffsets[i].yEnabled &= mainOscillators.yEnabled;
 
-                if (!mainOscillators.skipX && !childOffsets[i].skipX)
+                if (mainOscillators.xEnabled && childOffsets[i].xEnabled)
                 {
                     // Offset X based on child parameters
                     //
-                    child.localPosition = new Vector3(
-                        mainOscillators.xOsc.TimeZeroValueWithExtraPhase(
-                            childOffsets[i].xOsc.phase.VariedValue),
-                        child.localPosition.y
-                    );
+                    if (childOffsets[i].xOsc.isValid)
+                    {
+                        child.localPosition = new Vector3(
+                            mainOscillators.xOsc.TimeZeroValue
+                            + childOffsets[i].xOsc.TimeZeroValue,
+                            child.localPosition.y);
+                    }
+                    else
+                    {
+                        child.localPosition = new Vector3(
+                            mainOscillators.xOsc.TimeZeroValueWithExtraPhase(
+                                childOffsets[i].xOsc.phase.VariedValue)
+                            + childOffsets[i].xOsc.valueOffset.VariedValue,
+                            child.localPosition.y);
+                    }
                 }
 
-                if (!mainOscillators.skipY && !childOffsets[i].skipY)
+                if (mainOscillators.yEnabled && childOffsets[i].yEnabled)
                 {
-                    // Offset X based on child parameters
+                    // Offset Y based on child parameters
                     //
-                    child.localPosition = new Vector3(
-                        child.localPosition.x,
-                        mainOscillators.yOsc.TimeZeroValueWithExtraPhase(
-                            childOffsets[i].yOsc.phase.VariedValue)
-                    );
+                    if (childOffsets[i].yOsc.isValid)
+                    {
+                        child.localPosition = new Vector3(
+                            child.localPosition.x,
+                            mainOscillators.yOsc.TimeZeroValue
+                            + childOffsets[i].yOsc.TimeZeroValue);
+                    }
+                    else
+                    {
+                        child.localPosition = new Vector3(
+                            child.localPosition.x,
+                            mainOscillators.yOsc.TimeZeroValueWithExtraPhase(
+                                childOffsets[i].yOsc.phase.VariedValue)
+                            + childOffsets[i].yOsc.valueOffset.VariedValue);
+                    }
                 }
             }
 

@@ -189,12 +189,13 @@ namespace CustomPropertyDrawers
             EditorGUI.PropertyField(magnRect, magnProp, GUIContent.none);
             EditorGUI.LabelField(mVarLabel, "Var.");
             EditorGUI.PropertyField(mVarRect, mVarProp, GUIContent.none);
+
+            EditorGUI.EndDisabledGroup();
+
             EditorGUI.LabelField(offsetLabel, "Off.");
             EditorGUI.PropertyField(offsetRect, offsetProp, GUIContent.none);
             EditorGUI.LabelField(oVarLabel, "Var.");
             EditorGUI.PropertyField(oVarRect, oVarProp, GUIContent.none);
-
-            EditorGUI.EndDisabledGroup();
 
             EditorGUI.indentLevel = indent;
 

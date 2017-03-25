@@ -15,7 +15,7 @@ public class FloatWithVariation
     {
         get
         {
-            return Value.Variation(variation, absolute);
+            return value.Variation(variation, absolute);
         }
     }
 

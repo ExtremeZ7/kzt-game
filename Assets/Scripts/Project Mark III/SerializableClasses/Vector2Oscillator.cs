@@ -6,9 +6,9 @@ public class Vector2Oscillator
 {
     [HideInInspector]
     public string name;
-    public bool skipX;
+    public bool xEnabled = true;
     public Oscillator xOsc;
-    public bool skipY;
+    public bool yEnabled = true;
     public Oscillator yOsc;
 
     public void Validate()

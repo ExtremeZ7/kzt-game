@@ -12,12 +12,12 @@ namespace CustomPropertyDrawers
         {
             float propHeight = 32f;
 
-            if (!property.FindPropertyRelative("skipX").boolValue)
+            if (property.FindPropertyRelative("xEnabled").boolValue)
             {
                 propHeight += 48f;
             }
 
-            if (!property.FindPropertyRelative("skipY").boolValue)
+            if (property.FindPropertyRelative("yEnabled").boolValue)
             {
                 propHeight += 48f;
             }
@@ -28,9 +28,9 @@ namespace CustomPropertyDrawers
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
 
-            SerializedProperty xSkipProp = property.FindPropertyRelative("skipX");
+            SerializedProperty xEnabledProp = property.FindPropertyRelative("xEnabled");
             SerializedProperty xOscProp = property.FindPropertyRelative("xOsc");
-            SerializedProperty ySkipProp = property.FindPropertyRelative("skipY");
+            SerializedProperty yEnabledProp = property.FindPropertyRelative("yEnabled");
             SerializedProperty yOscProp = property.FindPropertyRelative("yOsc");
 
             // Using BeginProperty / EndProperty on the parent property menas that
@@ -47,36 +47,36 @@ namespace CustomPropertyDrawers
 
             float pushDown = 0f;
 
-            Rect xSkipRect = position.SetHeight(16f);
-            pushDown += xSkipRect.height;
+            Rect xEnabledRect = position.SetHeight(16f);
+            pushDown += xEnabledRect.height;
 
             Rect xOscRect = position;
-            if (!xSkipProp.boolValue)
+            if (xEnabledProp.boolValue)
             {
                 xOscRect = position.PushDown(pushDown).SetHeight(48f);
                 pushDown += xOscRect.height;
             }
 
-            Rect ySkipRect = position.PushDown(pushDown).SetHeight(16f);
-            pushDown += ySkipRect.height;
+            Rect yEnabledRect = position.PushDown(pushDown).SetHeight(16f);
+            pushDown += yEnabledRect.height;
 
             Rect yOscRect = position;
-            if (!ySkipProp.boolValue)
+            if (yEnabledProp.boolValue)
             {
                 yOscRect = position.PushDown(pushDown).SetHeight(48f);
             }
 
                 
-            xSkipProp.boolValue = EditorGUI.ToggleLeft(xSkipRect,
-                xSkipProp.displayName, xSkipProp.boolValue);
-            if (!xSkipProp.boolValue)
+            xEnabledProp.boolValue = EditorGUI.ToggleLeft(xEnabledRect,
+                xEnabledProp.displayName, xEnabledProp.boolValue);
+            if (xEnabledProp.boolValue)
             {
                 EditorGUI.PropertyField(xOscRect, xOscProp, GUIContent.none);
             }
 
-            ySkipProp.boolValue = EditorGUI.ToggleLeft(ySkipRect,
-                ySkipProp.displayName, ySkipProp.boolValue);
-            if (!ySkipProp.boolValue)
+            yEnabledProp.boolValue = EditorGUI.ToggleLeft(yEnabledRect,
+                yEnabledProp.displayName, yEnabledProp.boolValue);
+            if (yEnabledProp.boolValue)
             {
                 EditorGUI.PropertyField(yOscRect, yOscProp, GUIContent.none);
             }

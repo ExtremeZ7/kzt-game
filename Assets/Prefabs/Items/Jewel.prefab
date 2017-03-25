@@ -80,7 +80,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.09562513, z: 0}
   m_LocalScale: {x: 1.3333334, y: 1.3333334, z: 1}
   m_Children: []
   m_Father: {fileID: 485314}
@@ -93,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.07084721, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 485314}
@@ -106,7 +106,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.06715359, z: 0}
+  m_LocalPosition: {x: 0, y: -0.073957205, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 485314}
@@ -383,7 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainOscillators:
     name: 
-    skipX: 1
+    xEnabled: 1
     xOsc:
       curve:
         serializedVersion: 2
@@ -407,7 +407,7 @@ MonoBehaviour:
         value: 0
         variation: 0
       registered: 0
-    skipY: 0
+    yEnabled: 1
     yOsc:
       curve:
         serializedVersion: 2
@@ -451,7 +451,7 @@ MonoBehaviour:
       registered: 0
   childOffsets:
   - name: Animator
-    skipX: 1
+    xEnabled: 1
     xOsc:
       curve:
         serializedVersion: 2
@@ -475,7 +475,7 @@ MonoBehaviour:
         value: 0
         variation: 0
       registered: 0
-    skipY: 0
+    yEnabled: 1
     yOsc:
       curve:
         serializedVersion: 2
@@ -500,7 +500,7 @@ MonoBehaviour:
         variation: 0
       registered: 0
   - name: Single Jewel Tag
-    skipX: 1
+    xEnabled: 0
     xOsc:
       curve:
         serializedVersion: 2
@@ -524,7 +524,7 @@ MonoBehaviour:
         value: 0
         variation: 0
       registered: 0
-    skipY: 1
+    yEnabled: 0
     yOsc:
       curve:
         serializedVersion: 2
@@ -549,7 +549,7 @@ MonoBehaviour:
         variation: 0
       registered: 0
   - name: Collider
-    skipX: 1
+    xEnabled: 0
     xOsc:
       curve:
         serializedVersion: 2
@@ -573,7 +573,7 @@ MonoBehaviour:
         value: 0
         variation: 0
       registered: 0
-    skipY: 1
+    yEnabled: 0
     yOsc:
       curve:
         serializedVersion: 2
