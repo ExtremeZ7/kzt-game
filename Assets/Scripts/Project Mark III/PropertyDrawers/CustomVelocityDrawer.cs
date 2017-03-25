@@ -19,14 +19,14 @@ namespace CustomPropertyDrawers
             EditorGUI.BeginProperty(position, label, property);
 
             //Set the rectangle of the scale config enum
-            position = position.MoveDown(0, 
+            position = position.PushDown(0).SetHeight(
                 EditorGUI.GetPropertyHeight(velocityConfig));
 
             //Display the scale config enum
             EditorGUI.PropertyField(position, velocityConfig);
 
             //Set the rectangle of the custom scale
-            position = position.MoveDown(EditorGUI.GetPropertyHeight(velocityConfig), 
+            position = position.PushDown(EditorGUI.GetPropertyHeight(velocityConfig)).SetHeight(
                 EditorGUI.GetPropertyHeight(custom));
 
             //Check to see if the scale config is not set to "None"
@@ -36,9 +36,7 @@ namespace CustomPropertyDrawers
                 EditorGUI.PropertyField(position.SqueezeLeft(16f), custom);
 
                 //Set the rectangle of the rotation boolean
-                position = position.MoveDown(
-                    EditorGUI.GetPropertyHeight(custom),
-                    EditorGUI.GetPropertyHeight(custom));
+                position = position.PushDown(EditorGUI.GetPropertyHeight(custom)).SetHeight(EditorGUI.GetPropertyHeight(custom));
 
                 // Display the rotate toggle
                 rotate.boolValue = EditorGUI.ToggleLeft(

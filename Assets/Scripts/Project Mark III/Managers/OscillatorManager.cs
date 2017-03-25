@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections.Generic;
 
-public class OscillatorManager : MonoBehaviour
+public class OscillatorManager : MonoBehaviour, IUpdateManager<Oscillator>
 {
     public static OscillatorManager Instance{ get; private set; }
 
@@ -17,14 +17,6 @@ public class OscillatorManager : MonoBehaviour
         for (int i = 0; i < managedScripts.Count; i++)
         {
             managedScripts[i].ManagedUpdate();
-        }
-    }
-
-    void OnValidate()
-    {
-        for (int i = 0; i < managedScripts.Count; i++)
-        {
-            managedScripts[i].ValidateKeys();
         }
     }
 

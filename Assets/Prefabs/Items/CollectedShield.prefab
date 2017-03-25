@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114149459411234190}
   - component: {fileID: 114350754729161256}
   m_Layer: 0
-  m_Name: Collected Shield
+  m_Name: CollectedShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

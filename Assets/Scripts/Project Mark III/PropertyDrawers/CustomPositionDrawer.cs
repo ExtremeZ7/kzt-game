@@ -17,14 +17,14 @@ namespace CustomPropertyDrawers
             EditorGUI.BeginProperty(position, label, property);
 
             //Set the rectangle of the scale rotation enum
-            position = position.MoveDown(0, 
+            position = position.PushDown(0).SetHeight(
                 EditorGUI.GetPropertyHeight(positionConfig));
 
             //Display the rotation config enum
             EditorGUI.PropertyField(position, positionConfig);
 
             //Set the rectangle of the custom rotatiom
-            position = position.MoveDown(EditorGUI.GetPropertyHeight(positionConfig), 
+            position = position.PushDown(EditorGUI.GetPropertyHeight(positionConfig)).SetHeight(
                 EditorGUI.GetPropertyHeight(custom));
 
             //Check to see if the rotation config is not set to "None"

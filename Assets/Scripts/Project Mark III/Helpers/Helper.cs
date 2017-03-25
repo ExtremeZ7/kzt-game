@@ -172,23 +172,7 @@ public static class Help : System.Object
         return worldDiff;
     }
 
-    public static void GenerateHintBox(string message)
-    {
-        RemoveAnnoyingMessageBox();
 
-        GameObject hintPrefab = Resources.Load("Prefabs/Helpful Hint", typeof(GameObject)) as GameObject;
-
-        GameObject newHint = UnityEngine.Object.Instantiate(hintPrefab, Vector3.zero, Quaternion.identity) as GameObject;
-        drawHelpfulHint dhh = newHint.GetComponent<drawHelpfulHint>();
-        dhh.stringToDraw = message;
-    }
-
-    public static void RemoveAnnoyingMessageBox()
-    {
-        drawHelpfulHint helperHint = GameObject.FindObjectOfType<drawHelpfulHint>();
-        if (helperHint != null)
-            UnityEngine.Object.Destroy(helperHint.gameObject);
-    }
 
     public static Color ChangeColorAlpha(Color color, float newAlpha)
     {

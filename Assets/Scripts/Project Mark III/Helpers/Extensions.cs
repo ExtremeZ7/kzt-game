@@ -134,12 +134,41 @@ public static class FloatExtensions
 {
     public static float Variation(this float data, float range, bool absolute = false)
     {
+        if (range.IsNearZero())
+        {
+            return data;
+        }
+
         float rand = UnityEngine.Random.Range(-range, range);
         if (absolute)
         {
             rand = Math.Abs(rand) * Mathf.Sign(range);
         }
         return data + rand;
+    }
+
+    public static float RestrictRange(this float data, float min, float max)
+    {
+        if (min >= max)
+        {
+            throw new UnityException("Parameter Problem With Restrict Range");
+        }
+
+        if (data < min)
+        {
+            return min;
+        }
+        else if (data > max)
+        {
+            return max;
+        }
+
+        return data;
+    }
+
+    public static float RestrictPositive(this float data)
+    {
+        return data < 0 ? 0 : data;
     }
 
     public static bool IsWithinRange(this float data, float start, float end)
@@ -179,12 +208,20 @@ public static class FloatExtensions
 
 public static class RectExtensions
 {
-    public static Rect MoveDown(this Rect data, float distance, float newHeight)
+    public static Rect MovePos(this Rect data, Vector2 distance)
+    {
+        return new Rect(data.x + distance.x,
+            data.y + distance.y,
+            data.width,
+            data.height);
+    }
+
+    public static Rect PushDown(this Rect data, float distance)
     {
         return new Rect(data.x, 
             data.y + distance, 
             data.width, 
-            newHeight);
+            data.height);
     }
 
     public static Rect SqueezeLeft(this Rect data, float squeezeSize)
@@ -201,6 +238,38 @@ public static class RectExtensions
             data.y,
             data.width - squeezeSize,
             data.height);
+    }
+
+    public static Rect SqueezeDown(this Rect data, float squeezeSize)
+    {
+        return new Rect(data.x,
+            data.y,
+            data.width,
+            data.height - squeezeSize);
+    }
+
+    public static Rect SqueezeUp(this Rect data, float squeezeSize)
+    {
+        return new Rect(data.x,
+            data.y + squeezeSize,
+            data.width,
+            data.height - squeezeSize);
+    }
+
+    public static Rect SetWidth(this Rect data, float newWidth)
+    {
+        return new Rect(data.x,
+            data.y,
+            newWidth,
+            data.height);
+    }
+
+    public static Rect SetHeight(this Rect data, float newHeight)
+    {
+        return new Rect(data.x,
+            data.y,
+            data.width,
+            newHeight);
     }
 }
 

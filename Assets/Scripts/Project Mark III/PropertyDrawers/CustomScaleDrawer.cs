@@ -16,14 +16,14 @@ namespace CustomPropertyDrawers
             EditorGUI.BeginProperty(position, label, property);
 
             //Set the rectangle of the scale config enum
-            position = position.MoveDown(0, 
+            position = position.PushDown(0).SetHeight(
                 EditorGUI.GetPropertyHeight(scaleConfig));
 
             //Display the scale config enum
             EditorGUI.PropertyField(position, scaleConfig);
 
             //Set the rectangle of the custom scale
-            position = position.MoveDown(EditorGUI.GetPropertyHeight(scaleConfig), 
+            position = position.PushDown(EditorGUI.GetPropertyHeight(scaleConfig)).SetHeight(
                 EditorGUI.GetPropertyHeight(custom));
 
             //Check to see if the scale config is not set to "None"

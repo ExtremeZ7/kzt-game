@@ -7,30 +7,30 @@ public class PauseMenuScript : MonoBehaviour
 
     public enum CurrentMenu
     {
-MainPauseMenu,
-VolumeSettings,
-SaveGame
+        MainPauseMenu,
+        VolumeSettings,
+        SaveGame
 
     }
 
     public enum MainSelection
     {
-ChangeVolume,
-SaveGame,
-ReturnToWorldMap,
-ReturnToMainMenu,
-ExitGame,
-ReturningToWorldMap,
-ReturningToMainMenu,
-ExitingGame
+        ChangeVolume,
+        SaveGame,
+        ReturnToWorldMap,
+        ReturnToMainMenu,
+        ExitGame,
+        ReturningToWorldMap,
+        ReturningToMainMenu,
+        ExitingGame
 
     }
 
     public enum VolumeSelection
     {
-MusicVolume,
-EffectsVolume,
-ApplyChanges
+        MusicVolume,
+        EffectsVolume,
+        ApplyChanges
 
     }
 
@@ -74,7 +74,7 @@ ApplyChanges
     void Update()
     {
         if (Input.GetKeyDown(GameControl.control.settings.pauseKey) && GameControl.control.barrierIsOpen
-        && !disablePauseInTheseScenes.Contains(SceneManager.GetActiveScene().name) && GameControl.control.allowPause)
+            && !disablePauseInTheseScenes.Contains(SceneManager.GetActiveScene().name) && GameControl.control.allowPause)
         {
             TogglePause();
         }
@@ -217,7 +217,7 @@ ApplyChanges
                     {
                         GameControl.control.SaveProgress(saveFileSelection);
                         TogglePause();
-                        Help.GenerateHintBox("Game Saved");
+                        //Help.GenerateHintBox("Game Saved");
                     }
                     if (Input.GetKeyDown(cancelKey))
                     {
@@ -341,7 +341,7 @@ ApplyChanges
                         bool saveFileExists = saveFiles[i] != null;
 
                         Texture saveIcon = Resources.Load("Save File Icons/" + (saveFileExists ? "save_icon_w" +
-                            saveFiles[i].currentWorld + "_l" + saveFiles[i].currentLevel : "no_save_icon"), typeof(Texture)) as Texture;
+                                               saveFiles[i].currentWorld + "_l" + saveFiles[i].currentLevel : "no_save_icon"), typeof(Texture)) as Texture;
 
                         GUI.DrawTexture(new Rect(20, 120 + (130 * i), 760, 120), Resources.Load("Other Textures/" +
                                 (saveFileSelection == i ? "selected_load_texture" : "unselected_load_texture"), typeof(Texture)) as Texture);
@@ -370,7 +370,7 @@ ApplyChanges
         {
             GameControl.control.masterMixer.SetFloat("Background Music Lowpass Cut", 22000f / 8f);
 
-            Help.RemoveAnnoyingMessageBox();
+            //Help.RemoveAnnoyingMessageBox();
 
             currentMenu = CurrentMenu.MainPauseMenu;
             mainSelection = MainSelection.ChangeVolume;
