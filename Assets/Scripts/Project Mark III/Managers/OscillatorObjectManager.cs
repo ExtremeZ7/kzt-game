@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class OscillatorCalculatorManager : MonoBehaviour,
-IUpdateManager<OscillatorCalculator>
+public class OscillatorObjectManager : MonoBehaviour,
+IUpdateManager<OscillatorObject>
 {
-    public static OscillatorCalculatorManager Instance{ get; private set; }
+    public static OscillatorObjectManager Instance{ get; private set; }
 
-    readonly List<OscillatorCalculator> managedScripts = new List<OscillatorCalculator>();
+    readonly List<OscillatorObject> managedScripts = new List<OscillatorObject>();
 
     void Awake()
     {
@@ -21,12 +21,12 @@ IUpdateManager<OscillatorCalculator>
         }
     }
 
-    public void Register(OscillatorCalculator script)
+    public void Register(OscillatorObject script)
     {
         managedScripts.Add(script);
     }
 
-    public void Unregister(OscillatorCalculator script)
+    public void Unregister(OscillatorObject script)
     {
         managedScripts.Remove(script);
     }

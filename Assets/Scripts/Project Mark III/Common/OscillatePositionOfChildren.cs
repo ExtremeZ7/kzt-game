@@ -7,11 +7,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class OscillatePositionOfChildren : OscillatorCalculator
+public class OscillatePositionOfChildren : OscillatorObject
 {
-    // fields
-    public Vector2Oscillator mainOscillators;
-
     [Space(10)]
     public List<Vector2Oscillator> childOffsets =
         new List<Vector2Oscillator>();
@@ -174,13 +171,33 @@ public class OscillatePositionOfChildren : OscillatorCalculator
         }
     }
 
+    int GetEnabledChildOffsetCount()
+    {
+        int count = 0;
+        for (int i = 0; i < childOffsets.Count; i++)
+        {
+            if (childOffsets[i].Enabled)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
     [ContextMenu("Spread Phase Values")]
     void SpreadPhaseValues()
     {
-        for (int i = 0; i < childOffsets.Count; i++)
+        int enabledOffsets = GetEnabledChildOffsetCount();
+
+        for (int i = 0; i < enabledOffsets; i++)
         {
-            childOffsets[i].xOsc.phase.Value = 1.0f / childOffsets.Count * i;
-            childOffsets[i].yOsc.phase.Value = 1.0f / childOffsets.Count * i;
+            if (!childOffsets[i].Enabled)
+            {
+                continue;
+            }
+
+            childOffsets[i].xOsc.phase.Value = 1.0f / enabledOffsets * i;
+            childOffsets[i].yOsc.phase.Value = 1.0f / enabledOffsets * i;
         }
 
         OnValidate();
@@ -287,8 +304,51 @@ public class OscillatePositionOfChildren : OscillatorCalculator
                     }
                 }
             }
+        }
+    }
 
+    void OnDrawGizmos()
+    {
+        if (transform.childCount == 0)
+        {
+            return;
+        }
 
+        // The green line represents the route from the first position
+        Gizmos.color = Color.green;
+
+        Transform previousTransform = null;
+        Transform firstTransform = null;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (!childOffsets[i].Enabled)
+            {
+                continue;
+            }
+
+            if (firstTransform == null)
+            {
+                firstTransform = transform.GetChild(i);
+            }
+
+            if (previousTransform != null)
+            {
+                Gizmos.DrawLine(previousTransform.position,
+                    transform.GetChild(i).position);
+
+                Gizmos.color = Color.white;
+            }
+
+            previousTransform = transform.GetChild(i);
+        }
+
+        // The red line represents route back to the starting position
+        //
+        if (previousTransform != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(previousTransform.position,
+                firstTransform.position);
         }
     }
 }

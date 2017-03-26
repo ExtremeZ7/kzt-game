@@ -7,6 +7,12 @@ public static class Tags
     public static string dynamicObjects = "DynamicObjects";
 }
 
+public enum UseValueAs
+{
+    Time,
+    Speed
+}
+
 public static class Help : System.Object
 {
     public static bool UseAsTimer(ref float time)

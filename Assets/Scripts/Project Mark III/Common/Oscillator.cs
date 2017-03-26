@@ -90,6 +90,6 @@ public class Oscillator
 
         // Calculate the time for this frame
         //
-        time = (time + (Time.deltaTime / cycleTime.Value)) % 1.0f;
+        time = (time + (Time.deltaTime / cycleTime.Value)) % 2.0f;
     }
 }

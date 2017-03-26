@@ -216,10 +216,18 @@ public static class RectExtensions
             data.height);
     }
 
-    public static Rect PushDown(this Rect data, float distance)
+    public static Rect PushVertical(this Rect data, float distance)
     {
         return new Rect(data.x, 
             data.y + distance, 
+            data.width, 
+            data.height);
+    }
+
+    public static Rect PushHorizontal(this Rect data, float distance)
+    {
+        return new Rect(data.x + distance, 
+            data.y,
             data.width, 
             data.height);
     }
@@ -284,6 +292,11 @@ public static class Vector2Extensions
         data.y = (sin * data.x) + (cos * data.y);
 
         return data;
+    }
+
+    public static Vector2 ToVector2(this Vector3 data)
+    {
+        return new Vector2(data.x, data.y);
     }
 }
 

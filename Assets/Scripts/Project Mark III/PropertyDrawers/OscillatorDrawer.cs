@@ -100,68 +100,68 @@ namespace CustomPropertyDrawers
             // Line Break
 
             Rect timeLabel = position
-                .PushDown(16f).SetWidth(labelWidth);
+                .PushVertical(16f).SetWidth(labelWidth);
             squeezeWidth = timeLabel.width;
 
             Rect timeRect = position.SqueezeLeft(squeezeWidth)
-                .PushDown(16f).SetWidth(position.width / 4 - squeezeWidth);
+                .PushVertical(16f).SetWidth(position.width / 4 - squeezeWidth);
             squeezeWidth += timeRect.width;
 
             Rect tVarLabel = position.SqueezeLeft(squeezeWidth)
-                .PushDown(16f).SetWidth(labelWidth);
+                .PushVertical(16f).SetWidth(labelWidth);
             squeezeWidth += tVarLabel.width;
 
             Rect tVarRect = position.SqueezeLeft(squeezeWidth)
-                .PushDown(16f).SetWidth(position.width / 2 - squeezeWidth);
+                .PushVertical(16f).SetWidth(position.width / 2 - squeezeWidth);
             squeezeWidth += tVarRect.width;
 
             Rect delayLabel = position.SqueezeLeft(squeezeWidth)
-                .PushDown(16f).SetWidth(labelWidth);
+                .PushVertical(16f).SetWidth(labelWidth);
             squeezeWidth += delayLabel.width;
 
             Rect delayRect = position.SqueezeLeft(squeezeWidth)
-                .PushDown(16f).SetWidth(position.width * 3 / 4 - squeezeWidth);
+                .PushVertical(16f).SetWidth(position.width * 3 / 4 - squeezeWidth);
             squeezeWidth += delayRect.width;
 
             Rect dVarLabel = position.SqueezeLeft(squeezeWidth)
-                .PushDown(16f).SetWidth(labelWidth);
+                .PushVertical(16f).SetWidth(labelWidth);
             squeezeWidth += dVarLabel.width;
 
             Rect dVarRect = position.SqueezeLeft(squeezeWidth)
-                .PushDown(16f).SetWidth(position.width - squeezeWidth);
+                .PushVertical(16f).SetWidth(position.width - squeezeWidth);
 
             // Line Break
 
             Rect magnLabel = position
-                .PushDown(32f).SetWidth(labelWidth);
+                .PushVertical(32f).SetWidth(labelWidth);
             squeezeWidth = magnLabel.width;
 
             Rect magnRect = position.SqueezeLeft(squeezeWidth)
-                .PushDown(32f).SetWidth(position.width / 4 - squeezeWidth);
+                .PushVertical(32f).SetWidth(position.width / 4 - squeezeWidth);
             squeezeWidth += magnRect.width;
 
             Rect mVarLabel = position.SqueezeLeft(squeezeWidth)
-                .PushDown(32f).SetWidth(labelWidth);
+                .PushVertical(32f).SetWidth(labelWidth);
             squeezeWidth += mVarLabel.width;
 
             Rect mVarRect = position.SqueezeLeft(squeezeWidth)
-                .PushDown(32f).SetWidth(position.width / 2 - squeezeWidth);
+                .PushVertical(32f).SetWidth(position.width / 2 - squeezeWidth);
             squeezeWidth += mVarRect.width;
 
             Rect offsetLabel = position.SqueezeLeft(squeezeWidth)
-                .PushDown(32f).SetWidth(labelWidth);
+                .PushVertical(32f).SetWidth(labelWidth);
             squeezeWidth += offsetLabel.width;
 
             Rect offsetRect = position.SqueezeLeft(squeezeWidth)
-                .PushDown(32f).SetWidth(position.width * 3 / 4 - squeezeWidth);
+                .PushVertical(32f).SetWidth(position.width * 3 / 4 - squeezeWidth);
             squeezeWidth += offsetRect.width;
 
             Rect oVarLabel = position.SqueezeLeft(squeezeWidth)
-                .PushDown(32f).SetWidth(labelWidth);
+                .PushVertical(32f).SetWidth(labelWidth);
             squeezeWidth += oVarLabel.width;
 
             Rect oVarRect = position.SqueezeLeft(squeezeWidth)
-                .PushDown(32f).SetWidth(position.width - squeezeWidth);
+                .PushVertical(32f).SetWidth(position.width - squeezeWidth);
 
             EditorGUI.PropertyField(curveRect, curveProp, GUIContent.none);
             EditorGUI.LabelField(phaseLabel, "Phs.");

@@ -11,6 +11,11 @@ public class Vector2Oscillator
     public bool yEnabled = true;
     public Oscillator yOsc;
 
+    public bool Enabled
+    {
+        get{ return xEnabled && yEnabled; }
+    }
+
     public void Validate()
     {
         if (xOsc.curve.keys.Length == 1)

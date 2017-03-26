@@ -106,7 +106,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.073957205, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2041658, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 485314}
@@ -383,7 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainOscillators:
     name: 
-    xEnabled: 1
+    xEnabled: 0
     xOsc:
       curve:
         serializedVersion: 2
@@ -441,7 +441,7 @@ MonoBehaviour:
         variation: 0
       phase:
         value: 0
-        variation: 0.5
+        variation: 1
       magnitude:
         value: 0.25
         variation: 0
@@ -451,7 +451,7 @@ MonoBehaviour:
       registered: 0
   childOffsets:
   - name: Animator
-    xEnabled: 1
+    xEnabled: 0
     xOsc:
       curve:
         serializedVersion: 2
