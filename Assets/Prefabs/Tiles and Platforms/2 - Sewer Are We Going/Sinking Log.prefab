@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 424364}
   - component: {fileID: 11435388}
   m_Layer: 0
-  m_Name: Sinking Log
+  m_Name: Sinking Log [RAIL]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -176,8 +176,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166830}
-  m_LocalRotation: {x: -0, y: -0, z: -0.020226633, w: 0.99979544}
-  m_LocalPosition: {x: -0.010452851, y: 0.09945219, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.008873498, w: 0.99996066}
+  m_LocalPosition: {x: -0.09781476, y: 0.020791162, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 454934}

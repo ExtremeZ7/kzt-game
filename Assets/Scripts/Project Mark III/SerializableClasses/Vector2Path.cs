@@ -12,6 +12,11 @@ public class Vector2Path
 
     Vector2 defaultPosition = Vector2.zero;
 
+    public Vector2 Default
+    {
+        get{ return defaultPosition; }
+    }
+
     public void SetDefaultPosition(Vector2 defaultPosition)
     {
         this.defaultPosition = defaultPosition;
