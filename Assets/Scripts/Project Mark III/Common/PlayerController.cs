@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using AssemblyCSharp;
 
 public class PlayerController : MonoBehaviour
 {
@@ -72,7 +70,19 @@ public class PlayerController : MonoBehaviour
     public Sprite anxiousLookUp;
     public Sprite anxiousLookDown;
 
-    void Start()
+    void OnEnable()
+    {
+        InputEventManager.upPressed += Jump;
+        InputEventManager.horHeld += Move;
+    }
+
+    void OnDisable()
+    {
+        InputEventManager.upPressed -= Jump;
+        InputEventManager.horHeld -= Move;
+    }
+
+    /*void Start()
     {
         groundCheck = transform.GetChild(2);
         moveSpeed = 0;
@@ -90,7 +100,7 @@ public class PlayerController : MonoBehaviour
         shieldAnimator = transform.GetChild(5).GetComponent<Animator>();
     }
 
-    /*void Update()
+    void Update()
     {
         // Leave if the game is paused
         if (GameControl.control.paused)
@@ -221,13 +231,8 @@ public class PlayerController : MonoBehaviour
         }
     }*/
 
-    void Update()
+    void Move(float direction)
     {
-        switch (movementState)
-        {
-            case MovementState.Normal:
-                break;
-        }
     }
 
     public void Jump()

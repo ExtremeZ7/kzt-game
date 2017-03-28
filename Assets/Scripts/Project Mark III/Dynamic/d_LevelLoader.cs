@@ -22,7 +22,9 @@ public class ColorToPrefab
     public GameObject prefab;
     public Color32[] pixelMatrix;
     public TileClass tileClass;
-    public Vector2 offset;
+    public Vector2 offsetPosition;
+    public Vector2 offsetScale = Vector2.one;
+    public float offsetRotation;
 }
 
 // 'd' prefix means 'dynamic' which means it only runs once then usually
@@ -138,8 +140,13 @@ public class d_LevelLoader : MonoBehaviour
             GameObject prefabGo =
                 PrefabUtility.ConnectGameObjectToPrefab(go, ctp.prefab);
 
-            prefabGo.transform.position = new Vector3(x + ctp.offset.x, 
-                y + ctp.offset.y);
+            prefabGo.transform.position = new Vector3(x + ctp.offsetPosition.x, 
+                y + ctp.offsetPosition.y);
+            prefabGo.transform.localScale = new Vector3(
+                prefabGo.transform.localScale.x * ctp.offsetScale.x, 
+                prefabGo.transform.localScale.y * ctp.offsetScale.y);
+            prefabGo.transform.localEulerAngles = new Vector3(0f, 0f, 
+                prefabGo.transform.localEulerAngles.z + ctp.offsetRotation);
         }
         else
         {

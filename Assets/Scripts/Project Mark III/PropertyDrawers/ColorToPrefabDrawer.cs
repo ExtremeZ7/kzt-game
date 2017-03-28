@@ -17,13 +17,17 @@ namespace CustomPropertyDrawers
                 property.FindPropertyRelative("pixelMatrix");
             SerializedProperty classProp =
                 property.FindPropertyRelative("tileClass");
-            SerializedProperty offsetProp =
-                property.FindPropertyRelative("offset");
+            SerializedProperty offsetPosProp =
+                property.FindPropertyRelative("offsetPosition");
+            SerializedProperty offsetSclProp =
+                property.FindPropertyRelative("offsetScale");
+            SerializedProperty offsetRotProp =
+                property.FindPropertyRelative("offsetRotation");
 
             // Draw label
             //
-            position = EditorGUI.PrefixLabel(position,
-                GUIUtility.GetControlID(FocusType.Passive), label);
+            //position = EditorGUI.PrefixLabel(position,
+            //    GUIUtility.GetControlID(FocusType.Passive), label);
 
             // Don't make child fields be intended
             //
@@ -43,7 +47,7 @@ namespace CustomPropertyDrawers
             EditorGUI.LabelField(new Rect(position.x, position.y + 24f,
                     48f, 16f), "Matrix");
 
-            Rect[] matrixRect = new Rect[4];
+            var matrixRect = new Rect[4];
 
             matrixRect[0] = new Rect(position.x + 48f, position.y + 32f,
                 16f, 16f);
@@ -76,19 +80,38 @@ namespace CustomPropertyDrawers
                 );*/
             }
 
-            EditorGUI.LabelField(new Rect(position.x + 84f, position.y + 16f,
-                    48f, 16f), "Class");
+            position = position.SetHeight(16f);
 
-            EditorGUI.PropertyField(new Rect(position.x + 128f,
-                    position.y + 16f, position.width - 128f, 16f),
-                classProp, GUIContent.none);
+            Rect classRect = position.PushVertical(16f)
+                .SqueezeLeft(132f).SetWidth(position.width / 2f - 132f);
+            Rect posRect = position.PushVertical(16f)
+                .SqueezeLeft(position.width / 2f + 52f);
+            Rect rotRect = position.PushVertical(32f)
+                .SqueezeLeft(136f).SetWidth(position.width / 2f - 136f);
+            Rect sclRect = position.PushVertical(32f)
+                .SqueezeLeft(position.width / 2f + 52f);
+
+            EditorGUI.LabelField(new Rect(position.x + 84f, position.y + 16f,
+                    52f, 16f), "Parent");
+
+            EditorGUI.PropertyField(classRect, classProp, GUIContent.none);
+
+            EditorGUI.LabelField(position
+                .PushVertical(16f).SqueezeLeft(position.width / 2f)
+                .SetWidth(52f), "Off. Pos.");
+
+            EditorGUI.PropertyField(posRect, offsetPosProp, GUIContent.none);
 
             EditorGUI.LabelField(new Rect(position.x + 84f, position.y + 32f,
-                    48f, 16f), "Offset");
+                    52f, 16f), "Off. Rot.");
 
-            EditorGUI.PropertyField(new Rect(position.x + 128f,
-                    position.y + 32f, position.width - 128f, 16f),
-                offsetProp, GUIContent.none);
+            EditorGUI.Slider(rotRect, offsetRotProp, 0f, 360f, GUIContent.none);
+
+            EditorGUI.LabelField(position
+                .PushVertical(32f).SqueezeLeft(position.width / 2f)
+                .SetWidth(52f), "Off. Scl.");
+
+            EditorGUI.PropertyField(sclRect, offsetSclProp, GUIContent.none);
 
             // Set indent back to what it was
             //

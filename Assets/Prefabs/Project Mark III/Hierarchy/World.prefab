@@ -124,7 +124,9 @@ MonoBehaviour:
     - serializedVersion: 2
       rgba: 4294967295
     tileClass: 0
-    offset: {x: 0, y: 0}
+    offsetPosition: {x: 0, y: 0}
+    offsetScale: {x: 1, y: 1}
+    offsetRotation: 0
   - prefab: {fileID: 163076, guid: 2af3d0926364b7c41b3458d0fa04dea3, type: 2}
     pixelMatrix:
     - serializedVersion: 2
@@ -136,7 +138,9 @@ MonoBehaviour:
     - serializedVersion: 2
       rgba: 4278223103
     tileClass: 1
-    offset: {x: 0, y: 0}
+    offsetPosition: {x: 0, y: 0}
+    offsetScale: {x: 1, y: 1}
+    offsetRotation: 0
   - prefab: {fileID: 198634, guid: 660836e3e3daf49489d6f0b1743d51c7, type: 2}
     pixelMatrix:
     - serializedVersion: 2
@@ -148,7 +152,9 @@ MonoBehaviour:
     - serializedVersion: 2
       rgba: 4278255615
     tileClass: 1
-    offset: {x: 0, y: 0}
+    offsetPosition: {x: 0, y: 0}
+    offsetScale: {x: 1, y: 1}
+    offsetRotation: 0
   - prefab: {fileID: 132402, guid: 209a775ca87142f4b8b0dbff4c379b17, type: 2}
     pixelMatrix:
     - serializedVersion: 2
@@ -160,7 +166,9 @@ MonoBehaviour:
     - serializedVersion: 2
       rgba: 4294967040
     tileClass: 0
-    offset: {x: 0, y: 0}
+    offsetPosition: {x: 0, y: 0}
+    offsetScale: {x: 1, y: 1}
+    offsetRotation: 0
   - prefab: {fileID: 109944, guid: adef81400611be148a2feb21e7d91c6d, type: 2}
     pixelMatrix:
     - serializedVersion: 2
@@ -172,7 +180,9 @@ MonoBehaviour:
     - serializedVersion: 2
       rgba: 4278223103
     tileClass: 1
-    offset: {x: 0, y: 0}
+    offsetPosition: {x: 0, y: 0}
+    offsetScale: {x: 1, y: 1}
+    offsetRotation: 0
   - prefab: {fileID: 194058, guid: 03076693232e0ad4783f9c7c4dbd8c80, type: 2}
     pixelMatrix:
     - serializedVersion: 2
@@ -184,7 +194,9 @@ MonoBehaviour:
     - serializedVersion: 2
       rgba: 4278190335
     tileClass: 1
-    offset: {x: 0, y: 0}
+    offsetPosition: {x: 0, y: 0}
+    offsetScale: {x: 1, y: 1}
+    offsetRotation: 0
   - prefab: {fileID: 168876, guid: bbe123dcb57013a4a92e9e9135dde5f5, type: 2}
     pixelMatrix:
     - serializedVersion: 2
@@ -196,7 +208,9 @@ MonoBehaviour:
     - serializedVersion: 2
       rgba: 4278255360
     tileClass: 1
-    offset: {x: 0, y: 0}
+    offsetPosition: {x: 0, y: 0}
+    offsetScale: {x: 1, y: 1}
+    offsetRotation: 0
   - prefab: {fileID: 195632, guid: 4578c014513c9454cbe86d852aba03b8, type: 2}
     pixelMatrix:
     - serializedVersion: 2
@@ -208,7 +222,9 @@ MonoBehaviour:
     - serializedVersion: 2
       rgba: 4294901760
     tileClass: 1
-    offset: {x: 0, y: 0}
+    offsetPosition: {x: 0, y: 0}
+    offsetScale: {x: 1, y: 1}
+    offsetRotation: 0
   - prefab: {fileID: 197886, guid: 37ad953377e5eb140bc286cf06e55f9b, type: 2}
     pixelMatrix:
     - serializedVersion: 2
@@ -220,7 +236,9 @@ MonoBehaviour:
     - serializedVersion: 2
       rgba: 4294901760
     tileClass: 0
-    offset: {x: 0, y: 0}
+    offsetPosition: {x: 0, y: 0}
+    offsetScale: {x: 1, y: 1}
+    offsetRotation: 0
   - prefab: {fileID: 116342, guid: 860d5c922fb109a48af940ad4c7ace66, type: 2}
     pixelMatrix:
     - serializedVersion: 2
@@ -232,7 +250,9 @@ MonoBehaviour:
     - serializedVersion: 2
       rgba: 4278190335
     tileClass: 1
-    offset: {x: 0.5, y: 0.5}
+    offsetPosition: {x: 0.5, y: 0.5}
+    offsetScale: {x: 1, y: 1}
+    offsetRotation: 0
   - prefab: {fileID: 159962, guid: f3ccddc976b960342ae61ec3b1cd0a05, type: 2}
     pixelMatrix:
     - serializedVersion: 2
@@ -244,4 +264,6 @@ MonoBehaviour:
     - serializedVersion: 2
       rgba: 4294901760
     tileClass: 0
-    offset: {x: 0.5, y: 0.5}
+    offsetPosition: {x: 0.5, y: 0.5}
+    offsetScale: {x: 1, y: 1}
+    offsetRotation: 0
