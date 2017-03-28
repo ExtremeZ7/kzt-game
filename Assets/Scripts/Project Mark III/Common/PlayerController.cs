@@ -2,7 +2,7 @@
 using System.Collections;
 using AssemblyCSharp;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 
     public enum MovementState
@@ -13,15 +13,9 @@ public class PlayerControl : MonoBehaviour
 
     ;
 
-    private MovementState movementState;
+    MovementState movementState;
 
-    [Header("Controls")]
-    public KeyCode leftKey;
-    public KeyCode rightKey;
-    public KeyCode jumpKey;
-    public KeyCode downKey;
-
-    private Rigidbody2D rigidbody2d;
+    Rigidbody2D rigidbody2d;
 
     public float walkSpeed = 5.0f;
     public float jumpForce = 15.0f;
@@ -46,14 +40,13 @@ public class PlayerControl : MonoBehaviour
     [Space(10)]
     public bool startWithNoGravity;
 
-    private float moveSpeed;
-    private bool justFell;
-    private bool allowDelayedJump;
-    private Coroutine jumpDelayCoroutine;
+    float moveSpeed;
+    bool justFell;
+    bool allowDelayedJump;
 
-    private Animator animator;
+    Animator animator;
 
-    private Transform groundCheck;
+    Transform groundCheck;
     [HideInInspector]
     public Animator shieldAnimator;
     public LayerMask collideWithLayer;
@@ -61,16 +54,16 @@ public class PlayerControl : MonoBehaviour
     [HideInInspector]
     public bool canMove = true;
 
-    private int direction;
-    private float groundIgnoreTimer;
-    private int xDirection;
-    private int yDirection;
+    int direction;
+    float groundIgnoreTimer;
+    int xDirection;
+    int yDirection;
 
     [Space(10)]
     public GameObject playerJumpAudioSource;
 
-    private Transform body;
-    private SpriteRenderer playerHead;
+    Transform body;
+    SpriteRenderer playerHead;
 
     [Space(10)]
     public Sprite normalLook;
@@ -92,104 +85,101 @@ public class PlayerControl : MonoBehaviour
         playerHead = transform.GetChild(0).GetChild(1).GetChild(0).gameObject.GetComponent<SpriteRenderer>();
 
         if (startWithNoGravity)
-            changeMovementState(MovementState.NoGravity);
+            ChangeMovementState(MovementState.NoGravity);
 
         shieldAnimator = transform.GetChild(5).GetComponent<Animator>();
     }
 
-    void Update()
+    /*void Update()
     {
-        if (!GameControl.control.paused)
+        // Leave if the game is paused
+        if (GameControl.control.paused)
         {
-            bool leftMovementHeld = false;
-            bool rightMovementHeld = false;
-            bool onGround = animator.GetBool("On Ground");
-
-            animator.SetBool("No Grav", movementState == MovementState.NoGravity);
-
-            //Sets Animator "Aiming" Parameter to true only if the player holds down the left mouse button while on the ground and standing still
-
-            if (movementState != MovementState.NoGravity)
-            {
-                if (onGround)
-                {
-                    if (Input.GetMouseButtonDown(0) && !animator.GetBool("Moving"))
-                    {
-                        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Can Aim"))
-                        {	
-                            canMove = false;
-                            animator.SetBool("Aiming", true);
-                        }
-                    }
-                    else
-                    {
-                        canMove = true;
-                    }
-                }
-            }
-            else
-                animator.SetBool("Aiming", Input.GetMouseButton(0));
-
-            //bool allowDelayedJump = !Helper.useAsTimer (ref fallJumpTimer);
-
-            if (Help.UseAsTimer(ref groundIgnoreTimer) && movementState != MovementState.NoGravity)
-            {
-                animator.SetBool("On Ground", Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collideWithLayer));
-                if (!Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collideWithLayer) && !justFell)
-                {
-                    justFell = true;
-                    jumpDelayCoroutine = StartCoroutine(StartJumpDelayTimer());
-                }
-                else if (Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collideWithLayer))
-                    justFell = false;
-            }
-
-            //Allows the player to use the movement controls only when he is not aiming
-            if (movementState != MovementState.NoGravity)
-            {
-                if (canMove && !animator.GetBool("Aiming"))
-                {
-                    if (Input.GetKey(leftKey))
-                        leftMovementHeld = true;
-                    if (Input.GetKey(rightKey))
-                        rightMovementHeld = true;
-                    if (Input.GetKeyDown(jumpKey) && (onGround || allowDelayedJump))
-                    {
-                        Jump();
-                    }
-                }
-            }
-            else
-            {
-                xDirection = 0;
-                if (Input.GetKey(rightKey))
-                    xDirection += 1;
-                if (Input.GetKey(leftKey))
-                    xDirection -= 1;
-
-                yDirection = 0;
-                if (Input.GetKey(jumpKey))
-                    yDirection += 1;
-                if (Input.GetKey(downKey))
-                    yDirection -= 1;
-            }
-
-            //Sets the direction of movement based on which keys the player is currently holding
-            direction = (leftMovementHeld ? -1 : 0) + (rightMovementHeld ? 1 : 0);
-
-            animator.SetBool("Moving", direction != 0 ? true : false);
-            animator.SetBool("In Jump State", animator.GetCurrentAnimatorStateInfo(0).IsName("Jump Triggered"));
-
-            FlipBody();
-            ChangePlayerHeadSprite();
-
-            if (transform.parent == null)
-            {
-                transform.rotation = Quaternion.Euler(Vector3.zero);
-                transform.localScale = Vector3.one;
-            }
-				
+            return;
         }
+
+        bool leftMovementHeld = false;
+        bool rightMovementHeld = false;
+        bool onGround = animator.GetBool("On Ground");
+
+        animator.SetBool("No Grav", movementState == MovementState.NoGravity);
+
+        //Sets Animator "Aiming" Parameter to true only if the player holds down the left mouse button while on the ground and standing still
+
+        if (movementState != MovementState.NoGravity)
+        {
+            if (onGround)
+            {
+                if (Input.GetAxis("Aim").IsNear(1) && !animator.GetBool("Moving"))
+                {
+                    if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Can Aim"))
+                    {	
+                        canMove = false;
+                        animator.SetBool("Aiming", true);
+                    }
+                }
+                else
+                {
+                    canMove = true;
+                }
+            }
+        }
+        else
+        {
+            animator.SetBool("Aiming", Input.GetAxis("Aim").IsNear(1));
+        }
+
+        //bool allowDelayedJump = !Helper.useAsTimer (ref fallJumpTimer);
+
+        if (Help.UseAsTimer(ref groundIgnoreTimer) && movementState != MovementState.NoGravity)
+        {
+            animator.SetBool("On Ground", Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collideWithLayer));
+            if (!Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collideWithLayer) && !justFell)
+            {
+                justFell = true;
+                allowDelayedJump = true;
+                Invoke("EndJumpDelay", fallJumpTime);
+            }
+            else
+            {
+                justFell &= !Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collideWithLayer);
+            }
+        }
+
+        //Allows the player to use the movement controls only when he is not aiming
+        if (movementState != MovementState.NoGravity)
+        {
+            if (canMove && !animator.GetBool("Aiming"))
+            {
+                leftMovementHeld |= Input.GetAxis("Horizontal").IsNear(-1.0f);
+                rightMovementHeld |= Input.GetAxis("Horizontal").IsNear(1.0f);
+                if (Input.GetAxis("Vertical").IsNear(1f) && (onGround || allowDelayedJump))
+                {
+                    Jump();
+                }
+            }
+        }
+        else
+        {
+            xDirection = (int)Input.GetAxis("Horizontal");
+            yDirection = (int)Input.GetAxis("Vertical");
+        }
+
+        //Sets the direction of movement based on which keys the player is currently holding
+        direction = (leftMovementHeld ? -1 : 0) + (rightMovementHeld ? 1 : 0);
+
+        animator.SetBool("Moving", direction != 0 ? true : false);
+        animator.SetBool("In Jump State", animator.GetCurrentAnimatorStateInfo(0).IsName("Jump Triggered"));
+
+        FlipBody();
+        ChangePlayerHeadSprite();
+
+        if (transform.parent == null)
+        {
+            transform.rotation = Quaternion.Euler(Vector3.zero);
+            transform.localScale = Vector3.one;
+        }
+				
     }
 
     void FixedUpdate()
@@ -199,13 +189,18 @@ public class PlayerControl : MonoBehaviour
         {
             case MovementState.Normal:
                 if (animator.GetBool("On Ground"))
+                {
                     moveSpeed = direction * walkSpeed;
+                }
                 else
+                {
                     moveSpeed = Mathf.MoveTowards(moveSpeed, walkSpeed * direction, jumpMomentum * (direction == 0 ? 0.5f : 1f));
+                }
 
                 animator.SetBool("Sliding", false);
                 rigidbody2d.velocity = new Vector2(moveSpeed, rigidbody2d.velocity.y);
                 break;
+
             case MovementState.SlipperyFloor:
                 float speed = jumpMomentum / 2;
                 moveSpeed = Mathf.MoveTowards(moveSpeed, moveSpeed != 0 || direction != 0 ? walkSpeed * (direction == 0 ? Mathf.Sign(moveSpeed) : direction) * 2f : moveSpeed, speed);
@@ -215,12 +210,22 @@ public class PlayerControl : MonoBehaviour
                 animator.SetBool("Sliding", moveSpeed != 0 || direction != 0);
                 rigidbody2d.velocity = new Vector2(moveSpeed, rigidbody2d.velocity.y);
                 break;
+
             case MovementState.NoGravity:
                 rigidbody2d.velocity = Vector2.MoveTowards(rigidbody2d.velocity, 
                     xDirection == 0 || yDirection == 0 ? new Vector2(maxSpeed * xDirection, maxSpeed * yDirection) : new Vector2(maxSpeed / Mathf.Sqrt(2) * xDirection, maxSpeed / Mathf.Sqrt(2) * yDirection),
                     (xDirection == 0 && yDirection == 0 ? deceleration : acceleration) * Time.deltaTime);
 
                 moveSpeed = rigidbody2d.velocity.x;
+                break;
+        }
+    }*/
+
+    void Update()
+    {
+        switch (movementState)
+        {
+            case MovementState.Normal:
                 break;
         }
     }
@@ -258,11 +263,10 @@ public class PlayerControl : MonoBehaviour
         InitJumpAnimation();
     }
 
-    private void InitJumpAnimation()
+    void InitJumpAnimation()
     {
         groundIgnoreTimer = 3f / 60f;
-        if (jumpDelayCoroutine != null)
-            StopCoroutine(jumpDelayCoroutine);
+        CancelInvoke("EndJumpDelay");
         allowDelayedJump = false;
         justFell = true;
         animator.SetTrigger("Jump");
@@ -294,7 +298,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    private void ChangePlayerHeadSprite()
+    void ChangePlayerHeadSprite()
     {
         if (animator.GetBool("Aiming"))
         {
@@ -360,7 +364,7 @@ public class PlayerControl : MonoBehaviour
         return direction;
     }
 
-    public void changeMovementState(PlayerControl.MovementState newState)
+    public void ChangeMovementState(PlayerController.MovementState newState)
     {
         if (newState != MovementState.SlipperyFloor || movementState != MovementState.NoGravity)
             movementState = newState;
@@ -404,16 +408,14 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    public void gainShield()
+    public void GainShield()
     {
         if (shields() < 3)
             shieldAnimator.SetInteger("Shields", shields() + 1);
     }
 
-    private IEnumerator StartJumpDelayTimer()
+    void EndJumpDelay()
     {
-        allowDelayedJump = true;
-        yield return new WaitForSeconds(fallJumpTime);
         allowDelayedJump = false;
     }
 }

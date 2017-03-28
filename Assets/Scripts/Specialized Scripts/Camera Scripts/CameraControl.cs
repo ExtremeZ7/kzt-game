@@ -4,7 +4,7 @@ using AssemblyCSharp;
 public class CameraControl : MonoBehaviour
 {
 
-    private PlayerControl playerControl;
+    private PlayerController playerControl;
     private Vector2 cameraSize;
 
     [Space(10)]

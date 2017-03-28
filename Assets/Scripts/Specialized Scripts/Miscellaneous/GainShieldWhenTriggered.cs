@@ -19,7 +19,7 @@ OnRecentSwitch}
         [Space(10)]
         public TriggerMode onTriggerMode = TriggerMode.OnRecentSwitch;
 
-        private PlayerControl playerControl;
+        private PlayerController playerControl;
 
         void Start()
         {
@@ -35,11 +35,11 @@ OnRecentSwitch}
                 {
                     case TriggerMode.WhileSwitched:
                         if (trigger.IsActivated)
-                            playerControl.gainShield();
+                            playerControl.GainShield();
                         break;
                     case TriggerMode.OnRecentSwitch:
                         if (trigger.ActivatedOnCurrentFrame)
-                            playerControl.gainShield();
+                            playerControl.GainShield();
                         break;
                 }
             }

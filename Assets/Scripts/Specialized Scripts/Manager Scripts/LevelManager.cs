@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
     private LevelState levelState;
     private string completeLevelName;
 
-    private PlayerControl playerControl;
+    private PlayerController playerControl;
     private keepRespawnState respawnStateKeeper;
 
     private bool levelReset = false;
@@ -55,7 +55,7 @@ public class LevelManager : MonoBehaviour
     public float musicBPM;
 
     private Transform mainCamera;
-    private PlayerControl.MovementState savedMovementState = PlayerControl.MovementState.Normal;
+    private PlayerController.MovementState savedMovementState = PlayerController.MovementState.Normal;
 
     [HideInInspector]
     public bool noGravity;
@@ -137,7 +137,7 @@ public class LevelManager : MonoBehaviour
     {
         playerControl.gameObject.SetActive(true);
         playerControl.shieldAnimator.SetTrigger("Force Remove Shield");
-        playerControl.changeMovementState(savedMovementState);
+        playerControl.ChangeMovementState(savedMovementState);
         levelState = LevelState.PlayingLevel;
         playerControl.transform.position = lastCheckpoint.position;
         playerControl.transform.parent = GameObject.FindGameObjectWithTag("GAMEOBJECTS").transform;

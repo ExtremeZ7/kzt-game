@@ -21,11 +21,11 @@ public static class Help : System.Object
         return Math.Abs(time) < float.Epsilon;
     }
 
-    public static bool WaitForPlayer(ref PlayerControl playerControl)
+    public static bool WaitForPlayer(ref PlayerController playerControl)
     {
         if (playerControl != null)
             return true;
-        playerControl = UnityEngine.Object.FindObjectOfType<PlayerControl>();
+        playerControl = UnityEngine.Object.FindObjectOfType<PlayerController>();
         return playerControl != null;
     }
 

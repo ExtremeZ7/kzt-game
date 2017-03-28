@@ -22,7 +22,7 @@ HighBounce}
         [Space(10)]
         public GameObject audioToPlay;
 
-        private PlayerControl playerControl;
+        private PlayerController playerControl;
 
         void Start()
         {

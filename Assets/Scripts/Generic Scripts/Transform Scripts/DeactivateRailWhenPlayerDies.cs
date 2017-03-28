@@ -6,7 +6,7 @@ public class DeactivateRailWhenPlayerDies : MonoBehaviour
 
     public travelAcrossARail rail;
 
-    private PlayerControl playerControl;
+    private PlayerController playerControl;
 
     void Start()
     {

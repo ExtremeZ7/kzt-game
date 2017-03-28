@@ -4,10 +4,10 @@ using System.Collections;
 public class StopPlayerWhenNotWalking : MonoBehaviour {
 
 	void OnCollisionStay2D(Collision2D coll){
-		if(coll.gameObject.tag.Equals("Player") && coll.gameObject.GetComponent<PlayerControl>().getMovementState() != PlayerControl.MovementState.NoGravity){
+		if(coll.gameObject.tag.Equals("Player") && coll.gameObject.GetComponent<PlayerController>().getMovementState() != PlayerController.MovementState.NoGravity){
 			GameObject player = coll.gameObject;
 
-			if(player.GetComponent<PlayerControl>().GetDirection() == 0){
+			if(player.GetComponent<PlayerController>().GetDirection() == 0){
 				player.GetComponent<Rigidbody2D>().gravityScale = 0;
 			}
 			else{
@@ -17,7 +17,7 @@ public class StopPlayerWhenNotWalking : MonoBehaviour {
 	}
 
 	void OnCollisionExit2D(Collision2D coll){
-		if(coll.gameObject.tag.Equals("Player") && coll.gameObject.GetComponent<PlayerControl>().getMovementState() != PlayerControl.MovementState.NoGravity){
+		if(coll.gameObject.tag.Equals("Player") && coll.gameObject.GetComponent<PlayerController>().getMovementState() != PlayerController.MovementState.NoGravity){
 			GameObject player = coll.gameObject;
 			player.GetComponent<Rigidbody2D>().gravityScale = 4;
 		}

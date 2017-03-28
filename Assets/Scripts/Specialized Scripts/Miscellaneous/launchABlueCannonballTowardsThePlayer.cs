@@ -17,7 +17,7 @@ public class launchABlueCannonballTowardsThePlayer : MonoBehaviour
     [Space(10)]
     public TimerSwitch shootTimer;
 
-    private PlayerControl playerControl;
+    private PlayerController playerControl;
     private Transform playerTransform;
 
     [Space(10)]

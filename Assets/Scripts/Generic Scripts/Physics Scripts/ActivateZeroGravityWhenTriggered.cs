@@ -7,7 +7,7 @@ namespace AssemblyCSharp
     {
 
         public TriggerSwitch trigger;
-        private PlayerControl playerControl;
+        private PlayerController playerControl;
 
         [Space(10)]
         public bool reverse;
@@ -24,7 +24,7 @@ namespace AssemblyCSharp
             {
                 if (trigger.ActivatedOnCurrentFrame)
                 {
-                    playerControl.changeMovementState(!reverse ? PlayerControl.MovementState.NoGravity : PlayerControl.MovementState.Normal);
+                    playerControl.ChangeMovementState(!reverse ? PlayerController.MovementState.NoGravity : PlayerController.MovementState.Normal);
                 }
             }
         }

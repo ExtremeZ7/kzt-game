@@ -9,7 +9,7 @@ public class BlowGoldenBubble : MonoBehaviour
     [Space(10)]
     public float pushStrength;
 
-    private PlayerControl playerControl;
+    private PlayerController playerControl;
 
     public void OnTriggerStay2D(Collider2D coll)
     {

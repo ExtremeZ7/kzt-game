@@ -13,7 +13,7 @@ namespace AssemblyCSharp
         public float acceleration;
         public float speedScale = 100f;
 
-        private PlayerControl playerControl;
+        private PlayerController playerControl;
         private bool chasing;
 
         void Start()

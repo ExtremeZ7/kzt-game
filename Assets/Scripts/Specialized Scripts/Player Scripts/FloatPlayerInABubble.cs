@@ -21,7 +21,7 @@ Floating}
         public float triggerDistance;
 
         private TriggerSwitch trigger;
-        private PlayerControl playerControl;
+        private PlayerController playerControl;
         private GameObject player;
 
         [HideInInspector]

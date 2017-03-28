@@ -3,17 +3,17 @@ using System.Collections;
 
 public class SlideIfOnSlipperyFloor : MonoBehaviour {
 
-	private PlayerControl playerControl;
+	private PlayerController playerControl;
 
 	public string[] tags;
 
 	void Start () {
-		playerControl = GetComponent<PlayerControl>()	;
+		playerControl = GetComponent<PlayerController>()	;
 	}
 
 	void OnTriggerStay2D(Collider2D coll){
 		if(tags.Contains(coll.gameObject.tag)){
-			playerControl.changeMovementState(PlayerControl.MovementState.SlipperyFloor);
+			playerControl.ChangeMovementState(PlayerController.MovementState.SlipperyFloor);
 		}
 	}
 }

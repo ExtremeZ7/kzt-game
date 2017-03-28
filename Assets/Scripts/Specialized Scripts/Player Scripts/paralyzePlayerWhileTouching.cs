@@ -4,7 +4,7 @@ using AssemblyCSharp;
 public class paralyzePlayerWhileTouching : MonoBehaviour
 {
 
-    private PlayerControl playerControl;
+    private PlayerController playerControl;
 
     void Update()
     {
