@@ -34,7 +34,6 @@ namespace Controllers
         [Space(10)]
         public bool startWithNoGravity;
 
-        float moveSpeed;
         bool justFell;
         bool allowDelayedJump;
 
@@ -55,6 +54,7 @@ namespace Controllers
         float yAxis;
 
         bool onPlatform;
+        bool onSlipperyFloor;
 
         void OnEnable()
         {
@@ -242,58 +242,68 @@ namespace Controllers
                 transform.position + new Vector3(0f, -1f),
                 groundCheckRadius, platformLayer);
             
-            bool onSlipperyFloor = 
+            onSlipperyFloor = 
                 Physics2D.OverlapCircle(
-                    transform.position + new Vector3(0f, -1f),
-                    groundCheckRadius, slipperyFloorLayer);
+                transform.position + new Vector3(0f, -1f),
+                groundCheckRadius, slipperyFloorLayer);
 
             playerAnimator.SetBool("OnPlatform", onPlatform);
             playerAnimator.SetBool("Sliding", onSlipperyFloor);
             playerAnimator.SetBool("GravityIsActive", gravityIsActive);
             playerAnimator.SetFloat("xAxis", xAxis);
+            playerAnimator.SetFloat("yVelocity", rigidBody.velocity.y);
 
             if (onPlatform && !onSlipperyFloor) // On The Ground
             {
                 rigidBody.velocity =
-                    rigidBody.velocity.SetX(xAxis * maxHorizontalSpeed);
-                return;
+                    rigidBody.velocity
+                        .SetX(xAxis * maxHorizontalSpeed
+                    * Time.deltaTime * 60f);
             }
             else if (onSlipperyFloor) //  On Some Slippery Floor
             {
+                float xSpeed = rigidBody.velocity.x;
+
                 // Don't Move If The Speed If The Player Is Not Moving
                 // And The Axis Is At Zero
-                if (moveSpeed.IsNearZero() && xAxis.IsNearZero())
+                if (xSpeed.IsNearZero() && xAxis.IsNearZero())
                 {
                     return;
                 }
 
                 // Move Towards The Axis If It Is Not Zero
                 // Otherwise Move Towards The Nearest Max Speed, Anyway
-                moveSpeed = Mathf.MoveTowards(moveSpeed,
+                xSpeed = Mathf.MoveTowards(xSpeed,
                     maxSlipperyFloorSpeed *
                     (!xAxis.IsNearZero() ?
-                        Mathf.Sign(moveSpeed) : xAxis) * Time.deltaTime,
-                    slipperyFloorAcceleration * Time.deltaTime);
+                        Mathf.Sign(xSpeed) : xAxis),
+                    slipperyFloorAcceleration);
+
+                rigidBody.velocity = rigidBody.velocity
+                    .SetX(Mathf.Abs(xSpeed * Time.deltaTime * 60f));
             }
             else if (!gravityIsActive) // No Gravity! Weeeeee!!!
             {
                 rigidBody.velocity = Vector2.MoveTowards(rigidBody.velocity, 
-                    new Vector2(maxGravitySpeed * xAxis, maxGravitySpeed * yAxis),
+                    new Vector2(
+                        Mathf.Abs(maxGravitySpeed * xAxis) * Time.deltaTime * 60f,
+                        maxGravitySpeed * yAxis * Time.deltaTime * 60f),
                     xAxis.IsNearZero() && yAxis.IsNearZero() ?
-                    gravityFriction : gravityAcceleration * Time.deltaTime);
-
-                return;
+                    gravityFriction * Time.deltaTime * 60f :
+                    gravityAcceleration * Time.deltaTime * 60f);
             }
             else // In The Air With Gravity
             {
-                moveSpeed = rigidBody.velocity.x;
-                moveSpeed = Mathf.MoveTowards(moveSpeed,
+                float xSpeed = rigidBody.velocity.x;
+
+                xSpeed = Mathf.MoveTowards(xSpeed,
                     maxHorizontalSpeed * xAxis,
                     xAxis.IsNearZero()
                     ? airFriction : airAcceleration);
-            }
 
-            rigidBody.velocity = rigidBody.velocity.SetX(moveSpeed);
+                rigidBody.velocity = rigidBody.velocity
+                    .SetX(xSpeed * Time.deltaTime * 60f);
+            }
         }
 
         /// <summary>
