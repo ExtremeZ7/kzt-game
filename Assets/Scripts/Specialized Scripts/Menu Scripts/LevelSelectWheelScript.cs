@@ -2,6 +2,7 @@
 using System.Collections;
 using Helper;
 using Common.Extensions;
+using Controllers;
 
 public class LevelSelectWheelScript : MonoBehaviour
 {
@@ -54,7 +55,7 @@ public class LevelSelectWheelScript : MonoBehaviour
 
     void Update()
     {
-        if (!GameControl.control.paused)
+        if (!GameController.Instance.paused)
         {
             if (levelSelectionScript.getSelectionState() == (int)LevelSelectionScript.SelectionState.SelectingALevel)
             {
@@ -183,7 +184,7 @@ public class LevelSelectWheelScript : MonoBehaviour
         //Set X Marks
         for (int i = 3; i >= 0; i--)
             transform.GetChild(i).GetChild(0).gameObject.SetActive(
-                GameControl.control.restrictLocked && !GameControl.control.progress.levelsUnlocked[worldIndex, 4 - i]);
+                GameController.Instance.restrictLocked && !GameController.Instance.progress.levelsUnlocked[worldIndex, 4 - i]);
 		
         //Set Boss Head
         transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = 
@@ -209,13 +210,13 @@ public class LevelSelectWheelScript : MonoBehaviour
         if (levelIndex > 0 && levelIndex < 5)
         {
             items[0].localPosition = new Vector3(
-                Mathf.Abs(items[0].localPosition.x) * (GameControl.control.progress.gemsCollected[worldIndex - 1, levelIndex - 1] ? -1 : 1), items[0].localPosition.y);
+                Mathf.Abs(items[0].localPosition.x) * (GameController.Instance.progress.gemsCollected[worldIndex - 1, levelIndex - 1] ? -1 : 1), items[0].localPosition.y);
             if (levelIndex < 4)
             {
                 for (int i = 0; i < 3; i++)
                 {
                     items[i + 1].localPosition = new Vector3(
-                        Mathf.Abs(items[i + 1].localPosition.x) * (GameControl.control.progress.lettersCollected[worldIndex - 1, levelIndex - 1, i] ? -1 : 1), items[i + 1].localPosition.y);
+                        Mathf.Abs(items[i + 1].localPosition.x) * (GameController.Instance.progress.lettersCollected[worldIndex - 1, levelIndex - 1, i] ? -1 : 1), items[i + 1].localPosition.y);
                 }
             }
         }
@@ -226,7 +227,7 @@ public class LevelSelectWheelScript : MonoBehaviour
         if (levelIndex < 5)
         {
             Vector2 gemPosition = items[0].localPosition;
-            gemPosition.x = Mathf.Abs(gemPosition.x) * (GameControl.control.progress.gemsCollected[worldIndex - 1, levelIndex - 1] ? -1 : 1);
+            gemPosition.x = Mathf.Abs(gemPosition.x) * (GameController.Instance.progress.gemsCollected[worldIndex - 1, levelIndex - 1] ? -1 : 1);
             items[0].localPosition = gemPosition;
 
             if (levelIndex < 4)
@@ -234,7 +235,7 @@ public class LevelSelectWheelScript : MonoBehaviour
                 foreach (Transform item in items.SubArray(1,3))
                 {
                     Vector2 letterPosition = item.localPosition;
-                    letterPosition.x = Mathf.Abs(letterPosition.x) * (GameControl.control.progress.lettersCollected[worldIndex - 1, levelIndex - 1, items.IndexOf(item) - 1] ? -1 : 1);
+                    letterPosition.x = Mathf.Abs(letterPosition.x) * (GameController.Instance.progress.lettersCollected[worldIndex - 1, levelIndex - 1, items.IndexOf(item) - 1] ? -1 : 1);
                     item.localPosition = letterPosition;
                 }
             }
@@ -250,10 +251,10 @@ public class LevelSelectWheelScript : MonoBehaviour
     public bool AttemptLevelEntry(int worldSelectIndex, int levelSelectIndex)
     {
 
-        bool levelIsUnlocked = GameControl.control.progress.levelsUnlocked[worldSelectIndex - 1, levelSelectIndex - 1];
+        bool levelIsUnlocked = GameController.Instance.progress.levelsUnlocked[worldSelectIndex - 1, levelSelectIndex - 1];
 
         //Shake the level object if the level is locked
-        if (GameControl.control.restrictLocked && !levelIsUnlocked)
+        if (GameController.Instance.restrictLocked && !levelIsUnlocked)
         {
             iTween.ShakeRotation(transform.GetChild(5 - levelSelectIndex).gameObject, iTween.Hash(
                     "amount", new Vector3(0f, 0f, 45f),
@@ -269,8 +270,8 @@ public class LevelSelectWheelScript : MonoBehaviour
     {
         if (transform.localScale != Vector3.zero && transform.localScale.x > 0.25f)
         {
-            float standardScreenWidth = GameControl.control.standardScreenWidth;
-            float standardScreenHeight = GameControl.control.standardScreenHeight;
+            float standardScreenWidth = GameController.Instance.standardScreenWidth;
+            float standardScreenHeight = GameController.Instance.standardScreenHeight;
 
             float xScale = Screen.width / standardScreenWidth;
             float yScale = Screen.height / standardScreenHeight;

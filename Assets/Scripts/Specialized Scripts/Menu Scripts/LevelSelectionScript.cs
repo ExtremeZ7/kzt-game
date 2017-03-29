@@ -1,90 +1,107 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
+using Controllers;
 
-public class LevelSelectionScript : MonoBehaviour {
+public class LevelSelectionScript : MonoBehaviour
+{
 
-	public enum SelectionState{SelectingAWorld,SelectingALevel,LevelSelected,Loading};
+    public enum SelectionState
+    {
+        SelectingAWorld,
+        SelectingALevel,
+        LevelSelected,
+        Loading}
 
-	private SelectionState selectionState;
+    ;
 
-	private int levelSelectIndex;
-	private int worldSelectIndex;
+    SelectionState selectionState;
 
-	private KeyCode leftKey;
-	private KeyCode rightKey;
-	private KeyCode selectKey;
-	private KeyCode cancelKey;
+    int levelSelectIndex;
+    int worldSelectIndex;
 
-	private int worldsUnlocked = 5;
+    KeyCode leftKey;
+    KeyCode rightKey;
+    KeyCode selectKey;
+    KeyCode cancelKey;
 
-	void Start (){
-		GameControl.control.barrierIsOpen = true;
+    int worldsUnlocked = 5;
 
-		leftKey = GameControl.control.settings.leftKey;
-		rightKey = GameControl.control.settings.rightKey;
-		selectKey = GameControl.control.settings.selectKey;
-		cancelKey = GameControl.control.settings.cancelKey;
+    void Start()
+    {
+        GameController.Instance.barrierIsOpen = true;
 
-		levelSelectIndex = 1;
-		worldSelectIndex = GameControl.control.progress.currentWorld;
+        leftKey = GameController.Instance.settings.leftKey;
+        rightKey = GameController.Instance.settings.rightKey;
+        selectKey = GameController.Instance.settings.selectKey;
+        cancelKey = GameController.Instance.settings.cancelKey;
 
-		if(GameControl.control.restrictLocked){
-			worldsUnlocked = GameControl.control.progress.GetWorldsUnlocked();
-		}
-	}
+        levelSelectIndex = 1;
+        worldSelectIndex = GameController.Instance.progress.currentWorld;
 
-	void Update () {
-		if(!GameControl.control.paused){
-			switch(selectionState){
-			case SelectionState.SelectingAWorld:	
-				if(Input.GetKeyDown(leftKey))
-					worldSelectIndex -= worldSelectIndex > 1 ? 1 : 0;
-				if(Input.GetKeyDown(rightKey))
-					worldSelectIndex += worldSelectIndex < worldsUnlocked ? 1 : 0;
-				if(Input.GetKeyDown(selectKey))
-					selectionState = SelectionState.SelectingALevel;
-				break;
+        if (GameController.Instance.restrictLocked)
+        {
+            worldsUnlocked = GameController.Instance.progress.GetWorldsUnlocked();
+        }
+    }
 
-			case SelectionState.SelectingALevel:	
-				if(Input.GetKeyDown(leftKey))
-					levelSelectIndex = levelSelectIndex == 1 ? 5: levelSelectIndex - 1;
-				if(Input.GetKeyDown(rightKey))
-					levelSelectIndex = (levelSelectIndex % 5) + 1;
-				if(Input.GetKeyDown(selectKey)){
-					if(FindObjectOfType<LevelSelectWheelScript>().AttemptLevelEntry(worldSelectIndex, levelSelectIndex))
-					{
-						GameControl.control.progress.currentWorld = worldSelectIndex;
-						GameControl.control.progress.currentLevel = levelSelectIndex;
+    void Update()
+    {
+        if (!GameController.Instance.paused)
+        {
+            switch (selectionState)
+            {
+                case SelectionState.SelectingAWorld:	
+                    if (Input.GetKeyDown(leftKey))
+                        worldSelectIndex -= worldSelectIndex > 1 ? 1 : 0;
+                    if (Input.GetKeyDown(rightKey))
+                        worldSelectIndex += worldSelectIndex < worldsUnlocked ? 1 : 0;
+                    if (Input.GetKeyDown(selectKey))
+                        selectionState = SelectionState.SelectingALevel;
+                    break;
 
-						GameControl.control.MoveToOtherScene("world" + worldSelectIndex + "_level" + levelSelectIndex, 0f);
-						selectionState = SelectionState.LevelSelected;
-					}
-				}
-				if(Input.GetKeyDown(cancelKey))
-					selectionState = SelectionState.SelectingAWorld;
-				break;
+                case SelectionState.SelectingALevel:	
+                    if (Input.GetKeyDown(leftKey))
+                        levelSelectIndex = levelSelectIndex == 1 ? 5 : levelSelectIndex - 1;
+                    if (Input.GetKeyDown(rightKey))
+                        levelSelectIndex = (levelSelectIndex % 5) + 1;
+                    if (Input.GetKeyDown(selectKey))
+                    {
+                        if (FindObjectOfType<LevelSelectWheelScript>().AttemptLevelEntry(worldSelectIndex, levelSelectIndex))
+                        {
+                            GameController.Instance.progress.currentWorld = worldSelectIndex;
+                            GameController.Instance.progress.currentLevel = levelSelectIndex;
 
-			case SelectionState.LevelSelected:
+                            GameController.Instance.MoveToOtherScene("world" + worldSelectIndex + "_level" + levelSelectIndex, 0f);
+                            selectionState = SelectionState.LevelSelected;
+                        }
+                    }
+                    if (Input.GetKeyDown(cancelKey))
+                        selectionState = SelectionState.SelectingAWorld;
+                    break;
+
+                case SelectionState.LevelSelected:
 				//Put Some Animations Here, I Guess. . .
-				break;
-			}
-		}
-	}
+                    break;
+            }
+        }
+    }
 
-	public int getWorldSelectIndex (){
-		return worldSelectIndex;
-	}
+    public int getWorldSelectIndex()
+    {
+        return worldSelectIndex;
+    }
 
-	public int getLevelSelectIndex (){
-		return levelSelectIndex;
-	}
+    public int getLevelSelectIndex()
+    {
+        return levelSelectIndex;
+    }
 
-	public void setLevelSelectIndex (int index){
-		levelSelectIndex = index;
-	}
+    public void setLevelSelectIndex(int index)
+    {
+        levelSelectIndex = index;
+    }
 
-	public int getSelectionState (){
-		return (int) selectionState;
-	}
+    public int getSelectionState()
+    {
+        return (int)selectionState;
+    }
 }

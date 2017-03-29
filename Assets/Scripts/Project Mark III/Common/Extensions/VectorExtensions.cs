@@ -19,5 +19,30 @@ namespace Common.Extensions
         {
             return new Vector2(data.x, data.y);
         }
+
+        public static Vector3 SetX(this Vector3 data, float newX)
+        {
+            return new Vector3(newX, data.y, data.z);
+        }
+
+        public static Vector3 SetY(this Vector3 data, float newY)
+        {
+            return new Vector3(data.x, newY, data.z);
+        }
+
+        public static Vector3 SetZ(this Vector3 data, float newZ)
+        {
+            return new Vector3(data.x, data.y, newZ);
+        }
+
+        public static Vector2 SetX(this Vector2 data, float newX)
+        {
+            return new Vector2(newX, data.y);
+        }
+
+        public static Vector2 SetY(this Vector2 data, float newY)
+        {
+            return new Vector2(data.x, newY);
+        }
     }
 }

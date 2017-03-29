@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using AssemblyCSharp;
+using Controllers;
 
 namespace AssemblyCSharp
 {
@@ -17,7 +17,7 @@ namespace AssemblyCSharp
         void Update()
         {
             if (trigger.ActivatedOnCurrentFrame)
-                FindObjectOfType<CameraControl>().enabled = false;
+                FindObjectOfType<CameraController>().enabled = false;
         }
     }
 }

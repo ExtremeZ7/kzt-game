@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using AssemblyCSharp;
+using Controllers;
 
 public class AnimateCheckpointAlert : MonoBehaviour
 {
@@ -67,14 +67,14 @@ public class AnimateCheckpointAlert : MonoBehaviour
 
     void OnGUI()
     {
-        float xScale = Screen.width / GameControl.control.standardScreenWidth;
-        float yScale = Screen.height / GameControl.control.standardScreenHeight;
+        float xScale = Screen.width / GameController.Instance.standardScreenWidth;
+        float yScale = Screen.height / GameController.Instance.standardScreenHeight;
         GUI.matrix = Matrix4x4.TRS(new Vector3(0, 0, 0), Quaternion.identity, new Vector3(xScale, yScale, 1));
 
         for (int i = 0; i < lettersSummoned; i++)
         {
             Vector3 screenPosition = mainCamera.WorldToScreenPoint(letterPositions[i]);
-            Vector3 targetPosition = new Vector3((GameControl.control.standardScreenWidth / 2f) + (distanceBetweenLetters / 2f * Mathf.Sign(i - 5)) + (distanceBetweenLetters * (i - 5 < 0 ? i - 4 : i - 5)), GameControl.control.standardScreenHeight / 2f);
+            Vector3 targetPosition = new Vector3((GameController.Instance.standardScreenWidth / 2f) + (distanceBetweenLetters / 2f * Mathf.Sign(i - 5)) + (distanceBetweenLetters * (i - 5 < 0 ? i - 4 : i - 5)), GameController.Instance.standardScreenHeight / 2f);
 
             float orbitDistance = orbitSize * Mathf.Sin((orbitDegree + (36 * i)) * Mathf.Deg2Rad);
             textStyle.normal.textColor = new Color(textStyle.normal.textColor.r, (Mathf.Sin((orbitDegree - 90 + (36 * i)) * Mathf.Deg2Rad) * 0.5f) + 0.5f, 0f);
@@ -89,8 +89,8 @@ public class AnimateCheckpointAlert : MonoBehaviour
             textStroke.normal.textColor = Color.black;
             textStroke.fontStyle = FontStyle.Bold;
 
-            GUI.Label(new Rect((screenPosition.x / xScale) - 50, GameControl.control.standardScreenHeight - (screenPosition.y / yScale) - 50, 100, 100), text[i].ToString(), textStroke);
-            GUI.Label(new Rect((screenPosition.x / xScale) - 50, GameControl.control.standardScreenHeight - (screenPosition.y / yScale) - 50, 100, 100), text[i].ToString(), actualTextStyle);
+            GUI.Label(new Rect((screenPosition.x / xScale) - 50, GameController.Instance.standardScreenHeight - (screenPosition.y / yScale) - 50, 100, 100), text[i].ToString(), textStroke);
+            GUI.Label(new Rect((screenPosition.x / xScale) - 50, GameController.Instance.standardScreenHeight - (screenPosition.y / yScale) - 50, 100, 100), text[i].ToString(), actualTextStyle);
 
             letterPositions[i] = Vector3.MoveTowards(letterPositions[i], targetPosition, speedTowardsPositions * Time.deltaTime);
         }

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using AssemblyCSharp;
+using Controllers;
 
 public class DeactivateRailWhenPlayerDies : MonoBehaviour
 {

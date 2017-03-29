@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
-using AssemblyCSharp;
+using Controllers;
 
 public class showJewelCount : MonoBehaviour
 {
@@ -53,11 +53,11 @@ public class showJewelCount : MonoBehaviour
             hidePoint.position.y,
             0.0f);
 		
-        GameControl.control.items.totalCrystalsInLevel = GameObject.FindGameObjectsWithTag("Single Jewel Tag").Length;
-        GameControl.control.items.totalCrystalsInLevel += GameObject.FindGameObjectsWithTag("5-Jewel Tag").Length * 5;
-        GameControl.control.items.totalCrystalsInLevel += GameObject.FindGameObjectsWithTag("7-Jewel Tag").Length * 7;
-        GameControl.control.items.totalCrystalsInLevel += GameObject.FindGameObjectsWithTag("10-Jewel Tag").Length * 10;
-        GameControl.control.items.totalCrystalsInLevel += GameObject.FindGameObjectsWithTag("20-Jewel Tag").Length * 20;
+        GameController.Instance.items.totalCrystalsInLevel = GameObject.FindGameObjectsWithTag("Single Jewel Tag").Length;
+        GameController.Instance.items.totalCrystalsInLevel += GameObject.FindGameObjectsWithTag("5-Jewel Tag").Length * 5;
+        GameController.Instance.items.totalCrystalsInLevel += GameObject.FindGameObjectsWithTag("7-Jewel Tag").Length * 7;
+        GameController.Instance.items.totalCrystalsInLevel += GameObject.FindGameObjectsWithTag("10-Jewel Tag").Length * 10;
+        GameController.Instance.items.totalCrystalsInLevel += GameObject.FindGameObjectsWithTag("20-Jewel Tag").Length * 20;
     }
 
     void Update()
@@ -79,7 +79,7 @@ public class showJewelCount : MonoBehaviour
             new Vector3(1.0f, 1.0f, 1.0f),
             shrinkSpeed * Time.deltaTime);
 
-        if (Help.UseAsTimer(ref delayTimer) && GameControl.control.items.crystalsShownInGUI < GameControl.control.items.crystalsInCollection)
+        if (Help.UseAsTimer(ref delayTimer) && GameController.Instance.items.crystalsShownInGUI < GameController.Instance.items.crystalsInCollection)
         {
             Instantiate(jewelBeatAudioSource, transform.position, Quaternion.identity);
             jewelCollectorSprite.transform.localScale = new Vector3(
@@ -87,7 +87,7 @@ public class showJewelCount : MonoBehaviour
                 jewelCollectorSprite.transform.localScale.y + scaleBurstSize,
                 1.0f);
 
-            GameControl.control.items.crystalsShownInGUI++;
+            GameController.Instance.items.crystalsShownInGUI++;
 
             delayTimer = incrementDelay;
             hideDelay = guiHideDelay;
@@ -102,8 +102,8 @@ public class showJewelCount : MonoBehaviour
 
     void OnGUI()
     {
-        float xScale = Screen.width / GameControl.control.standardScreenWidth;
-        float yScale = Screen.height / GameControl.control.standardScreenHeight;
+        float xScale = Screen.width / GameController.Instance.standardScreenWidth;
+        float yScale = Screen.height / GameController.Instance.standardScreenHeight;
         GUI.matrix = Matrix4x4.TRS(new Vector3(0, 0, 0), Quaternion.identity, new Vector3(xScale, yScale, 1));
 
         Vector2 contentOffset = textStyle.contentOffset;
@@ -114,7 +114,7 @@ public class showJewelCount : MonoBehaviour
         contentOffset2.y = guiYOffset + 1;
         textStyle2.contentOffset = contentOffset2;
 
-        GUI.Label(new Rect(guiX, guiY, guiWidth, guiHeight), GameControl.control.items.crystalsShownInGUI + "/" + GameControl.control.items.totalCrystalsInLevel, textStyle2);
-        GUI.Label(new Rect(guiX, guiY, guiWidth, guiHeight), GameControl.control.items.crystalsShownInGUI + "/" + GameControl.control.items.totalCrystalsInLevel, textStyle);
+        GUI.Label(new Rect(guiX, guiY, guiWidth, guiHeight), GameController.Instance.items.crystalsShownInGUI + "/" + GameController.Instance.items.totalCrystalsInLevel, textStyle2);
+        GUI.Label(new Rect(guiX, guiY, guiWidth, guiHeight), GameController.Instance.items.crystalsShownInGUI + "/" + GameController.Instance.items.totalCrystalsInLevel, textStyle);
     }
 }

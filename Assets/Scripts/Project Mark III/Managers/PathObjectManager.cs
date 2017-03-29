@@ -1,32 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class PathObjectManager : MonoBehaviour, IUpdateManager<PathObject>
+namespace Managers
 {
-    public static PathObjectManager Instance{ get; private set; }
-
-    readonly List<PathObject> managedScripts = new List<PathObject>();
-
-    void Awake()
+    public class PathObjectManager : MonoBehaviour, IUpdateManager<PathObject>
     {
-        Instance = this;
-    }
+        public static PathObjectManager Instance{ get; private set; }
 
-    void Update()
-    {
-        for (int i = 0; i < managedScripts.Count; i++)
+        readonly List<PathObject> managedScripts = new List<PathObject>();
+
+        void Awake()
         {
-            managedScripts[i].ManagedUpdate();
+            Instance = this;
         }
-    }
 
-    public void Register(PathObject script)
-    {
-        managedScripts.Add(script);
-    }
+        void Update()
+        {
+            for (int i = 0; i < managedScripts.Count; i++)
+            {
+                managedScripts[i].ManagedUpdate();
+            }
+        }
 
-    public void Unregister(PathObject script)
-    {
-        managedScripts.Remove(script);
+        public void Register(PathObject script)
+        {
+            managedScripts.Add(script);
+        }
+
+        public void Unregister(PathObject script)
+        {
+            managedScripts.Remove(script);
+        }
     }
 }

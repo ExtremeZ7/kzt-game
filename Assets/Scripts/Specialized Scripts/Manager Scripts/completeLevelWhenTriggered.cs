@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using AssemblyCSharp;
+using Managers;
 
 namespace AssemblyCSharp
 {

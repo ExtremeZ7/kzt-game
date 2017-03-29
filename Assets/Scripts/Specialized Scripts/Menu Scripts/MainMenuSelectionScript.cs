@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using Helper;
+using Controllers;
 
 public class MainMenuSelectionScript : MonoBehaviour
 {
 
-    private enum SelectionState
+    enum SelectionState
     {
         StartingTheGame,
         SelectingGameMode,
@@ -14,14 +15,14 @@ public class MainMenuSelectionScript : MonoBehaviour
 
     ;
 
-    private enum GameSelection
+    enum GameSelection
     {
         NewGame,
         LoadGame}
 
     ;
 
-    private enum ControlSelection
+    enum ControlSelection
     {
         KBRight,
         KBLeft,
@@ -29,35 +30,35 @@ public class MainMenuSelectionScript : MonoBehaviour
 
     ;
 
-    private int loadGameSelection;
+    int loadGameSelection;
 
-    private SelectionState selectionState = SelectionState.SelectingGameMode;
-    private GameSelection gameSelection;
-    private ControlSelection controlSelection;
+    SelectionState selectionState = SelectionState.SelectingGameMode;
+    GameSelection gameSelection;
+    ControlSelection controlSelection;
 
-    private KeyCode upKey;
-    private KeyCode downKey;
-    private KeyCode selectKey;
-    private KeyCode cancelKey;
+    KeyCode upKey;
+    KeyCode downKey;
+    KeyCode selectKey;
+    KeyCode cancelKey;
 
     [Space(10)]
     public GUIStyle textStyle;
 
-    private GUIStyle newTextStyle;
-    private GUIStyle loadTextStyle;
-    private GUIStyle kbRightTextStyle;
-    private GUIStyle kbLeftTextStyle;
-    private GUIStyle gamepadTextStyle;
-    private GUIStyle titleTextStyle;
+    GUIStyle newTextStyle;
+    GUIStyle loadTextStyle;
+    GUIStyle kbRightTextStyle;
+    GUIStyle kbLeftTextStyle;
+    GUIStyle gamepadTextStyle;
+    GUIStyle titleTextStyle;
 
     void Start()
     {
-        GameControl.control.barrierIsOpen = true;
+        GameController.Instance.barrierIsOpen = true;
 
-        upKey = GameControl.control.settings.upKey;
-        downKey = GameControl.control.settings.downKey;
-        selectKey = GameControl.control.settings.selectKey;
-        cancelKey = GameControl.control.settings.cancelKey;
+        upKey = GameController.Instance.settings.upKey;
+        downKey = GameController.Instance.settings.downKey;
+        selectKey = GameController.Instance.settings.selectKey;
+        cancelKey = GameController.Instance.settings.cancelKey;
 
         newTextStyle = new GUIStyle(textStyle);
         loadTextStyle = new GUIStyle(textStyle);
@@ -111,23 +112,23 @@ public class MainMenuSelectionScript : MonoBehaviour
                 switch (controlSelection)
                 {
                     case ControlSelection.KBRight:
-                        GameControl.control.settings.leftKey = KeyCode.A;
-                        GameControl.control.settings.rightKey = KeyCode.D;
-                        GameControl.control.settings.upKey = KeyCode.W;
-                        GameControl.control.settings.downKey = KeyCode.S;
+                        GameController.Instance.settings.leftKey = KeyCode.A;
+                        GameController.Instance.settings.rightKey = KeyCode.D;
+                        GameController.Instance.settings.upKey = KeyCode.W;
+                        GameController.Instance.settings.downKey = KeyCode.S;
 
-                        GameControl.control.settings.usingGamepad = false;
+                        GameController.Instance.settings.usingGamepad = false;
 
                         if (Input.GetKeyDown(downKey))
                             controlSelection = ControlSelection.KBLeft;
                         break;
                     case ControlSelection.KBLeft:
-                        GameControl.control.settings.leftKey = KeyCode.LeftArrow;
-                        GameControl.control.settings.rightKey = KeyCode.RightArrow;
-                        GameControl.control.settings.upKey = KeyCode.UpArrow;
-                        GameControl.control.settings.downKey = KeyCode.DownArrow;
+                        GameController.Instance.settings.leftKey = KeyCode.LeftArrow;
+                        GameController.Instance.settings.rightKey = KeyCode.RightArrow;
+                        GameController.Instance.settings.upKey = KeyCode.UpArrow;
+                        GameController.Instance.settings.downKey = KeyCode.DownArrow;
 
-                        GameControl.control.settings.usingGamepad = false;
+                        GameController.Instance.settings.usingGamepad = false;
 
                         if (Input.GetKeyDown(upKey))
                             controlSelection = ControlSelection.KBRight;
@@ -135,7 +136,7 @@ public class MainMenuSelectionScript : MonoBehaviour
                             controlSelection = ControlSelection.Gamepad;
                         break;
                     case ControlSelection.Gamepad:
-                        GameControl.control.settings.usingGamepad = true;
+                        GameController.Instance.settings.usingGamepad = true;
 
                         if (Input.GetKeyDown(upKey))
                             controlSelection = ControlSelection.KBLeft;
@@ -144,9 +145,9 @@ public class MainMenuSelectionScript : MonoBehaviour
 
                 if (Input.GetKeyDown(selectKey))
                 {
-                    GameControl.control.SaveSettings();
-                    GameControl.control.progress.InitNewGameProgress();
-                    GameControl.control.MoveToOtherScene("World Map");
+                    GameController.Instance.SaveSettings();
+                    GameController.Instance.progress.InitNewGameProgress();
+                    GameController.Instance.MoveToOtherScene("World Map");
                     selectionState = SelectionState.MovingToAnotherScene;
                 }
 
@@ -167,9 +168,9 @@ public class MainMenuSelectionScript : MonoBehaviour
 
                 if (Input.GetKeyDown(selectKey))
                 {
-                    if (GameControl.control.LoadProgress(loadGameSelection))
+                    if (GameController.Instance.LoadProgress(loadGameSelection))
                     {
-                        GameControl.control.MoveToOtherScene("World Map");
+                        GameController.Instance.MoveToOtherScene("World Map");
                         selectionState = SelectionState.MovingToAnotherScene;
                     }
                     else
@@ -189,8 +190,8 @@ public class MainMenuSelectionScript : MonoBehaviour
 
     void OnGUI()
     {
-        float standardScreenWidth = GameControl.control.standardScreenWidth;
-        float standardScreenHeight = GameControl.control.standardScreenHeight;
+        float standardScreenWidth = GameController.Instance.standardScreenWidth;
+        float standardScreenHeight = GameController.Instance.standardScreenHeight;
 
         float xScale = Screen.width / standardScreenWidth;
         float yScale = Screen.height / standardScreenHeight;
@@ -291,7 +292,7 @@ public class MainMenuSelectionScript : MonoBehaviour
 
                 GUI.Label(new Rect(200, 10, 400, 100), "Load Game", titleTextStyle);
 
-                GameControl.Progress[] saveFiles = GameControl.control.saveFiles;
+                GameController.Progress[] saveFiles = GameController.Instance.saveFiles;
 
                 for (int i = 0; i < 4; i++)
                 {

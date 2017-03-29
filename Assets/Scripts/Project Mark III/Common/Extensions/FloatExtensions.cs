@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System;
-
 
 namespace Common.Extensions
 {
@@ -13,10 +11,10 @@ namespace Common.Extensions
                 return data;
             }
 
-            float rand = UnityEngine.Random.Range(-range, range);
+            float rand = Random.Range(-range, range);
             if (absolute)
             {
-                rand = Math.Abs(rand) * Mathf.Sign(range);
+                rand = Mathf.Abs(rand) * Mathf.Sign(range);
             }
             return data + rand;
         }
@@ -66,12 +64,12 @@ namespace Common.Extensions
 
         public static bool IsNearZero(this float data)
         {
-            return Math.Abs(data) < float.Epsilon;
+            return Mathf.Abs(data) < float.Epsilon;
         }
 
         public static bool IsNear(this float data, float other)
         {
-            return Math.Abs(data - other) < float.Epsilon;
+            return Mathf.Abs(data - other) < float.Epsilon;
         }
 
         public static byte ToColorByte(this float data)

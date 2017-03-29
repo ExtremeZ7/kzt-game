@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Controllers;
 
 public class addJewelToCollector : MonoBehaviour
 {
 
-    private GameObject jewelCollector;
-    private showJewelCount sjc;
+    GameObject jewelCollector;
+    showJewelCount sjc;
 
     void Start()
     {
         jewelCollector = GameObject.FindGameObjectWithTag("JewelCollector");
         sjc = jewelCollector.GetComponent<showJewelCount>();
-        GameControl.control.items.crystalCount++;
+        GameController.Instance.items.crystalCount++;
         sjc.hideDelay = sjc.guiHideDelay;
     }
 
@@ -19,7 +19,7 @@ public class addJewelToCollector : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, jewelCollector.transform.position) <= 0.25f)
         {
-            GameControl.control.items.crystalsInCollection++;
+            GameController.Instance.items.crystalsInCollection++;
             Object.Destroy(gameObject);
         }
     }

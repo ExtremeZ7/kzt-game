@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Managers;
 
-public class startRespawnSequence : MonoBehaviour {
+public class startRespawnSequence : MonoBehaviour
+{
 
-	void Awake () {
-		FindObjectOfType<LevelManager>().StartRespawnSequence();
-	}
+    void Awake()
+    {
+        FindObjectOfType<LevelManager>().StartRespawnSequence();
+    }
 }

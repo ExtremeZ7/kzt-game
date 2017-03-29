@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using Common.Extensions;
+using Controllers;
 
 public class PauseMenuScript : MonoBehaviour
 {
@@ -60,26 +61,26 @@ public class PauseMenuScript : MonoBehaviour
 
     void Start()
     {
-        upKey = GameControl.control.settings.upKey;
-        downKey = GameControl.control.settings.downKey;
-        leftKey = GameControl.control.settings.leftKey;
-        rightKey = GameControl.control.settings.rightKey;
-        selectKey = GameControl.control.settings.selectKey;
-        cancelKey = GameControl.control.settings.cancelKey;
+        upKey = GameController.Instance.settings.upKey;
+        downKey = GameController.Instance.settings.downKey;
+        leftKey = GameController.Instance.settings.leftKey;
+        rightKey = GameController.Instance.settings.rightKey;
+        selectKey = GameController.Instance.settings.selectKey;
+        cancelKey = GameController.Instance.settings.cancelKey;
 
-        originalMusicVolume = GameControl.control.settings.musicVolume;
-        originalEffectsVolume = GameControl.control.settings.effectsVolume;
+        originalMusicVolume = GameController.Instance.settings.musicVolume;
+        originalEffectsVolume = GameController.Instance.settings.effectsVolume;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(GameControl.control.settings.pauseKey) && GameControl.control.barrierIsOpen
-            && !disablePauseInTheseScenes.Contains(SceneManager.GetActiveScene().name) && GameControl.control.allowPause)
+        if (Input.GetKeyDown(GameController.Instance.settings.pauseKey) && GameController.Instance.barrierIsOpen
+            && !disablePauseInTheseScenes.Contains(SceneManager.GetActiveScene().name) && GameController.Instance.allowPause)
         {
             TogglePause();
         }
 
-        if (GameControl.control.paused)
+        if (GameController.Instance.paused)
         {
             switch (currentMenu)
             {
@@ -112,7 +113,7 @@ public class PauseMenuScript : MonoBehaviour
                                 if (SceneManager.GetActiveScene().name != "World Map")
                                 {
                                     TogglePause();
-                                    GameControl.control.MoveToOtherScene("World Map");
+                                    GameController.Instance.MoveToOtherScene("World Map");
                                 }
                                 else
                                 {
@@ -125,7 +126,7 @@ public class PauseMenuScript : MonoBehaviour
                             if (Input.GetKeyDown(selectKey))
                             {
                                 TogglePause();
-                                GameControl.control.MoveToOtherScene("Main Menu");
+                                GameController.Instance.MoveToOtherScene("Main Menu");
                             }
                             break;
 				
@@ -133,7 +134,7 @@ public class PauseMenuScript : MonoBehaviour
                             if (Input.GetKeyDown(selectKey))
                             {	
                                 TogglePause();
-                                GameControl.control.QuitGame();
+                                GameController.Instance.QuitGame();
                             }
                             break;
                     }
@@ -155,30 +156,30 @@ public class PauseMenuScript : MonoBehaviour
                     {
                         case VolumeSelection.MusicVolume:
                             if (Input.GetKey(leftKey))
-                                GameControl.control.settings.musicVolume = Help.IntMoveTowards(GameControl.control.settings.musicVolume, 0, 1);
+                                GameController.Instance.settings.musicVolume = Help.IntMoveTowards(GameController.Instance.settings.musicVolume, 0, 1);
                             if (Input.GetKey(rightKey))
-                                GameControl.control.settings.musicVolume = Help.IntMoveTowards(GameControl.control.settings.musicVolume, 100, 1);
+                                GameController.Instance.settings.musicVolume = Help.IntMoveTowards(GameController.Instance.settings.musicVolume, 100, 1);
 
-                            GameControl.control.UpdateMusicVolume();
+                            GameController.Instance.UpdateMusicVolume();
 
                             break;
 
                         case VolumeSelection.EffectsVolume:
                             if (Input.GetKey(leftKey))
-                                GameControl.control.settings.effectsVolume = Help.IntMoveTowards(GameControl.control.settings.effectsVolume, 0, 1);
+                                GameController.Instance.settings.effectsVolume = Help.IntMoveTowards(GameController.Instance.settings.effectsVolume, 0, 1);
                             if (Input.GetKey(rightKey))
-                                GameControl.control.settings.effectsVolume = Help.IntMoveTowards(GameControl.control.settings.effectsVolume, 100, 1);
+                                GameController.Instance.settings.effectsVolume = Help.IntMoveTowards(GameController.Instance.settings.effectsVolume, 100, 1);
 
-                            GameControl.control.UpdateEffectsVolume();
+                            GameController.Instance.UpdateEffectsVolume();
                             break;
 
                         case VolumeSelection.ApplyChanges:
                             if (Input.GetKeyDown(selectKey))
                             {
-                                originalMusicVolume = GameControl.control.settings.musicVolume;
-                                originalEffectsVolume = GameControl.control.settings.effectsVolume;
+                                originalMusicVolume = GameController.Instance.settings.musicVolume;
+                                originalEffectsVolume = GameController.Instance.settings.effectsVolume;
 
-                                GameControl.control.SaveSettings();
+                                GameController.Instance.SaveSettings();
 
                                 currentMenu = CurrentMenu.MainPauseMenu;
                                 mainSelection = MainSelection.ChangeVolume;
@@ -188,11 +189,11 @@ public class PauseMenuScript : MonoBehaviour
 
                     if (Input.GetKeyDown(cancelKey))
                     {
-                        GameControl.control.settings.musicVolume = originalMusicVolume;
-                        GameControl.control.settings.effectsVolume = originalEffectsVolume;
+                        GameController.Instance.settings.musicVolume = originalMusicVolume;
+                        GameController.Instance.settings.effectsVolume = originalEffectsVolume;
 
-                        GameControl.control.UpdateEffectsVolume();
-                        GameControl.control.UpdateMusicVolume();
+                        GameController.Instance.UpdateEffectsVolume();
+                        GameController.Instance.UpdateMusicVolume();
 
                         currentMenu = CurrentMenu.MainPauseMenu;
                         mainSelection = MainSelection.ChangeVolume;
@@ -209,13 +210,13 @@ public class PauseMenuScript : MonoBehaviour
                     {	
                         if (Input.GetKeyDown(KeyCode.Delete))
                         {
-                            GameControl.control.EraseProgress(saveFileSelection);
+                            GameController.Instance.EraseProgress(saveFileSelection);
                         }
                     }
 
                     if (Input.GetKeyDown(selectKey))
                     {
-                        GameControl.control.SaveProgress(saveFileSelection);
+                        GameController.Instance.SaveProgress(saveFileSelection);
                         TogglePause();
                         //Help.GenerateHintBox("Game Saved");
                     }
@@ -231,10 +232,10 @@ public class PauseMenuScript : MonoBehaviour
 
     void OnGUI()
     {
-        if (GameControl.control.paused)
+        if (GameController.Instance.paused)
         {
-            float standardScreenWidth = GameControl.control.standardScreenWidth;
-            float standardScreenHeight = GameControl.control.standardScreenHeight;
+            float standardScreenWidth = GameController.Instance.standardScreenWidth;
+            float standardScreenHeight = GameController.Instance.standardScreenHeight;
 
             float xScale = Screen.width / standardScreenWidth;
             float yScale = Screen.height / standardScreenHeight;
@@ -295,10 +296,10 @@ public class PauseMenuScript : MonoBehaviour
                         switch (i)
                         {
                             case 0:
-                                selectionName = "Music Volume\n" + GameControl.control.settings.musicVolume + "%";
+                                selectionName = "Music Volume\n" + GameController.Instance.settings.musicVolume + "%";
                                 break;
                             case 1:
-                                selectionName = "Effects Volume\n" + GameControl.control.settings.effectsVolume + "%";
+                                selectionName = "Effects Volume\n" + GameController.Instance.settings.effectsVolume + "%";
                                 break;
                             case 2:
                                 selectionName = "Apply Changes";
@@ -333,7 +334,7 @@ public class PauseMenuScript : MonoBehaviour
 
                     GUI.Label(new Rect(200, 10, 400, 100), "Save Game", titleTextStyle);
 
-                    GameControl.Progress[] saveFiles = GameControl.control.saveFiles;
+                    GameController.Progress[] saveFiles = GameController.Instance.saveFiles;
 
                     for (int i = 0; i < 4; i++)
                     {
@@ -361,14 +362,14 @@ public class PauseMenuScript : MonoBehaviour
 
     private void TogglePause()
     {
-        GameControl.control.paused = !GameControl.control.paused;
+        GameController.Instance.paused = !GameController.Instance.paused;
         Time.timeScale = 1.0f - Time.timeScale;
 
         Input.ResetInputAxes();
 
-        if (GameControl.control.paused)
+        if (GameController.Instance.paused)
         {
-            GameControl.control.masterMixer.SetFloat("Background Music Lowpass Cut", 22000f / 8f);
+            GameController.Instance.masterMixer.SetFloat("Background Music Lowpass Cut", 22000f / 8f);
 
             //Help.RemoveAnnoyingMessageBox();
 
@@ -387,13 +388,13 @@ public class PauseMenuScript : MonoBehaviour
         }
         else
         {
-            GameControl.control.masterMixer.SetFloat("Background Music Lowpass Cut", 22000f);
+            GameController.Instance.masterMixer.SetFloat("Background Music Lowpass Cut", 22000f);
 
-            GameControl.control.settings.musicVolume = originalMusicVolume;
-            GameControl.control.settings.effectsVolume = originalEffectsVolume;
+            GameController.Instance.settings.musicVolume = originalMusicVolume;
+            GameController.Instance.settings.effectsVolume = originalEffectsVolume;
 
-            GameControl.control.UpdateMusicVolume();
-            GameControl.control.UpdateEffectsVolume();
+            GameController.Instance.UpdateMusicVolume();
+            GameController.Instance.UpdateEffectsVolume();
         }
     }
 }

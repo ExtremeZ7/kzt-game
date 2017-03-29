@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
-using AssemblyCSharp;
+using Controllers;
 
 public class drawHelpfulHint : MonoBehaviour
 {
 
     [HideInInspector]
     public string stringToDraw = "";
-    private string stringInGUI = "";
+    string stringInGUI = "";
 
     public float textSpeed;
-    private float textDelay = 0.0f;
+    float textDelay = 0.0f;
 
     [Space(10)]
     public float boxScaleSpeed;
     public float destroyDelay;
-    private bool closing = false;
+    bool closing = false;
     private float actualRectWidth = 0.0f;
 
     [Space(10)]
@@ -38,7 +38,7 @@ public class drawHelpfulHint : MonoBehaviour
 
     void Update()
     {
-        float screenWidth = GameControl.control.standardScreenWidth;
+        float screenWidth = GameController.Instance.standardScreenWidth;
 
         actualRectWidth = Mathf.MoveTowards(actualRectWidth,
             (closing ? 0.0f : screenWidth - (sideMargin * 2.0f)),
@@ -87,11 +87,11 @@ public class drawHelpfulHint : MonoBehaviour
 
     void OnGUI()
     {
-        float xScale = Screen.width / GameControl.control.standardScreenWidth;
-        float yScale = Screen.height / GameControl.control.standardScreenHeight;
+        float xScale = Screen.width / GameController.Instance.standardScreenWidth;
+        float yScale = Screen.height / GameController.Instance.standardScreenHeight;
         GUI.matrix = Matrix4x4.TRS(new Vector3(0, 0, 0), Quaternion.identity, new Vector3(xScale, yScale, 1));
 
-        float screenWidth = GameControl.control.standardScreenWidth;
+        float screenWidth = GameController.Instance.standardScreenWidth;
 
         GUI.Label(new Rect(screenWidth / 2 - (actualRectWidth / 2), distanceFromCeiling, actualRectWidth, boxHeight), "", boxStyle);
         GUI.Label(new Rect(screenWidth / 2 - (actualRectWidth / 2), distanceFromCeiling, actualRectWidth, boxHeight), stringInGUI, textStyle2);

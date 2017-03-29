@@ -5,6 +5,7 @@
 //———————————————————————–
 
 using UnityEngine;
+using Common.Math;
 
 public class GameObjectAnimationEvents : AnimationEventHandler
 {

@@ -1,32 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class TimerListenerManager : MonoBehaviour, IUpdateManager<TimerListener>
+namespace Managers
 {
-    public static TimerListenerManager Instance{ get; private set; }
-
-    readonly List<TimerListener> managedScripts = new List<TimerListener>();
-
-    void Awake()
+    public class TimerListenerManager : MonoBehaviour, IUpdateManager<TimerListener>
     {
-        Instance = this;
-    }
+        public static TimerListenerManager Instance{ get; private set; }
 
-    void Update()
-    {
-        for (int i = 0; i < managedScripts.Count; i++)
+        readonly List<TimerListener> managedScripts = new List<TimerListener>();
+
+        void Awake()
         {
-            managedScripts[i].ManagedUpdate();
+            Instance = this;
         }
-    }
 
-    public void Register(TimerListener script)
-    {
-        managedScripts.Add(script);
-    }
+        void Update()
+        {
+            for (int i = 0; i < managedScripts.Count; i++)
+            {
+                managedScripts[i].ManagedUpdate();
+            }
+        }
 
-    public void Unregister(TimerListener script)
-    {
-        managedScripts.Remove(script);
+        public void Register(TimerListener script)
+        {
+            managedScripts.Add(script);
+        }
+
+        public void Unregister(TimerListener script)
+        {
+            managedScripts.Remove(script);
+        }
     }
 }

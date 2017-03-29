@@ -1,32 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class OscillatorManager : MonoBehaviour, IUpdateManager<Oscillator>
+namespace Managers
 {
-    public static OscillatorManager Instance{ get; private set; }
-
-    readonly List<Oscillator> managedScripts = new List<Oscillator>();
-
-    void Awake()
+    public class OscillatorManager : MonoBehaviour, IUpdateManager<Oscillator>
     {
-        Instance = this;
-    }
+        public static OscillatorManager Instance{ get; private set; }
 
-    void Update()
-    {
-        for (int i = 0; i < managedScripts.Count; i++)
+        readonly List<Oscillator> managedScripts = new List<Oscillator>();
+
+        void Awake()
         {
-            managedScripts[i].ManagedUpdate();
+            Instance = this;
         }
-    }
 
-    public void Register(Oscillator script)
-    {
-        managedScripts.Add(script);
-    }
+        void Update()
+        {
+            for (int i = 0; i < managedScripts.Count; i++)
+            {
+                managedScripts[i].ManagedUpdate();
+            }
+        }
 
-    public void Unregister(Oscillator script)
-    {
-        managedScripts.Remove(script);
+        public void Register(Oscillator script)
+        {
+            managedScripts.Add(script);
+        }
+
+        public void Unregister(Oscillator script)
+        {
+            managedScripts.Remove(script);
+        }
     }
 }

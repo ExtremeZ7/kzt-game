@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using AssemblyCSharp;
+using Common.Math;
 
 public class FireProjectileBasedOnRotationWithTimer : MonoBehaviour
 {

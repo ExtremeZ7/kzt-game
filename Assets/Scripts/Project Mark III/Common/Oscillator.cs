@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using Managers;
 
 [Serializable]
 public class Oscillator

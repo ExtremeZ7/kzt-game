@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Common.Extensions;
+using Controllers;
 
 public class wobbleLikeASeesaw : MonoBehaviour
 {
@@ -76,7 +77,7 @@ public class wobbleLikeASeesaw : MonoBehaviour
 
     void Update()
     {
-        if (!(stopWhenNotVisible && !isVisible) && !GameControl.control.paused)
+        if (!(stopWhenNotVisible && !isVisible) && !GameController.Instance.paused)
         {
             rotationAngle = (rotationAngle + (WPM * 0.1f * Time.deltaTime * 60f)) % 360.0f;
 

@@ -1,32 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class TriggerListenerManager : MonoBehaviour, IUpdateManager<TriggerListener>
+namespace Managers
 {
-    public static TriggerListenerManager Instance{ get; private set; }
-
-    readonly List<TriggerListener> managedScripts = new List<TriggerListener>();
-
-    void Awake()
+    public class TriggerListenerManager : MonoBehaviour, IUpdateManager<TriggerListener>
     {
-        Instance = this;
-    }
+        public static TriggerListenerManager Instance{ get; private set; }
 
-    void Update()
-    {
-        for (int i = 0; i < managedScripts.Count; i++)
+        readonly List<TriggerListener> managedScripts = new List<TriggerListener>();
+
+        void Awake()
         {
-            managedScripts[i].ManagedUpdate();
+            Instance = this;
         }
-    }
 
-    public void Register(TriggerListener script)
-    {
-        managedScripts.Add(script);
-    }
+        void Update()
+        {
+            for (int i = 0; i < managedScripts.Count; i++)
+            {
+                managedScripts[i].ManagedUpdate();
+            }
+        }
 
-    public void Unregister(TriggerListener script)
-    {
-        managedScripts.Remove(script);
+        public void Register(TriggerListener script)
+        {
+            managedScripts.Add(script);
+        }
+
+        public void Unregister(TriggerListener script)
+        {
+            managedScripts.Remove(script);
+        }
     }
 }

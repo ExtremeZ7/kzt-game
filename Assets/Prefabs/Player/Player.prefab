@@ -236,23 +236,13 @@ GameObject:
   m_Component:
   - component: {fileID: 461374}
   - component: {fileID: 6159286}
+  - component: {fileID: 5832972}
+  - component: {fileID: 5843384}
   - component: {fileID: 9586578}
   - component: {fileID: 11438608}
   - component: {fileID: 5060130}
-  - component: {fileID: 11443886}
   - component: {fileID: 11447626}
-  - component: {fileID: 11429608}
-  - component: {fileID: 11435310}
-  - component: {fileID: 11444532}
-  - component: {fileID: 11427856}
-  - component: {fileID: 11484148}
-  - component: {fileID: 11405800}
   - component: {fileID: 11498856}
-  - component: {fileID: 5832972}
-  - component: {fileID: 5843384}
-  - component: {fileID: 11455642}
-  - component: {fileID: 11403744}
-  - component: {fileID: 114000013704063406}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -664,7 +654,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 3.5
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ccf9cef747ef16b448b87a07ce9514b3, type: 2}
   m_Interpolate: 2
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -705,7 +695,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 165610}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: d545e10572edd1348a978787ec0774af, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: -0.16, y: -0.92}
@@ -719,7 +709,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 165610}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: d545e10572edd1348a978787ec0774af, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0.16, y: -0.92}
@@ -828,41 +818,6 @@ MonoBehaviour:
   prefabToClone: {fileID: 150306, guid: af123f11662e3424f91131bf6b7f2acd, type: 2}
   startDelay: 0
   replaceSelfInstead: 0
---- !u!114 &11403744
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7268b9cde3958fe4280adeebd27773b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  switches:
-  - {fileID: 0}
-  listeningMode: 0
-  listenToFirstFrameOnDeactivate: 0
-  flipActivation: 0
-  objectsToCreateOnTrigger: []
-  extraObjectsToCreateOnComplete: []
-  countsBeforeCompletion: Infinity
-  onlyCreateExtrasOnComplete: 0
-  selfActionOnComplete:
-    actionOnComplete: 0
-    parentDepth: 0
---- !u!114 &11405800
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56c0361bbe7864f49a62ff025d04d2ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  executeWhileInTransition: 0
 --- !u!114 &11418694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -874,75 +829,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1dffccc8bac6e4888e85d811460e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11427856
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7268b9cde3958fe4280adeebd27773b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  switches:
-  - {fileID: 0}
-  listeningMode: 0
-  listenToFirstFrameOnDeactivate: 0
-  flipActivation: 0
-  objectsToCreateOnTrigger: []
-  extraObjectsToCreateOnComplete: []
-  countsBeforeCompletion: Infinity
-  onlyCreateExtrasOnComplete: 0
-  selfActionOnComplete:
-    actionOnComplete: 0
-    parentDepth: 0
---- !u!114 &11429608
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7268b9cde3958fe4280adeebd27773b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  switches:
-  - {fileID: 0}
-  listeningMode: 0
-  listenToFirstFrameOnDeactivate: 0
-  flipActivation: 0
-  objectsToCreateOnTrigger: []
-  extraObjectsToCreateOnComplete: []
-  countsBeforeCompletion: Infinity
-  onlyCreateExtrasOnComplete: 0
-  selfActionOnComplete:
-    actionOnComplete: 0
-    parentDepth: 0
---- !u!114 &11435310
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7268b9cde3958fe4280adeebd27773b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  switches:
-  - {fileID: 0}
-  listeningMode: 0
-  listenToFirstFrameOnDeactivate: 0
-  flipActivation: 0
-  objectsToCreateOnTrigger: []
-  extraObjectsToCreateOnComplete: []
-  countsBeforeCompletion: Infinity
-  onlyCreateExtrasOnComplete: 0
-  selfActionOnComplete:
-    actionOnComplete: 0
-    parentDepth: 0
 --- !u!114 &11438608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -954,71 +840,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab46e685e416134d9e7bdbfe82f979c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
+  maxHorizontalSpeed: 5
   jumpForce: 15
-  bounceForce: 12
+  weakBounceForce: 12
   headBounceForce: -4
-  upBounceForce: 20
-  jumpMomentum: 0.33
-  groundCheckRadius: 0.22
-  upSpriteSpeed: 4
-  downSpriteSpeed: -4
-  fallJumpTime: 0.16666667
-  maxSpeed: 12
-  acceleration: 10
-  deceleration: 2
+  strongBounceForce: 20
+  airAcceleration: 0.33
+  airFriction: 0.15
+  slipperyFloorAcceleration: 0.15
+  maxSlipperyFloorSpeed: 10
+  fallJumpTime: 0.5
+  groundCheckRadius: 0.2
+  maxGravitySpeed: 0
+  gravityAcceleration: 0
+  gravityFriction: 0
   normalBounceForce: 4
   harderBounceForce: 6
   strongestBounceForce: 8
   startWithNoGravity: 0
   shieldAnimator: {fileID: 0}
-  collideWithLayer:
+  platformLayer:
     serializedVersion: 2
     m_Bits: 256
+  slipperyFloorLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   canMove: 1
-  playerJumpAudioSource: {fileID: 176958, guid: d7d7af95c37eab849a29e2e182cd57dd,
-    type: 2}
-  normalLook: {fileID: 21300000, guid: d28aa5f6cff4f414597a2fd2607548d4, type: 3}
-  focusedLook: {fileID: 21300002, guid: 7689ba2dafa4cae41a8e5a6dfe22c45b, type: 3}
-  anxiousLookForward: {fileID: 21300000, guid: 7689ba2dafa4cae41a8e5a6dfe22c45b, type: 3}
-  anxiousLookUp: {fileID: 21300000, guid: 2b076e1b56f53444fb76b80840d3dbc9, type: 3}
-  anxiousLookDown: {fileID: 21300002, guid: 2b076e1b56f53444fb76b80840d3dbc9, type: 3}
---- !u!114 &11443886
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8c3cfa9241bc1746926be3adeca618d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tags:
-  - Slippery Floor
---- !u!114 &11444532
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7268b9cde3958fe4280adeebd27773b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  switches:
-  - {fileID: 0}
-  listeningMode: 0
-  listenToFirstFrameOnDeactivate: 0
-  flipActivation: 0
-  objectsToCreateOnTrigger: []
-  extraObjectsToCreateOnComplete: []
-  countsBeforeCompletion: Infinity
-  onlyCreateExtrasOnComplete: 0
-  selfActionOnComplete:
-    actionOnComplete: 0
-    parentDepth: 0
+  body: {fileID: 0}
 --- !u!114 &11447626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1041,21 +889,6 @@ MonoBehaviour:
   prefabOfElectricBolt: {fileID: 448216, guid: 038a93970e5943f4db6bdf7ce1479015, type: 2}
   audioWhenDown: {fileID: 176958, guid: c3a3766777dda6e44bf20cd1a25fc871, type: 2}
   audioWhenUp: {fileID: 176958, guid: d8c5f74cb04ad114389696fd4a50dfe9, type: 2}
---- !u!114 &11455642
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeb230f635628034195bb4d6105fd316, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagFilter:
-  - Moving Platform
-  - Steel Box
-  assignParentTo: {fileID: 0}
 --- !u!114 &11461768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1087,29 +920,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xOffset: 0
   yOffset: 0
---- !u!114 &11484148
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7268b9cde3958fe4280adeebd27773b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  switches:
-  - {fileID: 0}
-  listeningMode: 0
-  listenToFirstFrameOnDeactivate: 0
-  flipActivation: 0
-  objectsToCreateOnTrigger: []
-  extraObjectsToCreateOnComplete: []
-  countsBeforeCompletion: Infinity
-  onlyCreateExtrasOnComplete: 0
-  selfActionOnComplete:
-    actionOnComplete: 0
-    parentDepth: 0
 --- !u!114 &11491438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1799,29 +1609,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000013704063406
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7268b9cde3958fe4280adeebd27773b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  switches:
-  - {fileID: 0}
-  listeningMode: 0
-  listenToFirstFrameOnDeactivate: 0
-  flipActivation: 0
-  objectsToCreateOnTrigger: []
-  extraObjectsToCreateOnComplete: []
-  countsBeforeCompletion: Infinity
-  onlyCreateExtrasOnComplete: 0
-  selfActionOnComplete:
-    actionOnComplete: 0
-    parentDepth: 0
 --- !u!114 &114412854620683486
 MonoBehaviour:
   m_ObjectHideFlags: 1

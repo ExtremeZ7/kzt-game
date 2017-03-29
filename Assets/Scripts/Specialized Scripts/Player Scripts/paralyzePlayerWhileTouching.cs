@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
-using AssemblyCSharp;
+using Controllers;
 
 public class paralyzePlayerWhileTouching : MonoBehaviour
 {
 
-    private PlayerController playerControl;
+    PlayerController playerControl;
 
     void Update()
     {

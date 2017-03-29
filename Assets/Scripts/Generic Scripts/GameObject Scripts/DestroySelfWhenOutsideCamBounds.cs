@@ -1,19 +1,22 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Controllers;
 
-public class DestroySelfWhenOutsideCamBounds : MonoBehaviour {
+public class DestroySelfWhenOutsideCamBounds : MonoBehaviour
+{
 
-	private CameraControl cameraControl;
+    private CameraController cameraControl;
 
-	void Start () {
-		cameraControl = Camera.main.gameObject.GetComponent<CameraControl>();
-	}
+    void Start()
+    {
+        cameraControl = Camera.main.gameObject.GetComponent<CameraController>();
+    }
 
-	void Update () {
-		if(transform.position.x < cameraControl.topLeftBound.position.x
-			|| transform.position.y > cameraControl.topLeftBound.position.y
-			|| transform.position.x > cameraControl.bottomRightBound.position.x
-			|| transform.position.y < cameraControl.bottomRightBound.position.y)
-			Object.Destroy(gameObject);
-	}
+    void Update()
+    {
+        if (transform.position.x < cameraControl.topLeftBound.position.x
+        || transform.position.y > cameraControl.topLeftBound.position.y
+        || transform.position.x > cameraControl.bottomRightBound.position.x
+        || transform.position.y < cameraControl.bottomRightBound.position.y)
+            Object.Destroy(gameObject);
+    }
 }

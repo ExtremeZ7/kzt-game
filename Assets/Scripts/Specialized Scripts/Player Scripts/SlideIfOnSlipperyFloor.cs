@@ -1,5 +1,6 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using Common.Extensions;
+using Controllers;
 
 public class SlideIfOnSlipperyFloor : MonoBehaviour
 {
@@ -19,4 +20,4 @@ public class SlideIfOnSlipperyFloor : MonoBehaviour
             playerControl.ChangeMovementState(PlayerController.MovementState.SlipperyFloor);
         }
     }
-}
+}*/
