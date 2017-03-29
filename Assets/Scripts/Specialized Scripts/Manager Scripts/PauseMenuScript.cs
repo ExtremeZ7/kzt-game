@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using AssemblyCSharp;
+using Common.Extensions;
 
 public class PauseMenuScript : MonoBehaviour
 {

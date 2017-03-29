@@ -7,6 +7,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Common.Extensions;
 
 #if UNITY_EDITOR
 using CustomPropertyDrawers;

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Common.Extensions;
 
 public sealed class TimerSwitch : MonoBehaviour
 {

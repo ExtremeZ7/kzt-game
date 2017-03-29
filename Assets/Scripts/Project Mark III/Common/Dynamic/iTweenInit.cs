@@ -5,13 +5,14 @@
 //———————————————————————–
 using UnityEngine;
 
-// 'd' prefix means 'dynamic' which means it automatically stops or destroys
-// itself sometime after being started
-public class d_iTweenInit : MonoBehaviour
+namespace Common.Dynamic
 {
-    void Awake()
+    public class iTweenInit : MonoBehaviour
     {
-        iTween.Init(gameObject);
-        Destroy(this);
+        void Awake()
+        {
+            iTween.Init(gameObject);
+            Destroy(this);
+        }
     }
 }

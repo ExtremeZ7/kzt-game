@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using AssemblyCSharp;
+using Common.Extensions;
 
 public class DestroySelfWhenOutsideTrigger : MonoBehaviour
 {

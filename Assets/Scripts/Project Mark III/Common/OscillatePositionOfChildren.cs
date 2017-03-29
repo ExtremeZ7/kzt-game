@@ -6,6 +6,7 @@
 
 using UnityEngine;
 using System.Collections.Generic;
+using Common.Extensions;
 
 public class OscillatePositionOfChildren : OscillatorObject
 {

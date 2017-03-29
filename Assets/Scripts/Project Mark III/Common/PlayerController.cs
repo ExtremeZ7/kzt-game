@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Common.Extensions;
 
 public class PlayerController : MonoBehaviour
 {
@@ -233,16 +234,56 @@ public class PlayerController : MonoBehaviour
 
     void Move(float direction)
     {
+        bool onPlatform =
+            Physics2D.OverlapCircle(transform.position + new Vector3(0f, 1.0f),
+                groundCheckRadius, collideWithLayer);
+
+        switch (movementState)
+        {
+            case MovementState.Normal:
+                if (onPlatform)
+                {
+                    moveSpeed = direction * walkSpeed;
+                }
+                else
+                {
+                    moveSpeed = Mathf.MoveTowards(moveSpeed, walkSpeed * direction, jumpMomentum * (direction.IsNearZero() ? 0.5f : 1f));
+                }
+
+                animator.SetBool("Sliding", false);
+                rigidbody2d.velocity = new Vector2(moveSpeed, rigidbody2d.velocity.y);
+                break;
+
+            case MovementState.SlipperyFloor:
+                float speed = jumpMomentum / 2;
+                moveSpeed = Mathf.MoveTowards(moveSpeed, moveSpeed != 0 || direction != 0 ? walkSpeed * (direction == 0 ? Mathf.Sign(moveSpeed) : direction) * 2f : moveSpeed, speed);
+                //moveSpeed = Mathf.MoveTowards(moveSpeed, direction != 0 ? walkSpeed * direction * 1.5f : moveSpeed, speed);
+                movementState = MovementState.Normal;
+
+                animator.SetBool("Sliding", moveSpeed != 0 || direction != 0);
+                rigidbody2d.velocity = new Vector2(moveSpeed, rigidbody2d.velocity.y);
+                break;
+
+            case MovementState.NoGravity:
+                rigidbody2d.velocity = Vector2.MoveTowards(rigidbody2d.velocity, 
+                    xDirection == 0 || yDirection == 0 ? new Vector2(maxSpeed * xDirection, maxSpeed * yDirection) : new Vector2(maxSpeed / Mathf.Sqrt(2) * xDirection, maxSpeed / Mathf.Sqrt(2) * yDirection),
+                    (xDirection == 0 && yDirection == 0 ? deceleration : acceleration) * Time.deltaTime);
+
+                moveSpeed = rigidbody2d.velocity.x;
+                break;
+        }
     }
 
     public void Jump()
     {
-        if (movementState != MovementState.NoGravity)
+        if (movementState == MovementState.NoGravity)
         {
-            rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpForce);
-            Instantiate(playerJumpAudioSource, transform.position, Quaternion.identity);
-            InitJumpAnimation();
+            return;
         }
+
+        rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpForce);
+        Instantiate(playerJumpAudioSource, transform.position, Quaternion.identity);
+        InitJumpAnimation();
     }
 
     public void JumpBounce()

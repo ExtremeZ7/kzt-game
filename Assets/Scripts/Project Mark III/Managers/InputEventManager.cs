@@ -6,6 +6,7 @@
 
 using System.Collections;
 using UnityEngine;
+using Common.Extensions;
 
 public class InputEventManager : MonoBehaviour
 {

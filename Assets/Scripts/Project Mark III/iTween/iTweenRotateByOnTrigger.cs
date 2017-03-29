@@ -7,6 +7,7 @@
 using UnityEngine;
 using System.ComponentModel;
 using System.Collections;
+using Common.Extensions;
 
 public class iTweenRotateByOnTrigger : TriggerListener
 {

@@ -5,6 +5,7 @@
 //———————————————————————–
 
 using UnityEngine;
+using Common.Extensions;
 
 public class FollowAPath : PathObject
 {

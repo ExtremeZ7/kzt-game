@@ -3,6 +3,7 @@ using System;
 
 #if UNITY_EDITOR
 using UnityEditor;
+using Common.Extensions;
 #endif
 
 [Serializable]

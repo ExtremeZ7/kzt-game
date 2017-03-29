@@ -1,19 +1,22 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Common.Extensions;
 
-public class SlideIfOnSlipperyFloor : MonoBehaviour {
+public class SlideIfOnSlipperyFloor : MonoBehaviour
+{
+    PlayerController playerControl;
 
-	private PlayerController playerControl;
+    public string[] tags;
 
-	public string[] tags;
+    void Start()
+    {
+        playerControl = GetComponent<PlayerController>();
+    }
 
-	void Start () {
-		playerControl = GetComponent<PlayerController>()	;
-	}
-
-	void OnTriggerStay2D(Collider2D coll){
-		if(tags.Contains(coll.gameObject.tag)){
-			playerControl.ChangeMovementState(PlayerController.MovementState.SlipperyFloor);
-		}
-	}
+    void OnTriggerStay2D(Collider2D coll)
+    {
+        if (tags.Contains(coll.gameObject.tag))
+        {
+            playerControl.ChangeMovementState(PlayerController.MovementState.SlipperyFloor);
+        }
+    }
 }
