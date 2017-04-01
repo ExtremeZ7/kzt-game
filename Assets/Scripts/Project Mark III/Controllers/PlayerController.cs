@@ -254,7 +254,7 @@ namespace Controllers
                 groundCheckRadius, slipperyFloorLayer);
 
             playerAnimator.SetBool("OnPlatform", onPlatform);
-            playerAnimator.SetBool("Sliding", onSlipperyFloor);
+            playerAnimator.SetBool("OnSlipperyFloor", onSlipperyFloor);
             playerAnimator.SetBool("GravityIsActive", gravityIsActive);
             playerAnimator.SetFloat("X Axis", xAxis);
             playerAnimator.SetFloat("Y Velocity", rigidBody.velocity.y);

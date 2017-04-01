@@ -13,16 +13,14 @@ namespace Common.Physics2D
         Right
     }
 
-    public static class Collision2D : MonoBehaviour
+    public static class Collision2D : System.Object
     {
-        public static CollisionSides2D[] GetCollisionSides2D(Transform objHit, Transform objOther)
+        public static CollisionSides2D[] GetCollisionSides2D(UnityEngine.Collision2D other)
         {
             var sides = new List<CollisionSides2D>();
 
-            Collider2D otherCollider = objOther.GetComponent<Collider2D>;
-
-            Vector3 contactPoint = Collision.contacts[0].point;
-            Vector3 center = otherCollider.bounds.center;
+            Vector3 contactPoint = other.contacts[0].point;
+            Vector3 center = other.collider.bounds.center;
 
             float right = contactPoint.x - center.x;
             float top = contactPoint.y - center.y;

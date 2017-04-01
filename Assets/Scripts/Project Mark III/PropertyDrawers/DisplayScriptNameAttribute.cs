@@ -44,7 +44,8 @@ namespace CustomPropertyDrawers
                 switch (type.ToString())
                 {
                     case "TriggerSwitch":
-                        name = ((TriggerSwitch)
+                    case "CollisionSwitch":
+                        name = ((CollisionHandler)
                             property.objectReferenceValue).scriptName;
                         break;
             

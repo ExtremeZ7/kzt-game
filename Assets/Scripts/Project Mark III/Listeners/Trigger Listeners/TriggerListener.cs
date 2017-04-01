@@ -8,6 +8,7 @@ using System.Collections;
 using UnityEngine;
 using System;
 using Managers;
+using UnityEngine.Serialization;
 
 #if UNITY_EDITOR
 using CustomPropertyDrawers;
@@ -28,7 +29,8 @@ public class TriggerListener : MonoBehaviour
     [DisplayScriptName]
     #endif
     [Tooltip("The Trigger Switches to listen to")]
-    public TriggerSwitch[] switches;
+    [FormerlySerializedAs("switches")]
+    public CollisionHandler[] switches;
 
     [Space(10)]
     [Tooltip("Default: Listen to any activation\n First Frame Only: Listen "
@@ -105,7 +107,7 @@ public class TriggerListener : MonoBehaviour
     {
         if (switches.Length <= 0)
         {
-            switches = new TriggerSwitch[1];
+            switches = new CollisionHandler[1];
         }
 
     }
@@ -187,7 +189,7 @@ public class TriggerListener : MonoBehaviour
             {
                 for (int i = 0; i < listener.switches.Length; i++)
                 {
-                    TriggerSwitch triggerSwitch = listener.switches[i];
+                    CollisionHandler triggerSwitch = listener.switches[i];
 
                     //Skip the elements that have not been set
                     if (triggerSwitch == null)
