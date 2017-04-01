@@ -54,17 +54,17 @@ namespace CustomPropertyDrawers
             Rect xOscRect = position;
             if (xEnabledProp.boolValue)
             {
-                xOscRect = position.PushVertical(pushDown).SetHeight(48f);
+                xOscRect = position.AddToY(pushDown).SetHeight(48f);
                 pushDown += xOscRect.height;
             }
 
-            Rect yEnabledRect = position.PushVertical(pushDown).SetHeight(16f);
+            Rect yEnabledRect = position.AddToY(pushDown).SetHeight(16f);
             pushDown += yEnabledRect.height;
 
             Rect yOscRect = position;
             if (yEnabledProp.boolValue)
             {
-                yOscRect = position.PushVertical(pushDown).SetHeight(48f);
+                yOscRect = position.AddToY(pushDown).SetHeight(48f);
             }
 
                 

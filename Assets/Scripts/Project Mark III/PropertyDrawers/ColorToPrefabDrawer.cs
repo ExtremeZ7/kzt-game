@@ -83,13 +83,13 @@ namespace CustomPropertyDrawers
 
             position = position.SetHeight(16f);
 
-            Rect classRect = position.PushVertical(16f)
+            Rect classRect = position.AddToY(16f)
                 .SqueezeLeft(132f).SetWidth(position.width / 2f - 132f);
-            Rect posRect = position.PushVertical(16f)
+            Rect posRect = position.AddToY(16f)
                 .SqueezeLeft(position.width / 2f + 52f);
-            Rect rotRect = position.PushVertical(32f)
+            Rect rotRect = position.AddToY(32f)
                 .SqueezeLeft(136f).SetWidth(position.width / 2f - 136f);
-            Rect sclRect = position.PushVertical(32f)
+            Rect sclRect = position.AddToY(32f)
                 .SqueezeLeft(position.width / 2f + 52f);
 
             EditorGUI.LabelField(new Rect(position.x + 84f, position.y + 16f,
@@ -98,7 +98,7 @@ namespace CustomPropertyDrawers
             EditorGUI.PropertyField(classRect, classProp, GUIContent.none);
 
             EditorGUI.LabelField(position
-                .PushVertical(16f).SqueezeLeft(position.width / 2f)
+                .AddToY(16f).SqueezeLeft(position.width / 2f)
                 .SetWidth(52f), "Off. Pos.");
 
             EditorGUI.PropertyField(posRect, offsetPosProp, GUIContent.none);
@@ -109,7 +109,7 @@ namespace CustomPropertyDrawers
             EditorGUI.Slider(rotRect, offsetRotProp, 0f, 360f, GUIContent.none);
 
             EditorGUI.LabelField(position
-                .PushVertical(32f).SqueezeLeft(position.width / 2f)
+                .AddToY(32f).SqueezeLeft(position.width / 2f)
                 .SetWidth(52f), "Off. Scl.");
 
             EditorGUI.PropertyField(sclRect, offsetSclProp, GUIContent.none);

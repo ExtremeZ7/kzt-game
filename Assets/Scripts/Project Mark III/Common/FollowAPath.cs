@@ -14,7 +14,7 @@ public class FollowAPath : PathObject
 
     float time;
     float totalTime;
-    const int levelOfDetail = 1;
+    const int levelOfDetail = 5;
 
     void Start()
     {

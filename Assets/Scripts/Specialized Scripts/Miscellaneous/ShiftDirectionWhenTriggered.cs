@@ -41,13 +41,13 @@ public class ShiftDirectionWhenTriggered : MonoBehaviour
         int tileDir = (int)(tileAngle / 90);
         int vectorDir = -1;
 
-        if (vector.x > 0f && vector.y.IsWithinRange(-0.5f, 0.5f))
+        if (vector.x > 0f && vector.y.isWithinRange(-0.5f, 0.5f))
             vectorDir = 0;
-        else if (vector.x.IsWithinRange(-0.5f, 0.5f) && vector.y > 0f)
+        else if (vector.x.isWithinRange(-0.5f, 0.5f) && vector.y > 0f)
             vectorDir = 1;
-        else if (vector.x < 0f && vector.y.IsWithinRange(-0.5f, 0.5f))
+        else if (vector.x < 0f && vector.y.isWithinRange(-0.5f, 0.5f))
             vectorDir = 2;
-        else if (vector.x.IsWithinRange(-0.5f, 0.5f) && vector.y < 0f)
+        else if (vector.x.isWithinRange(-0.5f, 0.5f) && vector.y < 0f)
             vectorDir = 3;
         else if (vector.x > 0f && vector.y > 0f)
             vectorDir = 4;

@@ -22,14 +22,14 @@ namespace CustomPropertyDrawers
             EditorGUI.BeginProperty(position, label, property);
 
             //Set the rectangle of the actionOnComplete enum
-            position = position.PushVertical(0).SetHeight(
+            position = position.AddToY(0).SetHeight(
                 EditorGUI.GetPropertyHeight(actionOnComplete));
 
             //Display the actionOnComplete enum
             EditorGUI.PropertyField(position, actionOnComplete);
 
             //Set the rectangle of the parent depth
-            position = position.PushVertical(EditorGUI.GetPropertyHeight(actionOnComplete)).SetHeight(
+            position = position.AddToY(EditorGUI.GetPropertyHeight(actionOnComplete)).SetHeight(
                 EditorGUI.GetPropertyHeight(depth));
 
             //Check to see if the actionOnComplete is not set to "Nothing"

@@ -6,7 +6,7 @@ namespace Common.Extensions
     {
         public static float Variation(this float data, float range, bool absolute = false)
         {
-            if (range.IsNearZero())
+            if (range.isNearZero())
             {
                 return data;
             }
@@ -43,7 +43,7 @@ namespace Common.Extensions
             return data < 0 ? 0 : data;
         }
 
-        public static bool IsWithinRange(this float data, float start, float end)
+        public static bool isWithinRange(this float data, float start, float end)
         {
             //If the start of the range is less than the end, return true if the value is within the range.
             //If the start of the range is greater than the end, return true if the value is not within the range.
@@ -58,16 +58,16 @@ namespace Common.Extensions
             }
             else
             {
-                return data.IsNear(start);
+                return data.isNear(start);
             }
         }
 
-        public static bool IsNearZero(this float data)
+        public static bool isNearZero(this float data)
         {
             return Mathf.Abs(data) < float.Epsilon;
         }
 
-        public static bool IsNear(this float data, float other)
+        public static bool isNear(this float data, float other)
         {
             return Mathf.Abs(data - other) < float.Epsilon;
         }

@@ -84,16 +84,16 @@ namespace Managers
                 held(Input.GetAxis(axisName));
             }
 
-            if (origState.IsNear(Input.GetAxis(axisName)))
+            if (origState.isNear(Input.GetAxis(axisName)))
             {
                 return;
             }
             
-            if (Input.GetAxis(axisName).IsNear(1.0f) && posPressed != null)
+            if (Input.GetAxis(axisName).isNear(1.0f) && posPressed != null)
             {
                 posPressed();
             }
-            else if (Input.GetAxis(axisName).IsNear(-1.0f) && negPressed != null)
+            else if (Input.GetAxis(axisName).isNear(-1.0f) && negPressed != null)
             {
                 negPressed();
             }

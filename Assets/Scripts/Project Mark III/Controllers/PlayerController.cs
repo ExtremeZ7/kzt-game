@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿//———————————————————————–
+// <copyright file=”InputEventManager.cs” game="KzzzZZZzzT!">
+//     Copyright (c) Extreme Z7.  All rights reserved.
+// </copyright>
+//———————————————————————–
+
+using UnityEngine;
 using Common.Extensions;
 using Managers;
 
@@ -250,8 +256,8 @@ namespace Controllers
             playerAnimator.SetBool("OnPlatform", onPlatform);
             playerAnimator.SetBool("Sliding", onSlipperyFloor);
             playerAnimator.SetBool("GravityIsActive", gravityIsActive);
-            playerAnimator.SetFloat("xAxis", xAxis);
-            playerAnimator.SetFloat("yVelocity", rigidBody.velocity.y);
+            playerAnimator.SetFloat("X Axis", xAxis);
+            playerAnimator.SetFloat("Y Velocity", rigidBody.velocity.y);
 
             if (onPlatform && !onSlipperyFloor) // On The Ground
             {
@@ -266,7 +272,7 @@ namespace Controllers
 
                 // Don't Move If The Speed If The Player Is Not Moving
                 // And The Axis Is At Zero
-                if (xSpeed.IsNearZero() && xAxis.IsNearZero())
+                if (xSpeed.isNearZero() && xAxis.isNearZero())
                 {
                     return;
                 }
@@ -275,7 +281,7 @@ namespace Controllers
                 // Otherwise Move Towards The Nearest Max Speed, Anyway
                 xSpeed = Mathf.MoveTowards(xSpeed,
                     maxSlipperyFloorSpeed *
-                    (!xAxis.IsNearZero() ?
+                    (!xAxis.isNearZero() ?
                         Mathf.Sign(xSpeed) : xAxis),
                     slipperyFloorAcceleration);
 
@@ -288,7 +294,7 @@ namespace Controllers
                     new Vector2(
                         Mathf.Abs(maxGravitySpeed * xAxis) * Time.deltaTime * 60f,
                         maxGravitySpeed * yAxis * Time.deltaTime * 60f),
-                    xAxis.IsNearZero() && yAxis.IsNearZero() ?
+                    xAxis.isNearZero() && yAxis.isNearZero() ?
                     gravityFriction * Time.deltaTime * 60f :
                     gravityAcceleration * Time.deltaTime * 60f);
             }
@@ -298,7 +304,7 @@ namespace Controllers
 
                 xSpeed = Mathf.MoveTowards(xSpeed,
                     maxHorizontalSpeed * xAxis,
-                    xAxis.IsNearZero()
+                    xAxis.isNearZero()
                     ? airFriction : airAcceleration);
 
                 rigidBody.velocity = rigidBody.velocity

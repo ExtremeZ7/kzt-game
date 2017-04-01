@@ -84,7 +84,7 @@ public class CreateObjectsOnTrigger : TriggerListener
     public override void ManagedUpdate()
     {
         //Checks if the completion event is ready
-        if (countsBeforeCompletion.IsNearZero())
+        if (countsBeforeCompletion.isNearZero())
         {
             if (Listening)
             {
@@ -122,7 +122,7 @@ public class CreateObjectsOnTrigger : TriggerListener
             {
                 //Prevents objects on the Trigger list from being created on
                 //the completion event if asked not to
-                if (countsBeforeCompletion.IsNearZero())
+                if (countsBeforeCompletion.isNearZero())
                 {
                     if (onlyCreateExtrasOnComplete)
                     {

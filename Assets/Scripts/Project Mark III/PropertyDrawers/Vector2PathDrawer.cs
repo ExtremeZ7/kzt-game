@@ -33,12 +33,12 @@ namespace CustomPropertyDrawers
             // Calculate rects
             //
             Rect xLabelRect = position.SetWidth(16f);
-            Rect xEnabledRect = position.PushHorizontal(16f).SetWidth(16f);
+            Rect xEnabledRect = position.AddToX(16f).SetWidth(16f);
             Rect xPathRect = position
                 .SqueezeLeft(32f).SetWidth(position.width / 2f - 32f);
             
             Rect yLabelRect = position
-                .PushHorizontal(position.width / 2f + 4f).SetWidth(16f);
+                .AddToX(position.width / 2f + 4f).SetWidth(16f);
             Rect yEnabledRect = position
                 .SqueezeLeft(position.width / 2f + 16f).SetWidth(16f);
             Rect yPathRect = position

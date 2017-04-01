@@ -12,7 +12,7 @@ namespace Common.Extensions
                 data.height);
         }
 
-        public static Rect PushVertical(this Rect data, float distance)
+        public static Rect AddToY(this Rect data, float distance)
         {
             return new Rect(data.x, 
                 data.y + distance, 
@@ -20,7 +20,7 @@ namespace Common.Extensions
                 data.height);
         }
 
-        public static Rect PushHorizontal(this Rect data, float distance)
+        public static Rect AddToX(this Rect data, float distance)
         {
             return new Rect(data.x + distance, 
                 data.y,

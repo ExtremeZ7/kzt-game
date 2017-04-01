@@ -4,24 +4,43 @@
 // </copyright>
 //———————————————————————-
 using UnityEngine;
+using System;
+using Common.Physics2D;
 
 public class CollisionSwitch : CollisionHandler
 {
-    void OnCollisionEnter2D(Collision2D coll)
+    public CollisionSides sides;
+
+    void OnCollisionEnter2D(UnityEngine.Collision2D other)
     {
-        Trigger(coll.gameObject);
+        Trigger(other.gameObject);
     }
 
-    void OnCollisionStay2D(Collision2D coll)
+    void OnCollisionStay2D(UnityEngine.Collision2D other)
     {
         if (activateOnStay)
         {
-            Trigger(coll.gameObject);
+            Trigger(other.gameObject);
         }
     }
 
-    void OnCollisionExit2D(Collision2D coll)
+    void OnCollisionExit2D(UnityEngine.Collision2D other)
     {
-        ExitTrigger(coll.gameObject);
+        ExitTrigger(other.gameObject);
+    }
+
+    [Serializable]
+    public class CollisionSides
+    {
+        public bool top = true;
+        public bool bottom = true;
+        public bool left = true;
+        public bool right = true;
+
+        public bool CollidedAtEnabledSide(Transform objHit, Transform objOther)
+        {
+            CollisionSides2D[] sides =
+                Common.Physics2D.Collision2D.GetCollisionSides2D(objHit, objOther);
+        }
     }
 }
